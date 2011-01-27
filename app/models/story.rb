@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
   def cycle_time
+    return nil if started.nil?
+    return nil if finished.nil?
     date_range = started..finished
     date_range.select {|d| workday?(d) }.size
   end

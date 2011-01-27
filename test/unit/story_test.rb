@@ -22,4 +22,10 @@ class StoryTest < ActiveSupport::TestCase
     story = Story.new :started => "2011-1-14", :finished => "2011-1-19"
     assert_equal 3, story.cycle_time
   end
+
+  test "cycle time is nil if started or finished time is nil" do
+    assert_nil Story.new(:started => "2011-1-14", :finished => nil).cycle_time
+    assert_nil Story.new(:started => nil, :finished => "2011-1-14").cycle_time
+    assert_nil Story.new(:started => nil, :finished => nil).cycle_time
+  end
 end
