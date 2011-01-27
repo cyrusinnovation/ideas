@@ -1,0 +1,25 @@
+%table#stories
+  %tr
+    %th.title
+      Title
+    %th.estimate
+      Estimate
+    %th.started
+      Started
+    %th.finished
+      Finished
+    %th.cycle_time
+      Cycle Time
+  - @stories.each do |story|
+    %tr
+      %td.title
+        &= story.title
+      %td.estimate
+        &= story.estimate
+      %td.started
+        &= story.started
+      %td.finished
+        &= story.finished
+      %td.cycle_time
+        &= story.cycle_time
+

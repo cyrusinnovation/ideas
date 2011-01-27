@@ -3,11 +3,13 @@ DONE
 * Create model.
 * Calculate cycle times.
 * Handle weekends.
+* Create UI.
 
 WIP
 ---
 
 TODO
 ----
-* Create UI.
 * Handle holidays.
+* UI to add, edit, delete stories.
+* Clean up UI.
