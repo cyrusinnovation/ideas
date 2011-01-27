@@ -4,10 +4,10 @@ DONE
 * Calculate cycle times.
 * Handle weekends.
 * Create UI.
+* Handle holidays.
 
 WIP
 ---
-* Handle holidays.
 
 TODO
 ----

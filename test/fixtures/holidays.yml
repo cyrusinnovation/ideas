@@ -1,9 +1,5 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  date: 2011-01-27
-  description: MyString
-
-two:
-  date: 2011-01-27
-  description: MyString
+mlk_day:
+  date: 2011-01-17
+  description: Martin Luther King Day
