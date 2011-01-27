@@ -14,3 +14,8 @@ TODO
 * Show cumulative cycle times.
 * Show average cycle times.
 * Show typical cycle time for a given point estimate.
+
+SOMEDAY/MAYBE
+-------------
+* "Card view" of selected cycle times.
+* Track estimates against actual hours worked.
