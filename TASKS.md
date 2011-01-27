@@ -8,9 +8,9 @@ DONE
 
 WIP
 ---
+* UI to add, edit, delete stories.
 
 TODO
 ----
-* UI to add, edit, delete stories.
 * Clean up UI.
 * UI to add, edit, delete holidays.
