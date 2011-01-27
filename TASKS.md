@@ -5,10 +5,10 @@ DONE
 * Handle weekends.
 * Create UI.
 * Handle holidays.
+* UI to add, edit, delete stories.
 
 WIP
 ---
-* UI to add, edit, delete stories.
 
 TODO
 ----
