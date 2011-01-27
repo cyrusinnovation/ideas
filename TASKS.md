@@ -2,10 +2,10 @@ DONE
 ----
 * Create model.
 * Calculate cycle times.
+* Handle weekends.
 
 WIP
 ---
-* Handle weekends.
 
 TODO
 ----
