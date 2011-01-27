@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  team: MyString
+  estimate: 9.99
+  started: 2011-01-26
+  finished: 2011-01-26
+
+two:
+  title: MyString
+  team: MyString
+  estimate: 9.99
+  started: 2011-01-26
+  finished: 2011-01-26
