@@ -7,10 +7,10 @@ DONE
 * Handle holidays.
 * UI to add, delete stories.
 * Clean up UI.
+* UI to edit stories.
 
 WIP
 ---
-* UI to edit stories.
 
 TODO
 ----

@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   def index
     @stories = Story.list_newest_first
-    @new_story = Story.new
+    @editable_story = Story.new
   end
 
   def create
@@ -15,6 +15,13 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    @stories = Story.list_newest_first
+    @editable_story = Story.find(params[:id])
+    render 'index'
+  end
 
+  def update
+    Story.update params[:id], params[:story]
+    redirect_to :action => :index
   end
 end

@@ -11,5 +11,15 @@
     %th.cycle_time
       Cycle Time
     %th.actions
-  = render 'story', :story => @new_story
+  - if @editable_story.new_record?
+    = render 'story', :story => @editable_story
+  - else
+    %tr
+      %td.title
+        &nbsp;
+      %td.estimate
+      %td.started
+      %td.finished
+      %td.cycle_time
+      %td.actions
   = render :partial => 'story', :collection => @stories
