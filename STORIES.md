@@ -9,7 +9,7 @@ TODO
 ----
 * Show points completed in the past three weeks.
 * Show points completed in the past three weeks by team.
-* Show average points completed in the past three weeks.
+* Show average points completed per three weeks.
 * Show average points per three weeks by team.
 * Show cumulative cycle times.
 * Show average cycle times.
