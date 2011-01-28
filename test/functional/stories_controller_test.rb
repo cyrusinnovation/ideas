@@ -3,6 +3,19 @@ require 'test_helper'
 class StoriesControllerTest < ActionController::TestCase
   fixtures :stories
 
+  test "orders the stories by date started with unstarted at the top" do
+    Story.new(:title => 'newest', :started => "2015-1-1").save
+    Story.new(:title => 'oldest', :started => "2009-1-1").save
+    Story.new(:title => 'blank', :started => nil).save
+
+    get :index
+
+    stories = assigns(:stories)
+    assert_equal 'blank', stories[0].title
+    assert_equal 'newest', stories[1].title
+    assert_equal 'oldest', stories.last.title
+  end
+
   test "add a story" do
     post :create, :story => {
         :title => "147 - Improve flying UI",
