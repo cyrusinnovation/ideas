@@ -13,4 +13,8 @@ class StoriesController < ApplicationController
     Story.find(params[:id]).delete
     redirect_to :action => :index
   end
+
+  def edit
+
+  end
 end

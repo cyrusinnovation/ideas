@@ -1,7 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :holidays
-
   map.resources :stories
+  map.resources :holidays
 
   # The priority is based upon order of creation: first created -> highest priority.
 
