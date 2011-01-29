@@ -1,0 +1,22 @@
+ul#navigation {
+    padding-left: 0;
+}
+
+ul#navigation li {
+    margin-left: 1em;
+    list-style: none;
+    display: inline;
+}
+
+ul#navigation a {
+    padding: 0.5em 1em 0.5em 1em;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    background-color: #f0f8ff;
+}
+
+ul#navigation a.current {
+    color: black;
+    background-color: white;
+}

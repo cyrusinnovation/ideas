@@ -19,3 +19,4 @@ SOMEDAY/MAYBE
 -------------
 * "Card view" of selected cycle times.
 * Track estimates against actual hours worked.
+* Make a much better date entry control, with an easy way to select today's date.
