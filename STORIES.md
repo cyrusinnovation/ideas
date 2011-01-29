@@ -1,9 +1,9 @@
 DONE
 ----
+* Calculate cycle times for a list of stories.
 
 WIP
 ---
-* Calculate cycle times for a list of stories.
 
 TODO
 ----
