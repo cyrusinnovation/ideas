@@ -23,6 +23,13 @@ class StoryTest < ActiveSupport::TestCase
     assert_equal 3, story.cycle_time
   end
 
+  test "a started or finished date on a holiday counts as a day of work" do
+    assert_equal 2, Story.new(:started => "2011-1-21", :finished => "2011-1-22").cycle_time, "weekend finish"
+    assert_equal 2, Story.new(:started => "2011-1-23", :finished => "2011-1-24").cycle_time, "weekend start"
+    assert_equal 2, Story.new(:started => "2011-1-17", :finished => "2011-1-18").cycle_time, "holiday finish"
+    assert_equal 2, Story.new(:started => "2011-1-14", :finished => "2011-1-17").cycle_time, "holiday start"
+  end
+
   test "cycle time is nil if started or finished time is nil" do
     assert_nil Story.new(:started => "2011-1-14", :finished => nil).cycle_time
     assert_nil Story.new(:started => nil, :finished => "2011-1-14").cycle_time

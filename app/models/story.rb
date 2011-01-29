@@ -6,14 +6,21 @@ class Story < ActiveRecord::Base
   def cycle_time
     return nil if started.nil?
     return nil if finished.nil?
-    date_range = started..finished
-    date_range.select {|d| d.extend(DateExtensions).workday? }.size
+    filtered_date_range.size
   end
 
   def <=> other
     return -1 if started.nil?
     return 1 if other.started.nil?
     other.started <=> started
+  end
+
+  private
+
+  def filtered_date_range
+    date_range = started..finished
+    filtered = date_range.select {|d| d.extend(DateExtensions).workday? }
+    filtered.unshift(started).push(finished).uniq
   end
 end
 
