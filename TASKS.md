@@ -1,12 +1,13 @@
 DONE
 ----
-* Sketch out new tab and model.
-* Calculate throughput of stories for a particular end date.
-* Calculate throughput of points.
-* GUI cleanup.
 
 WIP
 ---
+* Prepare sample import file.
 
 TODO
 ----
+* Write integration test of import.
+* Implement import action.
+* Add some user interface.
+* Dry run.
