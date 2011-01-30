@@ -1,6 +1,8 @@
 class Throughput
+  SPAN = 20
+
   def self.history
-    start_date = Story.first(:order => "finished", :conditions => "finished IS NOT NULL").finished + 20
+    start_date = Story.first(:order => "finished", :conditions => "finished IS NOT NULL").finished + SPAN
     date_range = start_date..Date.today
     date_range.map { |date|
       Throughput.new date
@@ -11,5 +13,20 @@ class Throughput
 
   def initialize date
     @date = date
+    @start_date = date - SPAN
+  end
+
+  def stories
+    stories_in_range.size
+  end
+
+  def points
+    stories_in_range.reduce(0) {|count, story| count + (story.estimate || 0) }
+  end
+
+  private
+
+  def stories_in_range
+    Story.all :conditions => ["finished >= ? AND finished <= ?", @start_date, @date]
   end
 end

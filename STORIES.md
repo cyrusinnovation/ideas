@@ -8,13 +8,13 @@ WIP
 
 TODO
 ----
+* Import from a CSV file.
 * Show points completed in the past three weeks by team.
 * Show average points completed per three weeks.
 * Show average points per three weeks by team.
 * Show cumulative cycle times.
 * Show average cycle times.
 * Show typical cycle time for a given point estimate.
-* Make a much better date entry control, with an easy way to select today's date.
 
 SOMEDAY/MAYBE
 -------------
@@ -22,3 +22,8 @@ SOMEDAY/MAYBE
 * Track estimates against actual hours worked.
 * Track projects in some way.
 * Generate cumulative flow diagrams.
+* Make a much better date entry control, with an easy way to select today's date.
+* Some sort of legitimate user authentication.
+* Multiple users?
+* Record today as started or finished date for a story in one click.
+* Track states other than started and finished.

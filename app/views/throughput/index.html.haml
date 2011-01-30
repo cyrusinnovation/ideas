@@ -1,5 +1,15 @@
-%table
+%table#throughput
+  %tr
+    %th.date
+    %th.stories
+      Stories / 3 weeks
+    %th.points
+      Points / 3 weeks
   - @throughput_history.each do |throughput|
     %tr
-      %td
-        = throughput.date
+      %td.date
+        = format_date throughput.date
+      %td.stories
+        = throughput.stories
+      %td.points
+        = throughput.points
