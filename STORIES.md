@@ -1,14 +1,14 @@
 DONE
 ----
 * Calculate cycle times for a list of stories.
+* Show points completed in the past three weeks.
 
 WIP
 ---
-* Show points completed in the past three weeks.
+* Import from a CSV file.
 
 TODO
 ----
-* Import from a CSV file.
 * Show points completed in the past three weeks by team.
 * Show average points completed per three weeks.
 * Show average points per three weeks by team.
