@@ -2,6 +2,8 @@
   %tr
     %td.title
       = format_title story.title
+    %td.team
+      &= story.team
     %td.estimate
       &= story.estimate
     %td.started
@@ -17,7 +19,9 @@
   - form_for @editable_story do |f|
     %tr
       %td.title
-        = f.text_field :title
+        = f.text_field :title, :size => 60
+      %td.team
+        = f.text_field :team, :size => 10
       %td.estimate
         = f.text_field :estimate, :size => 4
       %td.started
