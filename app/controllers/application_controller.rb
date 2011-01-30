@@ -5,16 +5,6 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  before_filter :authenticate
-
-  protected
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == 'pointilist' && password == 'p0intili5t'
-    end
-  end
-
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 end
