@@ -8,6 +8,10 @@ module ApplicationHelper
     link_to title, { :controller => controller_name, :action => 'index' }, html_options
   end
 
+  def format_title title
+    content_tag 'span', truncate(title, :length => 60), :title => title
+  end
+
   def format_date date
     return "" if date.nil?
     "#{date.month}/#{date.day}/#{date.year}"
