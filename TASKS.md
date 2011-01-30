@@ -9,6 +9,4 @@ WIP
 
 TODO
 ----
-* Show average and standard deviation, or defer till later?
-* Limit average to only relatively recent ones?
 * GUI cleanup.

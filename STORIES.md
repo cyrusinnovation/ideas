@@ -18,8 +18,8 @@ TODO
 
 SOMEDAY/MAYBE
 -------------
-* "Card view" of selected cycle times.
 * Track estimates against actual hours worked.
+* "Card view" of actual times for recently completed stories.
 * Track projects in some way.
 * Generate cumulative flow diagrams.
 * Make a much better date entry control, with an easy way to select today's date.
@@ -27,3 +27,7 @@ SOMEDAY/MAYBE
 * Multiple users?
 * Record today as started or finished date for a story in one click.
 * Track states other than started and finished.
+* Support different time frames for throughput calculations.
+* Support different sizes for cumulative cycle time calculations.
+* Show me when I have enough data for a statistically significant sample.
+* "Dashboard" or "Information Radiator" view with a few key statistics.
