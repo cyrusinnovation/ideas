@@ -24,4 +24,9 @@ class ThroughputTest < ActiveSupport::TestCase
 
     assert_equal 5.5, Throughput.new(stories(:breathe_fire).finished).points
   end
+
+  test "history is empty if there are no stories" do
+    Story.delete_all
+    assert_equal [], Throughput.history
+  end
 end

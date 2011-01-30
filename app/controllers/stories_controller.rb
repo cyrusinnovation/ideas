@@ -25,6 +25,9 @@ class StoriesController < ApplicationController
     redirect_to :action => :index
   end
 
+  def prepare_import
+  end
+
   def import
     Story.delete_all
     Import.new(params[:file]).each {|story| story.save }

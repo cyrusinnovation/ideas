@@ -2,7 +2,9 @@ class Throughput
   SPAN = 20
 
   def self.history
-    start_date = Story.first(:order => "finished", :conditions => "finished IS NOT NULL").finished + SPAN
+    oldest_story = Story.first(:order => "finished", :conditions => "finished IS NOT NULL")
+    return [] if oldest_story.nil?
+    start_date = oldest_story.finished + SPAN
     date_range = start_date..Date.today
     date_range.map { |date|
       Throughput.new date

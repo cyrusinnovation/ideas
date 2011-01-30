@@ -1,3 +1,5 @@
+require 'csv'
+
 class Import
   def initialize source
     @source = source
