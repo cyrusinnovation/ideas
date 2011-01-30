@@ -24,4 +24,10 @@ class StoriesController < ApplicationController
     Story.update params[:id], params[:story]
     redirect_to :action => :index
   end
+
+  def import
+    Story.delete_all
+    Import.new(params[:file]).each {|story| story.save }
+    redirect_to :action => :index
+  end
 end

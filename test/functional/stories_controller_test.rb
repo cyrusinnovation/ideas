@@ -35,4 +35,12 @@ class StoriesControllerTest < ActionController::TestCase
     assert "should have been deleted", !Story.exists?(id)
     assert_redirected_to :action => "index"
   end
+
+  test "import stories from a CSV file" do
+    file = fixture_file_upload 'files/import.csv', 'text/plain'
+
+    post :import, :file => file
+
+    assert_equal 5, Story.count, "Should clear stories from DB and import the 5 new ones"
+  end
 end
