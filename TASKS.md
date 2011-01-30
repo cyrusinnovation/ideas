@@ -1,9 +1,9 @@
 DONE
 ----
+* Prepare sample import file.
 
 WIP
 ---
-* Prepare sample import file.
 
 TODO
 ----
@@ -11,3 +11,4 @@ TODO
 * Implement import action.
 * Add some user interface.
 * Dry run.
+* Would all the testing here be easier with Shoulda?
