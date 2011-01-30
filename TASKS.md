@@ -2,13 +2,16 @@ DONE
 ----
 * Prepare sample import file.
 * Write integration test of import.
+* Implement import action.
+* Add some user interface.
 
 WIP
 ---
-* Implement import action.
+* Dry run.
 
 TODO
 ----
-* Add some user interface.
-* Dry run.
+* Fix UI to avoid overflowing Title field.
+* Show Team on story list page.
+* Don't show decimals in >=1 point stories.
 * Would all the testing here be easier with Shoulda?
