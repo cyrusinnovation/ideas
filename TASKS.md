@@ -1,10 +1,10 @@
 DONE
 ----
 * Make new tab.
+* Calculate point-based cycle times.
 
 WIP
 ---
-* Calculate point-based cycle times.
 
 TODO
 ----

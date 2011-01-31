@@ -24,6 +24,51 @@ class CycleTimeTest < ActiveSupport::TestCase
     assert_equal 10, calculator.for_points(15)
   end
 
+  test "cycle time is nil if there is not enough data" do
+    stories = [
+      story(1, '1/12/2011', '1/14/2011'),
+      story(2, '1/11/2011', '1/13/2011'), # 3 points
+      story(1, '1/10/2011', '1/12/2011'), # 4 points
+    ]
+    calculator = CycleTimeCalculator.new(stories)
+    assert_equal nil, calculator.for_points(5), "there aren't 5 points available"
+    assert_equal 5, calculator.for_points(4), "there are 4, though"
+  end
+
+  test "cycle time goes by earliest start date if stories were started out of order" do
+  stories = [
+    story(1, '1/12/2011', '1/14/2011'),
+    story(2, '1/3/2011', '1/13/2011'), # 3 points
+    story(1, '1/10/2011', '1/12/2011'), # 4 points
+    story(2, '1/7/2011', '1/11/2011'),  # 6 points
+  ]
+  calculator = CycleTimeCalculator.new(stories)
+  assert_equal 10, calculator.for_points(5)
+  end
+
+  test "can list cumulative cycle time calculators back to the first story" do
+    stories = [
+      Story.new(:title => "a"),
+      Story.new(:title => "b"),
+      Story.new(:title => "c")
+    ]
+    calculator = CycleTimeCalculator.new(stories)
+    list = calculator.list_back
+    assert_equal ["a", "b", "c"], list.collect {|c| c.story }
+  end
+
+  test "quietly skips nil estimates" do
+    stories = [
+      story(1, '1/12/2011', '1/14/2011'),
+      story(2, '1/11/2011', '1/13/2011'),   # 3 points
+      story(nil, '1/10/2011', '1/12/2011'), # 3 points
+      story(1, '1/7/2011', '1/11/2011'),    # 4 points
+      story(1, '1/6/2011', '1/10/2011'),    # 5 points
+    ]
+    calculator = CycleTimeCalculator.new(stories)
+    assert_equal 7, calculator.for_points(5)
+  end
+
   def story estimate, started, finished
     Story.new(:estimate => estimate, :started => started, :finished => finished)
   end
