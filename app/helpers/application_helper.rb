@@ -12,6 +12,11 @@ module ApplicationHelper
     content_tag 'span', truncate(title, :length => 60), :title => title
   end
 
+  def format_estimate estimate
+    return '' if estimate.nil?
+    estimate.to_r
+  end
+
   def format_date date
     return "" if date.nil?
     "#{date.month}/#{date.day}/#{date.year}"
