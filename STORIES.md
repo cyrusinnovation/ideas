@@ -31,3 +31,4 @@ SOMEDAY/MAYBE
 * Support different sizes for cumulative cycle time calculations.
 * Show me when I have enough data for a statistically significant sample.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
+* "Work In Progress" view.

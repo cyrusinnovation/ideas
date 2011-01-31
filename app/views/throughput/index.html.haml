@@ -6,7 +6,7 @@
     %th.points
       Points / 3 weeks
   - @throughput_history.each do |throughput|
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td.date
         = format_date throughput.date
       %td.stories

@@ -1,3 +1,11 @@
+h1, #navigation {
+    font-family: Optima, Gill Sans, Futura, sans-serif;
+}
+
+body {
+    font-family: Adobe Caslon Pro, Adobe Garamond Pro, Garamond, Georgia, serif;
+}
+
 ul#navigation {
     padding-left: 0;
 }
@@ -11,7 +19,6 @@ ul#navigation li {
 ul#navigation a {
     padding: 0.5em 1em 0.5em 1em;
     border: 1px solid black;
-    text-decoration: none;
     color: black;
     background-color: #f0f8ff;
 }
@@ -21,16 +28,31 @@ ul#navigation a.current {
     background-color: white;
 }
 
+a {
+    text-decoration: none;
+    color: #711203;
+}
+
 td, th {
-    padding-right: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 th {
     text-align: center;
+    border-bottom: dotted black 1px;
 }
 
 td {
     text-align: left;
+}
+
+tr.even {
+    background-color: #f0f8ff;
+}
+
+td.actions {
+    text-align: center;
 }
 
 #stories td.estimate, #stories td.started, #stories td.finished, #stories td.cycle_time {

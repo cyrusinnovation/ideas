@@ -1,6 +1,6 @@
 %table#holidays
   - form_for @new_holiday do |f|
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td.date
         = f.date_select :date, :start_year => 2010, :order => [:day, :month, :year]
       %td.description
@@ -8,7 +8,7 @@
       %td.actions
         = f.submit 'Add'
   - @holidays.each do |holiday|
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td.date
         = format_date holiday.date
       %td.description
