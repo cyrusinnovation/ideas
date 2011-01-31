@@ -24,6 +24,24 @@ class CycleTimeTest < ActiveSupport::TestCase
     assert_equal 10, calculator.for_points(15)
   end
 
+  test "calculate cycle time for the last n stories" do
+    stories = [
+      story(1, '1/12/2011', '1/14/2011'),
+      story(2, '1/11/2011', '1/13/2011'),
+      story(1, '1/10/2011', '1/12/2011'),
+      story(2, '1/7/2011', '1/11/2011'),
+      story(2, '1/7/2011', '1/10/2011'),
+      story(1, '1/6/2011', '1/7/2011'),
+      story(3, '1/4/2011', '1/7/2011'),
+      story(2, '1/4/2011', '1/6/2011'),
+      story(2, '1/3/2011', '1/4/2011'),
+    ]
+    calculator = CycleTimeCalculator.new(stories)
+    assert_equal 4, calculator.for_stories(2)
+    assert_equal 6, calculator.for_stories(5)
+    assert_equal 10, calculator.for_stories(9)
+  end
+
   test "cycle time is nil if there is not enough data" do
     stories = [
       story(1, '1/12/2011', '1/14/2011'),

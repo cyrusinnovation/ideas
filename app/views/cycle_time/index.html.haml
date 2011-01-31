@@ -3,6 +3,8 @@
     %th Story
     %th Days for <br> Last 5 Points
     %th Days for <br> Last 15 Points
+    %th Days for <br> Last 5 Stories
+    %th Days for <br> Last 15 Stories
   - @cycle_times.each do |cycle_time|
     %tr
       %td
@@ -11,3 +13,7 @@
         = cycle_time.for_points 5
       %td
         = cycle_time.for_points 15
+      %td
+        = cycle_time.for_stories 5
+      %td
+        = cycle_time.for_stories 15

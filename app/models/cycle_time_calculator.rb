@@ -16,15 +16,22 @@ class CycleTimeCalculator
     @stories.first.title
   end
 
+  def for_stories goal
+    cycle_time(@stories.first(goal))
+  end
+
   def for_points goal
-    stories = stories_for_points(goal)
-    return nil if stories.nil?
-    started = stories.map{|s| s.started}.min
-    finished = stories.first.finished
-    DateRange.new(started, finished).workdays
+    cycle_time(stories_for_points(goal))
   end
 
   private
+
+  def cycle_time(stories)
+    return nil if stories.nil?
+    started = stories.map { |s| s.started }.min
+    finished = stories.first.finished
+    DateRange.new(started, finished).workdays
+  end
 
   def stories_for_points goal
     count = 0

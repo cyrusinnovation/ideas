@@ -5,7 +5,7 @@ DONE
 
 WIP
 ---
+* Calculate story-based cycle times.
 
 TODO
 ----
-* Calculate story-based cycle times.
