@@ -41,6 +41,7 @@ td, th {
 th {
     text-align: center;
     border-bottom: dotted black 1px;
+    vertical-align: bottom;
 }
 
 td {
