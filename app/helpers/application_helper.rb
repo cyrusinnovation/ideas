@@ -1,6 +1,6 @@
 module ApplicationHelper
   def navigation_link controller_name
-    title = controller_name.capitalize
+    title = controller_name.titleize
     html_options = {}
     if @controller.controller_name == controller_name
       html_options[:class] = 'current'

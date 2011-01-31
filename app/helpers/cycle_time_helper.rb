@@ -1,0 +1,2 @@
+module CycleTimeHelper
+end
