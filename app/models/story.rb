@@ -1,12 +1,12 @@
 class Story < ActiveRecord::Base
+  composed_of :date_range, :mapping => [%w(started started), %w(finished finished)]
+
   def self.list_newest_first
     Story.all.sort
   end
 
   def cycle_time
-    return nil if started.nil?
-    return nil if finished.nil?
-    filtered_date_range.size
+    date_range.workdays
   end
 
   def <=> other
@@ -14,10 +14,25 @@ class Story < ActiveRecord::Base
     return 1 if other.started.nil?
     other.started <=> started
   end
+end
+
+class DateRange
+  attr_reader :started, :finished
+
+  def initialize started, finished
+    @started = started
+    @finished = finished
+  end
+
+  def workdays
+    return nil if started.nil?
+    return nil if finished.nil?
+    filtered_range.size
+  end
 
   private
 
-  def filtered_date_range
+  def filtered_range
     date_range = started..finished
     filtered = date_range.select {|d| d.extend(DateExtensions).workday? }
     filtered.unshift(started).push(finished).uniq

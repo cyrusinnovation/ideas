@@ -2,6 +2,11 @@
   %tr
     %th Story
     %th Days for <br> Last 5 Points
+    %th Days for <br> Last 15 Points
   %tr
     %td
       != format_title @cycle_time.story
+    %td
+      = @cycle_time.for_points 5
+    %td
+      = @cycle_time.for_points 15

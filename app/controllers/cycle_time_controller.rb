@@ -1,5 +1,6 @@
 class CycleTimeController < ApplicationController
   def index
-    @cycle_time = CycleTimeCalculator.new Story.list_newest_first
+    stories = Story.all :conditions => "finished IS NOT NULL", :order => "finished DESC"
+    @cycle_time = CycleTimeCalculator.new stories
   end
 end
