@@ -2,15 +2,15 @@
   %head
     %title
       Pointilist
-    = stylesheet_link_tag 'styles'
+    != stylesheet_link_tag 'styles'
   %body
     %h1 Pointilist
     %ul#navigation
       %li
-        = navigation_link 'stories'
+        != navigation_link 'stories'
       %li
-        = navigation_link 'throughput'
+        != navigation_link 'throughput'
       %li
-        = navigation_link 'holidays'
+        != navigation_link 'holidays'
     #content
-      = yield
+      != yield

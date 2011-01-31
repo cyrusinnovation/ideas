@@ -9,11 +9,11 @@ DONE
 * Show Team on story list page.
 * Don't show decimals in >=1 point stories.
 * Possibly make it easier to follow table rows.
+* Fix places where text not escaped.
 
 WIP
 ---
 
 TODO
 ----
-* Fix places where text not escaped.
 * Would all the testing here be easier with Shoulda?
