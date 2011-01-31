@@ -3,10 +3,10 @@ DONE
 * Calculate cycle times for a list of stories.
 * Show points completed in the past three weeks.
 * Import from a CSV file.
+* Show cumulative cycle times.
 
 WIP
 ---
-* Show cumulative cycle times.
 
 TODO
 ----
