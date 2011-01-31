@@ -2,17 +2,17 @@ DONE
 ----
 * Calculate cycle times for a list of stories.
 * Show points completed in the past three weeks.
+* Import from a CSV file.
 
 WIP
 ---
-* Import from a CSV file.
+* Show cumulative cycle times.
 
 TODO
 ----
-* Show points completed in the past three weeks by team.
+* Show throughput and cycle times per team.
 * Show average points completed per three weeks.
 * Show average points per three weeks by team.
-* Show cumulative cycle times.
 * Show average cycle times.
 * Show typical cycle time for a given point estimate.
 
