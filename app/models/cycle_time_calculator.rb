@@ -16,8 +16,14 @@ class CycleTimeCalculator
     @stories.first.title
   end
 
+  def date
+    @stories.first.finished
+  end
+
   def for_stories goal
-    cycle_time(@stories.first(goal))
+    stories = @stories.first(goal)
+    return nil if stories.size < goal
+    cycle_time(stories)
   end
 
   def for_points goal

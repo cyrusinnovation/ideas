@@ -50,7 +50,9 @@ class CycleTimeTest < ActiveSupport::TestCase
     ]
     calculator = CycleTimeCalculator.new(stories)
     assert_equal nil, calculator.for_points(5), "there aren't 5 points available"
-    assert_equal 5, calculator.for_points(4), "there are 4, though"
+    assert_equal 5, calculator.for_points(4), "there are 4 points, though"
+    assert_equal nil, calculator.for_stories(4), "there aren't 4 stories available"
+    assert_equal 5, calculator.for_stories(3), "there are 3 stories, though"
   end
 
   test "cycle time goes by earliest start date if stories were started out of order" do

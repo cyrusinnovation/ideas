@@ -1,6 +1,7 @@
 %table
   %tr
     %th Story
+    %th Date
     %th Days for <br> Last 5 Points
     %th Days for <br> Last 15 Points
     %th Days for <br> Last 5 Stories
@@ -9,6 +10,8 @@
     %tr
       %td
         != format_title cycle_time.story
+      %td
+        = format_date cycle_time.date
       %td
         = cycle_time.for_points 5
       %td
