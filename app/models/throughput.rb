@@ -23,12 +23,28 @@ class Throughput
   end
 
   def points
-    stories_in_range.reduce(0) {|count, story| count + (story.estimate || 0) }
+    count_points_from stories_in_range
+  end
+
+  def team_stories team
+    stories_for(team).size
+  end
+
+  def team_points team
+    count_points_from stories_for(team)
   end
 
   private
 
   def stories_in_range
     Story.all :conditions => ["finished >= ? AND finished <= ?", @start_date, @date]
+  end
+
+  def stories_for team
+    stories_in_range.select { |s| s.team == team }
+  end
+
+  def count_points_from stories
+    stories.reduce(0) {|count, story| count + (story.estimate || 0) }
   end
 end
