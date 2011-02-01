@@ -35,4 +35,22 @@ class StoryTest < ActiveSupport::TestCase
     assert_nil Story.new(:started => nil, :finished => "2011-1-14").cycle_time
     assert_nil Story.new(:started => nil, :finished => nil).cycle_time
   end
+
+  test "team_name shows and assigns team" do
+    s = Story.new
+    s.team_name = "foo"
+    assert_equal "foo", s.team.name
+    assert_equal "foo", s.team_name
+  end
+
+  test "team_name is nil when team is nil" do
+    assert_nil Story.new.team_name
+  end
+
+  test "setting team name to nil clears team" do
+    s = stories(:swim)
+    assert_equal "Turtle", s.team_name, "sanity check"
+    s.team_name = nil
+    assert_nil s.team
+  end
 end

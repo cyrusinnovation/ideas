@@ -1,8 +1,22 @@
 class Story < ActiveRecord::Base
+  belongs_to :team
   composed_of :date_range, :mapping => [%w(started started), %w(finished finished)]
 
   def self.list_newest_first
     Story.all.sort
+  end
+
+  def team_name
+    return nil if team.nil?
+    team.name
+  end
+
+  def team_name= new_team
+    if new_team.nil?
+      self.team = nil
+    else
+      self.team = Team.find_or_create_by_name new_team
+    end
   end
 
   def cycle_time
