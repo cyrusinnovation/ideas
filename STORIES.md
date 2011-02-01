@@ -7,19 +7,20 @@ DONE
 
 WIP
 ---
+* Show throughput and cycle times per team.
 
 TODO
 ----
-* Show throughput and cycle times per team.
 * Show average points completed per three weeks.
 * Show average points per three weeks by team.
 * Show average cycle times.
 * Show typical cycle time for a given point estimate.
+* Track estimates against actual hours worked.
+* Show average times for stories of different lengths.
+* "Card view" of actual times for recently completed stories.
 
 SOMEDAY/MAYBE
 -------------
-* Track estimates against actual hours worked.
-* "Card view" of actual times for recently completed stories.
 * Track projects in some way.
 * Generate cumulative flow diagrams.
 * Make a much better date entry control, with an easy way to select today's date.
