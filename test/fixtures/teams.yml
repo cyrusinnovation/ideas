@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 shark:
-  name: Shark
+  name: ShARC
 
 turtle:
-  name: Turtle
+  name: Schildkroete

@@ -49,7 +49,7 @@ class StoryTest < ActiveSupport::TestCase
 
   test "setting team name to nil clears team" do
     s = stories(:swim)
-    assert_equal "Turtle", s.team_name, "sanity check"
+    assert_equal "Schildkroete", s.team_name, "sanity check"
     s.team_name = nil
     assert_nil s.team
   end
