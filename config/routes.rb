@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.import 'stories/import', :controller => 'stories', :action => 'prepare_import', :conditions => { :method => :get }
   map.resources :stories
   map.resources :holidays
+  map.connect 'cycle_time/:team', :controller => 'cycle_time', :action => 'team'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

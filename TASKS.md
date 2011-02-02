@@ -5,8 +5,8 @@ DONE
 
 WIP
 ---
+* Show cycle times per team.
 
 TODO
 ----
-* Show cycle times per team.
 * Autocomplete team names, or defer?
