@@ -1,14 +1,12 @@
 DONE
 ----
-* Set up Burn Rate page.
-* List burn rate per story.
-* Show average burn rate at top of page.
-* Show standard deviation.
-* Show average for last 10 stories.
-* Show average for last 30 stories.
 
 WIP
 ---
 
 TODO
 ----
+* Figure out UI.
+* Get estimate groups.
+* Figure out how to show it on the screen.
+* Maybe some review and GUI cleanup. Or something. Hard to have a clear breakdown for this one.

@@ -7,14 +7,14 @@ DONE
 * Show throughput and cycle times per team.
 * Load the cycle time page for 200 stories in less than 1/10 of a second.
 * Track hours billed per story.
+* Show hours/point statistics.
 
 WIP
 ---
-* Show hours/point statistics.
+* Show hours/estimate group statistics.
 
 TODO
 ----
-* Show hours/estimate group statistics.
 * Import burn rate.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
