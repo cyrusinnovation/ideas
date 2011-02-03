@@ -23,6 +23,12 @@ class Story < ActiveRecord::Base
     date_range.workdays
   end
 
+  def burn_rate
+    return nil if hours_worked.nil?
+    return nil if estimate.nil?
+    hours_worked / estimate
+  end
+
   def <=> other
     return -1 if started.nil?
     return 1 if other.started.nil?
