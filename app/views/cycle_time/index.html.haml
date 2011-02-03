@@ -1,24 +1,24 @@
 != render :partial => 'team_navigation'
 
-%table
+%table#cycle_time
   %tr
-    %th Story
-    %th Date
-    %th Days for <br> Last 5 Points
-    %th Days for <br> Last 15 Points
-    %th Days for <br> Last 5 Stories
-    %th Days for <br> Last 15 Stories
+    %th.story Story
+    %th.date Date
+    %th.time Days for <br> Last 5 Points
+    %th.time Days for <br> Last 15 Points
+    %th.time Days for <br> Last 5 Stories
+    %th.time Days for <br> Last 15 Stories
   - @cycle_times.each do |cycle_time|
-    %tr
-      %td
+    %tr{:class => cycle('odd', 'even')}
+      %td.story
         != format_title cycle_time.story
-      %td
+      %td.date
         = format_date cycle_time.date
-      %td
+      %td.time
         = cycle_time.for_points 5
-      %td
+      %td.time
         = cycle_time.for_points 15
-      %td
+      %td.time
         = cycle_time.for_stories 5
-      %td
+      %td.time
         = cycle_time.for_stories 15

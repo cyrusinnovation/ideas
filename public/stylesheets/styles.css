@@ -81,6 +81,10 @@ td.actions {
     text-align: right;
 }
 
+#cycle_time td.date, #cycle_time td.time {
+    text-align: right;
+}
+
 #throughput td {
     text-align: right;
 }
