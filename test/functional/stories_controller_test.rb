@@ -22,7 +22,8 @@ class StoriesControllerTest < ActionController::TestCase
         :team_name => "Turtle",
         :estimate => 5,
         :started => "2011-2-12",
-        :finished => "2011-2-21"
+        :finished => "2011-2-21",
+        :hours_worked => 102.25
     }
 
     assert_not_nil Story.find_by_title("147 - Improve flying UI")
