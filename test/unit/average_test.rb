@@ -38,4 +38,13 @@ class AverageTest < ActiveSupport::TestCase
 
     assert_equal 4.5, a.mean
   end
+
+  test "can return a partial average" do
+    a = Average.new [2, 3, 6, 7]
+
+    assert_equal (11.0/3), a.first(3).mean
+    assert_equal 2.5, a.first(2).mean
+    assert_equal 2, a.first(1).mean
+    assert_equal 4.5, a.first(700).mean, "if you ask for more it just stops at the full list"
+  end
 end

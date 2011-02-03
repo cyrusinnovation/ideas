@@ -1,7 +1,28 @@
+%table#average_burn_rate
+  %tr
+    %td
+    %th
+      Newest 10
+    %th
+      Newest 30
+    %th
+      All
+  %tr
+    %td
+      %strong Average Burn Rates:
+    %td
+      != @average.first(10).to_html
+    %td
+      != @average.first(30).to_html
+    %td
+      != @average.to_html
+
 %table#burn_rate
   %tr
     %th.story Story
     %th.finished Finished
+    %th.estimate Estimate
+    %th.hours Hours Worked
     %th.burn_rate Burn Rate
   - @stories.each do |story|
     %tr{:class => cycle('odd', 'even')}
@@ -9,5 +30,9 @@
         != format_title story.title
       %td.finished
         = format_date story.finished
+      %td.estimate
+        = format_estimate story.estimate
+      %td.hours
+        = story.hours_worked
       %td.burn_rate
         = story.burn_rate

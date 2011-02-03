@@ -54,6 +54,10 @@ a {
     color: #711203;
 }
 
+tr.even {
+    background-color: #f0f8ff;
+}
+
 td, th {
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -66,29 +70,13 @@ th {
 }
 
 td {
-    text-align: left;
-}
-
-tr.even {
-    background-color: #f0f8ff;
+    text-align: right;
 }
 
 td.actions {
     text-align: center;
 }
 
-#stories td.estimate, #stories td.started, #stories td.finished, #stories td.cycle_time {
-    text-align: right;
-}
-
-#cycle_time td.date, #cycle_time td.time {
-    text-align: right;
-}
-
-#throughput td {
-    text-align: right;
-}
-
-#holidays td.date {
-    text-align: right;
+td.story, td.title, td.description, td.team {
+    text-align: left;
 }

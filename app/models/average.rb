@@ -6,8 +6,12 @@ class Average
     @values = values.reject {|v| v.nil? }
   end
 
+  def first n
+    Average.new @values.first(n)
+  end
+
   def mean
-    @values.reduce(:+) / @values.size.to_f
+    @values.reduce(:+) / count
   end
 
   def standard_deviation
@@ -17,7 +21,11 @@ class Average
   def variance
     mean = self.mean
     sum_of_squared_deviations = @values.reduce(0) {|sum, value| sum + (value - mean)**2 }
-    sum_of_squared_deviations / @values.size
+    sum_of_squared_deviations / count
+  end
+
+  def count
+    @values.size.to_f
   end
 
   def to_html
