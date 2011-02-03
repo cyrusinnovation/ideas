@@ -8,10 +8,10 @@ DONE
 * Load the cycle time page for 200 stories in less than 1/10 of a second.
 * Track hours billed per story.
 * Show hours/point statistics.
+* Show hours/estimate group statistics.
 
 WIP
 ---
-* Show hours/estimate group statistics.
 
 TODO
 ----

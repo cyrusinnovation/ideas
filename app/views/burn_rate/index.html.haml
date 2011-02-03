@@ -1,21 +1,36 @@
+%h2 Averages
+
 %table#average_burn_rate
   %tr
-    %td
+    %th
+      Estimate Group
     %th
       Newest 10
     %th
       Newest 30
     %th
       All
+  - @estimate_groups.each do |group|
+    %tr
+      %td
+        = group.estimate
+      %td
+        != group.average.first(10).to_html
+      %td
+        != group.average.first(30).to_html
+      %td
+        != group.average.to_html
   %tr
     %td
-      %strong Average Burn Rates:
+      All
     %td
       != @average.first(10).to_html
     %td
       != @average.first(30).to_html
     %td
       != @average.to_html
+
+%h2 Burn Rate Per Story
 
 %table#burn_rate
   %tr
