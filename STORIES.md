@@ -6,24 +6,24 @@ DONE
 * Show cumulative cycle times.
 * Show throughput and cycle times per team.
 * Load the cycle time page for 200 stories in less than 1/10 of a second.
+* Track hours billed per story.
 
 WIP
 ---
-* Track hours billed per story.
+* Show hours/point statistics.
 
 TODO
 ----
-* Show hours/point statistics.
 * Show hours/estimate group statistics.
-* Preserve data on import.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
 * Show average cycle times per estimate group.
+* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
+* Group stories into projects.
 
 SOMEDAY/MAYBE
 -------------
-* Group stories into projects.
 * Estimate the remaining work in a project.
 * "Work In Progress" view.
 * Show average cycle times.
