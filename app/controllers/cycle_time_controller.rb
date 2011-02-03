@@ -1,15 +1,13 @@
 class CycleTimeController < ApplicationController
   def index
     @teams = Team.active
-    stories = Story.all :conditions => "finished IS NOT NULL", :order => "finished DESC"
-    @cycle_times = CycleTimeCalculator.new(stories).list_back
+    @cycle_times = CycleTimeCalculator.collect Story
   end
 
   def team
     @teams = Team.active
     @team = Team.find params[:team]
-    stories = @team.stories :conditions => "finished IS NOT NULL", :order => "finished DESC"
-    @cycle_times = CycleTimeCalculator.new(stories).list_back
+    @cycle_times = CycleTimeCalculator.collect @team.stories
     render 'index'
   end
 end

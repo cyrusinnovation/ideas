@@ -1,4 +1,9 @@
 class CycleTimeCalculator
+  def self.collect story_finder
+    stories = story_finder.find :all, :conditions => "finished IS NOT NULL", :order => "finished DESC"
+    new(stories).list_back
+  end
+
   def initialize stories
     @stories = stories
   end
