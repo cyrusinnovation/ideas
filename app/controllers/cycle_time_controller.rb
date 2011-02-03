@@ -1,4 +1,8 @@
 class CycleTimeController < ApplicationController
+  caches_action :index
+  caches_action :team
+  cache_sweeper :story_sweeper
+
   def index
     @teams = Team.active
     @cycle_times = CycleTimeCalculator.collect Story

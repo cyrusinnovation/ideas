@@ -5,10 +5,10 @@ DONE
 * Import from a CSV file.
 * Show cumulative cycle times.
 * Show throughput and cycle times per team.
+* Load the cycle time page for 200 stories in less than 1/10 of a second.
 
 WIP
 ---
-* Load the cycle time page for 200 stories in less than 1/10 of a second.
 
 TODO
 ----

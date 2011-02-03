@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  cache_sweeper :story_sweeper
+
   def index
     @stories = Story.list_newest_first
     @editable_story = Story.new
