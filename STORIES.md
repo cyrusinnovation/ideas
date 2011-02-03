@@ -9,16 +9,17 @@ DONE
 
 WIP
 ---
+* Track hours billed per story.
 
 TODO
 ----
-* Track hours billed per story.
 * Show hours/point statistics.
 * Show hours/estimate group statistics.
 * Preserve data on import.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
+* Show average cycle times per estimate group.
 
 SOMEDAY/MAYBE
 -------------
@@ -28,7 +29,6 @@ SOMEDAY/MAYBE
 * Show average cycle times.
 * Show average throughput.
 * Manage teams.
-* Show average cycle times per estimate group.
 * Generate cumulative flow diagrams.
 * Make a much better date entry control, with an easy way to select today's date.
 * Some sort of legitimate user authentication.
