@@ -1,12 +1,12 @@
 DONE
 ----
+* Write migration.
 
 WIP
 ---
 
 TODO
 ----
-* Write migration.
 * Test drive editing in controller.
 * Add UI.
 * GUI cleanup.
