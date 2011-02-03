@@ -66,14 +66,15 @@ class CycleTimeTest < ActiveSupport::TestCase
   assert_equal 10, calculator.for_points(5)
   end
 
-  test "can list cumulative cycle time calculators back to the first story" do
-    stories = [
-      Story.new(:title => "a"),
-      Story.new(:title => "b"),
-      Story.new(:title => "c")
-    ]
-    calculator = CycleTimeCalculator.new(stories)
-    list = calculator.list_back
+  test "lists cycle times in reverse order finished and omits unfinished stories" do
+    Story.delete_all
+    Story.new(:title => "a", :finished => '1/14/2011').save
+    Story.new(:title => "b", :finished => '1/13/2011').save
+    Story.new(:title => "omit because unifinished").save
+    Story.new(:title => "c", :finished => '1/12/2011').save
+
+    list = CycleTimeCalculator.collect Story
+
     assert_equal ["a", "b", "c"], list.collect {|c| c.story }
   end
 

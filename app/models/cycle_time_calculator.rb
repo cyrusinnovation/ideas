@@ -1,20 +1,16 @@
 class CycleTimeCalculator
   def self.collect story_finder
+    result = []
     stories = story_finder.find :all, :conditions => "finished IS NOT NULL", :order => "finished DESC"
-    new(stories).list_back
+    stories.size.downto(1) do |count|
+      shorter_stories = stories.last(count)
+      result.push CycleTimeCalculator.new(shorter_stories)
+    end
+    result
   end
 
   def initialize stories
     @stories = stories
-  end
-
-  def list_back
-    result = []
-    @stories.size.downto(1) do |count|
-      shorter_stories = @stories.last(count)
-      result.push CycleTimeCalculator.new(shorter_stories)
-    end
-    result
   end
 
   def story
