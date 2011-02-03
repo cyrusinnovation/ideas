@@ -1,0 +1,13 @@
+%table#burn_rate
+  %tr
+    %th.story Story
+    %th.finished Finished
+    %th.burn_rate Burn Rate
+  - @stories.each do |story|
+    %tr{:class => cycle('odd', 'even')}
+      %td.story
+        != format_title story.title
+      %td.finished
+        = format_date story.finished
+      %td.burn_rate
+        = story.burn_rate

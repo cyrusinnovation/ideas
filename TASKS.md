@@ -1,13 +1,13 @@
 DONE
 ----
 * Set up Burn Rate page.
+* List burn rate per story.
 
 WIP
 ---
 
 TODO
 ----
-* List burn rate per story.
 * Show average burn rate at top of page.
 * Show standard deviation.
 * Show average for last 10 stories.

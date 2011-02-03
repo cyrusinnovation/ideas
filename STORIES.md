@@ -15,6 +15,7 @@ WIP
 TODO
 ----
 * Show hours/estimate group statistics.
+* Import burn rate.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
