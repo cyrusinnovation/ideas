@@ -29,6 +29,6 @@ class Average
   end
 
   def to_html
-    "%.1f &plusmn; %.1f" % [mean, standard_deviation]
+    '<span title="%.2f &plusmn; %.2f">%.0f &plusmn; %.0f</span>' % [mean, standard_deviation, mean, standard_deviation]
   end
 end

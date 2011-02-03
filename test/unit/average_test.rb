@@ -18,13 +18,8 @@ class AverageTest < ActiveSupport::TestCase
   end
 
   test "renderable as html" do
-    a = Average.new [3, 3, 5, 5]
-    assert_equal "4.0 &plusmn; 1.0", a.to_html
-  end
-
-  test "shows 1 decimal place in html" do
     a = Average.new [1, 2, 7, 2, 6, 7]
-    assert_equal "4.2 &plusmn; 2.5", a.to_html
+    assert_equal '<span title="4.17 &plusmn; 2.54">4 &plusmn; 3</span>', a.to_html
   end
 
   test "maps and filters nils if given a block" do

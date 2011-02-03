@@ -3,7 +3,7 @@
 %table#average_burn_rate
   %tr
     %th
-      Estimate Group
+      Estimate <br> Group
     %th
       Newest 10
     %th
@@ -13,7 +13,7 @@
   - @estimate_groups.each do |group|
     %tr
       %td
-        = group.estimate
+        = format_estimate group.estimate
       %td
         != group.average.first(10).to_html
       %td
@@ -50,4 +50,4 @@
       %td.hours
         = story.hours_worked
       %td.burn_rate
-        = story.burn_rate
+        = story.burn_rate.round.to_i

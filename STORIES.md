@@ -9,13 +9,15 @@ DONE
 * Track hours billed per story.
 * Show hours/point statistics.
 * Show hours/estimate group statistics.
+* Import burn rate.
 
 WIP
 ---
 
 TODO
 ----
-* Import burn rate.
+* Show unscaled hours/story by estimate group, rather than always scaling per point.
+* Define additional estimate groups.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
