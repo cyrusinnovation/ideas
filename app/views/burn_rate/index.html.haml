@@ -11,24 +11,15 @@
     %th
       All
   - @estimate_groups.each do |group|
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td
-        = format_estimate group.estimate
+        = group.title
       %td
         != group.average.first(10).to_html
       %td
         != group.average.first(30).to_html
       %td
         != group.average.to_html
-  %tr
-    %td
-      All
-    %td
-      != @average.first(10).to_html
-    %td
-      != @average.first(30).to_html
-    %td
-      != @average.to_html
 
 %h2 Burn Rate Per Story
 

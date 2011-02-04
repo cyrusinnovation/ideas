@@ -10,19 +10,18 @@ DONE
 * Show hours/point statistics.
 * Show hours/estimate group statistics.
 * Import burn rate.
+* Show unscaled hours/story by estimate group, rather than always scaling per point.
 
 WIP
 ---
 
 TODO
 ----
-* Show unscaled hours/story by estimate group, rather than always scaling per point.
-* Define additional estimate groups.
+* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
 * Show average cycle times per estimate group.
-* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 * Group stories into projects.
 
 SOMEDAY/MAYBE
@@ -39,3 +38,4 @@ SOMEDAY/MAYBE
 * Record today as started or finished date for a story in one click.
 * Track states other than started and finished.
 * Show me when I have enough data for a statistically significant sample.
+* Define additional estimate groups.
