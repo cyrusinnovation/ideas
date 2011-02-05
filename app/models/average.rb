@@ -1,8 +1,12 @@
 class Average
-  def initialize values, &block
-    if block_given?
-      values = values.map &block
-    end
+  def self.by_group values, options={}
+    grouped_values = values.group_by {|v| v.send(options[:group]) }
+    averaged_groups = grouped_values.map {|k, v| [k, Average.new(v, options)] }
+    Hash[averaged_groups]
+  end
+
+  def initialize values, options={}
+    values = values.map{|v| v.send(options[:value]) } if options.include?(:value)
     @values = values.reject {|v| v.nil? }
   end
 

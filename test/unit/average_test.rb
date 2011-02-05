@@ -22,16 +22,33 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal '<span title="4.17 &plusmn; 2.54">4 &plusmn; 3</span>', a.to_html
   end
 
-  test "maps and filters nils if given a block" do
+  test "map to a field value when averaging" do
     s2 = Story.new :estimate => 2
     s3 = Story.new :estimate => 3
     s6 = Story.new :estimate => 6
     s7 = Story.new :estimate => 7
-    no_estimate = Story.new
 
-    a = Average.new([s2, s3, s6, s7, no_estimate]) {|s| s.estimate }
+    a = Average.new([s2, s3, s6, s7], :value => :estimate)
 
     assert_equal 4.5, a.mean
+  end
+
+  test "collect groups of averages" do
+    s1 = Story.new :estimate => 1, :started => Date.new(2011, 1, 15)
+    s3 = Story.new :estimate => 3, :started => Date.new(2011, 1, 15)
+    s5 = Story.new :estimate => 5, :started => Date.new(2011, 2, 23)
+    s7 = Story.new :estimate => 7, :started => Date.new(2011, 2, 23)
+
+    a = Average.by_group [s1, s3, s5, s7], :group => :started, :value => :estimate
+
+    assert_equal 2, a[Date.new(2011, 1, 15)].mean
+    assert_equal 6, a[Date.new(2011, 2, 23)].mean
+  end
+
+  test "filters out nils" do
+    a = Average.new [1, nil, 1, 3, 3, nil]
+
+    assert_equal 2, a.mean
   end
 
   test "can return a partial average" do
