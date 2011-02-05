@@ -20,6 +20,7 @@ class AverageTest < ActiveSupport::TestCase
   test "renderable as html" do
     a = Average.new [1, 2, 7, 2, 6, 7]
     assert_equal '<span title="4.17 &plusmn; 2.54">4 &plusmn; 3</span>', a.to_html
+    assert_equal '4 &plusmn; 3', a.to_html_attribute
   end
 
   test "map to a field value when averaging" do

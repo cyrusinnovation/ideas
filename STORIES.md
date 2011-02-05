@@ -11,10 +11,10 @@ DONE
 * Show hours/estimate group statistics.
 * Import burn rate.
 * Show unscaled hours/story by estimate group, rather than always scaling per point.
+* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 
 WIP
 ---
-* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 
 TODO
 ----
@@ -24,12 +24,13 @@ TODO
 * Show average cycle times per estimate group.
 * Group stories into projects.
 * Estimate the remaining work in a project.
-* Define additional estimate groups.
 
 SOMEDAY/MAYBE
 -------------
+* Show stories as outliers if their actual times ran closer to another estimate group.
+* Define additional estimate groups.
 * "Work In Progress" view.
-* Show average cycle times.
+* Show average cycle times, and highlight outliers.
 * Show average throughput.
 * Manage teams.
 * Generate cumulative flow diagrams.

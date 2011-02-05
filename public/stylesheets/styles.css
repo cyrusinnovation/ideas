@@ -54,8 +54,20 @@ a {
     color: #711203;
 }
 
+#average_burn_rate {
+    float: right;
+}
+
 tr.even {
     background-color: #f0f8ff;
+}
+
+tr.underestimated {
+    background-color: #ffe8e8;
+}
+
+tr.overestimated {
+    background-color: #ffffe0;
 }
 
 td, th {
