@@ -8,10 +8,6 @@ class BurnRateController < ApplicationController
       EstimateGroup.new(estimate.to_r, stories) {|s| s.hours_worked }
     end
 
-    stories_by_big_or_small = @stories.group_by {|s| s.estimate > 2 ? :big : :small }
-    @estimate_groups << EstimateGroup.new("Small Stories", stories_by_big_or_small[:small]) {|s| s.hours_worked }
-    @estimate_groups << EstimateGroup.new("Big Stories", stories_by_big_or_small[:big]) {|s| s.hours_worked }
-
     @estimate_groups << EstimateGroup.new("All Stories Burn Rate", @stories) {|s| s.burn_rate }
   end
 end

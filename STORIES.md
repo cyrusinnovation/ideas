@@ -14,19 +14,20 @@ DONE
 
 WIP
 ---
+* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 
 TODO
 ----
-* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
 * Show average cycle times per estimate group.
 * Group stories into projects.
+* Estimate the remaining work in a project.
+* Define additional estimate groups.
 
 SOMEDAY/MAYBE
 -------------
-* Estimate the remaining work in a project.
 * "Work In Progress" view.
 * Show average cycle times.
 * Show average throughput.
@@ -38,4 +39,3 @@ SOMEDAY/MAYBE
 * Record today as started or finished date for a story in one click.
 * Track states other than started and finished.
 * Show me when I have enough data for a statistically significant sample.
-* Define additional estimate groups.
