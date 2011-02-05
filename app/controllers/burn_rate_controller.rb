@@ -1,8 +1,7 @@
 class BurnRateController < ApplicationController
   def index
-    @stories = Story.all :conditions => "estimate IS NOT NULL AND hours_worked IS NOT NULL", :order => "finished DESC"
-
-    @averages_by_estimate = Average.by_group @stories, :group => :estimate, :value => :hours_worked
+    @stories = Story.all_with_burn_rates
+    @averages_by_estimate = Story.average_hours_by_estimate
 
     @estimate_groups = @averages_by_estimate.sort.map do |estimate, average|
       EstimateGroup.new(estimate.to_r, average)

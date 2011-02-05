@@ -6,6 +6,14 @@ class Story < ActiveRecord::Base
     Story.all.sort
   end
 
+  def self.all_with_burn_rates
+    all :conditions => "estimate IS NOT NULL AND hours_worked IS NOT NULL", :order => "finished DESC"
+  end
+
+  def self.average_hours_by_estimate
+    Average.by_group all_with_burn_rates, :group => :estimate, :value => :hours_worked
+  end
+
   def team_name
     return nil if team.nil?
     team.name

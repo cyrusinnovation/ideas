@@ -15,22 +15,22 @@ DONE
 
 WIP
 ---
+* "Card view" of actual times for recently completed stories.
 
 TODO
 ----
-* "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
 * Show average cycle times per estimate group.
 * Group stories into projects.
 * Estimate the remaining work in a project.
+* Show stories as outliers if their actual times ran closer to another estimate group.
+* Show average cycle times, and highlight outliers.
 
 SOMEDAY/MAYBE
 -------------
-* Show stories as outliers if their actual times ran closer to another estimate group.
 * Define additional estimate groups.
 * "Work In Progress" view.
-* Show average cycle times, and highlight outliers.
 * Show average throughput.
 * Manage teams.
 * Generate cumulative flow diagrams.
@@ -40,3 +40,5 @@ SOMEDAY/MAYBE
 * Record today as started or finished date for a story in one click.
 * Track states other than started and finished.
 * Show me when I have enough data for a statistically significant sample.
+* Flag stories that had long cycle times compared to hours worked.
+* Flag stories that had exceptionally short cycle times to hours worked. (Yay! Efficiency!)
