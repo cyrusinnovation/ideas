@@ -4,13 +4,13 @@ DONE
 * Create screen.
 * Design card view.
 * Clean up CSS/HTML for design.
+* Design object to back card view.
 
 WIP
 ---
+* Figure out how to load necessary pieces.
 
 TODO
 ----
-* Design object to back card view.
-* Figure out how to load necessary pieces.
 * Review and GUI cleanup.
 * Better CSS for printing?
