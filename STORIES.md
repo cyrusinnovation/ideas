@@ -29,6 +29,7 @@ TODO
 
 SOMEDAY/MAYBE
 -------------
+* Show a + in Hours Vs. Average when story is over average.
 * Define additional estimate groups.
 * "Work In Progress" view.
 * Show average throughput.
