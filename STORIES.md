@@ -29,6 +29,15 @@ TODO
 
 SOMEDAY/MAYBE
 -------------
+* Estimation view based on fixed time per point, rather than on past averages.
+* Compact estimation view.
+* Estimation view based on cycle time.
+* Migrate to Rspec.
+* Adjust size of estimate example groups.
+* Better measuring of cumulative cycle times when multiple stories start or end on the same day.
+* Estimation view by team.
+* Show mostly recent stories in estimation view, while still using long-term averages.
+* Don't have overlapping average groups in estimate view. (i.e. 18 shouldn't count as both a 1/2 and a 1)
 * Show a + in Hours Vs. Average when story is over average.
 * Define additional estimate groups.
 * "Work In Progress" view.
@@ -43,3 +52,5 @@ SOMEDAY/MAYBE
 * Show me when I have enough data for a statistically significant sample.
 * Flag stories that had long cycle times compared to hours worked.
 * Flag stories that had exceptionally short cycle times to hours worked. (Yay! Efficiency!)
+* Migrate to Postgres.
+* Deploy on Heroku.
