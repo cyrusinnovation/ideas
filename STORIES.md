@@ -16,10 +16,10 @@ DONE
 
 WIP
 ---
+* "Dashboard" or "Information Radiator" view with a few key statistics.
 
 TODO
 ----
-* "Dashboard" or "Information Radiator" view with a few key statistics.
 * Apply holidays when measuring throughput.
 * Show average cycle times per estimate group.
 * Group stories into projects.
