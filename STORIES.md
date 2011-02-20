@@ -12,10 +12,10 @@ DONE
 * Import burn rate.
 * Show unscaled hours/story by estimate group, rather than always scaling per point.
 * "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
+* "Card view" of actual times for recently completed stories.
 
 WIP
 ---
-* "Card view" of actual times for recently completed stories.
 
 TODO
 ----
@@ -54,3 +54,5 @@ SOMEDAY/MAYBE
 * Flag stories that had exceptionally short cycle times to hours worked. (Yay! Efficiency!)
 * Migrate to Postgres.
 * Deploy on Heroku.
+* Split Cycle Time and Lead Time views.
+* Make a nicer printable version of the estimation reference story list.
