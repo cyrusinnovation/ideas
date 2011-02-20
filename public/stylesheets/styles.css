@@ -134,3 +134,12 @@ td.story, td.title, td.description, td.team {
     font-weight: normal;
     color: #505000;
 }
+
+#dashboard h2 {
+    display: inline;
+}
+
+#dashboard em {
+    font-style: normal;
+    font-size: 72pt;
+}

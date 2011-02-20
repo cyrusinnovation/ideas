@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.root :controller => 'dashboard'
   map.import 'stories/import', :controller => 'stories', :action => 'import', :conditions => { :method => :post }
   map.import 'stories/import', :controller => 'stories', :action => 'prepare_import', :conditions => { :method => :get }
   map.resources :stories

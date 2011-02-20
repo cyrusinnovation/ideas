@@ -1,5 +1,5 @@
 class Throughput
-  SPAN = 20
+  SPAN = 20 # today through (today - 20) is the past three weeks
 
   def self.history
     oldest_story = Story.first(:order => "finished", :conditions => "finished IS NOT NULL")

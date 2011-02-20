@@ -1,11 +1,14 @@
 %html
   %head
     %title
-      Pointilist
+      Pointilist -
+      != controller_name.titleize
     != stylesheet_link_tag 'styles'
   %body
     %h1 Pointilist
     %ul#navigation
+      %li
+        != navigation_link 'dashboard'
       %li
         != navigation_link 'stories'
       %li
