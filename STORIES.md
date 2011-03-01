@@ -56,3 +56,9 @@ SOMEDAY/MAYBE
 * Deploy on Heroku.
 * Split Cycle Time and Lead Time views.
 * Make a nicer printable version of the estimation reference story list.
+* Leave a comment summing up each completed story and how it went.
+* Tags on stories.
+* Search for stories by tag.
+* Attributes on stories.
+* Show statistics about attributes.
+* Show statistics on groups of stories by tag.

@@ -5,6 +5,8 @@ class Average
     Hash[averaged_groups]
   end
 
+  attr_reader :values
+
   def initialize values, options={}
     values = values.map{|v| v.send(options[:value]) } if options.include?(:value)
     @values = values.reject {|v| v.nil? }

@@ -42,7 +42,7 @@ ul#team_navigation a {
     padding: 0.2em 1em 0.2em 1em;
     border-bottom: 1px dotted #777;
     color: black;
-    background-color: #f2fff2;
+    background-color: #f0f8ff;
 }
 
 ul#team_navigation a.current {
@@ -51,15 +51,19 @@ ul#team_navigation a.current {
 
 a {
     text-decoration: none;
-    color: #711203;
+    color: #193c59;
 }
 
 #average_burn_rate {
     float: right;
 }
 
-tr.even {
+tr:hover {
     background-color: #f0f8ff;
+}
+
+tr:hover th {
+    background-color: #ffffff;
 }
 
 tr.underestimated {
@@ -133,10 +137,6 @@ td.story, td.title, td.description, td.team {
     font-size: 12pt;
     font-weight: normal;
     color: #505000;
-}
-
-#dashboard h2 {
-    display: inline;
 }
 
 #dashboard em {

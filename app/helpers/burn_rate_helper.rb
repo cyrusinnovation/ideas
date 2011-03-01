@@ -14,4 +14,10 @@ module BurnRateHelper
   def average story
     @averages_by_estimate[story.estimate]
   end
+
+  def sparkline group
+    image_tag url_for(:action => 'average_sparkline',
+                      :values => group.average.values.reverse.join(','),
+                      :upper => group.average.mean + group.average.standard_deviation)
+  end
 end
