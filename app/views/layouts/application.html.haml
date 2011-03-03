@@ -4,6 +4,11 @@
       Pointilist -
       != controller_name.titleize
     != stylesheet_link_tag 'styles'
+    != javascript_include_tag 'jquery-1.5.1.min', 'jquery.sparkline'
+    :javascript
+      jQuery(function() {
+        jQuery('.sparkline').sparkline('html', { enableTagOptions: true });
+      });
   %body
     %h1 Pointilist
     %ul#navigation

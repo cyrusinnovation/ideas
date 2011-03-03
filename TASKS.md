@@ -6,6 +6,7 @@ DONE
 
 WIP
 ---
+* Try switching to JQuery sparklines.
 
 TODO
 ----

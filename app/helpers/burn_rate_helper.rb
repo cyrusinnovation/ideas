@@ -16,8 +16,11 @@ module BurnRateHelper
   end
 
   def sparkline group
-    image_tag url_for(:action => 'average_sparkline',
-                      :values => group.average.values.reverse.join(','),
-                      :upper => group.average.mean + group.average.standard_deviation)
+    content_tag 'span',
+        "...",
+        :sparkType => 'discrete',
+        :sparkLineColor => '#666666',
+        :values => "#{group.average.values.reverse.join(',')}",
+        :class => 'sparkline'
   end
 end
