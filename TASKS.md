@@ -3,10 +3,10 @@ DONE
 * Set up dashboard page and route / to it.
 * Show "how are we doing?"
 * Sparklines where appropriate.
+* Try switching to JQuery sparklines.
 
 WIP
 ---
-* Try switching to JQuery sparklines.
 
 TODO
 ----

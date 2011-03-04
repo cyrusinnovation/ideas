@@ -17,6 +17,12 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal 1, Average.new([3, 3, 5, 5]).standard_deviation, "a simpler case"
   end
 
+  test "normal range is mean plus or minus standard deviation" do
+    a = Average.new([3, 3, 5, 5])
+    assert_equal 3, a.normal_range_min
+    assert_equal 5, a.normal_range_max
+  end
+
   test "renderable as html" do
     a = Average.new [1, 2, 7, 2, 6, 7]
     assert_equal '<span title="4.17 &plusmn; 2.54">4 &plusmn; 3</span>', a.to_html

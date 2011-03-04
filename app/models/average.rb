@@ -24,6 +24,14 @@ class Average
     Math.sqrt variance
   end
 
+  def normal_range_min
+    mean - standard_deviation
+  end
+
+  def normal_range_max
+    mean + standard_deviation
+  end
+
   def variance
     mean = self.mean
     sum_of_squared_deviations = @values.reduce(0) {|sum, value| sum + (value - mean)**2 }
