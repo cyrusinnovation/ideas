@@ -1,6 +1,22 @@
 #dashboard
-  %h2 Throughput - how are we doing?
-  %em
-    != throughput_history
-    = @throughput.points
-  points in three weeks
+  .section
+    %h2 Throughput - how are we doing?
+    %em
+      != average_sparkline @average_throughput
+      = @average_throughput.last_value.round.to_i
+    points in three weeks
+    = normal_range @average_throughput
+  .section
+    %h2 Cycle Time - how long will it take?
+    %em
+      != average_sparkline @average_cycle_time
+      = @average_cycle_time.last(10).mean.round.to_i
+    work days for 15 points
+    = normal_range @average_cycle_time
+  .section
+    %h2 Burn Rate - how much will it cost?
+    %em
+      != average_sparkline @average_burn_rate
+      = @average_burn_rate.last(10).mean.round.to_i
+    development hours per point
+    = normal_range @average_cycle_time

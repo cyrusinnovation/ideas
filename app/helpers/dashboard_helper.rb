@@ -1,9 +1,8 @@
 module DashboardHelper
-  def throughput_history
-    average = Average.new(@throughput_history)
+  def average_sparkline average
     content_tag 'span',
         "...",
-        :values => "#{@throughput_history.join(',')}",
+        :values => "#{average.values.join(',')}",
         :sparkNormalRangeMin => average.normal_range_min,
         :sparkNormalRangeMax => average.normal_range_max,
         :sparkChartRangeMin => 0,
@@ -15,5 +14,9 @@ module DashboardHelper
         :sparkSpotRadius => 2,
         :class => 'sparkline',
         :style => 'vertical-align: bottom'
+  end
+
+  def normal_range average
+    "(normal range is between #{average.normal_range_min.round} and #{average.normal_range_max.round})"
   end
 end

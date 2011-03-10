@@ -7,8 +7,8 @@ class BurnRateController < ApplicationController
       EstimateGroup.new(estimate.to_r, average)
     end
 
-    @estimate_groups << EstimateGroup.new("All - Size", Average.new(@stories, :value => :hours_worked))
-    @estimate_groups << EstimateGroup.new("All - Burn Rate", Average.new(@stories, :value => :burn_rate))
+    @estimate_groups << EstimateGroup.new("All - Story", Average.new(@stories, :value => :hours_worked))
+    @estimate_groups << EstimateGroup.new("All - Point", Average.new(@stories, :value => :burn_rate))
   end
 end
 

@@ -16,6 +16,10 @@ class Average
     Average.new @values.first(n)
   end
 
+  def last n
+    Average.new @values.last(n)
+  end
+
   def mean
     @values.reduce(:+) / count
   end
@@ -40,6 +44,10 @@ class Average
 
   def count
     @values.size.to_f
+  end
+
+  def last_value
+    @values.last
   end
 
   def to_html

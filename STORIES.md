@@ -13,10 +13,10 @@ DONE
 * Show unscaled hours/story by estimate group, rather than always scaling per point.
 * "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 * "Card view" of actual times for recently completed stories.
+* "Dashboard" or "Information Radiator" view with a few key statistics.
 
 WIP
 ---
-* "Dashboard" or "Information Radiator" view with a few key statistics.
 
 TODO
 ----
@@ -62,3 +62,4 @@ SOMEDAY/MAYBE
 * Attributes on stories.
 * Show statistics about attributes.
 * Show statistics on groups of stories by tag.
+* Track code quality metrics.
