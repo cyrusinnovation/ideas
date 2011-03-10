@@ -20,12 +20,12 @@ WIP
 
 TODO
 ----
+* Show average cycle times per estimate group, and highlight outliers.
 * Apply holidays when measuring throughput.
-* Show average cycle times per estimate group.
 * Group stories into projects.
 * Estimate the remaining work in a project.
 * Show stories as outliers if their actual times ran closer to another estimate group.
-* Show average cycle times, and highlight outliers.
+* Don't have overlapping average groups in estimate view. (i.e. 18 shouldn't count as both a 1/2 and a 1)
 
 SOMEDAY/MAYBE
 -------------
@@ -37,7 +37,6 @@ SOMEDAY/MAYBE
 * Better measuring of cumulative cycle times when multiple stories start or end on the same day.
 * Estimation view by team.
 * Show mostly recent stories in estimation view, while still using long-term averages.
-* Don't have overlapping average groups in estimate view. (i.e. 18 shouldn't count as both a 1/2 and a 1)
 * Show a + in Hours Vs. Average when story is over average.
 * Define additional estimate groups.
 * "Work In Progress" view.
