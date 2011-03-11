@@ -17,8 +17,20 @@ class CycleTimeCalculator
     @stories.first.title
   end
 
-  def date
+  def story_points
+    @stories.first.estimate
+  end
+
+  def started
+    @stories.first.started
+  end
+
+  def finished
     @stories.first.finished
+  end
+
+  def for_story
+    @stories.first.cycle_time
   end
 
   def for_stories goal

@@ -1,9 +1,9 @@
 DONE
 ----
+* Show individual story cycle time on the cycle time screen.
 
 WIP
 ---
-* Show individual story cycle time on the cycle time screen.
 
 TODO
 ----

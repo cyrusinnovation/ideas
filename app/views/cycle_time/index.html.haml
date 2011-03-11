@@ -3,7 +3,10 @@
 %table#cycle_time
   %tr
     %th.story Story
-    %th.date Date
+    %th.points Points
+    %th.date Started
+    %th.date Finished
+    %th.time Cycle Time
     %th.time Days for <br> Last 5 Points
     %th.time Days for <br> Last 15 Points
     %th.time Days for <br> Last 5 Stories
@@ -12,8 +15,14 @@
     %tr{:class => cycle('odd', 'even')}
       %td.story
         != format_title cycle_time.story
+      %td.points
+        = format_estimate cycle_time.story_points
       %td.date
-        = format_date cycle_time.date
+        = format_date cycle_time.started
+      %td.date
+        = format_date cycle_time.finished
+      %td.time
+        = cycle_time.for_story
       %td.time
         = cycle_time.for_points 5
       %td.time
