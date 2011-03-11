@@ -17,10 +17,10 @@ DONE
 
 WIP
 ---
+* Show average cycle times per estimate group, and highlight outliers.
 
 TODO
 ----
-* Show average cycle times per estimate group, and highlight outliers.
 * Apply holidays when measuring throughput.
 * Group stories into projects.
 * Estimate the remaining work in a project.
