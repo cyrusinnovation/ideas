@@ -19,46 +19,49 @@ WIP
 ---
 * Show average cycle times per estimate group, and highlight outliers.
 
+BUGFIXES
+--------
+* Apply holidays when measuring throughput.
+* Better measuring of cumulative cycle times when multiple stories start or end on the same day.
+
 TODO
 ----
-* Apply holidays when measuring throughput.
-* Group stories into projects.
-* Estimate the remaining work in a project.
-* Show stories as outliers if their actual times ran closer to another estimate group.
-* Don't have overlapping average groups in estimate view. (i.e. 18 shouldn't count as both a 1/2 and a 1)
+* Estimation view based on fixed time per point, rather than on past averages.
+* Show more than three stories in estimation view.
+* Tags on stories.
+* Estimate the remaining work in a tag, or set of tags.
+* Drop tracking of teams.
+* Prefer recent stories in the estimation view.
+* Show a + in Hours Vs. Average when story is over average.
+* Make a much better date entry control, with an easy way to select today's date.
+* Record today as started or finished date for a story in one click.
+* Make a nicer printable version of the estimation reference story list.
+
+PRODUCTIZATION
+--------------
+* Upgrade to Rails 3.
+* Migrate to Postgres.
+* Deploy on Heroku.
+* Introduce end-to-end testing.
+* Migrate to Rspec.
+* Multiple projects.
+* Export all data for a project.
+* Show something useful (and don't bomb) for new projects without any stories defined.
+* Multiple users.
+* The website should show something to people who aren't logged in, to convince them to join.
+* More flexible import.
+* Track states other than started and finished.
+* Estimation view based on cycle time, so that people don't have to enter hours.
+* Option to turn off estimates and recording of hours worked.
 
 SOMEDAY/MAYBE
 -------------
-* Estimation view based on fixed time per point, rather than on past averages.
-* Compact estimation view.
-* Estimation view based on cycle time.
-* Migrate to Rspec.
-* Adjust size of estimate example groups.
-* Better measuring of cumulative cycle times when multiple stories start or end on the same day.
-* Estimation view by team.
-* Show mostly recent stories in estimation view, while still using long-term averages.
-* Show a + in Hours Vs. Average when story is over average.
-* Define additional estimate groups.
 * "Work In Progress" view.
-* Show average throughput.
-* Manage teams.
-* Generate cumulative flow diagrams.
-* Make a much better date entry control, with an easy way to select today's date.
-* Some sort of legitimate user authentication.
-* Multiple users?
-* Record today as started or finished date for a story in one click.
-* Track states other than started and finished.
-* Show me when I have enough data for a statistically significant sample.
-* Flag stories that had long cycle times compared to hours worked.
-* Flag stories that had exceptionally short cycle times to hours worked. (Yay! Efficiency!)
-* Migrate to Postgres.
-* Deploy on Heroku.
-* Split Cycle Time and Lead Time views.
-* Make a nicer printable version of the estimation reference story list.
-* Leave a comment summing up each completed story and how it went.
-* Tags on stories.
-* Search for stories by tag.
-* Attributes on stories.
-* Show statistics about attributes.
 * Show statistics on groups of stories by tag.
+* Flag stories that had long or short cycle times compared to hours worked.
+* Leave a comment summing up each completed story and how it went.
 * Track code quality metrics.
+* Group averages by tags rather than estimates.
+* Show me when I have enough data for a statistically significant sample.
+* Reorder upcoming stories.
+* Compact estimation view.
