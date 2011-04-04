@@ -14,6 +14,12 @@ class Story < ActiveRecord::Base
     Average.by_group all_with_burn_rates, :group => :estimate, :value => :hours_worked
   end
 
+  def self.average_cycle_time_by_estimate
+    all_with_cycle_times = all :conditions => "estimate IS NOT NULL AND started IS NOT NULL AND finished IS NOT NULL",
+                               :order => "finished DESC"
+    Average.by_group all_with_cycle_times, :group => :estimate, :value => :cycle_time
+  end
+
   def team_name
     return nil if team.nil?
     team.name

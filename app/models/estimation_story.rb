@@ -1,5 +1,5 @@
 class EstimationStory
-  attr_reader :title, :estimate, :original, :under_or_over_html
+  attr_reader :title, :estimate, :original
 
   def self.find_examples(options)
     average_time = options[:average_time]
@@ -16,10 +16,13 @@ class EstimationStory
     @title = title
     @estimate = estimate
     @original = original
-    unless @original == @estimate
-      word = @original > @estimate ? 'over' : 'under'
-      @under_or_over_html = "<span class='#{word}'>(#{word}estimated at #{original.to_r})</span>"
-    end
+  end
+
+  def under_or_over_html
+    return nil if @original.nil?
+    return nil if @original == @estimate
+    word = @original > @estimate ? 'over' : 'under'
+    @under_or_over_html = "<span class='#{word}'>(#{word}estimated at #{original.to_r})</span>"
   end
 
   def to_s

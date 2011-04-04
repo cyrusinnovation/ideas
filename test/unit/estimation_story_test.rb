@@ -47,6 +47,14 @@ class EstimationStoryTest < ActiveSupport::TestCase
     assert_equal "<span class='under'>(underestimated at 2)</span>", example.under_or_over_html
   end
 
+  test "shows only the reference estimate if there is no original estimate" do
+    example = EstimationStory.new('Example Story', 5, nil)
+
+    assert_equal 5, example.estimate
+    assert_equal nil, example.original
+    assert_nil example.under_or_over_html
+  end
+
   def assert_contains examples, story
     example_titles = examples.map{|e| e.title}
     assert example_titles.include?(story.title), "Examples (#{examples.join ', '}) should include '#{story.title}'"

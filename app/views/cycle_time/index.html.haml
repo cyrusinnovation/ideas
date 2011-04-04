@@ -1,3 +1,30 @@
+#average_cycle_time
+  %h2 Averages
+  %table
+    %tr
+      %th.estimate_group
+        Estimate <br> Group
+      %th.newest_10
+        Newest 10
+      %th.newest_30
+        Newest 30
+      %th
+        History
+      %th.all
+        All
+    - @estimate_groups.each do |group|
+      %tr{:class => cycle('odd', 'even')}
+        %td.estimate_group
+          = group.title
+        %td.newest_10
+          != group.average.first(10).to_html
+        %td.newest_30
+          != group.average.first(30).to_html
+        %td
+          != sparkline group
+        %td.all
+          != group.average.to_html
+
 != render :partial => 'team_navigation'
 
 %table#cycle_time
