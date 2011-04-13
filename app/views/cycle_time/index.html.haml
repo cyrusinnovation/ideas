@@ -21,40 +21,28 @@
         %td.newest_30
           != group.average.first(30).to_html
         %td
-          != sparkline group
+          != discrete_sparkline group
         %td.all
           != group.average.to_html
 
-!= render :partial => 'team_navigation'
-
-%table#cycle_time
-  %tr
-    %th.story Story
-    %th.points Points
-    %th.date Started
-    %th.date Finished
-    %th.time Cycle Time
-    %th.time Days for <br> Last 5 Points
-    %th.time Days for <br> Last 15 Points
-    %th.time Days for <br> Last 5 Stories
-    %th.time Days for <br> Last 15 Stories
-  - @cycle_times.each do |cycle_time|
-    %tr{:class => cycle('odd', 'even')}
-      %td.story
-        != format_title cycle_time.story
-      %td.points
-        = format_estimate cycle_time.story_points
-      %td.date
-        = format_date cycle_time.started
-      %td.date
-        = format_date cycle_time.finished
-      %td.time
-        = cycle_time.for_story
-      %td.time
-        = cycle_time.for_points 5
-      %td.time
-        = cycle_time.for_points 15
-      %td.time
-        = cycle_time.for_stories 5
-      %td.time
-        = cycle_time.for_stories 15
+#cycle_time
+  %h2 Cycle Time Per Story
+  %table
+    %tr
+      %th.story Story
+      %th.points Points
+      %th.date Started
+      %th.date Finished
+      %th.time Cycle Time
+    - @stories.each do |story|
+      %tr{:class => cycle('odd', 'even')}
+        %td.story
+          != format_title story.title
+        %td.points
+          = format_estimate story.estimate
+        %td.date
+          = format_date story.started
+        %td.date
+          = format_date story.finished
+        %td.time
+          = story.cycle_time

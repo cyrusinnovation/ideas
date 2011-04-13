@@ -10,13 +10,16 @@ class Story < ActiveRecord::Base
     all :conditions => "estimate IS NOT NULL AND hours_worked IS NOT NULL", :order => "finished DESC"
   end
 
+  def self.all_with_cycle_times
+    all :conditions => "started IS NOT NULL AND finished IS NOT NULL",
+        :order => "finished DESC"
+  end
+
   def self.average_hours_by_estimate
     Average.by_group all_with_burn_rates, :group => :estimate, :value => :hours_worked
   end
 
   def self.average_cycle_time_by_estimate
-    all_with_cycle_times = all :conditions => "estimate IS NOT NULL AND started IS NOT NULL AND finished IS NOT NULL",
-                               :order => "finished DESC"
     Average.by_group all_with_cycle_times, :group => :estimate, :value => :cycle_time
   end
 
@@ -68,7 +71,7 @@ class DateRange
 
   def filtered_range
     date_range = started..finished
-    filtered = date_range.select {|d| d.extend(DateExtensions).workday? }
+    filtered = date_range.select { |d| d.extend(DateExtensions).workday? }
     filtered.unshift(started).push(finished).uniq
   end
 end

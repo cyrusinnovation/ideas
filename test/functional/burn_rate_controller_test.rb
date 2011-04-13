@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class BurnRateControllerTest < ActionController::TestCase
-  fixtures :stories
-
   test "shows all stories where burn rate is known in reverse order finished" do
     Story.new(:title => "should appear", :estimate => 1, :hours_worked => 4, :finished => '2011-1-11').save
     Story.new(:title => "no estimate", :hours_worked => 4, :finished => '2011-1-12').save

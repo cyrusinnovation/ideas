@@ -9,14 +9,14 @@
   .section
     %h2 Cycle Time - how long will it take?
     %em
-      != average_sparkline @average_cycle_time
+      != smoothed_average_sparkline @average_cycle_time
       = @average_cycle_time.last(10).mean.round.to_i
-    work days for 15 points
+    work days per story
     = normal_range @average_cycle_time
   .section
     %h2 Burn Rate - how much will it cost?
     %em
-      != average_sparkline @average_burn_rate
+      != smoothed_average_sparkline @average_burn_rate
       = @average_burn_rate.last(10).mean.round.to_i
     development hours per point
-    = normal_range @average_cycle_time
+    = normal_range @average_burn_rate

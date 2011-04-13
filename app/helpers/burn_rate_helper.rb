@@ -15,7 +15,7 @@ module BurnRateHelper
     @averages_by_estimate[story.estimate]
   end
 
-  def sparkline group
+  def discrete_sparkline group
     content_tag 'span',
         "...",
         :sparkType => 'discrete',

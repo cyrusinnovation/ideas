@@ -21,7 +21,7 @@
         %td.newest_30
           != group.average.first(30).to_html
         %td
-          != sparkline group
+          != discrete_sparkline group
         %td.all
           != group.average.to_html
 

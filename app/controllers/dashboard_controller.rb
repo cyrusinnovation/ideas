@@ -6,8 +6,8 @@ class DashboardController < ApplicationController
         last(120) # only show the last ~4 months
     @average_throughput = Average.new throughput_history
 
-    cycle_time_history = CycleTimeCalculator.collect(Story).
-        map { |c| c.for_points(15) }.
+    cycle_time_history = Story.all_with_cycle_times.
+        map { |s| s.cycle_time }.
         reverse.
         last(120)
     @average_cycle_time = Average.new cycle_time_history
