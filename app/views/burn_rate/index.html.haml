@@ -36,8 +36,8 @@
       %th.burn_rate Burn Rate
       %th.status Hours vs. <br> Average
     - @stories.each do |story|
-      %tr{:class => "#{cycle('odd', 'even')} #{status(story)}",
-          :title => "average for #{story.estimate.to_r} point story is #{average(story).to_html_attribute}"}
+      %tr{:class => "#{cycle('odd', 'even')} #{story.status}",
+          :title => "average for #{story.estimate.to_r} point story is #{story.average.to_html_attribute}"}
         %td.story
           != format_title story.title
         %td.finished
@@ -49,4 +49,4 @@
         %td.burn_rate
           = story.burn_rate.round.to_i
         %td.status
-          != hours_vs_average story
+          != story.hours_vs_average

@@ -9,9 +9,10 @@ X Highlight outliers in single team view. -- not important, and we're ditching t
 
 WIP
 ---
+* Highlight outliers in full team view.
 
 TODO
 ----
-* Highlight outliers in full team view.
+* Show "All Stories" and "All Stories Per Point" averages
 * Review clarity of user interface.
 * Probably a good time to review code, too.
