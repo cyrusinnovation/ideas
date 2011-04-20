@@ -7,8 +7,9 @@ class Average
 
   attr_reader :values
 
-  def initialize values, options={}
+  def initialize values, options={}, &block
     values = values.map{|v| v.send(options[:value]) } if options.include?(:value)
+    values = values.map(&block) if block_given?
     @values = values.reject {|v| v.nil? }
   end
 

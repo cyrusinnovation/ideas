@@ -5,7 +5,7 @@ class EstimateGroups
     @averages_by_estimate = Average.by_group(stories, :group => :estimate, :value => :hours_worked)
     @groups = EstimateGroup.collect(@averages_by_estimate)
     @all_per_story = EstimateGroup.new("All - Story", Average.new(stories, :value => :hours_worked))
-    @all_per_point = EstimateGroup.new("All - Point", Average.new(stories, :value => :burn_rate))
+    @all_per_point = EstimateGroup.new("All - Point", Average.new(stories) {|s| s.hours_worked / s.estimate } )
     @groups << @all_per_story
     @groups << @all_per_point
   end
@@ -14,8 +14,8 @@ class EstimateGroups
     StoryVsEstimate.new(story, self)
   end
 
-  def each &whatToDoWithIt
-    @groups.each &whatToDoWithIt
+  def each &what_to_do_with_it
+    @groups.each &what_to_do_with_it
   end
 
   def average estimate

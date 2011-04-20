@@ -40,6 +40,11 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal 4.5, a.mean
   end
 
+  test "map a field using a block when averaging" do
+    a = Average.new([1, 2, 3, 4, 5]) {|n| n * 2}
+    assert_equal 6, a.mean
+  end
+
   test "collect groups of averages" do
     s1 = Story.new :estimate => 1, :started => Date.new(2011, 1, 15)
     s3 = Story.new :estimate => 3, :started => Date.new(2011, 1, 15)
