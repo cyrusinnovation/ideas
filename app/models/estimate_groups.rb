@@ -31,12 +31,12 @@ class StoryVsEstimate < DelegateClass(Story)
   end
 
   def status
-    difference = hours_vs_average
+    difference = variance_vs_average
     return nil if difference.nil?
     difference < 0 ? :overestimated : :underestimated
   end
 
-  def hours_vs_average
+  def variance_vs_average
     difference = hours_worked - average.mean
     difference.abs < average.standard_deviation ? nil : difference.round
   end

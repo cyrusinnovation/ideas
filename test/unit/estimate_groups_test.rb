@@ -20,17 +20,17 @@ class EstimateGroupsTest < ActiveSupport::TestCase
 
   test "compare a story to the average for its estimate" do
     underestimated_story = Story.new(:estimate => 1, :hours_worked => 12.5)
-    vs_average = @groups.story_vs_estimate(underestimated_story)
-    assert_equal 1, vs_average.estimate
-    assert_equal :underestimated, vs_average.status
-    assert_equal 5, vs_average.hours_vs_average
-    assert_equal 7.5, vs_average.average.mean
+    comparison = @groups.story_vs_estimate(underestimated_story)
+    assert_equal 1, comparison.estimate
+    assert_equal :underestimated, comparison.status
+    assert_equal 5, comparison.variance_vs_average
+    assert_equal 7.5, comparison.average.mean
   end
 
   test "rounds off hours vs average" do
     underestimated_story = Story.new(:estimate => 1, :hours_worked => 12)
     vs_average = @groups.story_vs_estimate(underestimated_story)
-    assert_equal 5, vs_average.hours_vs_average
+    assert_equal 5, vs_average.variance_vs_average
   end
 
   test "show the overall average per story" do
