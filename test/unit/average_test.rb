@@ -29,20 +29,15 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal '4 &plusmn; 3', a.to_html_attribute
   end
 
-  test "map to a field value when averaging" do
+  test "map values using a block when averaging" do
     s2 = Story.new :estimate => 2
     s3 = Story.new :estimate => 3
     s6 = Story.new :estimate => 6
     s7 = Story.new :estimate => 7
 
-    a = Average.new([s2, s3, s6, s7], :value => :estimate)
+    a = Average.new([s2, s3, s6, s7]) {|s| s.estimate }
 
     assert_equal 4.5, a.mean
-  end
-
-  test "map a field using a block when averaging" do
-    a = Average.new([1, 2, 3, 4, 5]) {|n| n * 2}
-    assert_equal 6, a.mean
   end
 
   test "collect groups of averages" do
@@ -51,7 +46,7 @@ class AverageTest < ActiveSupport::TestCase
     s5 = Story.new :estimate => 5, :started => Date.new(2011, 2, 23)
     s7 = Story.new :estimate => 7, :started => Date.new(2011, 2, 23)
 
-    a = Average.by_group [s1, s3, s5, s7], :group => :started, :value => :estimate
+    a = Average.by_group([s1, s3, s5, s7], :group => :started) {|s| s.estimate }
 
     assert_equal 2, a[Date.new(2011, 1, 15)].mean
     assert_equal 6, a[Date.new(2011, 2, 23)].mean

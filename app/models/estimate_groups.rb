@@ -2,10 +2,10 @@ class EstimateGroups
   attr_reader :all_per_story, :all_per_point
 
   def initialize stories
-    @averages_by_estimate = Average.by_group(stories, :group => :estimate, :value => :hours_worked)
+    @averages_by_estimate = Average.by_group(stories, :group => :estimate) { |s| s.hours_worked }
     @groups = EstimateGroup.collect(@averages_by_estimate)
-    @all_per_story = EstimateGroup.new("All - Story", Average.new(stories, :value => :hours_worked))
-    @all_per_point = EstimateGroup.new("All - Point", Average.new(stories) {|s| s.hours_worked / s.estimate } )
+    @all_per_story = EstimateGroup.new("All - Story", Average.new(stories) { |s| s.hours_worked })
+    @all_per_point = EstimateGroup.new("All - Point", Average.new(stories) { |s| s.hours_worked / s.estimate })
     @groups << @all_per_story
     @groups << @all_per_point
   end

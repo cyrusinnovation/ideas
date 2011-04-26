@@ -1,14 +1,13 @@
 class Average
-  def self.by_group values, options={}
+  def self.by_group values, options={}, &block
     grouped_values = values.group_by {|v| v.send(options[:group]) }
-    averaged_groups = grouped_values.map {|k, v| [k, Average.new(v, options)] }
+    averaged_groups = grouped_values.map {|k, v| [k, Average.new(v, &block)] }
     Hash[averaged_groups]
   end
 
   attr_reader :values
 
-  def initialize values, options={}, &block
-    values = values.map{|v| v.send(options[:value]) } if options.include?(:value)
+  def initialize values, &block
     values = values.map(&block) if block_given?
     @values = values.reject {|v| v.nil? }
   end
@@ -38,7 +37,6 @@ class Average
   end
 
   def variance
-    mean = self.mean
     sum_of_squared_deviations = @values.reduce(0) {|sum, value| sum + (value - mean)**2 }
     sum_of_squared_deviations / count
   end

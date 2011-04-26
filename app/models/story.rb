@@ -16,11 +16,11 @@ class Story < ActiveRecord::Base
   end
 
   def self.average_hours_by_estimate
-    Average.by_group all_with_burn_rates, :group => :estimate, :value => :hours_worked
+    Average.by_group(all_with_burn_rates, :group => :estimate) {|s| s.hours_worked }
   end
 
   def self.average_cycle_time_by_estimate
-    Average.by_group all_with_cycle_times, :group => :estimate, :value => :cycle_time
+    Average.by_group(all_with_cycle_times, :group => :estimate) {|s| s.cycle_time }
   end
 
   def team_name
