@@ -9,7 +9,7 @@ class EstimateGroupsTest < ActiveSupport::TestCase
         Story.new(:estimate => 1, :hours_worked => 10),
         Story.new(:estimate => 0.5, :hours_worked => 3),
     ]
-    @groups = EstimateGroups.new(@stories)
+    @groups = EstimateGroups.new(@stories) { |s| s.hours_worked }
   end
 
   test "group stories by estimate" do
@@ -43,5 +43,25 @@ class EstimateGroupsTest < ActiveSupport::TestCase
     assert_equal 31.0/5, @groups.all_per_point.average.mean
     # NOT (12 + 5 + 20 + 10 + 3) / (2 + 1 + 5 + 1 + .5)... but maybe that would be better?
     assert_not_equal 50/9.5, @groups.all_per_point.average.mean
+  end
+
+  test "average cycle time instead of hours worked" do
+    # note cycle times of these stories match the hours from the original ones
+    @stories = [
+        Story.new(:estimate => 2, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-19'),
+        Story.new(:estimate => 1, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-7'),
+        Story.new(:estimate => 5, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-31'),
+        Story.new(:estimate => 1, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-14'),
+        Story.new(:estimate => 0.5, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-5'),
+    ]
+    assert_equal [12, 5, 20, 10, 3], @stories.map{|s| s.cycle_time },
+                 "for convenience, we're using stories whose cycle times match the hours from the original setup"
+    @groups = EstimateGroups.new(@stories) { |s| s.cycle_time }
+    assert_equal 10, @groups.all_per_story.average.mean
+    assert_equal 31.0/5, @groups.all_per_point.average.mean
+    underestimated_story = Story.new(:estimate => 1, :hours_worked => 5,
+                                     :started => '2011-1-3', :finished => '2011-1-19')
+    vs_average = @groups.story_vs_estimate(underestimated_story)
+    assert_equal 5, vs_average.variance_vs_average
   end
 end
