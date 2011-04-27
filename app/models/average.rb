@@ -21,18 +21,22 @@ class Average
   end
 
   def mean
+    return nil if @values.empty?
     @values.reduce(:+) / count
   end
 
   def standard_deviation
+    return nil if @values.empty?
     Math.sqrt variance
   end
 
   def normal_range_min
+    return nil if @values.empty?
     mean - standard_deviation
   end
 
   def normal_range_max
+    return nil if @values.empty?
     mean + standard_deviation
   end
 
@@ -50,10 +54,12 @@ class Average
   end
 
   def to_html
+    return nil if @values.empty?
     '<span title="%.2f &plusmn; %.2f">%.0f &plusmn; %.0f</span>' % [mean, standard_deviation, mean, standard_deviation]
   end
 
   def to_html_attribute
+    return nil if @values.empty?
     '%.0f &plusmn; %.0f' % [mean, standard_deviation]
   end
 end

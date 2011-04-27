@@ -67,4 +67,14 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal 4.5, a.first(700).mean, "if you ask for more it just stops at the full list"
     assert_equal (16.0/3), a.last(3).mean, "last works, as well as first"
   end
+
+  test "for an average of an empty list, all properties are nil" do
+    a = Average.new([])
+    assert_equal nil, a.mean
+    assert_equal nil, a.standard_deviation
+    assert_equal nil, a.normal_range_min
+    assert_equal nil, a.normal_range_max
+    assert_equal nil, a.to_html
+    assert_equal nil, a.to_html_attribute
+  end
 end

@@ -6,7 +6,8 @@ class EstimateGroups
     @averages_by_estimate = Average.by_group(stories, :group => :estimate, &value_block)
     @groups = EstimateGroup.collect(@averages_by_estimate)
     @all_per_story = EstimateGroup.new("All - Story", Average.new(stories, &value_block))
-    @all_per_point = EstimateGroup.new("All - Point", Average.new(stories) { |s| value_block.call(s) / s.estimate })
+    stories_with_estimates = stories.reject { |s| s.estimate.nil? }
+    @all_per_point = EstimateGroup.new("All - Point", Average.new(stories_with_estimates) { |s| value_block.call(s) / s.estimate })
     @groups << @all_per_story
     @groups << @all_per_point
   end
