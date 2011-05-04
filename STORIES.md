@@ -34,7 +34,6 @@ TODO
 * Show a + in Hours Vs. Average when story is over average.
 * Make a much better date entry control, with an easy way to select today's date.
 * Record today as started or finished date for a story in one click.
-* Show sparkline on 30-story history, not full history.
 
 PRODUCTIZATION
 --------------

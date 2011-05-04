@@ -6,10 +6,8 @@
         Estimate <br> Group
       %th.newest_10
         Newest 10
-      %th.newest_30
+      %th.newest_30{:colspan => 2}
         Newest 30
-      %th
-        History
       %th.all
         All
     - @estimate_groups.each do |group|
@@ -19,9 +17,9 @@
         %td.newest_10
           != group.average.first(10).to_html
         %td.newest_30
-          != group.average.first(30).to_html
-        %td
           != discrete_sparkline group
+        %td.newest_30
+          != group.average.first(30).to_html
         %td.all
           != group.average.to_html
 
