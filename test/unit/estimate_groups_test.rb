@@ -65,11 +65,9 @@ class EstimateGroupsTest < ActiveSupport::TestCase
     assert_equal 5, vs_average.variance_vs_average
   end
 
-  test "story vs average shows blank status when no earlier stories have same estimate" do
+  test "uses the average for all stories as the point of comparison for stories with unique estimates" do
     unique_story = Story.new(:estimate => 15, :hours_worked => 78)
     vs_average = @groups.story_vs_estimate(unique_story)
-    assert_nil vs_average.status, "status"
-    assert_nil vs_average.variance_vs_average, "variance"
-    assert_nil vs_average.average.mean, "average"
+    assert_equal 10, vs_average.average.mean, "average of all stories"
   end
 end

@@ -14,10 +14,10 @@ DONE
 * "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
+* Show average cycle times per estimate group, and highlight outliers.
 
 WIP
 ---
-* Show average cycle times per estimate group, and highlight outliers.
 
 BUGFIXES
 --------
@@ -65,3 +65,6 @@ SOMEDAY/MAYBE
 * Track states other than started and finished.
 * Estimation view based on cycle time, so that people don't have to enter hours.
 * Option to turn off estimates and recording of hours worked.
+* Show wider margin of error for averages with fewer data points.
+* Show stories in a consistent order across different screens.
+* Include stories without estimates in "Burn Rate" view (comparing against overall typical hours worked).

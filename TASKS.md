@@ -9,12 +9,12 @@ X Highlight outliers in single team view. -- not important, and we're ditching t
 * Highlight outliers in full team view.
 * Show "All Stories" and "All Stories Per Point" averages
 * Show sparkline on 30-story history, not full history.
+* Review clarity of user interface.
+* Probably a good time to review code, too.
+* Quick spike -- can stories without estimates be compared against the average for all stories?
 
 WIP
 ---
 
-TODO
+ TODO
 ----
-* Review clarity of user interface.
-* Probably a good time to review code, too.
-* Quick spike -- can stories without estimates be compared against the average for all stories?

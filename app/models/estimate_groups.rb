@@ -21,7 +21,7 @@ class EstimateGroups
   end
 
   def average estimate
-    return Average.empty unless @averages_by_estimate.has_key?(estimate)
+    return @all_per_story.average unless @averages_by_estimate.has_key?(estimate)
     @averages_by_estimate[estimate]
   end
 end
