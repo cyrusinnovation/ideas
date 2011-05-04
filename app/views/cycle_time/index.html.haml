@@ -34,8 +34,10 @@
       %th.date Started
       %th.date Finished
       %th.time Cycle Time
+      %th.status Days vs. Average
     - @stories.each do |story|
-      %tr{:class => cycle('odd', 'even')}
+      %tr{:class => "#{cycle('odd', 'even')} #{story.status}",
+          :title => "average for #{format_estimate(story.estimate)} point story is #{story.average.to_html_attribute}"}
         %td.story
           != format_title story.title
         %td.points
@@ -46,3 +48,5 @@
           = format_date story.finished
         %td.time
           = story.cycle_time
+        %td.status
+          != story.variance_vs_average

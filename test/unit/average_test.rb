@@ -77,4 +77,9 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal nil, a.to_html
     assert_equal nil, a.to_html_attribute
   end
+
+  test "recognizes empty averages" do
+    assert Average.new([]).empty?, "empty"
+    assert !Average.new([1]).empty?, "not empty"
+  end
 end

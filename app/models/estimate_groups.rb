@@ -21,6 +21,7 @@ class EstimateGroups
   end
 
   def average estimate
+    return Average.empty unless @averages_by_estimate.has_key?(estimate)
     @averages_by_estimate[estimate]
   end
 end
@@ -34,17 +35,25 @@ class StoryVsEstimate < DelegateClass(Story)
   end
 
   def status
+    return nil if empty_average?
     difference = variance_vs_average
     return nil if difference.nil?
     difference < 0 ? :overestimated : :underestimated
   end
 
   def variance_vs_average
+    return nil if empty_average?
     difference = @value_block.call(@story) - average.mean
     difference.abs < average.standard_deviation ? nil : difference.round
   end
 
   def average
     @estimate_groups.average(estimate)
+  end
+
+  private
+
+  def empty_average?
+    average.empty?
   end
 end

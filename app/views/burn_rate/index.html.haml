@@ -37,7 +37,7 @@
       %th.status Hours vs. <br> Average
     - @stories.each do |story|
       %tr{:class => "#{cycle('odd', 'even')} #{story.status}",
-          :title => "average for #{story.estimate.to_r} point story is #{story.average.to_html_attribute}"}
+          :title => "average for #{format_estimate(story.estimate)} point story is #{story.average.to_html_attribute}"}
         %td.story
           != format_title story.title
         %td.finished

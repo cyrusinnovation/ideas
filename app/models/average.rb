@@ -5,6 +5,10 @@ class Average
     Hash[averaged_groups]
   end
 
+  def self.empty
+    Average.new([])
+  end
+
   attr_reader :values
 
   def initialize values, &block
@@ -61,5 +65,9 @@ class Average
   def to_html_attribute
     return nil if @values.empty?
     '%.0f &plusmn; %.0f' % [mean, standard_deviation]
+  end
+
+  def empty?
+    @values.empty?
   end
 end
