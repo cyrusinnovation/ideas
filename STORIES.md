@@ -22,7 +22,6 @@ WIP
 BUGFIXES
 --------
 * Apply holidays when measuring throughput.
-* Better measuring of cumulative cycle times when multiple stories start or end on the same day.
 
 TODO
 ----
