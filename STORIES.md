@@ -27,7 +27,6 @@ BUGFIXES
 TODO
 ----
 * Estimation view based on fixed time per point, rather than on past averages.
-* Show more than three stories in estimation view.
 * Tags on stories.
 * Estimate the remaining work in a tag, or set of tags.
 * Drop tracking of teams.
@@ -35,27 +34,20 @@ TODO
 * Show a + in Hours Vs. Average when story is over average.
 * Make a much better date entry control, with an easy way to select today's date.
 * Record today as started or finished date for a story in one click.
-* Make a nicer printable version of the estimation reference story list.
+* Show sparkline on 30-story history, not full history.
 
 PRODUCTIZATION
 --------------
-* Upgrade to Rails 3.
 * Migrate to Postgres.
 * Deploy on Heroku.
-* Introduce end-to-end testing.
-* Migrate to Rspec.
-* Multiple projects.
-* Export all data for a project.
 * Show something useful (and don't bomb) for new projects without any stories defined.
 * Multiple users.
 * The website should show something to people who aren't logged in, to convince them to join.
-* More flexible import.
-* Track states other than started and finished.
-* Estimation view based on cycle time, so that people don't have to enter hours.
-* Option to turn off estimates and recording of hours worked.
 
 SOMEDAY/MAYBE
 -------------
+* Show more than three stories in estimation view.
+* Make a nicer printable version of the estimation reference story list.
 * "Work In Progress" view.
 * Show statistics on groups of stories by tag.
 * Flag stories that had long or short cycle times compared to hours worked.
@@ -65,3 +57,12 @@ SOMEDAY/MAYBE
 * Show me when I have enough data for a statistically significant sample.
 * Reorder upcoming stories.
 * Compact estimation view.
+* Upgrade to Rails 3.
+* Introduce end-to-end testing.
+* Migrate to Rspec.
+* Multiple projects.
+* Export all data for a project.
+* More flexible import.
+* Track states other than started and finished.
+* Estimation view based on cycle time, so that people don't have to enter hours.
+* Option to turn off estimates and recording of hours worked.
