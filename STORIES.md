@@ -22,14 +22,12 @@ WIP
 
 TODO
 ----
-* Estimation view based on fixed time per point, rather than on past averages.
-* Tags on stories.
-* Estimate the remaining work in a tag, or set of tags.
-* Drop tracking of teams.
-* Prefer recent stories in the estimation view.
 * Show a + in Hours Vs. Average when story is over average.
-* Make a much better date entry control, with an easy way to select today's date.
-* Record today as started or finished date for a story in one click.
+* Estimation view based on fixed time per point, rather than on past averages.
+* Prefer recent stories in the estimation view.
+* Easily set started and finished dates for stories.
+* Show more than three stories in estimation view.
+
 
 PRODUCTIZATION
 --------------
@@ -41,8 +39,9 @@ PRODUCTIZATION
 
 SOMEDAY/MAYBE
 -------------
+* Estimate the remaining work in a tag, or set of tags.
+* Drop tracking of teams.
 * Some sort of kaizen view? Or just in general reorganize along kaizen-y lines?
-* Show more than three stories in estimation view.
 * Make a nicer printable version of the estimation reference story list.
 * "Work In Progress" view.
 * Show statistics on groups of stories by tag.
@@ -54,8 +53,8 @@ SOMEDAY/MAYBE
 * Reorder upcoming stories.
 * Compact estimation view.
 * Upgrade to Rails 3.
-* Introduce end-to-end testing.
 * Migrate to Rspec.
+* Introduce end-to-end testing.
 * Multiple projects.
 * Export all data for a project.
 * More flexible import.
