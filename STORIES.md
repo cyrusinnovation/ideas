@@ -15,10 +15,10 @@ DONE
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Show average cycle times per estimate group, and highlight outliers.
+* Apply holidays when measuring throughput.
 
 WIP
 ---
-* Apply holidays when measuring throughput.
 
 TODO
 ----

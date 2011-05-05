@@ -15,7 +15,7 @@ class Throughput
 
   def initialize date
     @date = date
-    @start_date = date - SPAN
+    @start_date = DateRange.days_up_to(date, 15).started
   end
 
   def stories
