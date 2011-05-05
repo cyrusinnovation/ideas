@@ -47,4 +47,4 @@
         %td.burn_rate
           = story.burn_rate.round.to_i
         %td.status
-          != story.variance_vs_average
+          != format_variance story.variance_vs_average

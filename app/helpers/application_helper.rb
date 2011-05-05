@@ -21,4 +21,9 @@ module ApplicationHelper
     return "" if date.nil?
     "#{date.month}/#{date.day}/#{date.year}"
   end
+
+  def format_variance variance
+    return nil if variance.nil?
+    variance > 0 ? "+#{variance}" : variance
+  end
 end

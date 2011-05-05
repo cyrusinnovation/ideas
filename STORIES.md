@@ -16,13 +16,13 @@ DONE
 * "Dashboard" or "Information Radiator" view with a few key statistics.
 * Show average cycle times per estimate group, and highlight outliers.
 * Apply holidays when measuring throughput.
+* Show a + in Hours Vs. Average when story is over average.
 
 WIP
 ---
 
 TODO
 ----
-* Show a + in Hours Vs. Average when story is over average.
 * Estimation view based on fixed time per point, rather than on past averages.
 * Prefer recent stories in the estimation view.
 * Easily set started and finished dates for stories.
