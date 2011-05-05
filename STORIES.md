@@ -18,9 +18,6 @@ DONE
 
 WIP
 ---
-
-BUGFIXES
---------
 * Apply holidays when measuring throughput.
 
 TODO
@@ -44,6 +41,7 @@ PRODUCTIZATION
 
 SOMEDAY/MAYBE
 -------------
+* Some sort of kaizen view? Or just in general reorganize along kaizen-y lines?
 * Show more than three stories in estimation view.
 * Make a nicer printable version of the estimation reference story list.
 * "Work In Progress" view.
