@@ -1,13 +1,25 @@
 class EstimationViewController < ApplicationController
+  TARGET_BURN_RATE = 16
+
   def index
     averages = Story.average_hours_by_estimate
     @groups = [
-        EstimationStory.find_examples(:estimate => 5, :average_time => averages[BigDecimal.new("5")]),
-        EstimationStory.find_examples(:estimate => 3, :average_time => averages[BigDecimal.new("3")]),
-        EstimationStory.find_examples(:estimate => 2, :average_time => averages[BigDecimal.new("2")]),
-        EstimationStory.find_examples(:estimate => 1, :average_time => averages[BigDecimal.new("1")]),
-        EstimationStory.find_examples(:estimate => 0.5, :average_time => averages[BigDecimal.new("0.5")]),
-        EstimationStory.find_examples(:estimate => 0.25, :average_time => averages[BigDecimal.new("0.25")]),
+        examples(averages, 5),
+        examples(averages, 3),
+        examples(averages, 2),
+        examples(averages, 1),
+        examples(averages, 0.5),
+        examples(averages, 0.25),
     ]
+  end
+
+  private
+
+  def examples(averages, estimate)
+    target = TARGET_BURN_RATE * estimate
+    EstimationStory.find_examples(:estimate => estimate, :average_time => averages[BigDecimal.new("#{estimate}")],
+                                  :target => target,
+                                  :min => target * 0.75,
+                                  :max => target * 1.25)
   end
 end

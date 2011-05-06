@@ -12,7 +12,7 @@ class EstimationStoryTest < ActiveSupport::TestCase
   end
 
   test "finds stories with hours in range of average" do
-    examples = EstimationStory.find_examples :estimate => 2, :average_time => @average
+    examples = EstimationStory.find_examples :estimate => 2, :average_time => @average, :target => 45, :min => 40, :max => 50
     assert_contains examples, @middle
     assert_contains examples, @floor
     assert_contains examples, @ceiling
@@ -24,7 +24,7 @@ class EstimationStoryTest < ActiveSupport::TestCase
     closer = Story.new :title => 'closer', :estimate => 2, :hours_worked => 46
     save_all close, closer
 
-    examples = EstimationStory.find_examples :estimate => 2, :average_time => @average
+    examples = EstimationStory.find_examples :estimate => 2, :average_time => @average, :target => 45, :min => 40, :max => 50
 
     assert_contains examples, close
     assert_contains examples, closer
@@ -33,7 +33,7 @@ class EstimationStoryTest < ActiveSupport::TestCase
   end
 
   test "shows both original estimate and reference estimate based on actual time" do
-    examples = EstimationStory.find_examples :estimate => 17, :average_time => @average
+    examples = EstimationStory.find_examples :estimate => 17, :average_time => @average, :target => 45, :min => 40, :max => 50
     example = examples[0]
 
     assert_equal 17, example.estimate, "reference estimate"
@@ -41,7 +41,7 @@ class EstimationStoryTest < ActiveSupport::TestCase
   end
 
   test "fragment of HTML to indicate if a story was over or underestimated" do
-    examples = EstimationStory.find_examples :estimate => 17, :average_time => @average
+    examples = EstimationStory.find_examples :estimate => 17, :average_time => @average, :target => 45, :min => 40, :max => 50
     example = examples[0]
 
     assert_equal "<span class='under'>(underestimated at 2)</span>", example.under_or_over_html
