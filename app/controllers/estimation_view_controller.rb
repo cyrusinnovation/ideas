@@ -17,7 +17,7 @@ class EstimationViewController < ApplicationController
 
   def examples(averages, estimate)
     target = TARGET_BURN_RATE * estimate
-    EstimationStory.find_examples(:estimate => estimate, :average_time => averages[BigDecimal.new("#{estimate}")],
+    EstimationStory.find_examples(:estimate => estimate,
                                   :target => target,
                                   :min => target * 0.75,
                                   :max => target * 1.25)

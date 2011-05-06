@@ -17,10 +17,10 @@ DONE
 * Show average cycle times per estimate group, and highlight outliers.
 * Apply holidays when measuring throughput.
 * Show a + in Hours Vs. Average when story is over average.
+* Estimation view based on fixed time per point, rather than on past averages.
 
 WIP
 ---
-* Estimation view based on fixed time per point, rather than on past averages.
 
 TODO
 ----

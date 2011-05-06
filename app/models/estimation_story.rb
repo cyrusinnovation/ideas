@@ -2,13 +2,14 @@ class EstimationStory
   attr_reader :title, :estimate, :original
 
   def self.find_examples(options)
-    average_time = options[:average_time]
-    low = average_time.normal_range_min
-    high = average_time.normal_range_max
+    estimate = options[:estimate]
+    target = options[:target]
+    low = options[:min]
+    high = options[:max]
     stories = Story.find :all, :conditions => ["hours_worked >= ? AND hours_worked <= ?", low, high]
-    stories = stories.sort_by {|story| (story.hours_worked - average_time.mean).abs }
+    stories = stories.sort_by {|story| (story.hours_worked - target).abs }
     stories.first(3).map do |story|
-      EstimationStory.new story.title, options[:estimate], story.estimate
+      EstimationStory.new story.title, estimate, story.estimate
     end
   end
 
