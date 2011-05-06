@@ -20,14 +20,14 @@ DONE
 
 WIP
 ---
+* Estimation view based on fixed time per point, rather than on past averages.
 
 TODO
 ----
-* Estimation view based on fixed time per point, rather than on past averages.
 * Prefer recent stories in the estimation view.
 * Easily set started and finished dates for stories.
 * Show more than three stories in estimation view.
-
+* Import and export data in new standard format.
 
 PRODUCTIZATION
 --------------

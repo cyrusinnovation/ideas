@@ -3,8 +3,8 @@ class EstimationStory
 
   def self.find_examples(options)
     average_time = options[:average_time]
-    low = average_time.mean - average_time.standard_deviation
-    high = average_time.mean + average_time.standard_deviation
+    low = average_time.normal_range_min
+    high = average_time.normal_range_max
     stories = Story.find :all, :conditions => ["hours_worked >= ? AND hours_worked <= ?", low, high]
     stories = stories.sort_by {|story| (story.hours_worked - average_time.mean).abs }
     stories.first(3).map do |story|
