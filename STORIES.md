@@ -28,6 +28,7 @@ TODO
 * Easily set started and finished dates for stories.
 * Show more than three stories in estimation view.
 * Import and export data in new standard format.
+* Make throughput page faster when there is a long history. Paginate, maybe?
 
 PRODUCTIZATION
 --------------
