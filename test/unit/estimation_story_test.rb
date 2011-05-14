@@ -17,37 +17,40 @@ class EstimationStoryTest < ActiveSupport::TestCase
 
   def setup
     @average = Average.new [40, 50]
-    @too_low = Story.new :title => 'too low', :estimate => 1, :hours_worked => 39, :finished => Date.today
-    @too_high = Story.new :title => 'too high', :estimate => 3, :hours_worked => 51, :finished => Date.today
-    @floor = Story.new :title => 'floor', :estimate => 2, :hours_worked => 40, :finished => Date.today
-    @ceiling = Story.new :title => 'ceiling', :estimate => 2, :hours_worked => 50, :finished => Date.today
-    @middle = Story.new :title => 'middle', :estimate => 2, :hours_worked => 45, :finished => Date.today
-    save_all @too_low, @too_high, @floor, @ceiling, @middle
+    @too_low = Story.create :title => 'too low', :estimate => 1, :hours_worked => 39, :finished => Date.today
+    @too_high = Story.create :title => 'too high', :estimate => 3, :hours_worked => 51, :finished => Date.today
+    @floor = Story.create :title => 'floor', :estimate => 2, :hours_worked => 40, :finished => Date.today
+    @ceiling = Story.create :title => 'ceiling', :estimate => 2, :hours_worked => 50, :finished => Date.today
+    @middle = Story.create :title => 'middle', :estimate => 2, :hours_worked => 45, :finished => Date.today
   end
 
   test "finds stories with hours in range of average" do
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50
+    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
     assert_contains examples, @middle
     assert_contains examples, @floor
     assert_contains examples, @ceiling
     assert_length 3, examples
   end
 
-  test "finds only the three closest examples" do
-    close = Story.new :title => 'close', :estimate => 2, :hours_worked => 47, :finished => Date.today
-    closer = Story.new :title => 'closer', :estimate => 2, :hours_worked => 46, :finished => Date.today
-    save_all close, closer
+  test "finds closest examples up to the specified count" do
+    close = Story.create :title => 'close', :estimate => 2, :hours_worked => 47, :finished => Date.today
+    closer = Story.create :title => 'closer', :estimate => 2, :hours_worked => 46, :finished => Date.today
+    sorta_close = Story.create :title => 'sorta close', :estimate => 2, :hours_worked => 48, :finished => Date.today
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50
+    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     assert_contains examples, close
     assert_contains examples, closer
     assert_contains examples, @middle
     assert_length 3, examples
+
+    more_examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 4
+    assert_length 4, more_examples
+    assert_contains more_examples, sorta_close
   end
 
   test "shows both original estimate and reference estimate based on actual time" do
-    examples = EstimationStory.find_examples :estimate => 17, :target => 45, :min => 40, :max => 50
+    examples = EstimationStory.find_examples :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 3
     example = examples[0]
 
     assert_equal 17, example.estimate, "reference estimate"
@@ -55,7 +58,7 @@ class EstimationStoryTest < ActiveSupport::TestCase
   end
 
   test "fragment of HTML to indicate if a story was over or underestimated" do
-    examples = EstimationStory.find_examples :estimate => 17, :target => 45, :min => 40, :max => 50
+    examples = EstimationStory.find_examples :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 3
     example = examples[0]
 
     assert_equal "<span class='under'>(underestimated at 2)</span>", example.under_or_over_html
@@ -71,10 +74,6 @@ class EstimationStoryTest < ActiveSupport::TestCase
 
   def assert_length expected_length, list
     assert_equal expected_length, list.size, "List [#{list.join ', '}]"
-  end
-
-  def save_all *stories
-    stories.each { |s| s.save }
   end
 end
 
@@ -95,7 +94,7 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
         Story.create(:title => 'newer 3', :hours_worked => MIN + 1, :finished => NEW_DATE)
     ]
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50
+    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     assert_does_not_contain examples, @accurate_but_old
     @newer_but_less_accurate_stories.each { |story| assert_contains examples, story }
@@ -109,7 +108,7 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
     ]
     @newer_story_out_of_range = Story.create(:title => 'newer out', :hours_worked => MIN - 1, :finished => NEW_DATE)
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50
+    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     @newer_but_less_accurate_stories.each { |story| assert_contains examples, story }
     assert_contains examples, @accurate_but_old
@@ -127,7 +126,7 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
         Story.create(:title => 'older 2', :hours_worked => MIN+1, :finished => OLD_DATE),
     ]
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50
+    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     @newer_but_less_accurate_stories.each { |story| assert_contains examples, story }
     assert_contains examples, @most_accurate_old_story

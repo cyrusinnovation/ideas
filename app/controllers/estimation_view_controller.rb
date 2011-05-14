@@ -20,6 +20,7 @@ class EstimationViewController < ApplicationController
     EstimationStory.find_examples(:estimate => estimate,
                                   :target => target,
                                   :min => target * 0.75,
-                                  :max => target * 1.25)
+                                  :max => target * 1.25,
+                                  :count => 5)
   end
 end

@@ -6,11 +6,12 @@ class EstimationStory
     target = options[:target]
     low = options[:min]
     high = options[:max]
+    count = options[:count]
     stories = closest target, ["hours_worked >= ? AND hours_worked <= ? AND finished >= ?", low, high, Date.today - 60]
-    if stories.size < 3
+    if stories.size < count
       stories += closest target, ["hours_worked >= ? AND hours_worked <= ?", low, high]
     end
-    stories.first(3).map do |story|
+    stories.first(count).map do |story|
       EstimationStory.new story.title, estimate, story.estimate
     end
   end
