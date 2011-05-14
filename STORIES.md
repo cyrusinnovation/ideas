@@ -18,13 +18,13 @@ DONE
 * Apply holidays when measuring throughput.
 * Show a + in Hours Vs. Average when story is over average.
 * Estimation view based on fixed time per point, rather than on past averages.
+* Prefer recent stories in the estimation view.
 
 WIP
 ---
 
 TODO
 ----
-* Prefer recent stories in the estimation view.
 * Easily set started and finished dates for stories.
 * Show more than three stories in estimation view.
 * Import and export data in new standard format.

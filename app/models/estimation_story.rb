@@ -6,11 +6,19 @@ class EstimationStory
     target = options[:target]
     low = options[:min]
     high = options[:max]
-    stories = Story.find :all, :conditions => ["hours_worked >= ? AND hours_worked <= ?", low, high]
-    stories = stories.sort_by {|story| (story.hours_worked - target).abs }
+    stories = closest target, ["hours_worked >= ? AND hours_worked <= ? AND finished >= ?", low, high, Date.today - 60]
+    if stories.size < 3
+      stories += closest target, ["hours_worked >= ? AND hours_worked <= ?", low, high]
+    end
     stories.first(3).map do |story|
       EstimationStory.new story.title, estimate, story.estimate
     end
+  end
+
+  def self.closest(target, conditions)
+    stories = Story.find :all, :conditions => conditions
+    stories = stories.sort_by { |story| (story.hours_worked - target).abs }
+    stories
   end
 
   def initialize title, estimate, original
