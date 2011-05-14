@@ -23,13 +23,16 @@ DONE
 
 WIP
 ---
+* Easily set started and finished dates for stories.
 
 TODO
 ----
-* Easily set started and finished dates for stories.
-* Import and export data in new standard format.
 * Make throughput page faster when there is a long history. Paginate, maybe?
-* Scroll to the right to see more stories in the estimation view.
+* Show wider margin of error for averages with fewer data points.
+* Compact/printable estimation view.
+* Leave a comment summing up each completed story and how it went.
+* Leave notes on particular days summing up how they went or why they were weird.
+* Show a detailed view of what happened over the past three weeks.
 
 PRODUCTIZATION
 --------------
@@ -41,19 +44,18 @@ PRODUCTIZATION
 
 SOMEDAY/MAYBE
 -------------
+* Show statistics on groups of stories by tag.
+* Import and export data in new standard format.
+* Scroll to the right to see more stories in the estimation view.
 * Estimate the remaining work in a tag, or set of tags.
 * Drop tracking of teams.
 * Some sort of kaizen view? Or just in general reorganize along kaizen-y lines?
 * Make a nicer printable version of the estimation reference story list.
 * "Work In Progress" view.
-* Show statistics on groups of stories by tag.
 * Flag stories that had long or short cycle times compared to hours worked.
-* Leave a comment summing up each completed story and how it went.
 * Track code quality metrics.
 * Group averages by tags rather than estimates.
-* Show me when I have enough data for a statistically significant sample.
 * Reorder upcoming stories.
-* Compact estimation view.
 * Upgrade to Rails 3.
 * Migrate to Rspec.
 * Introduce end-to-end testing.
@@ -63,6 +65,5 @@ SOMEDAY/MAYBE
 * Track states other than started and finished.
 * Estimation view based on cycle time, so that people don't have to enter hours.
 * Option to turn off estimates and recording of hours worked.
-* Show wider margin of error for averages with fewer data points.
 * Show stories in a consistent order across different screens.
 * Include stories without estimates in "Burn Rate" view (comparing against overall typical hours worked).
