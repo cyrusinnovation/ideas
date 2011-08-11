@@ -5,6 +5,8 @@ class EstimationViewController < ApplicationController
     @count = params.fetch(:count, 3).to_i
     @count = 1 if @count < 1
     @groups = [
+        examples(13),
+        examples(8),
         examples(5),
         examples(3),
         examples(2),
@@ -20,8 +22,8 @@ class EstimationViewController < ApplicationController
     target = TARGET_BURN_RATE * estimate
     EstimationStory.find_examples(:estimate => estimate,
                                   :target => target,
-                                  :min => target * 0.75,
-                                  :max => target * 1.25,
+                                  :min => target * 0.8,
+                                  :max => target * 1.2,
                                   :count => @count)
   end
 end
