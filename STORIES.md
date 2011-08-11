@@ -23,42 +23,35 @@ DONE
 
 WIP
 ---
-* Easily set started and finished dates for stories.
+
 
 TODO
 ----
-* Make throughput page faster when there is a long history. Paginate, maybe?
-* Show wider margin of error for averages with fewer data points.
+* Drop tracking of teams.
 * Compact/printable estimation view.
-* Leave a comment summing up each completed story and how it went.
-* Leave notes on particular days summing up how they went or why they were weird.
-* Show a detailed view of what happened over the past three weeks.
-
-PRODUCTIZATION
---------------
-* Migrate to Postgres.
-* Deploy on Heroku.
-* Show something useful (and don't bomb) for new projects without any stories defined.
-* Multiple users.
-* The website should show something to people who aren't logged in, to convince them to join.
+* Keyword search in estimation view.
+* Group stories into projects.
+* Mark projects closed.
+* Keep track of upcoming stories in a project.
+* Export a project to Rabu.
+* Show a detailed "kaizen" view of what happened over the past three weeks.
+* Make throughput page faster when there is a long history. Paginate, maybe?
 
 SOMEDAY/MAYBE
 -------------
+* Migrate to Postgres and deploy on Heroku.
+* Have a way for a new user to start using Pointilist.
+* Leave a comment summing up each completed story and how it went.
+* Leave notes on particular days summing up how they went or why they were weird.
+* Easily set started and finished dates for stories.
 * Show statistics on groups of stories by tag.
 * Import and export data in new standard format.
 * Scroll to the right to see more stories in the estimation view.
-* Estimate the remaining work in a tag, or set of tags.
-* Drop tracking of teams.
-* Some sort of kaizen view? Or just in general reorganize along kaizen-y lines?
-* Make a nicer printable version of the estimation reference story list.
-* "Work In Progress" view.
 * Flag stories that had long or short cycle times compared to hours worked.
 * Track code quality metrics.
 * Group averages by tags rather than estimates.
-* Reorder upcoming stories.
 * Upgrade to Rails 3.
 * Migrate to Rspec.
-* Introduce end-to-end testing.
 * Multiple projects.
 * Export all data for a project.
 * More flexible import.
