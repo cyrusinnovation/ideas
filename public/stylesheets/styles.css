@@ -97,6 +97,10 @@ td.story, td.title, td.description, td.team {
     text-align: left;
 }
 
+#footer {
+    clear: both;
+}
+
 #estimation_view .group {
     clear: both;
 }
@@ -105,7 +109,7 @@ td.story, td.title, td.description, td.team {
     position: relative;
     font-family: Optima, Gill Sans, Futura, sans-serif;
     border: 1px dotted black;
-    font-size: 24pt;
+    font-size: 12pt;
     width: 11em;
     height: 6em;
     padding: 1em;

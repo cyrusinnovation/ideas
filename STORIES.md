@@ -24,10 +24,10 @@ DONE
 
 WIP
 ---
+* Compact/printable estimation view.
 
 TODO
 ----
-* Compact/printable estimation view.
 * Keyword search in estimation view.
 * Group stories into projects.
 * Mark projects closed.
