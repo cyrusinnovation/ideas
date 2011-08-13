@@ -2,21 +2,18 @@
 
 swim:
   title: 140 - I want it to swim
-  team: turtle
   estimate: 0.5
   started: 2011-01-25
   finished: 2011-01-25
 
 fly:
   title: 142 - I want it to fly
-  team: turtle
   estimate: 1.0
   started: 2011-01-26
   finished: 2011-01-27
 
 breathe_fire:
   title: 143 - I want it to breathe fire
-  team: shark
   estimate: 5.0
   started: 2011-01-26
   finished: 2011-01-31

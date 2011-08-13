@@ -20,14 +20,13 @@ DONE
 * Estimation view based on fixed time per point, rather than on past averages.
 * Prefer recent stories in the estimation view.
 * Show more than three stories in estimation view.
+* Drop tracking of teams.
 
 WIP
 ---
 
-
 TODO
 ----
-* Drop tracking of teams.
 * Compact/printable estimation view.
 * Keyword search in estimation view.
 * Group stories into projects.

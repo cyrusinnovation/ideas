@@ -2,8 +2,6 @@
   %tr{:class => cycle('odd', 'even')}
     %td.title
       != format_title story.title
-    %td.team
-      = story.team_name
     %td.estimate
       = format_estimate story.estimate
     %td.started
@@ -23,8 +21,6 @@
     %tr{:class => cycle('odd', 'even')}
       %td.title
         != f.text_field :title, :size => 60
-      %td.team
-        != f.text_field :team_name, :size => 10
       %td.estimate
         != f.text_field :estimate, :size => 4
       %td.started

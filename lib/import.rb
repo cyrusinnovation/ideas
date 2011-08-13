@@ -20,7 +20,6 @@ class Import
     row = CSV.parse_line line
     attributes = {}
     attributes[:title] = row[0]
-    attributes[:team_name] = row[1]
     attributes[:estimate] = row[2]
     attributes[:started] = row[3]
     attributes[:finished] = row[4]

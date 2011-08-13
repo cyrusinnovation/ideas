@@ -36,24 +36,6 @@ class StoryTest < ActiveSupport::TestCase
     assert_nil Story.new(:started => nil, :finished => nil).cycle_time
   end
 
-  test "team_name shows and assigns team" do
-    s = Story.new
-    s.team_name = "foo"
-    assert_equal "foo", s.team.name
-    assert_equal "foo", s.team_name
-  end
-
-  test "team_name is nil when team is nil" do
-    assert_nil Story.new.team_name
-  end
-
-  test "setting team name to nil clears team" do
-    s = stories(:swim)
-    assert_equal "Schildkroete", s.team_name, "sanity check"
-    s.team_name = nil
-    assert_nil s.team
-  end
-
   test "burn rate is hours per point" do
     assert_equal 3, Story.new(:estimate => 2, :hours_worked => 6).burn_rate
     assert_equal 7, Story.new(:estimate => 0.5, :hours_worked => 3.5).burn_rate, "works with fractions"

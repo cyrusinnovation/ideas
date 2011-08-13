@@ -19,7 +19,6 @@ class StoriesControllerTest < ActionController::TestCase
   test "add a story" do
     post :create, :story => {
         :title => "147 - Improve flying UI",
-        :team_name => "Turtle",
         :estimate => 5,
         :started => "2011-2-12",
         :finished => "2011-2-21",

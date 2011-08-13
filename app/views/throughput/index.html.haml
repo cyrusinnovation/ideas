@@ -3,15 +3,6 @@
     %th.date
     %th.stories Stories / 3 weeks
     %th.points Points / 3 weeks
-    - @teams.each do |team|
-      %th
-        = team.name
-        %br/
-        Stories / 3 weeks
-      %th
-        = team.name
-        %br/
-        Points / 3 weeks
   - @throughput_history.each do |throughput|
     %tr{:class => cycle('odd', 'even')}
       %td.date
@@ -20,8 +11,3 @@
         = throughput.stories
       %td.points
         = throughput.points
-      - @teams.each do |team|
-        %td
-          = throughput.team_stories team
-        %td
-          = throughput.team_points team
