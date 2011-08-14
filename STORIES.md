@@ -28,6 +28,7 @@ WIP
 
 TODO
 ----
+* Bugfix: If an estimate group only has a few recent examples, but one of them is really good, it shows up twice
 * Keyword search in estimation view.
 * Group stories into projects.
 * Mark projects closed.
