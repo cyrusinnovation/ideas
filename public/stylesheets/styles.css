@@ -101,46 +101,37 @@ td.story, td.title, td.description, td.team {
     clear: both;
 }
 
-#estimation_view .group {
-    clear: both;
+#estimation_view h2 {
+    float: left;
+    font-size: 36pt;
+    margin: 0 12pt 0 0;
 }
 
 #estimation_view .story {
-    position: relative;
-    font-family: Optima, Gill Sans, Futura, sans-serif;
-    border: 1px dotted black;
-    font-size: 12pt;
-    width: 11em;
-    height: 6em;
-    padding: 1em;
-    margin-right: 1em;
-    margin-bottom: 1em;
-    float: left;
+    list-style: none;
+    font-size: 14pt;
+    line-height: 1.5em;
 }
 
-#estimation_view .title {
-    text-align: center;
+#estimation_view .title, #estimation_view .estimate {
+    display: inline;
 }
 
-#estimation_view .story .estimate {
-    position: absolute;
-    bottom: 0.5em;
-    right: 0.5em;
-    font-weight: bold;
-    text-align: right;
-    padding-top: 15pt;
+#estimation_view .estimate {
+    font-size: 0.8em;
+    font-weight: normal;
 }
 
 #estimation_view .estimate .under {
-    font-size: 12pt;
-    font-weight: normal;
     color: #500000;
 }
 
 #estimation_view .estimate .over {
-    font-size: 12pt;
-    font-weight: normal;
     color: #505000;
+}
+
+#estimation_view .estimate .calculated {
+    display: none;
 }
 
 #dashboard em {

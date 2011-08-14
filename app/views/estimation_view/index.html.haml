@@ -5,11 +5,14 @@
     = @count
     != link_to '+', :count => @count + 1
   - @groups.each do |group|
-    .group
+    %ul.group
+      %h2
+        = group[0].estimate
       - group.each do |story|
-        .story
+        %li.story
           .title
             = story.title
           .estimate
             != story.under_or_over_html
-            = story.estimate
+            %span.calculated
+              = story.estimate

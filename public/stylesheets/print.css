@@ -1,11 +1,16 @@
-
 #estimation_view .group {
+    padding-left: 0; /* Clear UL defaults */
     clear: both;
     page-break-after: always;
     page-break-inside: avoid;
 }
 
+#estimation_view h2 {
+    display: none;
+}
+
 #estimation_view .story {
+    list-style: none;
     position: relative;
     font-family: Optima, Gill Sans, Futura, sans-serif;
     border: 1px dotted black;
@@ -13,8 +18,7 @@
     width: 11em;
     height: 6em;
     padding: 1em;
-    margin-right: 1em;
-    margin-bottom: 1em;
+    margin: 0 1em 1em 0;
     float: left;
 }
 
