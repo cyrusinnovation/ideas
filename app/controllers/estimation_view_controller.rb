@@ -2,8 +2,6 @@ class EstimationViewController < ApplicationController
   TARGET_BURN_RATE = 16
 
   def index
-    @count = params.fetch(:count, 3).to_i
-    @count = 1 if @count < 1
     @groups = [
         examples(13),
         examples(8),
@@ -24,6 +22,6 @@ class EstimationViewController < ApplicationController
                                   :target => target,
                                   :min => target * 0.8,
                                   :max => target * 1.2,
-                                  :count => @count)
+                                  :count => 9)
   end
 end
