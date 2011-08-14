@@ -3,13 +3,13 @@ DONE
 * Make the non-print estimation view a little more compact.
 * Consider whether the Story Card visual metaphor is actually helpful here.
     Outcome: it's actually great for printing, but not so much for the screen.
+* Set up a print stylesheet that uses the story card metaphor.
 
 WIP
 ---
 
 TODO
 ----
-* Set up a print stylesheet that uses the story card metaphor.
 * Get rid of the story card metaphor in the screen stylesheet.
 * See if it's possible to have a single heading per group in the screen stylesheet, instead of repeating per story.
 * Hide navigation chrome in print stylesheet.

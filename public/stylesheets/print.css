@@ -1,0 +1,44 @@
+
+#estimation_view .group {
+    clear: both;
+    page-break-after: always;
+    page-break-inside: avoid;
+}
+
+#estimation_view .story {
+    position: relative;
+    font-family: Optima, Gill Sans, Futura, sans-serif;
+    border: 1px dotted black;
+    font-size: 12pt;
+    width: 11em;
+    height: 6em;
+    padding: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    float: left;
+}
+
+#estimation_view .title {
+    text-align: center;
+}
+
+#estimation_view .story .estimate {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    font-weight: bold;
+    text-align: right;
+    padding-top: 15pt;
+}
+
+#estimation_view .estimate .under {
+    font-size: 12pt;
+    font-weight: normal;
+    color: #500000;
+}
+
+#estimation_view .estimate .over {
+    font-size: 12pt;
+    font-weight: normal;
+    color: #505000;
+}
