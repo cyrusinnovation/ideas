@@ -22,7 +22,6 @@ class EstimationStoryTest < ActiveSupport::TestCase
 
   test "fragment of HTML to indicate if a story was over or underestimated" do
     example = EstimationStory.new("Story", 17, 2)
-
     assert_equal "<span class='under'>(underestimated at 2)</span>", example.under_or_over_html
   end
 
@@ -42,6 +41,16 @@ class EstimationStoryTest < ActiveSupport::TestCase
     assert example != EstimationStory.new('Story', 6, 17), 'different estimate'
     assert example != EstimationStory.new('Story', 5, 23), 'different original'
     assert example == EstimationStory.new('Story', 5, BigDecimal.new('17')), "BigDecimal vs. Fixnum doesn't matter"
+  end
+
+  test "shows fractional original estimate as a fraction" do
+    example = EstimationStory.new("Story", 17, 0.5.to_d)
+    assert_equal "<span class='under'>(underestimated at 1/2)</span>", example.under_or_over_html
+  end
+
+  test "shows reference estimate as a fraction" do
+    example = EstimationStory.new("Story", 0.5, 2)
+    assert_equal "1/2", example.estimate.to_s
   end
 end
 

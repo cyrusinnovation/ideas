@@ -24,7 +24,7 @@ class EstimationStory
 
   def initialize title, estimate, original
     @title = title
-    @estimate = estimate
+    @estimate = BigDecimal.new(estimate.to_s).to_r
     @original = original
   end
 

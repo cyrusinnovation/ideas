@@ -9,12 +9,13 @@ DONE
 * Hide navigation chrome in print stylesheet.
 * Consider taking out the number of stories control, and just always showing nine stories per group.
 * Review the print stylesheet to make sure it looks good.
+* Review the screen stylesheet to make sure it looks good.
 
 WIP
 ---
-* Review the screen stylesheet to make sure it looks good.
 
 TODO
 ----
 * While you're at it, maybe look over the print views for the other pages too?
 * Do we need a class to represent an estimation example group, rather than just using an array?
+* Is it time to pull out an Estimate value object? And is that actually a workable move right now?
