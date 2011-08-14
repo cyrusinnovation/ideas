@@ -11,11 +11,11 @@ DONE
 * Review the print stylesheet to make sure it looks good.
 * Review the screen stylesheet to make sure it looks good.
 * While you're at it, maybe look over the print views for the other pages too?
+* Do we need a class to represent an estimation example group, rather than just using an array?
 
 WIP
 ---
 
 TODO
 ----
-* Do we need a class to represent an estimation example group, rather than just using an array?
 * Is it time to pull out an Estimate value object? And is that actually a workable move right now?
