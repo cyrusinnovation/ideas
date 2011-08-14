@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module EstimationStoryTestHelper
+module EstimationStoryFindExamplesTestHelper
   def assert_contains examples, story
     example_titles = examples.map { |e| e.title }
     assert example_titles.include?(story.title), "Examples (#{examples.join ', '}) should include '#{story.title}'"
@@ -13,7 +13,40 @@ module EstimationStoryTestHelper
 end
 
 class EstimationStoryTest < ActiveSupport::TestCase
-  include EstimationStoryTestHelper
+  test "shows both original estimate and reference estimate based on actual time" do
+    example = EstimationStory.new("Story", 17, 2)
+
+    assert_equal 17, example.estimate, "reference estimate"
+    assert_equal 2, example.original, "original estimate"
+  end
+
+  test "fragment of HTML to indicate if a story was over or underestimated" do
+    example = EstimationStory.new("Story", 17, 2)
+
+    assert_equal "<span class='under'>(underestimated at 2)</span>", example.under_or_over_html
+  end
+
+  test "shows only the reference estimate if there is no original estimate" do
+    example = EstimationStory.new('Story', 5, nil)
+
+    assert_equal 5, example.estimate
+    assert_equal nil, example.original
+    assert_nil example.under_or_over_html
+  end
+
+  test "equal to another story with the same details" do
+    example = EstimationStory.new('Story', 5, 17)
+
+    assert example == EstimationStory.new('Story', 5, 17), 'same everything'
+    assert example != EstimationStory.new('Different', 5, 17), 'different title'
+    assert example != EstimationStory.new('Story', 6, 17), 'different estimate'
+    assert example != EstimationStory.new('Story', 5, 23), 'different original'
+    assert example == EstimationStory.new('Story', 5, BigDecimal.new('17')), "BigDecimal vs. Fixnum doesn't matter"
+  end
+end
+
+class EstimationStoryFindExamplesTest < ActiveSupport::TestCase
+  include EstimationStoryFindExamplesTestHelper
 
   def setup
     @average = Average.new [40, 50]
@@ -49,27 +82,9 @@ class EstimationStoryTest < ActiveSupport::TestCase
     assert_contains more_examples, sorta_close
   end
 
-  test "shows both original estimate and reference estimate based on actual time" do
+  test "found examples show story details" do
     examples = EstimationStory.find_examples :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 3
-    example = examples[0]
-
-    assert_equal 17, example.estimate, "reference estimate"
-    assert_equal 2, example.original, "original estimate"
-  end
-
-  test "fragment of HTML to indicate if a story was over or underestimated" do
-    examples = EstimationStory.find_examples :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 3
-    example = examples[0]
-
-    assert_equal "<span class='under'>(underestimated at 2)</span>", example.under_or_over_html
-  end
-
-  test "shows only the reference estimate if there is no original estimate" do
-    example = EstimationStory.new('Example Story', 5, nil)
-
-    assert_equal 5, example.estimate
-    assert_equal nil, example.original
-    assert_nil example.under_or_over_html
+    assert_equal EstimationStory.new('middle', 17, BigDecimal.new('2')), examples[0]
   end
 
   def assert_length expected_length, list
@@ -84,7 +99,7 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
   OLD_DATE = Date.today - 61
   NEW_DATE = Date.today - 60
 
-  include EstimationStoryTestHelper
+  include EstimationStoryFindExamplesTestHelper
 
   test "stories from the last 60 days are chosen over older stories" do
     @accurate_but_old = Story.create :title => 'accurate but old', :hours_worked => TARGET, :finished => OLD_DATE

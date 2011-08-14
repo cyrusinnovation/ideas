@@ -54,3 +54,7 @@ h1 {
     font-weight: normal;
     color: #505000;
 }
+
+#footer {
+    display: none;
+}

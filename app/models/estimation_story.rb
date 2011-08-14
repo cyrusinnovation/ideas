@@ -38,4 +38,8 @@ class EstimationStory
   def to_s
     title
   end
+
+  def ==(other)
+    title == other.title && estimate == other.estimate && original == other.original
+  end
 end

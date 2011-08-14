@@ -2,7 +2,7 @@
   - @groups.each do |group|
     %ul.group
       %h2
-        = group[0].estimate
+        = heading(group)
       - group.each do |story|
         %li.story
           .title

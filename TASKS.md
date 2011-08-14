@@ -8,13 +8,13 @@ DONE
 * See if it's possible to have a single heading per group in the screen stylesheet, instead of repeating per story.
 * Hide navigation chrome in print stylesheet.
 * Consider taking out the number of stories control, and just always showing nine stories per group.
+* Review the print stylesheet to make sure it looks good.
 
 WIP
 ---
+* Review the screen stylesheet to make sure it looks good.
 
 TODO
 ----
-* Review the print stylesheet to make sure it looks good.
-* Review the screen stylesheet to make sure it looks good.
 * While you're at it, maybe look over the print views for the other pages too?
 * Do we need a class to represent an estimation example group, rather than just using an array?
