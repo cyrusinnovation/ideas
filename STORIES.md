@@ -21,21 +21,23 @@ DONE
 * Prefer recent stories in the estimation view.
 * Show more than three stories in estimation view.
 * Drop tracking of teams.
+* Compact/printable estimation view.
 
 WIP
 ---
-* Compact/printable estimation view.
 
 TODO
 ----
-* Bugfix: If an estimate group only has a few recent examples, but one of them is really good, it shows up twice
-* Keyword search in estimation view.
+* Show a pretty graph of throughput history, possibly including key events.
 * Group stories into projects.
-* Mark projects closed.
 * Keep track of upcoming stories in a project.
 * Export a project to Rabu.
+* Bugfix: If an estimate group only has a few recent examples, but one of them is really good, it shows up twice
+* Keyword search in estimation view.
+* Mark projects closed.
 * Show a detailed "kaizen" view of what happened over the past three weeks.
 * Make throughput page faster when there is a long history. Paginate, maybe?
+* Tech debt: pull out an Estimate value object, in place of Float/BigDecimal/Fixnum/Rational/Conversion-hell
 
 SOMEDAY/MAYBE
 -------------
