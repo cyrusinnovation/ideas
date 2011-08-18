@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include GoogleVisualization
+
   def navigation_link controller_name
     title = controller_name.titleize
     html_options = {}

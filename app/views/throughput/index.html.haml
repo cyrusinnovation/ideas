@@ -1,13 +1,9 @@
-%table#throughput
-  %tr
-    %th.date
-    %th.stories Stories / 3 weeks
-    %th.points Points / 3 weeks
-  - @throughput_history.each do |throughput|
-    %tr{:class => cycle('odd', 'even')}
-      %td.date
-        = format_date throughput.date
-      %td.stories
-        = throughput.stories
-      %td.points
-        = throughput.points
+- visualization "throughput_points", "AnnotatedTimeLine", :html => { :style => "width: 95%; height: 40%;"} do |chart|
+  - chart.date "Date"
+  - chart.number "Points per 3 weeks"
+  - chart.add_rows(@throughput_history.collect {|t| [t.date, t.points] })
+%br
+- visualization "throughput_stories", "AnnotatedTimeLine", :html => { :style => "width: 95%; height: 40%;"} do |chart|
+  - chart.date "Date"
+  - chart.number "Stories per 3 weeks"
+  - chart.add_rows(@throughput_history.collect {|t| [t.date, t.stories] })
