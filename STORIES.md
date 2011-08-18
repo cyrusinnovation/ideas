@@ -25,10 +25,10 @@ DONE
 
 WIP
 ---
+* Show a pretty graph of throughput history, possibly including key events.
 
 TODO
 ----
-* Show a pretty graph of throughput history, possibly including key events.
 * Group stories into projects.
 * Keep track of upcoming stories in a project.
 * Export a project to Rabu.
