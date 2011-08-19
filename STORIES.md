@@ -22,10 +22,10 @@ DONE
 * Show more than three stories in estimation view.
 * Drop tracking of teams.
 * Compact/printable estimation view.
+* Show a pretty graph of throughput history, possibly including key events.
 
 WIP
 ---
-* Show a pretty graph of throughput history, possibly including key events.
 
 TODO
 ----
@@ -38,6 +38,7 @@ TODO
 * Show a detailed "kaizen" view of what happened over the past three weeks.
 * Make throughput page faster when there is a long history. Paginate, maybe?
 * Tech debt: pull out an Estimate value object, in place of Float/BigDecimal/Fixnum/Rational/Conversion-hell
+* Don't show throughput for dates that are too recent to have meaningful data.
 
 SOMEDAY/MAYBE
 -------------
