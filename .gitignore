@@ -1,3 +1,4 @@
-*.sqlite3
-schema.rb
-*.log
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
