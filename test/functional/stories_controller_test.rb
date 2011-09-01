@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'import'
 
 class StoriesControllerTest < ActionController::TestCase
   fixtures :stories
@@ -37,7 +38,7 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   test "import stories from a CSV file" do
-    file = fixture_file_upload 'files/import.csv', 'text/plain'
+    file = fixture_file_upload 'files/import_csv.txt', 'text/plain'
 
     post :import, :file => file
 

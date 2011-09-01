@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'import'
 
 class ImportTest < ActiveSupport::TestCase
   test "import a story" do
