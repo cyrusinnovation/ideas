@@ -1,7 +1,7 @@
 - visualization "throughput_points", "AnnotatedTimeLine", :html => { :style => "width: 95%; height: 40%;"} do |chart|
   - chart.date "Date"
   - chart.number "Points per 3 weeks"
-  - chart.add_rows(@throughput_history.collect {|t| [t.date, t.points] })
+  - chart.add_rows(@throughput_history.collect {|t| [t.date, t.points.to_f] })
 %br
 - visualization "throughput_stories", "AnnotatedTimeLine", :html => { :style => "width: 95%; height: 40%;"} do |chart|
   - chart.date "Date"
