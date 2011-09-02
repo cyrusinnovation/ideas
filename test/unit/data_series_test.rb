@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class AverageTest < ActiveSupport::TestCase
-  test "averages numbers" do
+class DataSeriesTest < ActiveSupport::TestCase
+  test "calculates mean" do
     ds = DataSeries.new [2, 3, 6, 7]
 
     assert_equal 4.5, ds.mean
@@ -29,7 +29,7 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal '4 &plusmn; 3', ds.to_html_attribute
   end
 
-  test "map values using a block when averaging" do
+  test "map values using a block when computing mean" do
     s2 = Story.new :estimate => 2
     s3 = Story.new :estimate => 3
     s6 = Story.new :estimate => 6
@@ -40,7 +40,7 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal 4.5, ds.mean
   end
 
-  test "collect groups of averages" do
+  test "collect groups of series" do
     s1 = Story.new :estimate => 1, :started => Date.new(2011, 1, 15)
     s3 = Story.new :estimate => 3, :started => Date.new(2011, 1, 15)
     s5 = Story.new :estimate => 5, :started => Date.new(2011, 2, 23)
@@ -58,7 +58,7 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal 2, ds.mean
   end
 
-  test "can return a partial average" do
+  test "can return a partial series" do
     ds = DataSeries.new [2, 3, 6, 7]
 
     assert_equal (11.0/3), ds.first(3).mean
@@ -68,7 +68,7 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal (16.0/3), ds.last(3).mean, "last works, as well as first"
   end
 
-  test "for an average of an empty list, all properties are nil" do
+  test "for a series of an empty list, all properties are nil" do
     ds = DataSeries.new([])
     assert_equal nil, ds.mean
     assert_equal nil, ds.standard_deviation
@@ -78,7 +78,7 @@ class AverageTest < ActiveSupport::TestCase
     assert_equal nil, ds.to_html_attribute
   end
 
-  test "recognizes empty averages" do
+  test "recognizes empty series" do
     assert DataSeries.new([]).empty?, "empty"
     assert !DataSeries.new([1]).empty?, "not empty"
   end
