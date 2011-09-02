@@ -23,12 +23,18 @@ DONE
 * Drop tracking of teams.
 * Compact/printable estimation view.
 * Show a pretty graph of throughput history, possibly including key events.
+* Upgrade to Rails 3.
 
 WIP
 ---
+* Upgrade to Ruby 1.9
 
 TODO
 ----
+* Migrate to Postgres and deploy on Heroku.
+
+SOMEDAY/MAYBE
+-------------
 * Group stories into projects.
 * Keep track of upcoming stories in a project.
 * Export a project to Rabu.
@@ -39,10 +45,6 @@ TODO
 * Make throughput page faster when there is a long history. Paginate, maybe?
 * Tech debt: pull out an Estimate value object, in place of Float/BigDecimal/Fixnum/Rational/Conversion-hell
 * Don't show throughput for dates that are too recent to have meaningful data.
-
-SOMEDAY/MAYBE
--------------
-* Migrate to Postgres and deploy on Heroku.
 * Have a way for a new user to start using Pointilist.
 * Leave a comment summing up each completed story and how it went.
 * Leave notes on particular days summing up how they went or why they were weird.
@@ -53,7 +55,6 @@ SOMEDAY/MAYBE
 * Flag stories that had long or short cycle times compared to hours worked.
 * Track code quality metrics.
 * Group averages by tags rather than estimates.
-* Upgrade to Rails 3.
 * Migrate to Rspec.
 * Multiple projects.
 * Export all data for a project.
