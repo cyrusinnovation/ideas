@@ -15,13 +15,13 @@
         %td.estimate_group
           = group.title
         %td.newest_10
-          != group.average.first(10).to_html
+          != group.data_series.first(10).to_html
         %td.newest_30
           != discrete_sparkline group
         %td.newest_30
-          != group.average.first(30).to_html
+          != group.data_series.first(30).to_html
         %td.all
-          != group.average.to_html
+          != group.data_series.to_html
 
 #burn_rate
   %h2 Burn Rate Per Story
@@ -35,7 +35,7 @@
       %th.status Hours vs. <br> Average
     - @stories.each do |story|
       %tr{:class => "#{cycle('odd', 'even')} #{story.status}",
-          :title => "average for #{format_estimate(story.estimate)} point story is #{story.average.to_html_attribute}"}
+          :title => "average for #{format_estimate(story.estimate)} point story is #{story.data_series.to_html_attribute}"}
         %td.story
           != format_title story.title
         %td.finished
@@ -47,4 +47,4 @@
         %td.burn_rate
           = story.burn_rate.round.to_i
         %td.status
-          != format_variance story.variance_vs_average
+          != format_variance story.variance_vs_mean

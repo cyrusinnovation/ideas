@@ -1,19 +1,19 @@
 module DashboardHelper
-  def average_sparkline average
-    sparkline average.normal_range_min, average.normal_range_max, average.values
+  def data_series_sparkline data_series
+    sparkline data_series.normal_range_min, data_series.normal_range_max, data_series.values
   end
 
-  def smoothed_average_sparkline average
-    values = average.values
+  def smoothed_data_series_sparkline data_series
+    values = data_series.values
     smoothed_values = []
     values.each_index do |i|
       if i < 5
         smoothed_values << values[i]
       else
-        smoothed_values << Average.new(values[i-4, 5]).mean
+        smoothed_values << DataSeries.new(values[i-4, 5]).mean
       end
     end
-    sparkline average.normal_range_min, average.normal_range_max, smoothed_values
+    sparkline data_series.normal_range_min, data_series.normal_range_max, smoothed_values
   end
 
   def sparkline normal_range_min, normal_range_max, values
@@ -33,7 +33,7 @@ module DashboardHelper
         :style => 'vertical-align: bottom'
   end
 
-  def normal_range average
-    "(normal range is between #{average.normal_range_min.round} and #{average.normal_range_max.round})"
+  def normal_range data_series
+    "(normal range is between #{data_series.normal_range_min.round} and #{data_series.normal_range_max.round})"
   end
 end

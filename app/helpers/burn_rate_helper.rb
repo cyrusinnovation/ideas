@@ -4,7 +4,7 @@ module BurnRateHelper
         "...",
         :sparkType => 'discrete',
         :sparkLineColor => '#666666',
-        :values => "#{group.average.first(30).values.reverse.join(',')}",
+        :values => "#{group.data_series.first(30).values.reverse.join(',')}",
         :class => 'sparkline'
   end
 end

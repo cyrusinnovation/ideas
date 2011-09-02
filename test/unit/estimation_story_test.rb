@@ -58,7 +58,7 @@ class EstimationStoryFindExamplesTest < ActiveSupport::TestCase
   include EstimationStoryFindExamplesTestHelper
 
   def setup
-    @average = Average.new [40, 50]
+    @data_series = DataSeries.new [40, 50]
     @too_low = Story.create :title => 'too low', :estimate => 1, :hours_worked => 39, :finished => Date.today
     @too_high = Story.create :title => 'too high', :estimate => 3, :hours_worked => 51, :finished => Date.today
     @floor = Story.create :title => 'floor', :estimate => 2, :hours_worked => 40, :finished => Date.today

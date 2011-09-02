@@ -1,15 +1,15 @@
 class EstimateGroups
-  attr_reader :all_per_story, :all_per_point
+  attr_reader :all_data_in_single_group, :data_normalized_by_estimate
 
   def initialize stories, &value_block
     @value_block = value_block
-    @averages_by_estimate = Average.by_group(stories, :group => :estimate, &value_block)
-    @groups = EstimateGroup.collect(@averages_by_estimate)
-    @all_per_story = EstimateGroup.new("All - Story", Average.new(stories, &value_block))
+    @data_grouped_by_estimate = DataSeries.by_group(stories, :group => :estimate, &value_block)
+    @groups = EstimateGroup.collect(@data_grouped_by_estimate)
+    @all_data_in_single_group = EstimateGroup.new("All - Story", DataSeries.new(stories, &value_block))
     stories_with_estimates = stories.reject { |s| s.estimate.nil? }
-    @all_per_point = EstimateGroup.new("All - Point", Average.new(stories_with_estimates) { |s| value_block.call(s) / s.estimate })
-    @groups << @all_per_story
-    @groups << @all_per_point
+    @data_normalized_by_estimate = EstimateGroup.new("All - Point", DataSeries.new(stories_with_estimates) { |s| value_block.call(s) / s.estimate })
+    @groups << @all_data_in_single_group
+    @groups << @data_normalized_by_estimate
   end
 
   def story_vs_estimate story
@@ -20,9 +20,9 @@ class EstimateGroups
     @groups.each &what_to_do_with_it
   end
 
-  def average estimate
-    return @all_per_story.average unless @averages_by_estimate.has_key?(estimate)
-    @averages_by_estimate[estimate]
+  def data_series estimate
+    return @all_data_in_single_group.data_series unless @data_grouped_by_estimate.has_key?(estimate)
+    @data_grouped_by_estimate[estimate]
   end
 end
 
@@ -35,25 +35,25 @@ class StoryVsEstimate < DelegateClass(Story)
   end
 
   def status
-    return nil if empty_average?
-    difference = variance_vs_average
+    return nil if empty_data_series?
+    difference = variance_vs_mean
     return nil if difference.nil?
     difference < 0 ? :overestimated : :underestimated
   end
 
-  def variance_vs_average
-    return nil if empty_average?
-    difference = @value_block.call(@story) - average.mean
-    difference.abs < average.standard_deviation ? nil : difference.round
+  def variance_vs_mean
+    return nil if empty_data_series?
+    difference = @value_block.call(@story) - data_series.mean
+    difference.abs < data_series.standard_deviation ? nil : difference.round
   end
 
-  def average
-    @estimate_groups.average(estimate)
+  def data_series
+    @estimate_groups.data_series(estimate)
   end
 
   private
 
-  def empty_average?
-    average.empty?
+  def empty_data_series?
+    data_series.empty?
   end
 end

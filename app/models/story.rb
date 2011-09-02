@@ -14,12 +14,12 @@ class Story < ActiveRecord::Base
         :order => "finished DESC"
   end
 
-  def self.average_hours_by_estimate
-    Average.by_group(all_with_burn_rates, :group => :estimate) {|s| s.hours_worked }
+  def self.hours_worked_by_estimate
+    DataSeries.by_group(all_with_burn_rates, :group => :estimate) {|s| s.hours_worked }
   end
 
-  def self.average_cycle_time_by_estimate
-    Average.by_group(all_with_cycle_times, :group => :estimate) {|s| s.cycle_time }
+  def self.cycle_times_by_estimate
+    DataSeries.by_group(all_with_cycle_times, :group => :estimate) {|s| s.cycle_time }
   end
 
   def cycle_time

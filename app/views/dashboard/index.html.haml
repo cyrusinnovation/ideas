@@ -2,21 +2,21 @@
   .section
     %h2 Throughput - how are we doing?
     %em
-      != average_sparkline @average_throughput
-      = @average_throughput.last_value.round.to_i
+      != data_series_sparkline @throughputs
+      = @throughputs.last_value.round.to_i
     points in three weeks
-    = normal_range @average_throughput
+    = normal_range @throughputs
   .section
     %h2 Cycle Time - how long will it take?
     %em
-      != smoothed_average_sparkline @average_cycle_time
-      = @average_cycle_time.last(10).mean.round.to_i
+      != smoothed_data_series_sparkline @cycle_times
+      = @cycle_times.last(10).mean.round.to_i
     work days per story
-    = normal_range @average_cycle_time
+    = normal_range @cycle_times
   .section
     %h2 Burn Rate - how much will it cost?
     %em
-      != smoothed_average_sparkline @average_burn_rate
-      = @average_burn_rate.last(10).mean.round.to_i
+      != smoothed_data_series_sparkline @burn_rates
+      = @burn_rates.last(10).mean.round.to_i
     development hours per point
-    = normal_range @average_burn_rate
+    = normal_range @burn_rates

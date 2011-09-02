@@ -1,12 +1,11 @@
-class Average
+class DataSeries
   def self.by_group values, options={}, &block
     grouped_values = values.group_by {|v| v.send(options[:group]) }
-    averaged_groups = grouped_values.map {|k, v| [k, Average.new(v, &block)] }
-    Hash[averaged_groups]
+    Hash[grouped_values.map {|k, v| [k, DataSeries.new(v, &block)] }]
   end
 
   def self.empty
-    Average.new([])
+    DataSeries.new([])
   end
 
   attr_reader :values
@@ -17,11 +16,11 @@ class Average
   end
 
   def first n
-    Average.new @values.first(n)
+    DataSeries.new @values.first(n)
   end
 
   def last n
-    Average.new @values.last(n)
+    DataSeries.new @values.last(n)
   end
 
   def mean
