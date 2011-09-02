@@ -15,13 +15,13 @@
         %td.estimate_group
           = group.title
         %td.newest_10
-          != group.data_series.first(10).to_html
+          != to_html group.data_series.first(10)
         %td.newest_30
           != discrete_sparkline group
         %td.newest_30
-          != group.data_series.first(30).to_html
+          != to_html group.data_series.first(30)
         %td.all
-          != group.data_series.to_html
+          != to_html group.data_series
 
 #cycle_time
   %h2 Cycle Time Per Story
@@ -35,7 +35,7 @@
       %th.status Days vs. Average
     - @stories.each do |story|
       %tr{:class => "#{cycle('odd', 'even')} #{story.status}",
-          :title => "average for #{format_estimate(story.estimate)} point story is #{story.data_series.to_html_attribute}"}
+          :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series}"}
         %td.story
           != format_title story.title
         %td.points

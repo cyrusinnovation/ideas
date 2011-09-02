@@ -23,11 +23,6 @@ class DataSeriesTest < ActiveSupport::TestCase
     assert_equal 5, ds.normal_range_max
   end
 
-  test "renderable as html" do
-    ds = DataSeries.new [1, 2, 7, 2, 6, 7]
-    assert_equal '<span title="4.17 &plusmn; 2.54">4 &plusmn; 3</span>', ds.to_html
-    assert_equal '4 &plusmn; 3', ds.to_html_attribute
-  end
 
   test "map values using a block when computing mean" do
     s2 = Story.new :estimate => 2
@@ -74,8 +69,6 @@ class DataSeriesTest < ActiveSupport::TestCase
     assert_equal nil, ds.standard_deviation
     assert_equal nil, ds.normal_range_min
     assert_equal nil, ds.normal_range_max
-    assert_equal nil, ds.to_html
-    assert_equal nil, ds.to_html_attribute
   end
 
   test "recognizes empty series" do

@@ -28,4 +28,17 @@ module ApplicationHelper
     return nil if variance.nil?
     variance > 0 ? "+#{variance}" : variance
   end
+
+  def to_html data_series
+    return nil if data_series.empty?
+    '<span title="%.2f &plusmn; %.2f">%.0f &plusmn; %.0f</span>' % [data_series.mean, data_series.standard_deviation, data_series.mean, data_series.standard_deviation]
+  end
+
+  def to_html_attribute data_series
+    return nil if data_series.empty?
+    '%.0f &plusmn; %.0f' % [data_series.mean, data_series.standard_deviation]
+  end
+
+
+
 end
