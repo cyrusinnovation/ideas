@@ -7,7 +7,11 @@ gem "rdoc", "3.9.4"
 gem "jquery-rails", "1.0.13"
 gem 'gvis', '>= 2.0.0'
 
+group :development do
+  gem 'heroku', '>= 2.7.0'
+end
+
 group :test do
-	gem "rr", "1.0.3"
-	gem "webrat", "0.7.3"
+  gem "rr", "1.0.3"
+  gem "webrat", "0.7.3"
 end
