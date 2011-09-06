@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20110813033003) do
 
   create_table "stories", :force => true do |t|
     t.string  "title"
-    t.decimal "estimate"
+    t.decimal "estimate",     :precision => 3, :scale => 1
     t.date    "started"
     t.date    "finished"
     t.integer "team_id"
