@@ -6,12 +6,6 @@ class DashboardController < ApplicationController
         last(120) # only show the last ~4 months
     @throughputs = DataSeries.new throughput_history
 
-    cycle_time_history = Story.all_with_cycle_times.
-        map { |s| s.cycle_time }.
-        reverse.
-        last(120)
-    @cycle_times = DataSeries.new cycle_time_history
-
     burn_rate_history = Story.all_with_burn_rates.
         map { |s| s.burn_rate }.
         reverse.

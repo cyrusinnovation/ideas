@@ -19,10 +19,6 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     get '/throughput'
   end
 
-  def test_cycle_time
-    get '/cycle_time'
-  end
-
   def test_burn_rate
     get '/burn_rate'
   end

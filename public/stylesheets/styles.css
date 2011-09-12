@@ -54,7 +54,7 @@ a {
     color: #193c59;
 }
 
-#average_burn_rate, #average_cycle_time {
+#average_burn_rate {
     float: right;
 }
 

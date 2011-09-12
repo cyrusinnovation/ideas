@@ -7,13 +7,6 @@
     points in three weeks
     = normal_range @throughputs
   .section
-    %h2 Cycle Time - how long will it take?
-    %em
-      != smoothed_data_series_sparkline @cycle_times
-      = @cycle_times.last(10).mean.round.to_i
-    work days per story
-    = normal_range @cycle_times
-  .section
     %h2 Burn Rate - how much will it cost?
     %em
       != smoothed_data_series_sparkline @burn_rates

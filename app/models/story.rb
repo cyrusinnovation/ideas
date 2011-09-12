@@ -9,21 +9,8 @@ class Story < ActiveRecord::Base
     all :conditions => "estimate IS NOT NULL AND hours_worked IS NOT NULL", :order => "finished DESC"
   end
 
-  def self.all_with_cycle_times
-    all :conditions => "started IS NOT NULL AND finished IS NOT NULL",
-        :order => "finished DESC"
-  end
-
   def self.hours_worked_by_estimate
     DataSeries.by_group(all_with_burn_rates, :group => :estimate) {|s| s.hours_worked }
-  end
-
-  def self.cycle_times_by_estimate
-    DataSeries.by_group(all_with_cycle_times, :group => :estimate) {|s| s.cycle_time }
-  end
-
-  def cycle_time
-    date_range.workdays
   end
 
   def burn_rate

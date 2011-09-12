@@ -1,20 +1,15 @@
 DONE
 ----
-* Calculate cycle times for a list of stories.
 * Show points completed in the past three weeks.
 * Import from a CSV file.
-* Show cumulative cycle times.
-* Show throughput and cycle times per team.
-* Load the cycle time page for 200 stories in less than 1/10 of a second.
 * Track hours billed per story.
 * Show hours/point statistics.
 * Show hours/estimate group statistics.
 * Import burn rate.
 * Show unscaled hours/story by estimate group, rather than always scaling per point.
-* "Outliers view" of stories with estimates or cycle times very different from the norm for their group.
+* "Outliers view" of stories with estimates very different from the norm for their group.
 * "Card view" of actual times for recently completed stories.
 * "Dashboard" or "Information Radiator" view with a few key statistics.
-* Show average cycle times per estimate group, and highlight outliers.
 * Show a + in Hours Vs. Average when story is over average.
 * Estimation view based on fixed time per point, rather than on past averages.
 * Prefer recent stories in the estimation view.
@@ -51,7 +46,6 @@ SOMEDAY/MAYBE
 * Show statistics on groups of stories by tag.
 * Import and export data in new standard format.
 * Scroll to the right to see more stories in the estimation view.
-* Flag stories that had long or short cycle times compared to hours worked.
 * Track code quality metrics.
 * Group averages by tags rather than estimates.
 * Migrate to Rspec.
@@ -59,7 +53,6 @@ SOMEDAY/MAYBE
 * Export all data for a project.
 * More flexible import.
 * Track states other than started and finished.
-* Estimation view based on cycle time, so that people don't have to enter hours.
 * Option to turn off estimates and recording of hours worked.
 * Show stories in a consistent order across different screens.
 * Include stories without estimates in "Burn Rate" view (comparing against overall typical hours worked).
