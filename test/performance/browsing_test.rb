@@ -31,10 +31,6 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     get '/estimation_view'
   end
 
-  def test_holidays
-    get '/holidays'
-  end
-
   private
 
   def given_existing_stories count

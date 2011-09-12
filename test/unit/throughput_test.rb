@@ -14,13 +14,6 @@ class ThroughputTest < ActiveSupport::TestCase
     assert_equal 0, Throughput.new(story.finished + 21).stories
   end
 
-  test "skips over holidays when counting back three weeks" do
-    story = Story.create :started => '2011-2-1', :finished => '2011-2-1'
-    Holiday.create :date => '2011-2-2'
-
-    assert_equal 1, Throughput.new(story.finished + 21).stories
-  end
-
   test "stories without estimates are not included in point count" do
     story = stories(:fly)
     story.estimate = nil
