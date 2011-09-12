@@ -12,4 +12,6 @@ class ApplicationHelperTest < ActionView::TestCase
       assert_equal nil, to_html(ds)
       assert_equal nil, to_html_attribute(ds)
   end
+
+  
 end

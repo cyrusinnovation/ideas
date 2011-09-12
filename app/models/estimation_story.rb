@@ -24,7 +24,7 @@ class EstimationStory
 
   def initialize title, estimate, original
     @title = title
-    @estimate = BigDecimal.new(estimate.to_s).to_r
+    @estimate = BigDecimal.new(estimate.to_s)
     @original = original
   end
 
@@ -32,7 +32,7 @@ class EstimationStory
     return nil if @original.nil?
     return nil if @original == @estimate
     word = @original > @estimate ? 'over' : 'under'
-    @under_or_over_html = "<span class='#{word}'>(#{word}estimated at #{original.to_r})</span>"
+    @under_or_over_html = "<span class='#{word}'>(#{word}estimated at #{original})</span>"
   end
 
   def to_s

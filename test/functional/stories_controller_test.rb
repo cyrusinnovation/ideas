@@ -33,7 +33,7 @@ class StoriesControllerTest < ActionController::TestCase
   test "delete a story" do
     id = stories(:fly).id
     delete :destroy, :id => id
-    assert "should have been deleted", !Story.exists?(id)
+    assert !Story.exists?(id), "should have been deleted"
     assert_redirected_to :action => "index"
   end
 

@@ -3,7 +3,7 @@ require 'import'
 
 class ImportTest < ActiveSupport::TestCase
   test "import a story" do
-    story = import_story '143 Remove unused permissions,ShARC,0.25,1/24/2011,1/25/2011,3.5,1,4.0,9,8'
+    story = import_story '143 Remove unused permissions,ShARC,0.25,2011-01-24,2011-01-25,3.5,1,4.0,9,8'
     assert_equal '143 Remove unused permissions', story.title
     assert_equal 0.25, story.estimate
     assert_equal Date.new(2011, 1, 24), story.started
