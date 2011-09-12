@@ -12,3 +12,11 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include RR::Adapters::TestUnit
 end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+
+  def setup
+    sign_in users(:john)
+  end
+end
