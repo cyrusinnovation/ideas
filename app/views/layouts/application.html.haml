@@ -21,17 +21,16 @@
     #user_nav
       - if user_signed_in?
         Signed in as #{current_user.email}. Not you? #{link_to "Sign out", destroy_user_session_path, :method => :delete}
+        %h1 Pointilist
+        %ul#navigation
+          %li
+            != navigation_link 'stories'
+          %li
+            != navigation_link 'burn_rate'
+          %li
+            != navigation_link 'estimation_view'
       - else
-        #{link_to "Sign up", new_user_registration_path} or #{link_to "sign in", new_user_session_path}
-
-    %h1 Pointilist
-    %ul#navigation
-      %li
-        != navigation_link 'stories'
-      %li
-        != navigation_link 'burn_rate'
-      %li
-        != navigation_link 'estimation_view'
+        #{link_to "Sign up", new_user_registration_path} or #{link_to "sign in", new_user_session_path}  
     #content
       != yield
     #footer
