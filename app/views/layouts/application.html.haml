@@ -24,22 +24,14 @@
       - else
         #{link_to "Sign up", new_user_registration_path} or #{link_to "sign in", new_user_session_path}
 
-  %h1 Pointilist
-  %ul#navigation
-    %li
-      != navigation_link 'dashboard'
-    %li
-      != navigation_link 'stories'
-    %li
-      != navigation_link 'throughput'
-    %li
-      != navigation_link 'cycle_time'
-    %li
-      != navigation_link 'burn_rate'
-    %li
-      != navigation_link 'estimation_view'
-    %li
-      != navigation_link 'holidays'
-  #content
-    != yield
-  #footer
+    %h1 Pointilist
+    %ul#navigation
+      %li
+        != navigation_link 'stories'
+      %li
+        != navigation_link 'burn_rate'
+      %li
+        != navigation_link 'estimation_view'
+    #content
+      != yield
+    #footer

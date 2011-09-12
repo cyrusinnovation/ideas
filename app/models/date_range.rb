@@ -33,11 +33,7 @@ end
 
 module DateExtensions
   def workday?
-    weekday? && !holiday?()
-  end
-
-  def holiday?
-    Holiday.holiday?(self)
+    weekday?
   end
 
   def weekday?

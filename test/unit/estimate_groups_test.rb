@@ -45,26 +45,6 @@ class EstimateGroupsTest < ActiveSupport::TestCase
     assert_not_equal 50/9.5, @groups.data_normalized_by_estimate.data_series.mean
   end
 
-  test "average cycle time instead of hours worked" do
-    # note cycle times of these stories match the hours from the original ones
-    @stories = [
-        Story.new(:estimate => 2, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-19'),
-        Story.new(:estimate => 1, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-7'),
-        Story.new(:estimate => 5, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-31'),
-        Story.new(:estimate => 1, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-14'),
-        Story.new(:estimate => 0.5, :hours_worked => 5, :started => '2011-1-3', :finished => '2011-1-5'),
-    ]
-    assert_equal [12, 5, 20, 10, 3], @stories.map{|s| s.cycle_time },
-                 "for convenience, we're using stories whose cycle times match the hours from the original setup"
-    @groups = EstimateGroups.new(@stories) { |s| s.cycle_time }
-    assert_equal 10, @groups.all_data_in_single_group.data_series.mean
-    assert_equal 31.0/5, @groups.data_normalized_by_estimate.data_series.mean
-    underestimated_story = Story.new(:estimate => 1, :hours_worked => 5,
-                                     :started => '2011-1-3', :finished => '2011-1-19')
-    vs_average = @groups.story_vs_estimate(underestimated_story)
-    assert_equal 5, vs_average.variance_vs_mean
-  end
-
   test "uses the average for all stories as the point of comparison for stories with unique estimates" do
     unique_story = Story.new(:estimate => 15, :hours_worked => 78)
     vs_average = @groups.story_vs_estimate(unique_story)

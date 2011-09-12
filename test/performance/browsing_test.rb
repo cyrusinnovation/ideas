@@ -7,20 +7,8 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     given_existing_stories(100)
   end
 
-  def test_dashboard
-    get '/'
-  end
-
   def test_stories
     get '/stories'
-  end
-
-  def test_throughput
-    get '/throughput'
-  end
-
-  def test_cycle_time
-    get '/cycle_time'
   end
 
   def test_burn_rate
@@ -29,10 +17,6 @@ class BrowsingTest < ActionDispatch::PerformanceTest
 
   def test_estimation_view
     get '/estimation_view'
-  end
-
-  def test_holidays
-    get '/holidays'
   end
 
   private

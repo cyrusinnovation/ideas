@@ -4,7 +4,6 @@
     %th.estimate Estimate
     %th.started Started
     %th.finished Finished
-    %th.cycle_time Cycle Time
     %th.hours_worked Hours Worked
     %th.actions
   - if @editable_story.new_record?
@@ -16,7 +15,6 @@
       %td.estimate
       %td.started
       %td.finished
-      %td.cycle_time
       %td.hours_worked
       %td.actions
   != render :partial => 'story', :collection => @stories
