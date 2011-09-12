@@ -15,10 +15,6 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     get '/stories'
   end
 
-  def test_throughput
-    get '/throughput'
-  end
-
   def test_burn_rate
     get '/burn_rate'
   end

@@ -1,12 +1,5 @@
 #dashboard
   .section
-    %h2 Throughput - how are we doing?
-    %em
-      != data_series_sparkline @throughputs
-      = @throughputs.last_value.round.to_i
-    points in three weeks
-    = normal_range @throughputs
-  .section
     %h2 Burn Rate - how much will it cost?
     %em
       != smoothed_data_series_sparkline @burn_rates

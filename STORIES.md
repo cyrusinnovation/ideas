@@ -16,7 +16,6 @@ DONE
 * Show more than three stories in estimation view.
 * Drop tracking of teams.
 * Compact/printable estimation view.
-* Show a pretty graph of throughput history, possibly including key events.
 * Upgrade to Rails 3.
 
 WIP
@@ -36,9 +35,7 @@ SOMEDAY/MAYBE
 * Keyword search in estimation view.
 * Mark projects closed.
 * Show a detailed "kaizen" view of what happened over the past three weeks.
-* Make throughput page faster when there is a long history. Paginate, maybe?
 * Tech debt: pull out an Estimate value object, in place of Float/BigDecimal/Fixnum/Rational/Conversion-hell
-* Don't show throughput for dates that are too recent to have meaningful data.
 * Have a way for a new user to start using Pointilist.
 * Leave a comment summing up each completed story and how it went.
 * Leave notes on particular days summing up how they went or why they were weird.
