@@ -7,10 +7,6 @@ class BrowsingTest < ActionDispatch::PerformanceTest
     given_existing_stories(100)
   end
 
-  def test_dashboard
-    get '/'
-  end
-
   def test_stories
     get '/stories'
   end

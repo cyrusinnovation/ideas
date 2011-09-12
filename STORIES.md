@@ -9,7 +9,6 @@ DONE
 * Show unscaled hours/story by estimate group, rather than always scaling per point.
 * "Outliers view" of stories with estimates very different from the norm for their group.
 * "Card view" of actual times for recently completed stories.
-* "Dashboard" or "Information Radiator" view with a few key statistics.
 * Show a + in Hours Vs. Average when story is over average.
 * Estimation view based on fixed time per point, rather than on past averages.
 * Prefer recent stories in the estimation view.
