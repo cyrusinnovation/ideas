@@ -1,5 +1,7 @@
 Pointilist::Application.routes.draw do
-  match '/' => 'dashboard#index'
+  devise_for :users
+
+  root :to => 'dashboard#index'
   match 'stories/import' => 'stories#import', :as => :import, :via => :post
   match 'stories/import' => 'stories#prepare_import', :as => :import, :via => :get
   resources :stories

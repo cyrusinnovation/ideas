@@ -6,6 +6,7 @@ gem "haml", "3.1.2"
 gem "rdoc", "3.9.4"
 gem "jquery-rails", "1.0.13"
 gem 'gvis', '>= 2.0.0'
+gem 'devise', '>= 1.4.5'
 
 group :development do
   gem 'heroku', '>= 2.7.0'

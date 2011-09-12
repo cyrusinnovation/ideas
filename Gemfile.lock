@@ -30,7 +30,12 @@ GEM
     activesupport (3.0.10)
     addressable (2.2.6)
     arel (2.0.10)
+    bcrypt-ruby (3.0.0)
     builder (2.1.2)
+    devise (1.4.5)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     gvis (2.0.2)
@@ -55,6 +60,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     nokogiri (1.5.0)
+    orm_adapter (0.0.5)
     pg (0.11.0)
     polyglot (0.3.2)
     rack (1.2.3)
@@ -88,6 +94,8 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    warden (1.0.5)
+      rack (>= 1.0)
     webrat (0.7.3)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
@@ -97,6 +105,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  devise (>= 1.4.5)
   gvis (>= 2.0.0)
   haml (= 3.1.2)
   heroku (>= 2.7.0)
