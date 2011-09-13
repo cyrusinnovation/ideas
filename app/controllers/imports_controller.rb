@@ -7,5 +7,4 @@ class ImportsController < SecureController
     Import.new(params[:file]).each {|story| story.save }
     redirect_to stories_path
   end
-  
 end

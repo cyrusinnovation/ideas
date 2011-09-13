@@ -1,5 +1,6 @@
 class Story < ActiveRecord::Base
   composed_of :date_range, :mapping => [%w(started started), %w(finished finished)]
+  belongs_to :user
 
   def self.list_newest_first
     Story.all.sort
