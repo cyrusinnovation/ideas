@@ -1,7 +1,8 @@
 Pointilist::Application.routes.draw do
-  match 'stories/import' => 'stories#import', :as => :import, :via => :post
-  match 'stories/import' => 'stories#prepare_import', :as => :import, :via => :get
   resources :stories
+  resource :import, :only => [:index, :create]
+  
   match '/:controller(/:action(/:id))'
+
   root :to => "stories#index"
 end
