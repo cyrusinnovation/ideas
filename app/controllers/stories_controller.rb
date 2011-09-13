@@ -1,4 +1,4 @@
-class StoriesController < ApplicationController
+class StoriesController < SecureController
   def index
     @stories = Story.list_newest_first
     @editable_story = Story.new

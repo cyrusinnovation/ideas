@@ -1,4 +1,4 @@
-class EstimationViewController < ApplicationController
+class EstimationViewController < SecureController
   TARGET_BURN_RATE = 16
 
   def index

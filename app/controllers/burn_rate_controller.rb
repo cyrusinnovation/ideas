@@ -1,4 +1,4 @@
-class BurnRateController < ApplicationController
+class BurnRateController < SecureController
   def index
     burn_rate_history = Story.all_with_burn_rates.
         map { |s| s.burn_rate }.
