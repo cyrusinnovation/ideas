@@ -48,16 +48,17 @@ class EstimationStoryFindExamplesTest < ActiveSupport::TestCase
   include EstimationStoryFindExamplesTestHelper
 
   def setup
+    @user = User.create({email:"kurt@vonnegut.com", password:"451154"})
     @data_series = DataSeries.new [40, 50]
-    @too_low = Story.create :title => 'too low', :estimate => 1, :hours_worked => 39, :finished => Date.today
-    @too_high = Story.create :title => 'too high', :estimate => 3, :hours_worked => 51, :finished => Date.today
-    @floor = Story.create :title => 'floor', :estimate => 2, :hours_worked => 40, :finished => Date.today
-    @ceiling = Story.create :title => 'ceiling', :estimate => 2, :hours_worked => 50, :finished => Date.today
-    @middle = Story.create :title => 'middle', :estimate => 2, :hours_worked => 45, :finished => Date.today
+    @too_low = @user.stories.create :title => 'too low', :estimate => 1, :hours_worked => 39, :finished => Date.today
+    @too_high = @user.stories.create :title => 'too high', :estimate => 3, :hours_worked => 51, :finished => Date.today
+    @floor = @user.stories.create :title => 'floor', :estimate => 2, :hours_worked => 40, :finished => Date.today
+    @ceiling = @user.stories.create :title => 'ceiling', :estimate => 2, :hours_worked => 50, :finished => Date.today
+    @middle = @user.stories.create :title => 'middle', :estimate => 2, :hours_worked => 45, :finished => Date.today
   end
 
   test "finds stories with hours in range of average" do
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
+    examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
     assert_contains examples, @middle
     assert_contains examples, @floor
     assert_contains examples, @ceiling
@@ -65,24 +66,24 @@ class EstimationStoryFindExamplesTest < ActiveSupport::TestCase
   end
 
   test "finds closest examples up to the specified count" do
-    close = Story.create :title => 'close', :estimate => 2, :hours_worked => 47, :finished => Date.today
-    closer = Story.create :title => 'closer', :estimate => 2, :hours_worked => 46, :finished => Date.today
-    sorta_close = Story.create :title => 'sorta close', :estimate => 2, :hours_worked => 48, :finished => Date.today
+    close = @user.stories.create :title => 'close', :estimate => 2, :hours_worked => 47, :finished => Date.today
+    closer = @user.stories.create :title => 'closer', :estimate => 2, :hours_worked => 46, :finished => Date.today
+    sorta_close = @user.stories.create :title => 'sorta close', :estimate => 2, :hours_worked => 48, :finished => Date.today
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
+    examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     assert_contains examples, close
     assert_contains examples, closer
     assert_contains examples, @middle
     assert_length 3, examples
 
-    more_examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 4
+    more_examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 4
     assert_length 4, more_examples
     assert_contains more_examples, sorta_close
   end
 
   test "found examples show story details" do
-    examples = EstimationStory.find_examples :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 3
+    examples = @user.find_example_stories :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 3
     assert_equal EstimationStory.new('middle', 17, BigDecimal.new('2')), examples[0]
   end
 
@@ -100,29 +101,33 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
 
   include EstimationStoryFindExamplesTestHelper
 
+  def setup
+    @user = User.create({email:"al@einstein.com", password:"emc2cme"})
+  end
+
   test "stories from the last 60 days are chosen over older stories" do
-    @accurate_but_old = Story.create :title => 'accurate but old', :hours_worked => TARGET, :finished => OLD_DATE
+    @accurate_but_old = @user.stories.create :title => 'accurate but old', :hours_worked => TARGET, :finished => OLD_DATE
     @newer_but_less_accurate_stories = [
-        Story.create(:title => 'newer 1', :hours_worked => MAX, :finished => NEW_DATE),
-        Story.create(:title => 'newer 2', :hours_worked => MIN, :finished => NEW_DATE),
-        Story.create(:title => 'newer 3', :hours_worked => MIN + 1, :finished => NEW_DATE)
+        @user.stories.create(:title => 'newer 1', :hours_worked => MAX, :finished => NEW_DATE),
+        @user.stories.create(:title => 'newer 2', :hours_worked => MIN, :finished => NEW_DATE),
+        @user.stories.create(:title => 'newer 3', :hours_worked => MIN + 1, :finished => NEW_DATE)
     ]
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
+    examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     assert_does_not_contain examples, @accurate_but_old
     @newer_but_less_accurate_stories.each { |story| assert_contains examples, story }
   end
 
   test "if there are not enough recent stories then pull from older ones as well" do
-    @accurate_but_old = Story.create :title => 'accurate but old', :hours_worked => TARGET, :finished => OLD_DATE
+    @accurate_but_old = @user.stories.create :title => 'accurate but old', :hours_worked => TARGET, :finished => OLD_DATE
     @newer_but_less_accurate_stories = [
-        Story.create(:title => 'newer 1', :hours_worked => MAX, :finished => NEW_DATE),
-        Story.create(:title => 'newer 2', :hours_worked => MIN, :finished => NEW_DATE),
+        @user.stories.create(:title => 'newer 1', :hours_worked => MAX, :finished => NEW_DATE),
+        @user.stories.create(:title => 'newer 2', :hours_worked => MIN, :finished => NEW_DATE),
     ]
-    @newer_story_out_of_range = Story.create(:title => 'newer out', :hours_worked => MIN - 1, :finished => NEW_DATE)
+    @newer_story_out_of_range = @user.stories.create(:title => 'newer out', :hours_worked => MIN - 1, :finished => NEW_DATE)
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
+    examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     @newer_but_less_accurate_stories.each { |story| assert_contains examples, story }
     assert_contains examples, @accurate_but_old
@@ -130,17 +135,17 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
   end
 
   test "but newness trumps accuracy even when pulling in some older stories" do
-    @most_accurate_old_story = Story.create :title => 'accurate but old', :hours_worked => TARGET, :finished => OLD_DATE
+    @most_accurate_old_story = @user.stories.create :title => 'accurate but old', :hours_worked => TARGET, :finished => OLD_DATE
     @newer_but_less_accurate_stories = [
-        Story.create(:title => 'newer 1', :hours_worked => MAX, :finished => NEW_DATE),
-        Story.create(:title => 'newer 2', :hours_worked => MIN, :finished => NEW_DATE),
+        @user.stories.create(:title => 'newer 1', :hours_worked => MAX, :finished => NEW_DATE),
+        @user.stories.create(:title => 'newer 2', :hours_worked => MIN, :finished => NEW_DATE),
     ]
     @older_but_more_accurate_stories = [
-        Story.create(:title => 'older 1', :hours_worked => MAX-1, :finished => OLD_DATE),
-        Story.create(:title => 'older 2', :hours_worked => MIN+1, :finished => OLD_DATE),
+        @user.stories.create(:title => 'older 1', :hours_worked => MAX-1, :finished => OLD_DATE),
+        @user.stories.create(:title => 'older 2', :hours_worked => MIN+1, :finished => OLD_DATE),
     ]
 
-    examples = EstimationStory.find_examples :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
+    examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     @newer_but_less_accurate_stories.each { |story| assert_contains examples, story }
     assert_contains examples, @most_accurate_old_story

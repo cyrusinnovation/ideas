@@ -3,7 +3,7 @@ require 'test_helper'
 class EstimationViewControllerTest < ActionController::TestCase
   def setup
     super
-    stub(EstimationStory).find_examples {|options| [estimation_story] * options[:count] }
+    stub(@current_user).find_examples {|options| [estimation_story] * options[:count] }
   end
 
   test "shows nine example stories per group" do
