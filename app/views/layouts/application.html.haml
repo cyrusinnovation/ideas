@@ -96,13 +96,13 @@
       %ul#nav
         - if user_signed_in?
           %li
-            != navigation_link 'stories'
+            != link_to 'Stories', stories_path
           %li
-            != navigation_link 'burn_rate'
+            != link_to 'Burn Rate', burn_rate_path
           %li
-            != navigation_link 'estimation_view'
+            != link_to 'Estimation View', estimation_view_path
           %li
-            != navigation_link 'imports'
+            != link_to 'Import', new_import_path
 
     %section#content
       != yield
