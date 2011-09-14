@@ -7,7 +7,7 @@ Pointilist::Application.routes.draw do
   match '/estimation_view' => 'estimation_view#index'
   
   devise_for :users do
-    root :to => "stories#index"
+    root :to => "home#index"
   end
   
   root :to => "stories#index"
