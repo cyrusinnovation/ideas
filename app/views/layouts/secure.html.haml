@@ -76,30 +76,28 @@
     
     %header
       %div#logo
-        %h1 Pointilist
+        != link_to 'orso', root_path 
       
       %div#header
         %ul#headernav
           %li
             %ul
               %li
+                != link_to 'Estimation Tool', estimation_view_path
+              %li
+                != link_to 'Record Estimates', stories_path
+              %li
+                != link_to 'Reports', burn_rate_path
+              %li
                 %a{:href => "#"} #{current_user.email}
                 %ul
                   %li 
                     != link_to "Sign out", destroy_user_session_path, :method => :delete
-
+                
       %div#searchbox
 
     %nav
-      %ul#nav
-        %li
-          != link_to 'Stories', stories_path
-        %li
-          != link_to 'Burn Rate', burn_rate_path
-        %li
-          != link_to 'Estimation View', estimation_view_path
-        %li
-          != link_to 'Import', new_import_path
+      != yield :nav
 
     %section#content
       %p{:class=> 'notice'}

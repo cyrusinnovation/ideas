@@ -1,1 +1,6 @@
 - Add a little down arrow for the login menu
+- The import stories page should have explanatory text
+- Burn rate is not a good name for the data exploration tab
+- Add some help for the estimation tool
+- Make the logo link to the home page
+- Add a help section

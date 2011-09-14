@@ -292,14 +292,13 @@ header{
 	width:224px;
 	border:0;
 	-webkit-border-top-left-radius:4px; -moz-border-radius-topleft:4px; border-top-left-radius:4px;
-	background:url(images/logo.png) left center no-repeat;
+/*	background:url(images/logo.png) left center no-repeat;*/
 	
 }
 #logo, #logo a{
 	font-weight:700;
-	font-size:20px;
+	font-size:40px;
 	text-decoration:none;
-	text-indent:-99999px;
 }
 #logo a{
 }
