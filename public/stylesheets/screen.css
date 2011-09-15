@@ -57,7 +57,7 @@ a img {
   border: none;
 }
 
-/* line 17, ../../app/stylesheets/screen.scss */
+/* line 19, ../../app/stylesheets/screen.scss */
 body {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -378,7 +378,7 @@ body .removed {
   color: white;
 }
 
-/* line 25, ../../app/stylesheets/screen.scss */
+/* line 27, ../../app/stylesheets/screen.scss */
 #container {
   min-width: 950px;
   width: 100%;
@@ -387,15 +387,19 @@ body .removed {
   *zoom: 1;
 }
 
-/* line 29, ../../app/stylesheets/screen.scss */
+/* line 31, ../../app/stylesheets/screen.scss */
 #header {
   padding: 10px;
   background-color: black;
   min-height: 20px;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -o-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
   color: white;
   font-weight: bold;
 }
-/* line 34, ../../app/stylesheets/screen.scss */
+/* line 37, ../../app/stylesheets/screen.scss */
 #header #logo {
   display: inline;
   float: left;
@@ -403,7 +407,7 @@ body .removed {
   width: 32.63%;
   margin-right: 1.042%;
 }
-/* line 38, ../../app/stylesheets/screen.scss */
+/* line 41, ../../app/stylesheets/screen.scss */
 #header #nav {
   display: inline;
   float: left;
@@ -411,7 +415,7 @@ body .removed {
   width: 32.63%;
   margin-right: 1.042%;
 }
-/* line 42, ../../app/stylesheets/screen.scss */
+/* line 45, ../../app/stylesheets/screen.scss */
 #header #user {
   display: inline;
   float: left;
@@ -419,7 +423,7 @@ body .removed {
   width: 32.63%;
   margin-right: 0;
 }
-/* line 46, ../../app/stylesheets/screen.scss */
+/* line 49, ../../app/stylesheets/screen.scss */
 #header a {
   text-decoration: none;
   color: white;
@@ -428,7 +432,7 @@ body .removed {
 #header a:hover {
   text-decoration: underline;
 }
-/* line 51, ../../app/stylesheets/screen.scss */
+/* line 54, ../../app/stylesheets/screen.scss */
 #header ul {
   list-style-type: none;
 }
@@ -438,12 +442,12 @@ body .removed {
   padding: 0px;
   display: inline;
 }
-/* line 53, ../../app/stylesheets/screen.scss */
+/* line 56, ../../app/stylesheets/screen.scss */
 #header ul li {
   padding: 0px 20px;
 }
 
-/* line 62, ../../app/stylesheets/screen.scss */
+/* line 65, ../../app/stylesheets/screen.scss */
 #content {
   padding-left: 8.418%;
   display: inline;

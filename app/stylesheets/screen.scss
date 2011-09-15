@@ -12,6 +12,8 @@
 
 @import "blueprint/liquid";
 
+@import "compass/css3/box-shadow";
+
 $blueprint-liquid-container-width: 100%;
 
 body {
@@ -30,6 +32,7 @@ body {
   padding: 10px;
   background-color: black;
   min-height: 20px;
+  @include single-box-shadow; 
   
   #logo {
     @include column(8);
