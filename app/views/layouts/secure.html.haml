@@ -15,36 +15,30 @@
         jQuery('.sparkline').sparkline('html', { enableTagOptions: true });
       });
   %body
-
-    %header
-      %div#logo
-        != link_to 'orso', root_path 
-      
+    %div#container
       %div#header
-        %ul#headernav
+        %span#logo
+          != link_to 'orso', root_path
+        %ul#nav
           %li
-            %ul
-              %li
-                != link_to 'Estimation Tool', estimation_view_path
-              %li
-                != link_to 'Record Estimates', stories_path
-              %li
-                != link_to 'Reports', burn_rate_path
-              %li
-                %a{:href => "#"} #{current_user.email}
-                %ul
-                  %li 
-                    != link_to "Sign out", destroy_user_session_path, :method => :delete
+            != link_to 'Estimation Tool', estimation_view_path
+          %li
+            != link_to 'Record Estimates', stories_path
+          %li
+            != link_to 'Reports', burn_rate_path
+        %ul#user
+          %li
+            Logged in as #{current_user.email}
+          %li 
+            != link_to "Sign out", destroy_user_session_path, :method => :delete
+      %div#sidebar
+        != yield :nav
+      
+      %div#content
+        %p{:class=> 'notice'}
+          != notice
+        %p{:class=> 'alert'}
+          != alert
+        != yield
 
-    %nav
-      != yield :nav
-
-    %section#content
-      %p{:class=> 'notice'}
-        != notice
-      %p{:class=> 'alert'}
-        != alert
-    
-      != yield
-    
-    %footer
+      %div#footer
