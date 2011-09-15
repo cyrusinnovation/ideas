@@ -10,16 +10,39 @@
 // Use this for hovering
 @import "compass/typography/links/hover-link";
 
+@import "blueprint/liquid";
+
+$blueprint-liquid-container-width: 100%;
+
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-debug;
   @include blueprint-interaction;
+  
+}
+
+#container {
+  @include container;
 }
 
 #header {
   padding: 10px;
   background-color: black;
+  min-height: 20px;
+  
+  #logo {
+    @include column(8);
+  }
+  
+  #nav {
+    @include column(8);
+  }
+  
+  #user {
+    @include column(8, true);
+  }
+    
 	a {
 		@include hover-link;
 		color: white;
@@ -28,21 +51,18 @@ body {
 	ul {
 		@include inline-list;
 		li {
-			padding-left: 20px;
+		  padding: 0px 20px;
 		}
-		
-	}
-	
-	#user {
-		float: right;
-	}
-	
-	#logo {
-		padding-right: 25px;
 	}
 	
 	color: white;
 	font-weight: bold;
+}
+
+#content {
+  @include prepend(2);
+  @include column(20,true);
+  @include append(2);
 }
 
 form.bp {

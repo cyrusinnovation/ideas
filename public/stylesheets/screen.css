@@ -57,7 +57,7 @@ a img {
   border: none;
 }
 
-/* line 13, ../../app/stylesheets/screen.scss */
+/* line 17, ../../app/stylesheets/screen.scss */
 body {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -378,14 +378,48 @@ body .removed {
   color: white;
 }
 
-/* line 20, ../../app/stylesheets/screen.scss */
+/* line 25, ../../app/stylesheets/screen.scss */
+#container {
+  min-width: 950px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 29, ../../app/stylesheets/screen.scss */
 #header {
   padding: 10px;
   background-color: black;
+  min-height: 20px;
   color: white;
   font-weight: bold;
 }
-/* line 23, ../../app/stylesheets/screen.scss */
+/* line 34, ../../app/stylesheets/screen.scss */
+#header #logo {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 32.63%;
+  margin-right: 1.042%;
+}
+/* line 38, ../../app/stylesheets/screen.scss */
+#header #nav {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 32.63%;
+  margin-right: 1.042%;
+}
+/* line 42, ../../app/stylesheets/screen.scss */
+#header #user {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 32.63%;
+  margin-right: 0;
+}
+/* line 46, ../../app/stylesheets/screen.scss */
 #header a {
   text-decoration: none;
   color: white;
@@ -394,7 +428,7 @@ body .removed {
 #header a:hover {
   text-decoration: underline;
 }
-/* line 28, ../../app/stylesheets/screen.scss */
+/* line 51, ../../app/stylesheets/screen.scss */
 #header ul {
   list-style-type: none;
 }
@@ -404,17 +438,20 @@ body .removed {
   padding: 0px;
   display: inline;
 }
-/* line 30, ../../app/stylesheets/screen.scss */
+/* line 53, ../../app/stylesheets/screen.scss */
 #header ul li {
-  padding-left: 20px;
+  padding: 0px 20px;
 }
-/* line 36, ../../app/stylesheets/screen.scss */
-#header #user {
-  float: right;
-}
-/* line 40, ../../app/stylesheets/screen.scss */
-#header #logo {
-  padding-right: 25px;
+
+/* line 62, ../../app/stylesheets/screen.scss */
+#content {
+  padding-left: 8.418%;
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 83.138%;
+  margin-right: 0;
+  padding-right: 8.418%;
 }
 
 /* line 18, ../../../.rvm/gems/ruby-1.9.2-p290@pointilist/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_form.scss */
