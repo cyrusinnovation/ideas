@@ -16,6 +16,11 @@
 
 $blueprint-liquid-container-width: 100%;
 
+@import "compass/layout/grid-background";
+
+$grid-background-force-fluid: true;
+
+
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
@@ -26,6 +31,7 @@ body {
 
 #container {
   @include container;
+//  @include grid-background;
 }
 
 #header {
@@ -40,10 +46,15 @@ body {
   
   #nav {
     @include column(8);
+    li {
+      padding-right: 40px;
+    }
+    text-align: center;
   }
   
   #user {
     @include column(8, true);
+    text-align: right;
   }
     
 	a {
@@ -53,9 +64,6 @@ body {
 	
 	ul {
 		@include inline-list;
-		li {
-		  padding: 0px 20px;
-		}
 	}
 	
 	color: white;
