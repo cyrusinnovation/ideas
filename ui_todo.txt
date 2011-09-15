@@ -1,4 +1,3 @@
-- Add a little down arrow for the login menu
 - The import stories page should have explanatory text
 - Burn rate is not a good name for the data exploration tab
 - Add some help for the estimation tool
@@ -8,3 +7,5 @@
 - Add form field titles to edit and new story forms
 - Put links in estimation view to individual stories
 - Stop duplicating stories on estimation view
+- Add a dropdown for signout
+- There's a little strip of white on the right of the footer

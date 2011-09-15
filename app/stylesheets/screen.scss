@@ -2,7 +2,12 @@
 @import "blueprint/reset";
 
 // Import all the default blueprint modules so that we can access their mixins.
-@import "blueprint";
+//@import "blueprint";
+@import "blueprint/typography";
+@import "blueprint/utilities";
+@import "blueprint/debug";
+@import "blueprint/interaction";
+@import "blueprint/form";
 
 // Use this for navigation bar
 @import "compass/typography/lists";
@@ -16,9 +21,8 @@
 
 $blueprint-liquid-container-width: 80%;
 
-@import "compass/layout/grid-background";
-
-$grid-background-force-fluid: true;
+//@import "compass/layout/grid-background";
+//$grid-background-force-fluid: true;
 
 
 
@@ -39,8 +43,6 @@ body {
 
 #container {
   @include container;
-//  @include grid-background;
-  
   background-color: $scheme-3;
 }
 
