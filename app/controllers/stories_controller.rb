@@ -1,7 +1,10 @@
 class StoriesController < SecureController
   def index
     @stories = Story.list_newest_first
-    @editable_story = Story.new
+  end
+  
+  def new
+    @story = Story.new
   end
 
   def create
@@ -15,9 +18,7 @@ class StoriesController < SecureController
   end
 
   def edit
-    @stories = Story.list_newest_first
-    @editable_story = Story.find(params[:id])
-    render 'index'
+    @story = Story.find(params[:id])
   end
 
   def update

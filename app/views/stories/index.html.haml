@@ -8,9 +8,6 @@
     %th.finished Finished
     %th.hours_worked Hours Worked
     %th.actions
-  - if @editable_story.new_record?
-    != render 'story', :story => @editable_story
-  - else
     %tr{:class => cycle('odd', 'even')}
       %td.title
         &nbsp;
