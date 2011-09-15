@@ -21,9 +21,9 @@
           != link_to 'orso', root_path
         %ul#nav
           %li
-            != link_to 'Estimation Tool', estimation_view_path
+            != link_to 'Tool', estimation_view_path
           %li
-            != link_to 'Record Estimates', stories_path
+            != link_to 'Estimates', stories_path
           %li
             != link_to 'Reports', burn_rate_path
         %ul#user
@@ -35,10 +35,13 @@
         != yield :nav
       
       %div#content
-        %p{:class=> 'notice'}
-          != notice
-        %p{:class=> 'alert'}
-          != alert
+        - if notice
+          %p{:class=> 'notice'}
+            != notice
+        - if alert
+          %p{:class=> 'alert'}
+            != alert
+
         != yield
 
       %div#footer
