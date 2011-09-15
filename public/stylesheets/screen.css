@@ -57,12 +57,13 @@ a img {
   border: none;
 }
 
-/* line 24, ../../app/stylesheets/screen.scss */
+/* line 32, ../../app/stylesheets/screen.scss */
 body {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   color: #333333;
   font-size: 75%;
+  background-color: #accfcc;
 }
 /* line 51, ../../../.rvm/gems/ruby-1.9.2-p290@pointilist/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
 body h1, body h2, body h3, body h4, body h5, body h6 {
@@ -378,28 +379,29 @@ body .removed {
   color: white;
 }
 
-/* line 32, ../../app/stylesheets/screen.scss */
+/* line 40, ../../app/stylesheets/screen.scss */
 #container {
   min-width: 950px;
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
+  background-color: white;
 }
 
-/* line 37, ../../app/stylesheets/screen.scss */
+/* line 47, ../../app/stylesheets/screen.scss */
 #header {
   padding: 10px;
-  background-color: black;
-  min-height: 20px;
+  background-color: #595241;
+  color: white;
   -moz-box-shadow: 0px 0px 5px #333333;
   -webkit-box-shadow: 0px 0px 5px #333333;
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
-  color: white;
   font-weight: bold;
+  min-height: 20px;
 }
-/* line 43, ../../app/stylesheets/screen.scss */
+/* line 55, ../../app/stylesheets/screen.scss */
 #header #logo {
   display: inline;
   float: left;
@@ -407,7 +409,7 @@ body .removed {
   width: 32.63%;
   margin-right: 1.042%;
 }
-/* line 47, ../../app/stylesheets/screen.scss */
+/* line 59, ../../app/stylesheets/screen.scss */
 #header #nav {
   display: inline;
   float: left;
@@ -416,11 +418,11 @@ body .removed {
   margin-right: 1.042%;
   text-align: center;
 }
-/* line 49, ../../app/stylesheets/screen.scss */
+/* line 61, ../../app/stylesheets/screen.scss */
 #header #nav li {
   padding-right: 40px;
 }
-/* line 55, ../../app/stylesheets/screen.scss */
+/* line 67, ../../app/stylesheets/screen.scss */
 #header #user {
   display: inline;
   float: left;
@@ -429,16 +431,16 @@ body .removed {
   margin-right: 0;
   text-align: right;
 }
-/* line 60, ../../app/stylesheets/screen.scss */
+/* line 72, ../../app/stylesheets/screen.scss */
 #header a {
   text-decoration: none;
-  color: white;
+  color: inherit;
 }
 /* line 4, ../../../.rvm/gems/ruby-1.9.2-p290@pointilist/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
 #header a:hover {
   text-decoration: underline;
 }
-/* line 65, ../../app/stylesheets/screen.scss */
+/* line 77, ../../app/stylesheets/screen.scss */
 #header ul {
   list-style-type: none;
 }
@@ -449,7 +451,7 @@ body .removed {
   display: inline;
 }
 
-/* line 73, ../../app/stylesheets/screen.scss */
+/* line 83, ../../app/stylesheets/screen.scss */
 #content {
   padding-left: 8.418%;
   display: inline;

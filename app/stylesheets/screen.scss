@@ -14,31 +14,43 @@
 
 @import "compass/css3/box-shadow";
 
-$blueprint-liquid-container-width: 100%;
+$blueprint-liquid-container-width: 80%;
 
 @import "compass/layout/grid-background";
 
 $grid-background-force-fluid: true;
 
 
+
+// Tech office from kuler
+$scheme-1: rgb(89,82,65); // dark gray
+$scheme-2: rgb(184,174,156); // light gray
+$scheme-3: rgb(255,255,255); // white
+$scheme-4: rgb(172,207,204); // light blue
+$scheme-5: rgb(138,9,23); // red
+
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
   @include blueprint-debug;
   @include blueprint-interaction;
-  
+  background-color: $scheme-4;
 }
 
 #container {
   @include container;
 //  @include grid-background;
+  
+  background-color: $scheme-3;
 }
 
 #header {
   padding: 10px;
-  background-color: black;
-  min-height: 20px;
+  background-color: $scheme-1;
+	color: $scheme-3;
   @include single-box-shadow; 
+	font-weight: bold;
+	min-height: 20px;
   
   #logo {
     @include column(8);
@@ -59,15 +71,13 @@ body {
     
 	a {
 		@include hover-link;
-		color: white;
+		color: inherit;
 	}
 	
 	ul {
 		@include inline-list;
 	}
-	
-	color: white;
-	font-weight: bold;
+
 }
 
 #content {
