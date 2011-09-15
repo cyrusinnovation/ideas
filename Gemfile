@@ -11,6 +11,7 @@ gem 'compass', '0.11.5'
 
 group :development do
   gem 'heroku', '>= 2.7.0'
+  gem 'taps', '0.3.23'
 end
 
 group :test do
