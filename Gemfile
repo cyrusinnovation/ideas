@@ -10,6 +10,7 @@ gem 'devise', '>= 1.4.5'
 
 group :development do
   gem 'heroku', '>= 2.7.0'
+  gem 'compass', '0.11.5'
 end
 
 group :test do
