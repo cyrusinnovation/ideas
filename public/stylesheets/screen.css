@@ -462,6 +462,18 @@ body .removed {
   padding-right: 8.418%;
 }
 
+/* line 89, ../../app/stylesheets/screen.scss */
+#footer {
+  padding-left: 8.418%;
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 83.138%;
+  margin-right: 0;
+  padding-right: 8.418%;
+  background-color: #b8ae9c;
+}
+
 /* line 18, ../../../.rvm/gems/ruby-1.9.2-p290@pointilist/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_form.scss */
 form.bp label {
   font-weight: bold;

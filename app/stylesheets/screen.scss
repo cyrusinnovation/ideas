@@ -86,5 +86,12 @@ body {
   @include append(2);
 }
 
+#footer {
+  @include prepend(2);
+  @include column(20,true);
+  @include append(2);
+  background-color: $scheme-2;
+}
+
 form.bp {
   @include blueprint-form; }
