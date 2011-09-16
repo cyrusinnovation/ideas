@@ -95,5 +95,39 @@ body {
   background-color: $scheme-2;
 }
 
+#estimation_view {
+  h2 {
+    float: left;
+    font-size: 36pt;
+    margin: 0 12pt 0 0;
+  }
+
+  .story {
+      list-style: none;
+      font-size: 14pt;
+      line-height: 1.5em;
+  }
+  
+  .title, .estimate {
+    display: inline;
+  }    
+
+  .estimate {
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+
+
+  .estimate .under {
+      color: #500000;
+  }
+
+  .estimate .over {
+      color: #505000;
+  }
+
+}
+
 form.bp {
-  @include blueprint-form; }
+  @include blueprint-form; 
+}
