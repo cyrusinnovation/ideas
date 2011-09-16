@@ -29,13 +29,10 @@ class User < ActiveRecord::Base
     examples = well_estimated_stories(options).where(["finished >= ?", 60.days.ago])
     examples += well_estimated_stories(options).where(["finished < ?", 60.days.ago]) if examples.size < options[:count]
     examples.first(options[:count])
-
   end
 
+
   def well_estimated_stories options
-    examples = stories.select("*, abs(hours_worked - #{options[:target]}) as quality")
-    examples = examples.order('quality asc').limit(options[:count])
-    examples = examples.where(["hours_worked >= ?", options[:min]])
-    examples = examples.where(["hours_worked <= ?", options[:max]])
+    stories.well_estimated_stories options[:min], options[:max], options[:count], options[:target]
   end
 end
