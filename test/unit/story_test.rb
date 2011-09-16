@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class StoryTest < ActiveSupport::TestCase
+  def setup
+    @user = User.create({email:"ben@franklin.com", password:"electric"})
+  end
 
   test "burn rate is hours per point" do
     assert_equal 3, Story.new(:estimate => 2, :hours_worked => 6).burn_rate
@@ -10,15 +13,16 @@ class StoryTest < ActiveSupport::TestCase
   end
 
   test "average times for groups of stories by estimate" do
-    Story.new(:estimate => 1.7, :hours_worked => 20, :finished => '2011-1-1').save
-    Story.new(:estimate => 1.7, :hours_worked => 12, :finished => '2011-1-4').save
-    Story.new(:estimate => 1.7, :hours_worked => 18, :finished => '2011-1-3').save
-    Story.new(:estimate => 1.7, :hours_worked => 10, :finished => '2011-1-2').save
+    @user.stories.create(:estimate => 1.7, :hours_worked => 20, :finished => '2011-1-1')
+    @user.stories.create(:estimate => 1.7, :hours_worked => 12, :finished => '2011-1-4')
+    @user.stories.create(:estimate => 1.7, :hours_worked => 18, :finished => '2011-1-3')
+    @user.stories.create(:estimate => 1.7, :hours_worked => 10, :finished => '2011-1-2')
 
-    averages = Story.hours_worked_by_estimate
+    f = @user.all_with_burn_rates
+    averages = @user.hours_worked_by_estimate
     average = averages[BigDecimal.new('1.7')]
     assert_equal 15, average.mean, "averages all stories in group"
-    assert_equal bigdecimals(12, 18, 10, 20), average.values, "lists values in revere chronological order"
+    assert_equal bigdecimals(12, 18, 10, 20), average.values, "lists values in reverse chronological order"
   end
 
   def bigdecimals(*values)

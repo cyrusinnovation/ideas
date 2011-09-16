@@ -1,17 +1,6 @@
 class Story < ActiveRecord::Base
   composed_of :date_range, :mapping => [%w(started started), %w(finished finished)]
-
-  def self.list_newest_first
-    Story.all.sort
-  end
-
-  def self.all_with_burn_rates
-    all :conditions => "estimate IS NOT NULL AND hours_worked IS NOT NULL", :order => "finished DESC"
-  end
-
-  def self.hours_worked_by_estimate
-    DataSeries.by_group(all_with_burn_rates, :group => :estimate) {|s| s.hours_worked }
-  end
+  belongs_to :user
 
   def burn_rate
     return nil if hours_worked.nil?

@@ -1,29 +1,28 @@
 class StoriesController < SecureController
   def index
-    @stories = Story.list_newest_first
+    @stories = current_user.stories.order("started DESC")
   end
   
   def new
-    @story = Story.new
+    @story = current_user.stories.build
   end
 
   def create
-    Story.create params[:story]
+    current_user.stories.create params[:story]
     redirect_to :action => :index
   end
 
   def destroy
-    Story.find(params[:id]).delete
+    current_user.stories.find(params[:id]).delete
     redirect_to :action => :index
   end
 
   def edit
-    @story = Story.find(params[:id])
+    @story = current_user.stories.find(params[:id])
   end
 
   def update
-    Story.update params[:id], params[:story]
+    current_user.stories.update params[:id], params[:story]
     redirect_to :action => :index
   end
-
 end

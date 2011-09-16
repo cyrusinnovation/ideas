@@ -5,15 +5,18 @@ swim:
   estimate: 0.5
   started: 2011-01-25
   finished: 2011-01-25
+  user: john
 
 fly:
   title: 142 - I want it to fly
   estimate: 1.0
   started: 2011-01-26
   finished: 2011-01-27
+  user: john
 
 breathe_fire:
   title: 143 - I want it to breathe fire
   estimate: 5.0
   started: 2011-01-26
   finished: 2011-01-31
+  user: john
