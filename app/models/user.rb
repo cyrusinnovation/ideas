@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
     examples.first(options[:count])
   end
 
-
   def well_estimated_stories options
     stories.well_estimated_stories options[:min], options[:max], options[:count], options[:target]
   end

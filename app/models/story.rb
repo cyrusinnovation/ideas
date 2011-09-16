@@ -18,7 +18,7 @@ class Story < ActiveRecord::Base
     examples = select("*, abs(hours_worked - #{target}) as quality")
     examples = examples.order('quality asc').limit(count)
     examples = examples.where(["hours_worked >= ?", min])
-    examples = examples.where(["hours_worked <= ?", max])
+    examples.where(["hours_worked <= ?", max])
   end
 
 end
