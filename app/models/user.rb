@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  private
   def closest(target, conditions)
     examples = stories.find :all, :conditions => conditions
     examples = examples.sort_by { |story| (story.hours_worked - target).abs }
