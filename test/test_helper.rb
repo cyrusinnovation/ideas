@@ -17,6 +17,7 @@ class ActionController::TestCase
   include Devise::TestHelpers
 
   def setup
-    sign_in users(:john)
+    @current_user = users(:john)
+    sign_in @current_user
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110912183703) do
+ActiveRecord::Schema.define(:version => 20110913151241) do
 
   create_table "stories", :force => true do |t|
     t.string  "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110912183703) do
     t.date    "finished"
     t.integer "team_id"
     t.decimal "hours_worked"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|

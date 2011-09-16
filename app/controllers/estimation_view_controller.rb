@@ -18,7 +18,7 @@ class EstimationViewController < SecureController
 
   def examples( estimate)
     target = TARGET_BURN_RATE * estimate
-    EstimationStory.find_examples(:estimate => estimate,
+    current_user.find_example_stories(:estimate => estimate,
                                   :target => target,
                                   :min => target * 0.8,
                                   :max => target * 1.2,
