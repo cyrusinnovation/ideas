@@ -11,8 +11,11 @@
     != javascript_include_tag :defaults
     != javascript_include_tag 'jquery.sparkline.min'
     :javascript
-      jQuery(function() {
-        jQuery('.sparkline').sparkline('html', { enableTagOptions: true });
+      $(document).ready(function() {
+        $('.sparkline').sparkline('html', { enableTagOptions: true });
+        $('#username').click(function() {
+          $('#signout').toggle();
+        });
       });
   %body
     %div#container
@@ -26,11 +29,12 @@
             != link_to 'Estimates', stories_path
           %li
             != link_to 'Reports', burn_rate_path
-        %ul#user
-          %li
+        %div#user
+          %div#username
             #{current_user.email}
-          %li
+          %div#signout
             != link_to "Sign out", destroy_user_session_path, :method => :delete
+            
       %div#sidebar
         != yield :nav
       
