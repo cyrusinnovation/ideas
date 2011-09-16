@@ -23,19 +23,29 @@ class User < ActiveRecord::Base
     low = options[:min]
     high = options[:max]
     count = options[:count]
-    examples = closest target, ["hours_worked >= ? AND hours_worked <= ? AND finished >= ?", low, high, Date.today - 60]
-    if examples.size < count
-      examples += closest target, ["hours_worked >= ? AND hours_worked <= ?", low, high]
-    end
-    examples.first(count).map do |story|
+
+    examples(low, high, target, count).map do |story|
       EstimationStory.new story.title, estimate, story.estimate
     end
   end
 
   private
-  def closest(target, conditions)
-    examples = stories.find :all, :conditions => conditions
-    examples = examples.sort_by { |story| (story.hours_worked - target).abs }
+
+  def examples low, high, target, count
+    examples = stories.select("*, abs(hours_worked - #{target}) as quality")
+    examples = examples.order('quality asc').limit(count)
+    examples = examples.where(["hours_worked >= ?", low])
+    examples = examples.where(["hours_worked <= ?", high])
+    examples = examples.where(["finished >= ?", 60.days.ago])
+
+    if examples.size < count
+      more_examples = stories.select("*, abs(hours_worked - #{target}) as quality")
+      more_examples = more_examples.order('quality asc').limit(count - examples.size)
+      more_examples = more_examples.where(["hours_worked >= ?", low])
+      more_examples = more_examples.where(["hours_worked <= ?", high])
+      more_examples = more_examples.where(["finished < ?", 60.days.ago])
+      examples += more_examples
+    end
     examples
   end
 end
