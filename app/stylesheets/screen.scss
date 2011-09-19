@@ -93,6 +93,20 @@ body {
   @include append(2);
 }
 
+// Layout for front page
+#content {
+  
+  padding-top: 30px;
+  
+  #front_copy {
+    @include column(12);
+  }
+  
+  #front_registration {
+    @include column(12, true);
+  }
+}
+
 #footer {
   @include prepend(2);
   @include column(20,true);
