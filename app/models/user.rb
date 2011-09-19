@@ -18,34 +18,20 @@ class User < ActiveRecord::Base
   end
 
   def find_example_stories(options)
-    estimate = options[:estimate]
-    target = options[:target]
-    low = options[:min]
-    high = options[:max]
-    count = options[:count]
-
-    examples(low, high, target, count).map do |story|
-      EstimationStory.new story.title, estimate, story.estimate
+    examples(options).map do |story|
+      EstimationStory.new story.title, options[:estimate], story.estimate
     end
   end
 
   private
 
-  def examples low, high, target, count
-    examples = stories.select("*, abs(hours_worked - #{target}) as quality")
-    examples = examples.order('quality asc').limit(count)
-    examples = examples.where(["hours_worked >= ?", low])
-    examples = examples.where(["hours_worked <= ?", high])
-    examples = examples.where(["finished >= ?", 60.days.ago])
+  def examples options
+    examples = well_estimated_stories(options).where(["finished >= ?", 60.days.ago])
+    examples += well_estimated_stories(options).where(["finished < ?", 60.days.ago]) if examples.size < options[:count]
+    examples.first(options[:count])
+  end
 
-    if examples.size < count
-      more_examples = stories.select("*, abs(hours_worked - #{target}) as quality")
-      more_examples = more_examples.order('quality asc').limit(count - examples.size)
-      more_examples = more_examples.where(["hours_worked >= ?", low])
-      more_examples = more_examples.where(["hours_worked <= ?", high])
-      more_examples = more_examples.where(["finished < ?", 60.days.ago])
-      examples += more_examples
-    end
-    examples
+  def well_estimated_stories options
+    stories.well_estimated_stories options[:min], options[:max], options[:count], options[:target]
   end
 end

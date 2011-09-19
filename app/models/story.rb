@@ -13,4 +13,12 @@ class Story < ActiveRecord::Base
     return 1 if other.started.nil?
     other.started <=> started
   end
+
+  def self.well_estimated_stories min, max, count, target
+    examples = select("*, abs(hours_worked - #{target}) as quality")
+    examples = examples.order('quality asc').limit(count)
+    examples = examples.where(["hours_worked >= ?", min])
+    examples.where(["hours_worked <= ?", max])
+  end
+
 end
