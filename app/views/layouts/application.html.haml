@@ -36,7 +36,10 @@
               #{current_user.email}
             %div#signout
               != link_to "Sign out", destroy_user_session_path, :method => :delete
-            
+          -else
+            %div#login
+              != link_to "Member login", new_user_session_path
+
       %div#sidebar
         != yield :nav
       
