@@ -1,0 +1,11 @@
+
+/* Make room for top bar */
+.main-container .content {
+  padding-top: 40px;
+}
+
+body {
+/*  background-color: rgb(172,207,204); // light blue*/
+}
+
+

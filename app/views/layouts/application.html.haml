@@ -3,26 +3,21 @@
     %title 
       orso
 
-    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'print.css', :media => 'print'
-    /[if lt IE 8]
-      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    != stylesheet_link_tag 'http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css'
+    != stylesheet_link_tag 'screen'
 
-    != javascript_include_tag :defaults
-    != javascript_include_tag 'jquery.sparkline.min'
-    :javascript
-      $(document).ready(function() {
-        $('.sparkline').sparkline('html', { enableTagOptions: true });
-        $('#username').click(function() {
-          $('#signout').toggle();
-        });
-      });
+    / != javascript_include_tag :defaults
+    / != javascript_include_tag 'jquery.sparkline.min'
+    / :javascript
+    /   $(document).ready(function() {
+    /     $('.sparkline').sparkline('html', { enableTagOptions: true });
+    /   });
   %body
-    %div#container
-      %div#header
-        %span#logo
-          != link_to 'orso', root_path
-        %ul#nav
+  %div.topbar
+    %div.topbar-inner
+      %div.container
+        != link_to 'orso', root_path, :class => 'brand'
+        %ul.nav
           -if user_signed_in?
             %li
               != link_to 'Tool', estimation_view_path
@@ -30,28 +25,25 @@
               != link_to 'Estimates', stories_path
             %li
               != link_to 'Reports', burn_rate_path
-        %div#user
+        %p.pull-right
           -if user_signed_in?
-            %div#username
-              #{current_user.email}
-            %div#signout
-              != link_to "Sign out", destroy_user_session_path, :method => :delete
+            #{current_user.email}
+            != link_to "Sign out", destroy_user_session_path, :method => :delete
           -else
-            %div#login
-              != link_to "Member login", new_user_session_path
-
-      %div#sidebar
-        != yield :nav
-      
-      %div#content
+            != link_to "Member login", new_user_session_path
+        
+  
+  %div.container.main-container
+    %div.content
+      %div.row
         - if notice
           %p{:class=> 'notice'}
             != notice
         - if alert
           %p{:class=> 'alert'}
             != alert
-
+      %div.row
         != yield
 
-      %div#footer
-        orso is a cyrusinnovation product
+    %footer
+      %p orso is a cyrusinnovation product
