@@ -1,9 +1,8 @@
-
+- Restore addition form
+- Add form field titles to edit and new story forms
 - Allow remember checking through top bar login
 - The import stories page should have explanatory text
-- Restore addition form
 - Add a help section
-- Add form field titles to edit and new story forms
 - Put links in estimation view to individual stories
 - Restore fancy layout for estimation tool
 - Restore color scheme from scss stuff

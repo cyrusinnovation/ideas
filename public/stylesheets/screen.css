@@ -10,7 +10,7 @@ $scheme-5: rgb(138,9,23); // red
 
 /* Make room for top bar */
 .main-container .content {
-  padding-top: 40px;
+  padding-top: 50px;
 }
 
 /* Override some defaults */

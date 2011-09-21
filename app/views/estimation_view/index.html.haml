@@ -4,16 +4,21 @@
       $('.nav .tool').addClass('active');
     });
 
-#estimation_view
-  - @groups.each do |group|
-    %ul.group
-      %h2
-        = heading(group)
-      - group.each do |story|
-        %li.story
-          .title
-            = story.title
-          .estimate
-            != story.under_or_over_html
-            %span.calculated
-              = story.estimate
+.page-header
+  %h1
+    Tool
+.row
+  .span14
+    #estimation_view
+      - @groups.each do |group|
+        %ul.group
+          %h2
+            = heading(group)
+          - group.each do |story|
+            %li.story
+              .title
+                = story.title
+              .estimate
+                != story.under_or_over_html
+                %span.calculated
+                  = story.estimate

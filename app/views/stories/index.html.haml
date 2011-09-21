@@ -3,23 +3,29 @@
     $(document).ready(function() {
       $('.nav .estimates').addClass('active');
     });
-    
-- render 'story_nav'
 
-%table#stories
-  %tr
-    %th.title
-    %th.estimate Estimate
-    %th.started Started
-    %th.finished Finished
-    %th.hours_worked Hours Worked
-    %th.actions
-    %tr{:class => cycle('odd', 'even')}
-      %td.title
-        &nbsp;
-      %td.estimate
-      %td.started
-      %td.finished
-      %td.hours_worked
-      %td.actions
-  != render :partial => 'story', :collection => @stories
+.page-header
+  %h1
+    orso
+.row
+  .span14
+    
+    - render 'story_nav'
+
+    %table#stories
+      %tr
+        %th.title
+        %th.estimate Estimate
+        %th.started Started
+        %th.finished Finished
+        %th.hours_worked Hours Worked
+        %th.actions
+        %tr{:class => cycle('odd', 'even')}
+          %td.title
+            &nbsp;
+          %td.estimate
+          %td.started
+          %td.finished
+          %td.hours_worked
+          %td.actions
+      != render :partial => 'story', :collection => @stories
