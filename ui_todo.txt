@@ -1,11 +1,12 @@
+
+Unsorted
+- Allow remember checking through top bar login
 - The import stories page should have explanatory text
-- Burn rate is not a good name for the data exploration tab
-- Add some help for the estimation tool
+- Restore addition form
 - Add a help section
-- Signout dropdown breaks with long email address
-- Dry up edit and new story forms
 - Add form field titles to edit and new story forms
 - Put links in estimation view to individual stories
-- Stop duplicating stories on estimation view
-- Add a dropdown for signout
-- There's a little strip of white on the right of the footer
+- Restore fancy layout for estimation tool
+- Restore color stuff and sparklines on reports
+- Restore color scheme from scss stuff
+- Edit / delete links on estimates page look shitty
