@@ -7,10 +7,9 @@
       /[if lt IE 9]
         != javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
       %link{:href => "stylesheets/bootstrap/bootstrap.less", :rel => "stylesheet/less", :type => "text/css"}
-      != stylesheet_link_tag "bootstrap.less", :rel => 'stylesheet.less'
       != stylesheet_link_tag "screen"
       != javascript_include_tag 'less-1.1.3.min.js'
-
+      != yield :head
   %body
     .topbar
       .fill
