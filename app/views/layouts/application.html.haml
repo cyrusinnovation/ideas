@@ -8,6 +8,7 @@
         != javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
       %link{:href => "stylesheets/bootstrap/bootstrap.less", :rel => "stylesheet/less", :type => "text/css"}
       != stylesheet_link_tag "screen"
+      != javascript_include_tag :defaults
       != javascript_include_tag 'less-1.1.3.min.js'
       != yield :head
   %body
@@ -17,11 +18,11 @@
           %a.brand{:href => "#"} orso
           -if user_signed_in?
             %ul.nav
-              %li
+              %li.tool
                 != link_to 'Tool', estimation_view_path
-              %li
+              %li.estimates
                 != link_to 'Estimates', stories_path
-              %li
+              %li.reports
                 != link_to 'Reports', burn_rate_path            
           -if user_signed_in?
             %p.pull-right

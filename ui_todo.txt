@@ -8,7 +8,6 @@
 - Restore fancy layout for estimation tool
 - Restore color scheme from scss stuff
 - Edit / delete links on estimates page look shitty
-- Highlight the active tab in the top bar
 - Format numbers without the digits
 - Get rid of orso header on each page
 - Rename pointilist.heroku.com to orso.cyrusinnovatin.com

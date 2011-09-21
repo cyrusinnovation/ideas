@@ -1,3 +1,9 @@
+- content_for :head do
+  :javascript
+    $(document).ready(function() {
+      $('.nav .estimates').addClass('active');
+    });
+    
 - render 'story_nav'
 
 %table#stories
