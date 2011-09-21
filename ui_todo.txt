@@ -1,11 +1,9 @@
-- Restore addition form
-- Add form field titles to edit and new story forms
+- Add / edit form looks like shit
 - Allow remember checking through top bar login
 - The import stories page should have explanatory text
 - Add a help section
-- Put links in estimation view to individual stories
-- Restore fancy layout for estimation tool
 - Restore color scheme from scss stuff
 - Edit / delete links on estimates page look shitty
 - Format numbers without the digits
 - Rename pointilist.heroku.com to orso.cyrusinnovatin.com
+- Use fancy printing for tool view

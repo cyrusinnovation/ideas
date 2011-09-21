@@ -4,11 +4,6 @@
 
 .row
   .span14
-    %ul
-      %li
-        != link_to 'Create a new estimate', new_story_path      
-      %li
-        != link_to 'Import stories', new_import_path
 
     %h2 Import Stories from CSV file
     - form_tag import_path, :method => :post, :multipart => true do

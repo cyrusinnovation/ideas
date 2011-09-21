@@ -10,27 +10,24 @@
 .row
   .span14
     
-    %ul
-      %li
-        != link_to 'Create a new estimate', new_story_path      
-      %li
-        != link_to 'Import stories', new_import_path
+    - if current_user.stories.empty?
+      %p
+        You haven't entered any estimates. Add them below, or 
+        != link_to 'import them from a CSV file', new_import_path
 
 
     %table#stories
       %tr
-        %th.title
+        %th.title Title
         %th.estimate Estimate
         %th.started Started
         %th.finished Finished
         %th.hours_worked Hours Worked
-        %th.actions
         %tr{:class => cycle('odd', 'even')}
           %td.title
-            &nbsp;
+            != link_to '(Add new)', new_story_path      
           %td.estimate
           %td.started
           %td.finished
           %td.hours_worked
-          %td.actions
       != render :partial => 'story', :collection => @stories

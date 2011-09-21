@@ -12,62 +12,70 @@
 .row
   .span14
 
-    #dashboard
-      .section
-        %h2 Burn Rate - how much will it cost?
-        %em
-          != smoothed_data_series_sparkline @burn_rates
-          = @burn_rates.last(10).mean.round.to_i
-        development hours per point
-        = normal_range @burn_rates
+    - if current_user.stories.empty?
+      %p
+        You haven't entered any estimates. 
+        != link_to 'Add some', stories_path
+        or 
+        != link_to 'import them from a CSV file', new_import_path
+    - else
 
-    #average_burn_rate
-      %h2 Averages
-      %table
-        %tr
-          %th.estimate_group
-            Estimate <br> Group
-          %th.newest_10
-            Newest 10
-          %th.newest_30{:colspan => 2}
-            Newest 30
-          %th.all
-            All
-        - @estimate_groups.each do |group|
-          %tr{:class => cycle('odd', 'even')}
-            %td.estimate_group
-              = group.title
-            %td.newest_10
-              != to_html group.data_series.first(10)
-            %td.newest_30
-              != discrete_sparkline group
-            %td.newest_30
-              != to_html group.data_series.first(30)
-            %td.all
-              != to_html group.data_series
+      #dashboard
+        .section
+          %h2 Burn Rate - how much will it cost?
+          %em
+            != smoothed_data_series_sparkline @burn_rates
+            = @burn_rates.last(10).mean.round.to_i
+          development hours per point
+          = normal_range @burn_rates
 
-    #burn_rate
-      %h2 Burn Rate Per Story
-      %table
-        %tr
-          %th.story Story
-          %th.finished Finished
-          %th.estimate Estimate
-          %th.hours Hours Worked
-          %th.burn_rate Burn Rate
-          %th.status Hours vs. <br> Average
-        - @stories.each do |story|
-          %tr{:class => "#{cycle('odd', 'even')} #{story.status}",
-              :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series}"}
-            %td.story
-              != format_title story.title
-            %td.finished
-              = format_date story.finished
-            %td.estimate
-              = format_estimate story.estimate
-            %td.hours
-              = story.hours_worked
-            %td.burn_rate
-              = story.burn_rate.round.to_i
-            %td.status
-              != format_variance story.variance_vs_mean
+      #average_burn_rate
+        %h2 Averages
+        %table
+          %tr
+            %th.estimate_group
+              Estimate <br> Group
+            %th.newest_10
+              Newest 10
+            %th.newest_30{:colspan => 2}
+              Newest 30
+            %th.all
+              All
+          - @estimate_groups.each do |group|
+            %tr{:class => cycle('odd', 'even')}
+              %td.estimate_group
+                = group.title
+              %td.newest_10
+                != to_html group.data_series.first(10)
+              %td.newest_30
+                != discrete_sparkline group
+              %td.newest_30
+                != to_html group.data_series.first(30)
+              %td.all
+                != to_html group.data_series
+
+      #burn_rate
+        %h2 Burn Rate Per Story
+        %table
+          %tr
+            %th.story Story
+            %th.finished Finished
+            %th.estimate Estimate
+            %th.hours Hours Worked
+            %th.burn_rate Burn Rate
+            %th.status Hours vs. <br> Average
+          - @stories.each do |story|
+            %tr{:class => "#{cycle('odd', 'even')} #{story.status}",
+                :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series}"}
+              %td.story
+                != format_title story.title
+              %td.finished
+                = format_date story.finished
+              %td.estimate
+                = format_estimate story.estimate
+              %td.hours
+                = story.hours_worked
+              %td.burn_rate
+                = story.burn_rate.round.to_i
+              %td.status
+                != format_variance story.variance_vs_mean
