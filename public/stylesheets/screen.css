@@ -1,10 +1,17 @@
 
+/*
+// Tech office from kuler
+$scheme-1: rgb(89,82,65); // dark gray
+$scheme-2: rgb(184,174,156); // light gray
+$scheme-3: rgb(255,255,255); // white
+$scheme-4: rgb(172,207,204); // light blue
+$scheme-5: rgb(138,9,23); // red
+*/
+
 /* Make room for top bar */
 .main-container .content {
   padding-top: 40px;
 }
-
-
 
 /* Override some defaults */
 html, body {
@@ -55,3 +62,81 @@ body {
 .topbar .btn {
   border: 0;
 }
+
+#estimation_view h2 {
+  float: left;
+  font-size: 36pt;
+  margin: 0 12pt 0 0;
+}
+
+#estimation_view .story {
+    list-style: none;
+    font-size: 14pt;
+    line-height: 1.5em;
+}
+
+#estimation_view .title, #estimation_view .estimate {
+  display: inline;
+}    
+
+#estimation_view .estimate {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+
+#estimation_view .estimate .under {
+    color: #500000;
+}
+
+#estimation_view .estimate .over {
+    color: #505000;
+}
+
+/* Coloring for estimates page */
+
+
+#average_burn_rate {
+    float: right;
+}
+
+tr:hover {
+    background-color: #f0f8ff;
+}
+
+tr:hover th {
+    background-color: #ffffff;
+}
+
+tr.underestimated {
+    background-color: #ffe8e8;
+}
+
+tr.overestimated {
+    background-color: #ffffe0;
+}
+
+td, th {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+th {
+    text-align: center;
+    border-bottom: dotted black 1px;
+    vertical-align: bottom;
+}
+
+td {
+    text-align: right;
+}
+
+td.actions {
+    text-align: center;
+}
+
+td.story, td.title, td.description, td.team {
+    text-align: left;
+}
+
+

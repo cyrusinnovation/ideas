@@ -1,5 +1,4 @@
 
-Unsorted
 - Allow remember checking through top bar login
 - The import stories page should have explanatory text
 - Restore addition form
@@ -10,3 +9,6 @@ Unsorted
 - Restore color stuff and sparklines on reports
 - Restore color scheme from scss stuff
 - Edit / delete links on estimates page look shitty
+- Highlight the active tab in the top bar
+- Format numbers without the digits
+- Get rid of orso header on each page
