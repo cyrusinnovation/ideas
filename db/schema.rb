@@ -11,26 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913151241) do
+ActiveRecord::Schema.define(:version => 20110922162811) do
 
   create_table "stories", :force => true do |t|
     t.string  "title"
-    t.decimal "estimate"
+    t.decimal "estimate",     :precision => 3, :scale => 1
     t.date    "started"
     t.date    "finished"
     t.integer "team_id"
     t.decimal "hours_worked"
     t.integer "user_id"
-  end
-
-  create_table "stories_old", :id => false, :force => true do |t|
-    t.integer "id"
-    t.string  "title"
-    t.decimal "estimate"
-    t.date    "started"
-    t.date    "finished"
-    t.integer "team_id"
-    t.decimal "hours_worked"
   end
 
   create_table "users", :force => true do |t|
@@ -46,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20110913151241) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "target_point_size",                     :default => 8
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
