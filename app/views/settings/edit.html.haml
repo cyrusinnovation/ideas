@@ -1,6 +1,15 @@
-=form_for current_user, :url => settings_update_path do |f|
-  %div
-    != f.label :target_point_size
-    != f.number_field :target_point_size, :size => 6
-  %div
-    != f.submit 'Save'
+- content_for :head do
+  :javascript
+    $(document).ready(function() {
+      $('.nav .settings').addClass('active');
+    });
+
+.page-header
+  %h1
+    Settings
+.row
+  .span14
+    =form_for current_user, :url => settings_update_path do |f|
+      != f.label :target_point_size
+      != f.number_field :target_point_size, :size => 6
+      != f.submit 'Save', class: 'btn primary'
