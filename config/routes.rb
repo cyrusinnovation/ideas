@@ -1,5 +1,8 @@
 Pointilist::Application.routes.draw do
 
+  get "settings/edit", :as => "settings_edit"
+  match "settings/update", :as => "settings_update"
+
   resources :stories
   resource :import, :only => [:new, :create]
 

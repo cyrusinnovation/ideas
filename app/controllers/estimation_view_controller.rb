@@ -1,6 +1,4 @@
 class EstimationViewController < SecureController
-  TARGET_BURN_RATE = 16
-
   def index
     @groups = [
         examples(13),
@@ -17,7 +15,7 @@ class EstimationViewController < SecureController
   private
 
   def examples( estimate)
-    target = TARGET_BURN_RATE * estimate
+    target = current_user.target_point_size * estimate
     current_user.find_example_stories(:estimate => estimate,
                                   :target => target,
                                   :min => target * 0.8,
