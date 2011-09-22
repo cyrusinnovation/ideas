@@ -1,38 +1,26 @@
-.row
-  .span14
 
-    %div#front_copy
-      %p Text about how great orso is.
 
-      %p On 1 March 1757 Damiens the regicide was condemned "to make the amende honorable before the main door of the Church of Paris", where he was to be "taken and conveyed in a cart, wearing nothing but a shirt, holding a torch of burning wax weighing two pounds"; then, "in the said cart, to the Place de Grève, where, on a scaffold that will be erected there, the flesh will be torn from his breasts, arms, thighs and claves with red-hot pincers, his right hand, holding the knife with which he committed the said parricide, burnt with sulphur, and, on those places where the flesh will be torn away, poured molten lead, boiling oil, burning resin, wax and sulphur melted together and then his body drawn and quartered by four horses and his limbs and body consumed by fire, reduced to ashes and his ashes thrown to the winds" (Pièces originales..., 372-4).
+/ .row
+/   .span14
+.hero-unit
+  %h1 Estimate With Confidence
 
-      %p "Finally, he was quartered," recounts the Gazette d'Amsterdam of 1 April 1757. "This last operation was very long, because the horses used were not accustomed to drawing; consequently, instead of four, six were needed; and when that did not suffice, they were forced, in order to cut off the wretch's thighs, to sever the sinews and hack at the joints...
+  %p Orso helps you use your estimates to make better estimates. It makes it easy to record your estimates and actuals. It provides a tool to help you when you're estimating. And it provides you reports to help you adjust your approaches to estimation.
 
-      %p It is said that, though he was always a great swearer, no blashemy escaped his lips; but the excessive pain made him utter horrible cries, and he often repeated: 'My God, have pity on me! Jesus, help me!' The spectators were all edified by the solicitude of the parish priest of St Paul's who despite his great age did not spare himself in offering consolation to the patient."
+  %a.btn.primary.large.push-right{:href => new_user_registration_path} Sign up now
 
-      %p Bouton, an officer of the watch, left us his account: "The sulphur was lit, but the flame was so poor that only the top skin of the hand was burnt, and that only slightly. Then the executioner, his sleeves rolled up, took the steel pincers, which had been especially made for the occasion, and which were about a foot and a half long, and pulled first at the calf of the right leg, then at the thigh, and from there at the two fleshy parts of the right arm; then at the breasts. Though a strong, sturdy fellow, this executioner found it so difficult to tear away the pieces of flesh that he set about the same spot two or three times, twisting the pincers as he did so, and what he took away formed at each part a wound about the size of a six-pound crown piece.
-
-      %p After these tearings with the pincers, Damiens, who cried out profusely, though without swearing, raised his head and looked at himself; the same executioner dipped an iron spoon in the pot containing the boiling potion, which he poured liberally over each wound. Then the ropes that were to be harnessed to the horses were attached with cords to the patient's body; the horses were then harnessed and placed alongside the arms and legs, one at each limb.
-
-    %div#front_registration
-      = form_for(:user, :as => 'user', :url => registration_path('user')) do |f|
-
-        %div
-          != f.label :email
-          %br
-          != f.email_field :email
-    
-        %div
-          != f.label :password
-          %br
-          != f.password_field :password
-
-        %div
-          != f.label :password_confirmation
-          %br
-          != f.password_field :password_confirmation
-
-        %div
-          != f.submit "Sign up"
+%ul.media-grid
+  %li
+    %a{:href => "#"}
+      != image_tag "http://placehold.it/210x150"
+  %li
+    %a{:href => "#"}
+      != image_tag "http://placehold.it/210x150"
+  %li
+    %a{:href => "#"}
+      != image_tag "http://placehold.it/210x150"
+  %li
+    %a{:href => "#"}
+      != image_tag "http://placehold.it/210x150"
 
 
