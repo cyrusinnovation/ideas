@@ -7,3 +7,4 @@
 - Format numbers without the digits
 - Rename pointilist.heroku.com to orso.cyrusinnovatin.com
 - Use fancy printing for tool views
+- Links at bottom of sign in page are ugly
