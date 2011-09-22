@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def estimate_hours(estimate)
+    target_point_size * estimate
+  end
+
   private
 
   def examples options

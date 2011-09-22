@@ -21,4 +21,22 @@ class Story < ActiveRecord::Base
     examples.where(["hours_worked <= ?", max])
   end
 
+  def status estimate_groups
+    return nil if data_series(estimate_groups).empty?
+    difference = variance_vs_mean(estimate_groups)
+    return nil if difference.nil?
+    difference < 0 ? :overestimated : :underestimated
+  end
+
+  def variance_vs_mean estimate_groups
+    return nil if data_series(estimate_groups).empty?
+
+    difference = hours_worked - data_series(estimate_groups).mean
+    difference.abs < data_series(estimate_groups).standard_deviation ? nil : difference.round
+  end
+
+  def data_series estimate_groups
+    estimate_groups.data_series(estimate)
+  end
+
 end
