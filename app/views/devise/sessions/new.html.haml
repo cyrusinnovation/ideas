@@ -8,7 +8,7 @@
     = flash[:alert]
 
 != form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-stacked'}) do |f|
-  .fieldset
+  %fieldset
     .clearfix
       != f.label :email
       != f.email_field :email
