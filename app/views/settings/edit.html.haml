@@ -1,6 +1,6 @@
 =form_for current_user, :url => settings_update_path do |f|
   %div
     != f.label :target_point_size
-    != f.text_field :target_point_size, :size => 6
+    != f.number_field :target_point_size, :size => 6
   %div
     != f.submit 'Save'
