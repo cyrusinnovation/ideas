@@ -19,3 +19,7 @@ group :test do
   gem "webrat", "0.7.3"
 end
 
+
+group :development, :test do
+  gem 'ruby-debug19'
+end
