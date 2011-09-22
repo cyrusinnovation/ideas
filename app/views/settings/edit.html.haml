@@ -1,3 +1,9 @@
+- content_for :head do
+  :javascript
+    $(document).ready(function() {
+      $('.nav .settings').addClass('active');
+    });
+
 =form_for current_user, :url => settings_update_path do |f|
   %div
     != f.label :target_point_size
