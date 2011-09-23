@@ -18,7 +18,7 @@
             = form_for @story do |f|
               != f.hidden_field :title
               != f.hidden_field :estimate, :value => group[0].estimate
-              != f.submit "Like these", :class => 'btn primary'
+              != f.submit "About this big", :class => 'btn primary'
             
           - group.each do |story|
             %li.story
