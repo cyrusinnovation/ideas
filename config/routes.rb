@@ -1,7 +1,10 @@
 Pointilist::Application.routes.draw do
 
   resource :settings, :only => [:edit, :update]
-  resources :stories
+  resources :stories do
+    post 'new_interactive', :on => :collection
+    get 'edit_interactive', :on => :member
+  end
   resource :import, :only => [:new, :create]
 
   root :to => 'home#index', :constraints => lambda {|r| r.env["warden"].authenticate? }

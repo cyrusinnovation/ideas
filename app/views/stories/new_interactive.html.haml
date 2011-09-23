@@ -1,0 +1,26 @@
+- content_for :head do
+  :javascript
+    $(document).ready(function() {
+      // No tab here.
+    });
+
+.page-header
+  %h1
+    Estimating "#{@story.title}"
+
+.row
+  .span14
+    #estimation_view
+      - @groups.each do |group|
+        %ul.group
+          %h2
+            = group[0].estimate
+            = form_for @story do |f|
+              != f.hidden_field :title
+              != f.hidden_field :estimate, :value => group[0].estimate
+              != f.submit "Like these", :class => 'btn primary'
+            
+          - group.each do |story|
+            %li.story
+              .title
+                = story.title

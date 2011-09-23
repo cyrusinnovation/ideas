@@ -1,21 +1,11 @@
 .page-header
   %h1
     Home
-    
-.row
-  .span14
-    %ul
-      %li
-        != link_to 'Create a new estimate', stories_path
-      %li
-        != link_to 'Record the actual for a previously estimated story', stories_path
-      %li
-        != link_to 'Search for previous estimates', stories_path
-      %li
-        != link_to 'Explore your estimation patterns', burn_rate_path
-      %li
-        != link_to 'Make an estimation help sheet', estimation_view_path
-      %li
-        != link_to 'Change estimation targets', stories_path
-      %li
-        != link_to 'Import data', new_import_path
+
+=form_for current_user.stories.build, :url => new_interactive_stories_path, :html => {:class => 'form-stacked'} do |f|
+  %fieldset
+    .clearfix
+      != f.label :title
+      != f.text_field :title, :size => 60
+  .actions
+    != f.submit "Start a new estimate", :class => 'btn primary'
