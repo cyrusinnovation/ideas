@@ -1,7 +1,8 @@
 class Story < ActiveRecord::Base
   composed_of :date_range, :mapping => [%w(started started), %w(finished finished)]
   belongs_to :user
-
+  validates :title, :presence => true
+ 
   def burn_rate
     return nil if hours_worked.nil?
     return nil if estimate.nil?

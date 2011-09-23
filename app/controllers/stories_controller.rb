@@ -8,8 +8,7 @@ class StoriesController < SecureController
   end
 
   def create
-    current_user.stories.create params[:story]
-    redirect_to :action => :index
+    @story = current_user.stories.create(params[:story])
   end
 
   def destroy

@@ -8,3 +8,16 @@
 - Rename pointilist.heroku.com to orso.cyrusinnovatin.com
 - Use fancy printing for tool views
 - Links at bottom of sign in page are ugly
+- Allow users to delete their accounts
+
+1. Pages to apply layout to:
+- Sign up page
+- Forgot password page
+
+2. Put screen shots on front page 
+
+3. Better datepicker for edit / new story page
+
+Future
+
+- Show validation errors on new / edit screen
