@@ -51,6 +51,8 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
         @user.stories.create(:title => 'newer 3', :hours_worked => MIN + 1, :finished => NEW_DATE)
     ]
 
+    fail("need to change to test buckets_with_examples")
+
     examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
     assert_does_not_contain examples, @accurate_but_old
@@ -64,6 +66,8 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
         @user.stories.create(:title => 'newer 2', :hours_worked => MIN, :finished => NEW_DATE),
     ]
     @newer_story_out_of_range = @user.stories.create(:title => 'newer out', :hours_worked => MIN - 1, :finished => NEW_DATE)
+
+    fail("need to change to test buckets_with_examples")
 
     examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 
@@ -82,6 +86,8 @@ class EstimationStoryPrefersRecentStoriesTest < ActiveSupport::TestCase
         @user.stories.create(:title => 'older 1', :hours_worked => MAX-1, :finished => OLD_DATE),
         @user.stories.create(:title => 'older 2', :hours_worked => MIN+1, :finished => OLD_DATE),
     ]
+
+    fail("need to change to test buckets_with_examples")
 
     examples = @user.find_example_stories :estimate => 2, :target => 45, :min => 40, :max => 50, :count => 3
 

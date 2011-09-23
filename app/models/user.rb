@@ -17,19 +17,33 @@ class User < ActiveRecord::Base
     stories.where("estimate IS NOT NULL AND hours_worked IS NOT NULL").order("finished DESC")
   end
 
-  def find_example_stories(options)
-    examples(options).map do |story|
-      EstimationStory.new story.title, options[:estimate], story.estimate
-    end
+  def stories_for_estimation(bucket)
+    examples(bucket)
+  end
+
+  def buckets_with_examples
+    buckets.reverse.collect {|b| [b, stories_for_estimation(b)] }
   end
 
   def estimate_hours(estimate)
     target_point_size * estimate
   end
 
+  def buckets
+    [0.25, 0.5, 1, 2, 3, 5, 8, 13, 21]
+  end
+
   private
 
-  def examples options
+  def examples bucket
+    target = target_point_size * bucket
+    options = {    
+                :estimate => bucket,
+                :target => target,
+                :min => target * 0.8,
+                :max => target * 1.2,
+                :count => 9
+              }
     examples = well_estimated_stories(options).where(["finished >= ?", 60.days.ago])
     examples += well_estimated_stories(options).where(["finished < ?", 60.days.ago]) if examples.size < options[:count]
     examples.first(options[:count])

@@ -42,12 +42,8 @@ class UsersFindExamplesTest < ActiveSupport::TestCase
     assert_contains more_examples, sorta_close
   end
 
-  test "found examples show story details" do
-    examples = @user.find_example_stories :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 3
-    assert_equal EstimationStory.new('middle', 17, BigDecimal.new('2')), examples[0]
-  end
-
   test "that we do not get duplicates" do
+    fail("test buckets_with_examples instead")
     examples = @user.find_example_stories :estimate => 17, :target => 45, :min => 40, :max => 50, :count => 5
     assert_equal 3, examples.size
   end

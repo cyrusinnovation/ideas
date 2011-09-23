@@ -8,27 +8,14 @@
   %h1
     Tool
 
-.row
-  .span14
-    
-    - if current_user.stories.empty?
-      %p
-        You haven't entered any estimates. 
-        != link_to 'Add some', stories_path
-        or 
-        != link_to 'import them from a CSV file', new_import_path
-  
-    - else 
-      #estimation_view
-        - @groups.each do |group|
-          %ul.group
-            %h2
-              = heading(group)
-            - group.each do |story|
-              %li.story
-                .title
-                  = story.title
-                .estimate
-                  != story.under_or_over_html
-                  %span.calculated
-                    = story.estimate
+#estimation_view
+  - @groups.each do |bucket, examples|
+    .row
+      .span14
+        %ul.group
+          %h2
+            = bucket
+          - examples.each do |example|
+            %li.story
+              .title
+                = example.title

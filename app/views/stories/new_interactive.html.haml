@@ -8,19 +8,19 @@
   %h1
     Estimating "#{@story.title}"
 
-.row
-  .span14
-    #estimation_view
-      - @groups.each do |group|
+#estimation_view
+  - @groups.each do |bucket, examples|
+    .row
+      .span14
         %ul.group
           %h2
-            = group[0].estimate
+            = bucket
             = form_for @story do |f|
               != f.hidden_field :title
-              != f.hidden_field :estimate, :value => group[0].estimate
+              != f.hidden_field :estimate, :value => bucket
               != f.submit "About this big", :class => 'btn primary'
             
-          - group.each do |story|
+          - examples.each do |example|
             %li.story
               .title
-                = story.title
+                = example.title

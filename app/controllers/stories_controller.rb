@@ -9,16 +9,7 @@ class StoriesController < SecureController
 
   def new_interactive
     @story = current_user.stories.build(params[:story])
-    @groups = [
-        examples(13),
-        examples(8),
-        examples(5),
-        examples(3),
-        examples(2),
-        examples(1),
-        examples(0.5),
-        examples(0.25),
-    ]
+    @groups = current_user.buckets_with_examples
   end
 
   def create
@@ -39,19 +30,6 @@ class StoriesController < SecureController
   def update
     current_user.stories.update params[:id], params[:story]
     redirect_to :action => :index
-  end
-  
-  
-  
-  private
-
-  def examples( estimate)
-    target = current_user.target_point_size * estimate
-    current_user.find_example_stories(:estimate => estimate,
-                                  :target => target,
-                                  :min => target * 0.8,
-                                  :max => target * 1.2,
-                                  :count => 9)
   end
   
 end
