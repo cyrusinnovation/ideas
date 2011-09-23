@@ -30,6 +30,9 @@ module ApplicationHelper
     '%.0f &plusmn; %.0f' % [data_series.mean, data_series.standard_deviation]
   end
 
+  def page_header page_title
+    return "<div class='page-header'><h1>#{page_title}</h1></div>"    
+  end
 
 
 end

@@ -12,7 +12,6 @@
 
 1. Pages to apply layout to:
 - Sign up page
-- Forgot password page
 - Edit user detail
 
 2. Put screen shots on front page 
@@ -20,3 +19,4 @@
 - Better datepicker for edit / new story page
 - Show validation errors on new / edit screen
 - Make password change screen accessible -- can't figure out why I can't get to it.
+- Make devise errors display nicely for bootstrap
