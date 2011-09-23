@@ -15,13 +15,6 @@ class Story < ActiveRecord::Base
     other.started <=> started
   end
 
-  def self.well_estimated_stories min, max, count, target
-    examples = select("*, abs(hours_worked - #{target}) as quality")
-    examples = examples.order('quality asc').limit(count)
-    examples = examples.where(["hours_worked >= ?", min])
-    examples.where(["hours_worked <= ?", max])
-  end
-
   def status estimate_groups
     return nil if data_series(estimate_groups).empty?
     difference = variance_vs_mean(estimate_groups)

@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  EXAMPLES_PER_BUCKET = 9
+  EXAMPLE_DELTA = 0.2
+  EXAMPLE_RECENCY_CUTOFF = 60
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -35,21 +39,16 @@ class User < ActiveRecord::Base
 
   private
 
-  def examples bucket
+  def examples(bucket)
     target = target_point_size * bucket
-    options = {    
-                :estimate => bucket,
-                :target => target,
-                :min => target * 0.8,
-                :max => target * 1.2,
-                :count => 9
-              }
-    examples = well_estimated_stories(options).where(["finished >= ?", 60.days.ago])
-    examples += well_estimated_stories(options).where(["finished < ?", 60.days.ago]) if examples.size < options[:count]
-    examples.first(options[:count])
+    min = target * (1 - EXAMPLE_DELTA)
+    max = target * (1 + EXAMPLE_DELTA)
+    count = EXAMPLES_PER_BUCKET
+    examples = stories.select("*, abs(hours_worked - #{target}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
+    examples = examples.where(["hours_worked >= ?", min])
+    examples = examples.where(["hours_worked <= ?", max])
+    examples = examples.order('recent desc, quality asc').limit(count)
+    examples
   end
 
-  def well_estimated_stories options
-    stories.well_estimated_stories options[:min], options[:max], options[:count], options[:target]
-  end
 end
