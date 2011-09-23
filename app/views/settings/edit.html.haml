@@ -8,7 +8,7 @@
   %h1
     Settings
     
-=form_for current_user, :url => settings_update_path, :html => {:class => 'form-stacked'} do |f|
+=form_for current_user, :url => settings_path, :html => {:class => 'form-stacked'} do |f|
   %fieldset
     .clearfix
       != f.label :target_point_size, 'Target point size (hours)'
