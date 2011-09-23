@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def buckets
-    [0.25, 0.5, 1, 2, 3, 5, 8, 13, 21]
+    [0.25, 0.5, 1, 2, 3, 5, 8, 13]
   end
 
   private

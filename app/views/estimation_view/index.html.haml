@@ -1,12 +1,9 @@
-- content_for :head do
-  :javascript
-    $(document).ready(function() {
-      $('.nav .tool').addClass('active');
-    });
-
 .page-header
   %h1
-    Tool
+    - if @story
+      Estimating "#{@story.title}"
+    - else
+      Estimation Examples
 
 #estimation_view
   - @groups.each do |bucket, examples|
@@ -15,9 +12,13 @@
         %ul.group
           %h2
             = bucket
+            - if @story
+              = form_for @story do |f|
+                != f.hidden_field :title
+                != f.hidden_field :estimate, :value => bucket
+                != f.submit "About this big", :class => 'btn primary'
+            
           - examples.each do |example|
             %li.story
               .title
                 = example.title
-                = example.finished
-                
