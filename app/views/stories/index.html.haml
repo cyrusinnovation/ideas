@@ -7,15 +7,19 @@
 .page-header
   %h1
     Estimates
+
+    
+- if current_user.stories.empty?
+  %p
+    You haven't entered any estimates. Add one below, or 
+    != link_to 'import them from a CSV file', new_import_path
+
+%h2 Start a new estimate
+
+= render :partial => 'new_interactive_form'
+    
 .row
   .span14
-    
-    - if current_user.stories.empty?
-      %p
-        You haven't entered any estimates. Add them below, or 
-        != link_to 'import them from a CSV file', new_import_path
-
-
     %table#stories
       %tr
         %th.title Title
