@@ -12,6 +12,8 @@ gem 'compass', '0.11.5'
 group :development do
   gem 'heroku', '>= 2.7.0'
   gem 'taps', '0.3.23'
+  gem 'hpricot', '0.8.4'
+  gem 'ruby_parser', '2.3.1'
 end
 
 group :test do
