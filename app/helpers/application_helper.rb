@@ -33,6 +33,4 @@ module ApplicationHelper
   def page_header page_title
     return "<div class='page-header'><h1>#{page_title}</h1></div>"    
   end
-
-
 end

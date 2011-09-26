@@ -35,5 +35,4 @@ class StoriesController < SecureController
     current_user.stories.update params[:id], params[:story]
     redirect_to :action => :index
   end
-  
 end
