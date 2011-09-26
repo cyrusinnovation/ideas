@@ -10,7 +10,7 @@
     .row.estimation-bucket
       .span3
         %h2
-          = "#{bucket}"
+          != "#{bucket_display bucket}"
           .time-range
             = "About #{min_html bucket}"
             &ndash;

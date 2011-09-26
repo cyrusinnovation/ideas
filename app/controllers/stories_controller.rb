@@ -16,7 +16,9 @@ class StoriesController < SecureController
 
   def create
     @story = current_user.stories.create(params[:story])
-    
+    if @story.persisted?
+      flash[:success] = 'Estimate added!'
+    end
     redirect_to :action => :index
   end
 

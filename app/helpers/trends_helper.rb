@@ -46,6 +46,12 @@ module TrendsHelper
     "(normal range is between #{data_series.normal_range_min.round} and #{data_series.normal_range_max.round})"
   end
 
+  def bucket_display bucket
+    return '&frac14;' if bucket == 0.25
+    return '&frac12;' if bucket == 0.5
+    bucket
+  end
+
   def min_html bucket
     hours = current_user.min(bucket)
     time_text hours

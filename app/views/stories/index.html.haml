@@ -3,12 +3,19 @@
     $(document).ready(function() {
       $('.nav .estimates').addClass('active');
     });
+  != javascript_include_tag 'bootstrap/bootstrap-alert.js'
 
 .page-header
   %h1
     Estimates
 
-    
+- if flash.has_key? :success
+  .alert-message.success.fade.in{"data-alert" => "alert"}
+    %a.close{:href=>"#"}
+      x
+    = flash[:success]
+
+
 - if current_user.stories.empty?
   %p
     You haven't entered any estimates. Add one below, or 
