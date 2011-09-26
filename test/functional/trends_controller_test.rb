@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BurnRateControllerTest < ActionController::TestCase
+class TrendsControllerTest < ActionController::TestCase
   test "shows all stories where burn rate is known in reverse order finished" do
     @current_user.stories.create(:title => "should appear", :estimate => 1, :hours_worked => 4, :finished => '2011-1-11')
     @current_user.stories.create(:title => "no estimate", :hours_worked => 4, :finished => '2011-1-12')

@@ -1,4 +1,4 @@
-class BurnRateController < SecureController
+class TrendsController < SecureController
   def index
     burn_rate_history = current_user.all_with_burn_rates.
         map { |s| s.burn_rate }.
