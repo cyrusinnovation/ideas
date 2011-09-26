@@ -1,9 +1,11 @@
 - content_for :head do
   != javascript_include_tag 'jquery.sparkline.min'
+  != javascript_include_tag 'jquery.tablesorter.min.js'
   :javascript
     $(document).ready(function() {
       $('.sparkline').sparkline('html', { enableTagOptions: true });
       $('.nav .reports').addClass('active');
+      $('#burn_rates').tablesorter({ sortList: [[1,0]] });
     });
 
 .page-header
@@ -56,26 +58,28 @@
 
       #burn_rate
         %h2 Burn Rate Per Story
-        %table
-          %tr
-            %th.story Story
-            %th.finished Finished
-            %th.estimate Estimate
-            %th.hours Hours Worked
-            %th.burn_rate Burn Rate
-            %th.status Hours vs. <br> Average
-          - @stories.each do |story|
-            %tr{:class => "#{cycle('odd', 'even')} #{story.status(@estimate_groups)}",
-                :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series(@estimate_groups)}"}
-              %td.story
-                != format_title story.title
-              %td.finished
-                = format_date story.finished
-              %td.estimate
-                = format_estimate story.estimate
-              %td.hours
-                = story.hours_worked
-              %td.burn_rate
-                = story.burn_rate.round.to_i
-              %td.status
-                != format_variance story.variance_vs_mean(@estimate_groups)
+        %table#burn_rates.zebra-striped
+          %thead
+            %tr
+              %th.story Story
+              %th.finished Finished
+              %th.estimate Estimate
+              %th.hours Hours Worked
+              %th.burn_rate Burn Rate
+              %th.status Hours vs. <br> Average
+          %tbody
+            - @stories.each do |story|
+              %tr{:class => "#{story.status(@estimate_groups)}",
+                  :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series(@estimate_groups)}"}
+                %td.story
+                  != format_title story.title
+                %td.finished
+                  = format_date story.finished
+                %td.estimate
+                  = format_estimate story.estimate
+                %td.hours
+                  = story.hours_worked
+                %td.burn_rate
+                  = story.burn_rate.round.to_i
+                %td.status
+                  != format_variance story.variance_vs_mean(@estimate_groups)
