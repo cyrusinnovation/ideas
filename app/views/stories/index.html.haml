@@ -27,11 +27,4 @@
         %th.started Started
         %th.finished Finished
         %th.hours_worked Hours Worked
-        %tr{:class => cycle('odd', 'even')}
-          %td.title
-            != link_to '(Add new)', new_story_path      
-          %td.estimate
-          %td.started
-          %td.finished
-          %td.hours_worked
       != render :partial => 'story', :collection => @stories
