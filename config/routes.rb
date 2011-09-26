@@ -11,6 +11,7 @@ Pointilist::Application.routes.draw do
   root :to => 'front#index'
 
   match '/trends' => 'trends#index'
+  match '/history' => 'history#index'
   match '/estimation_view' => 'estimation_view#index'
   match '/privacy' => 'front#privacy'
   

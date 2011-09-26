@@ -1,0 +1,35 @@
+- content_for :head do
+  != javascript_include_tag 'bootstrap/bootstrap-alert.js'
+  != javascript_include_tag 'jquery.tablesorter.min.js'
+  :javascript
+    $(document).ready(function() {
+      $('.nav .history').addClass('active');
+      $('#stories').tablesorter({ sortList: [[1,0]] });
+    });
+
+.page-header
+  %h1
+    History
+
+
+- if current_user.stories.empty?
+  %p
+    You haven't entered any estimates. 
+    != link_to 'Add some', stories_path
+    or 
+    != link_to 'import them from a CSV file', new_import_path
+- else
+
+  %h2 All estimates
+  
+  .row
+    .span16
+      %table#stories.zebra-striped
+        %thead
+          %tr
+            %th.title Title
+            %th.estimate Estimate
+            %th.finished Finished
+            %th.hours_worked Hours Worked
+        %tbody
+          != render :partial => 'story', :collection => @stories
