@@ -1,5 +1,4 @@
 class Story < ActiveRecord::Base
-  composed_of :date_range, :mapping => [%w(started started), %w(finished finished)]
   belongs_to :user
   validates :title, :presence => true
  
@@ -10,9 +9,9 @@ class Story < ActiveRecord::Base
   end
 
   def <=> other
-    return -1 if started.nil?
-    return 1 if other.started.nil?
-    other.started <=> started
+    return -1 if title.nil?
+    return 1 if other.title.nil?
+    other.title <=> title
   end
 
   def status estimate_groups

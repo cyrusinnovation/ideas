@@ -44,12 +44,11 @@
 %h2 All estimates
     
 .row
-  .span14
+  .span16
     %table#stories
       %tr
         %th.title Title
         %th.estimate Estimate
-        %th.started Started
         %th.finished Finished
         %th.hours_worked Hours Worked
       != render :partial => 'story', :collection => @stories

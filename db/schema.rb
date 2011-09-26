@@ -11,16 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922162811) do
+ActiveRecord::Schema.define(:version => 20110926195628) do
+
+  create_table "buckets", :force => true do |t|
+    t.string   "symbol"
+    t.integer  "low"
+    t.integer  "high"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.decimal  "estimate"
+    t.date     "finished"
+    t.integer  "team_id"
+    t.decimal  "hours_worked"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories_old", :id => false, :force => true do |t|
+    t.integer "id"
     t.string  "title"
-    t.decimal "estimate",     :precision => 3, :scale => 1
+    t.decimal "estimate"
     t.date    "started"
     t.date    "finished"
     t.integer "team_id"
     t.decimal "hours_worked"
-    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
