@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def buckets_with_examples
-    buckets.reverse.collect {|b| [b, stories_for_estimation(b)] }
+    buckets.collect {|b| [b, stories_for_estimation(b)] }
   end
 
   def estimate_hours(estimate)
