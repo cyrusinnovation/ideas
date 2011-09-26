@@ -46,16 +46,3 @@
       %table
         != render :partial => 'story_actual', :collection => @stories_no_actual
 
-%hr
-
-%h2 All estimates
-    
-.row
-  .span16
-    %table#stories
-      %tr
-        %th.title Title
-        %th.estimate Estimate
-        %th.finished Finished
-        %th.hours_worked Hours Worked
-      != render :partial => 'story', :collection => @stories

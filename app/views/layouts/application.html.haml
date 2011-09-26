@@ -31,6 +31,8 @@
                 != link_to 'Estimates', stories_path
               %li.reports
                 != link_to 'Trends', trends_path            
+              %li.history
+                != link_to 'History', history_path            
               %li.settings
                 != link_to 'Settings', edit_settings_path            
           -if user_signed_in?
