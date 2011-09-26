@@ -37,16 +37,21 @@ class User < ActiveRecord::Base
     [0.25, 0.5, 1, 2, 3, 5, 8, 13]
   end
 
+  def min bucket
+    estimate_hours(bucket) * (1 - EXAMPLE_DELTA)
+  end
+
+  def max bucket
+    estimate_hours(bucket) * (1 + EXAMPLE_DELTA)
+  end
+
   private
 
   def examples(bucket)
-    target = target_point_size * bucket
-    min = target * (1 - EXAMPLE_DELTA)
-    max = target * (1 + EXAMPLE_DELTA)
     count = EXAMPLES_PER_BUCKET
-    examples = stories.select("*, abs(hours_worked - #{target}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
-    examples = examples.where(["hours_worked >= ?", min])
-    examples = examples.where(["hours_worked <= ?", max])
+    examples = stories.select("*, abs(hours_worked - #{estimate_hours(bucket)}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
+    examples = examples.where(["hours_worked >= ?", min(bucket)])
+    examples = examples.where(["hours_worked <= ?", max(bucket)])
     examples = examples.order('recent desc, quality asc').limit(count)
     examples
   end

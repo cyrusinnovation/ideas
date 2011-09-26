@@ -44,5 +44,13 @@ module BurnRateHelper
 
   def normal_range data_series
     "(normal range is between #{data_series.normal_range_min.round} and #{data_series.normal_range_max.round})"
-  end  
+  end
+
+  def min_html bucket
+    current_user.min(bucket).round 1 #fight
+  end
+
+  def max_html bucket
+    current_user.max(bucket).round 1
+  end
 end

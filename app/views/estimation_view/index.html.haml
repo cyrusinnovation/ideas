@@ -11,7 +11,7 @@
       .span14
         %ul.group
           %h2
-            = bucket
+            = "#{bucket} #{min_html bucket}hours #{max_html bucket}hours"
             - if @story
               = form_for @story do |f|
                 != f.hidden_field :title
