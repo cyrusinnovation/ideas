@@ -1,6 +1,7 @@
 class StoriesController < SecureController
   def index
     @stories = current_user.stories.order("started DESC")
+    @stories_no_actual = current_user.stories.where('started IS NULL AND finished IS NULL AND hours_worked IS NULL')
   end
   
   def new

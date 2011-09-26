@@ -14,9 +14,34 @@
     You haven't entered any estimates. Add one below, or 
     != link_to 'import them from a CSV file', new_import_path
 
-%h2 Start a new estimate
+.row
+  .span16
+    %h2 Start a new estimate
 
-= render :partial => 'new_interactive_form'
+    =form_for current_user.stories.build, :url => new_interactive_stories_path, :html => {:class => 'form-stacked'} do |f|
+      %fieldset
+        .clearfix
+          != f.label :title
+          != f.text_field :title, :class => 'span13'
+          != f.submit "Estimate", :class => 'btn primary span2'
+
+%hr
+
+.row
+  .span16
+    %h2 Record actual effort
+
+    - if @stories_no_actual.empty?
+      %p
+        %em
+          Nothing open
+    - else
+      %table
+        != render :partial => 'story_actual', :collection => @stories_no_actual
+
+%hr
+
+%h2 All estimates
     
 .row
   .span14
