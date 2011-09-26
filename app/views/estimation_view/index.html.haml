@@ -11,7 +11,11 @@
       .span14
         %ul.group
           %h2
-            = "#{bucket} #{min_html bucket}hours #{max_html bucket}hours"
+            = "#{bucket}"
+            .time-range
+              = "About #{min_html bucket}"
+              &ndash;
+              = "#{max_html bucket}"
             - if @story
               = form_for @story do |f|
                 != f.hidden_field :title

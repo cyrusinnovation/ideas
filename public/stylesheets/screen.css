@@ -134,4 +134,6 @@ td.story, td.title, td.description, td.team {
     text-align: left;
 }
 
-
+.time-range {
+    font-size: 12px;
+}

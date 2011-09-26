@@ -47,10 +47,22 @@ module BurnRateHelper
   end
 
   def min_html bucket
-    current_user.min(bucket).round 1 #fight
+    hours = current_user.min(bucket)
+    time_text hours
   end
 
   def max_html bucket
-    current_user.max(bucket).round 1
+    hours = current_user.max(bucket)
+    time_text hours
   end
+
+  def time_text hours
+    if hours > 16
+      days = hours / 8
+      "#{days.floor} days"
+    else
+      "#{hours.ceil} hours"
+    end
+  end
+
 end
