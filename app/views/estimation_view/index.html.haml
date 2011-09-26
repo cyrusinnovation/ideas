@@ -7,22 +7,24 @@
 
 #estimation_view
   - @groups.each do |bucket, examples|
-    .row
-      .span14
+    .row.estimation-bucket
+      .span3
+        %h2
+          = "#{bucket}"
+          .time-range
+            = "About #{min_html bucket}"
+            &ndash;
+            = "#{max_html bucket}"
+          - if @story
+            = form_for @story do |f|
+              != f.hidden_field :title
+              != f.hidden_field :estimate, :value => bucket
+              != f.submit "About this big", :class => 'btn primary'
+        
+      .span13
         %ul.group
-          %h2
-            = "#{bucket}"
-            .time-range
-              = "About #{min_html bucket}"
-              &ndash;
-              = "#{max_html bucket}"
-            - if @story
-              = form_for @story do |f|
-                != f.hidden_field :title
-                != f.hidden_field :estimate, :value => bucket
-                != f.submit "About this big", :class => 'btn primary'
-            
           - examples.each do |example|
             %li.story
               .title
                 = example.title
+    %hr
