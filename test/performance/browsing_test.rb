@@ -12,11 +12,7 @@ class BrowsingTest < ActionDispatch::PerformanceTest
   end
 
   def test_burn_rate
-    get '/burn_rate'
-  end
-
-  def test_estimation_view
-    get '/estimation_view'
+    get '/trends'
   end
 
   private

@@ -1,4 +1,4 @@
-module BurnRateHelper
+module TrendsHelper
   def discrete_sparkline group
     content_tag 'span',
         "...",

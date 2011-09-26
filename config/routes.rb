@@ -10,7 +10,7 @@ Pointilist::Application.routes.draw do
   root :to => 'stories#index', :constraints => lambda {|r| r.env["warden"].authenticate? }
   root :to => 'front#index'
 
-  match '/burn_rate' => 'burn_rate#index'
+  match '/trends' => 'trends#index'
   match '/estimation_view' => 'estimation_view#index'
   match '/privacy' => 'front#privacy'
   
