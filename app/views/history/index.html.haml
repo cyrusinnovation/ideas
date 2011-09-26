@@ -1,9 +1,11 @@
 - content_for :head do
+  != javascript_include_tag 'bootstrap/bootstrap-alert.js'
+  != javascript_include_tag 'jquery.tablesorter.min.js'
   :javascript
     $(document).ready(function() {
       $('.nav .history').addClass('active');
+      $('#stories').tablesorter({ sortList: [[1,0]] });
     });
-  != javascript_include_tag 'bootstrap/bootstrap-alert.js'
 
 .page-header
   %h1
@@ -22,10 +24,12 @@
   
   .row
     .span16
-      %table#stories
-        %tr
-          %th.title Title
-          %th.estimate Estimate
-          %th.finished Finished
-          %th.hours_worked Hours Worked
-        != render :partial => 'story', :collection => @stories
+      %table#stories.zebra-striped
+        %thead
+          %tr
+            %th.title Title
+            %th.estimate Estimate
+            %th.finished Finished
+            %th.hours_worked Hours Worked
+        %tbody
+          != render :partial => 'story', :collection => @stories
