@@ -7,10 +7,8 @@ Pointilist::Application.routes.draw do
   end
   resource :import, :only => [:new, :create]
 
-  root :to => 'home#index', :constraints => lambda {|r| r.env["warden"].authenticate? }
+  root :to => 'stories#index', :constraints => lambda {|r| r.env["warden"].authenticate? }
   root :to => 'front#index'
-
-  get "/" => 'home#index', :as => "user_root"
 
   match '/burn_rate' => 'burn_rate#index'
   match '/estimation_view' => 'estimation_view#index'
