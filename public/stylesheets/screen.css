@@ -95,11 +95,6 @@ body {
 
 /* Coloring for estimates page */
 
-
-#average_burn_rate {
-    float: right;
-}
-
 tr:hover {
     background-color: #f0f8ff;
 }
