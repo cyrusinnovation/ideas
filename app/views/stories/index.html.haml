@@ -2,6 +2,13 @@
   :javascript
     $(document).ready(function() {
       $('.nav .estimates').addClass('active');
+      $('form').submit(function() {
+          if ($('#story_title')[0].value == '') {
+              $('.alert-message.error').show();
+              return false;
+          }
+          return true;
+      });
     });
   != javascript_include_tag 'bootstrap/bootstrap-alert.js'
 
@@ -14,6 +21,11 @@
     %a.close{:href=>"#"}
       x
     = flash[:success]
+
+.alert-message.error.fade.in{"data-alert" => "alert", :style => "display:none;"}
+  %a.close{:href=>"#"}
+    x
+  You need to add a story title.
 
 
 - if current_user.stories.empty?
