@@ -12,6 +12,7 @@ Pointilist::Application.routes.draw do
 
   match '/burn_rate' => 'burn_rate#index'
   match '/estimation_view' => 'estimation_view#index'
+  match '/privacy' => 'front#privacy'
   
   devise_for :users do
     get "users/sign_out" => "devise/sessions#destroy"
