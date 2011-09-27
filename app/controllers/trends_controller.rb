@@ -1,7 +1,7 @@
 class TrendsController < SecureController
   def index
     
-    all = current_user.all_with_burn_rates
+    all = current_user.stories.where("estimate IS NOT NULL AND hours_worked IS NOT NULL").order("finished DESC")
     
     burn_rate_history = all.
         map { |s| s.burn_rate }.

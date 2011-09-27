@@ -13,14 +13,6 @@ class User < ActiveRecord::Base
 
   has_many :stories, :dependent => :destroy
 
-  def hours_worked_by_estimate
-    DataSeries.by_group(all_with_burn_rates, :group => :estimate) {|s| s.hours_worked }
-  end
-
-  def all_with_burn_rates
-    stories.where("estimate IS NOT NULL AND hours_worked IS NOT NULL").order("finished DESC")
-  end
-
   def stories_for_estimation(bucket)
     examples(bucket)
   end
