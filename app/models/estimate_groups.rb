@@ -1,5 +1,5 @@
 class EstimateGroups
-  attr_reader :all_data_in_single_group, :data_normalized_by_estimate
+  attr_reader :all_data_in_single_group, :data_normalized_by_estimate, :groups
 
   def initialize stories
     @data_grouped_by_estimate = DataSeries.by_group(stories, :group => :estimate) { |s| s.hours_worked }
@@ -9,10 +9,6 @@ class EstimateGroups
     @data_normalized_by_estimate = EstimateGroup.new("All - Point", DataSeries.new(stories_with_estimates) { |s| s.hours_worked / s.estimate }, nil)
     @groups << @all_data_in_single_group
     @groups << @data_normalized_by_estimate
-  end
-
-  def each &what_to_do_with_it
-    @groups.each &what_to_do_with_it
   end
 
   def data_series estimate

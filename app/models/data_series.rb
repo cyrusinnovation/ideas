@@ -4,10 +4,6 @@ class DataSeries
     Hash[grouped_values.map {|k, v| [k, DataSeries.new(v, &block)] }]
   end
 
-  def self.empty
-    DataSeries.new([])
-  end
-
   attr_reader :values
 
   def initialize values, &block

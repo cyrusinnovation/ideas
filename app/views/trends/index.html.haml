@@ -52,7 +52,7 @@
               Range, Last 30
             %th.all
               Range, All
-          - @estimate_groups.each do |group|
+          - @estimate_groups.groups.each do |group|
             %tr{:class => cycle('odd', 'even')}
               %td.estimate_group
                 = group.title

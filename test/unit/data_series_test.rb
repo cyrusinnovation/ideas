@@ -1,11 +1,17 @@
 require 'test_helper'
 
 class DataSeriesTest < ActiveSupport::TestCase
+
   test "calculates mean" do
     ds = DataSeries.new [2, 3, 6, 7]
-
     assert_equal 4.5, ds.mean
   end
+
+  test "calculates variance" do
+    ds = DataSeries.new [2, 3, 6, 7]
+    assert_equal 4.25, ds.variance
+  end
+
 
   test "calculates standard deviation" do
     ds = DataSeries.new [2, 3, 4, 7]

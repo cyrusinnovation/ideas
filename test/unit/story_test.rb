@@ -11,8 +11,4 @@ class StoryTest < ActiveSupport::TestCase
     assert_nil Story.new(:estimate => 5).burn_rate, "nil if hours worked is nil"
     assert_nil Story.new(:hours_worked => 5).burn_rate, "nil if estimate is nil"
   end
-
-  def bigdecimals(*values)
-    values.map{|v| BigDecimal.new(v.to_s) }
-  end
 end
