@@ -7,6 +7,15 @@
       $('.nav .reports').addClass('active');
       $('#burn_rates').tablesorter({ sortList: [[1,0]] });
     });
+    
+  :css
+    tr.underestimated {
+        background-color: #ffe8e8;
+    }
+
+    tr.overestimated {
+        background-color: #ffffe0;
+    }
 
 .page-header
   %h1
@@ -24,7 +33,7 @@
 
       #dashboard
         .section
-          %h2 Burn Rate - how much will it cost?
+          %h2 Hours Per Point
           %em
             != smoothed_data_series_sparkline @burn_rates
             = @burn_rates.last(10).mean.round.to_i
@@ -36,13 +45,13 @@
         %table
           %tr
             %th.estimate_group
-              Estimate <br> Group
+              Estimate Size
             %th.newest_10
-              Newest 10
+              Range, Last 10
             %th.newest_30{:colspan => 2}
-              Newest 30
+              Range, Last 30
             %th.all
-              All
+              Range, All Time
           - @estimate_groups.each do |group|
             %tr{:class => cycle('odd', 'even')}
               %td.estimate_group
@@ -58,7 +67,7 @@
 
       #burn_rate
         %h2 Burn Rate Per Story
-        %table#burn_rates.zebra-striped
+        %table#burn_rates
           %thead
             %tr
               %th.story Story
@@ -66,7 +75,7 @@
               %th.estimate Estimate
               %th.hours Hours Worked
               %th.burn_rate Burn Rate
-              %th.status Hours vs. <br> Average
+              %th.status Hours vs. Average
           %tbody
             - @stories.each do |story|
               %tr{:class => "#{story.status(@estimate_groups)}",

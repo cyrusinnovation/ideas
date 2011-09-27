@@ -81,50 +81,6 @@ body {
     color: #505000;
 }
 
-/* Coloring for estimates page */
-
-tr:hover {
-    background-color: #f0f8ff;
-}
-
-tr:hover th {
-    background-color: #ffffff;
-}
-
-tr.underestimated {
-    background-color: #ffe8e8;
-}
-
-tr.overestimated {
-    background-color: #ffffe0;
-}
-
-td, th {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-}
-
-th {
-    text-align: center;
-    border-bottom: dotted black 1px;
-    vertical-align: bottom;
-}
-
-td {
-    text-align: right;
-}
-
-td.actions {
-    text-align: center;
-}
-
-td.story, td.title, td.description, td.team {
-    text-align: left;
-}
-
-.time-range {
-    font-size: 12px;
-}
 
 #estimation_view ul {
     margin: 0px;
