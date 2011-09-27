@@ -35,18 +35,6 @@ class DataSeriesTest < ActiveSupport::TestCase
     assert_equal 4.5, ds.mean
   end
 
-  test "collect groups of series" do
-    s1 = Story.new :estimate => 1, :started => Date.new(2011, 1, 15)
-    s3 = Story.new :estimate => 3, :started => Date.new(2011, 1, 15)
-    s5 = Story.new :estimate => 5, :started => Date.new(2011, 2, 23)
-    s7 = Story.new :estimate => 7, :started => Date.new(2011, 2, 23)
-
-    ds = DataSeries.by_group([s1, s3, s5, s7], :group => :started) {|s| s.estimate }
-
-    assert_equal 2, ds[Date.new(2011, 1, 15)].mean
-    assert_equal 6, ds[Date.new(2011, 2, 23)].mean
-  end
-
   test "filters out nils" do
     ds = DataSeries.new [1, nil, 1, 3, 3, nil]
 

@@ -1,6 +1,6 @@
-Story,Team,Estimate,Started,Finished,Hours Worked,Dev Time,Days/Point,Hours/Point,Points/3 Weeks,Stories/3 Weeks,,Average,St. Dev.
-146 Stop having an annual K-1 job,ShARC,3,1/26/2011,,,,,,13.5,0,Dev Time,4.2,4.5
-143 Remove unused permissions,ShARC,0.25,1/25/2011,1/25/2011,6.5,1,4.0,26,9.75,8
-127 Connect Astor stage to new Racer stage,Schildkroete,1,12/16/2010,1/3/2011,15,10,10.0,15,9.25,9
-115 Track Tax Return Supporting Documents Received,Schildkroete,1,12/8/2010,12/10/2010,11,3,3.0,11,13.75,10
-"113 Add a ""Tax Return"" document type to FS callsheet notes",ShARC,0.5,12/9/2010,12/16/2010,39.75,6,12.0,80,14.25,12
+Story,Team,Estimate,Finished,Hours Worked,Dev Time,Days/Point,Hours/Point,Points/3 Weeks,Stories/3 Weeks,,Average,St. Dev.
+146 Stop having an annual K-1 job,ShARC,3,,,,,,13.5,0,Dev Time,4.2,4.5
+143 Remove unused permissions,ShARC,0.25,1/25/2011,6.5,1,4.0,26,9.75,8
+127 Connect Astor stage to new Racer stage,Schildkroete,1,1/3/2011,15,10,10.0,15,9.25,9
+115 Track Tax Return Supporting Documents Received,Schildkroete,1,12/10/2010,11,3,3.0,11,13.75,10
+"113 Add a ""Tax Return"" document type to FS callsheet notes",ShARC,0.5,12/16/2010,39.75,6,12.0,80,14.25,12
