@@ -9,12 +9,12 @@
     });
     
   :css
-    tr.underestimated {
-        background-color: #ffe8e8;
+    tr.underestimated, tr.underestimated td {
+        background-color: #ffe8e8 !important;
     }
 
-    tr.overestimated {
-        background-color: #ffffe0;
+    tr.overestimated, tr.overestimated td {
+        background-color: #ffffe0 !important;
     }
 
 .page-header
@@ -67,7 +67,7 @@
 
       #burn_rate
         %h2 Burn Rate Per Story
-        %table#burn_rates
+        %table#burn_rates.zebra-striped
           %thead
             %tr
               %th.story Story
