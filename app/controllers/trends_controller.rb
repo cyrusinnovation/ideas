@@ -10,7 +10,7 @@ class TrendsController < SecureController
         
     @burn_rates = DataSeries.new burn_rate_history
     
-    @estimate_groups = EstimateGroups.new(all) { |s| s.hours_worked }
+    @estimate_groups = EstimateGroups.new(all)
     
     @stories = all
   end
