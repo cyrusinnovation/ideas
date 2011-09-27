@@ -41,7 +41,7 @@
           = normal_range @burn_rates
 
       #average_burn_rate
-        %h2 Averages
+        %h2 Actuals over the past 120 days
         %table
           %tr
             %th.estimate_group
@@ -51,7 +51,7 @@
             %th.newest_30{:colspan => 2}
               Range, Last 30
             %th.all
-              Range, All Time
+              Range, All
           - @estimate_groups.each do |group|
             %tr{:class => cycle('odd', 'even')}
               %td.estimate_group
