@@ -14,22 +14,15 @@ class Story < ActiveRecord::Base
     other.title <=> title
   end
 
-  def status estimate_groups
-    return nil if data_series(estimate_groups).empty?
-    difference = variance_vs_mean(estimate_groups)
+  def status actuals
+    difference = variance_vs_mean(actuals)
     return nil if difference.nil?
     difference < 0 ? :overestimated : :underestimated
   end
 
-  def variance_vs_mean estimate_groups
-    return nil if data_series(estimate_groups).empty?
-
-    difference = hours_worked - data_series(estimate_groups).mean
-    difference.abs < data_series(estimate_groups).standard_deviation ? nil : difference.round
-  end
-
-  def data_series estimate_groups
-    estimate_groups.data_series(estimate)
+  def variance_vs_mean actuals
+    difference = hours_worked - actuals.mean
+    difference.abs < actuals.standard_deviation ? nil : difference.round
   end
 
 end

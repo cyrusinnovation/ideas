@@ -41,7 +41,7 @@
           = normal_range @burn_rates
 
       #average_burn_rate
-        %h2 Actuals over the past 120 days
+        %h2 Actuals
         %table
           %tr
             %th.estimate_group
@@ -70,8 +70,8 @@
               %th.status Hours vs. Average
           %tbody
             - @stories.each do |story|
-              %tr{:class => "#{story.status(@burn_rate_average_groups)}",
-                  :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series(@burn_rate_average_groups)}"}
+              %tr{:class => "#{story.status(@all_actuals_by_estimate[story.estimate])}",
+                  :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute @all_actuals_by_estimate[story.estimate]}"}
                 %td.story
                   != format_title story.title
                 %td.finished
@@ -83,4 +83,4 @@
                 %td.burn_rate
                   = story.burn_rate.round.to_i
                 %td.status
-                  != format_variance story.variance_vs_mean(@burn_rate_average_groups)
+                  != format_variance story.variance_vs_mean(@all_actuals_by_estimate[story.estimate])

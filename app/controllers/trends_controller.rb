@@ -13,9 +13,8 @@ class TrendsController < SecureController
     @actuals_by_bucket = current_user.buckets.collect {|b| [b, current_user.actuals(b)]}
     @all_actuals = current_user.all_actuals
     @all_actuals_normalized = current_user.all_actuals_normalized
+    @all_actuals_by_estimate = current_user.all_actuals_by_estimate
 
-    @burn_rate_average_groups = EstimateGroups.new(all)
-    
     @stories = all
   end
 end
