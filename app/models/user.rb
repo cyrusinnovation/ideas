@@ -41,6 +41,17 @@ class User < ActiveRecord::Base
     finished = stories.where("estimate = #{bucket} and hours_worked is not null").order("finished DESC")
     DataSeries.new(finished.collect {|story| story.hours_worked} )
   end
+  
+  def all_actuals
+    finished = stories.where("hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked} )
+  end
+
+  def all_actuals_normalized
+    finished = stories.where("estimate is not null and hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked / story.estimate} )
+  end
+
 
   private
 

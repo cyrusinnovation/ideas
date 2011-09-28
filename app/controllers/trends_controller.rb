@@ -11,8 +11,8 @@ class TrendsController < SecureController
     @burn_rates = DataSeries.new burn_rate_history
     
     @actuals_by_bucket = current_user.buckets.collect {|b| [b, current_user.actuals(b)]}
-
-    @aggregate_groups = AggregateGroups.new(all)
+    @all_actuals = current_user.all_actuals
+    @all_actuals_normalized = current_user.all_actuals_normalized
 
     @burn_rate_average_groups = EstimateGroups.new(all)
     

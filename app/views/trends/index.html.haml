@@ -53,42 +53,9 @@
             %th.all
               Range, All
           - @actuals_by_bucket.each do |bucket_size, actuals|
-            %tr{:class => cycle('odd', 'even')}
-              %td.estimate_group
-                = bucket_size
-              %td.newest_10
-                != to_html actuals.first(10)
-              %td.newest_30
-                != discrete_data_series_sparkline actuals
-              %td.newest_30
-                != to_html actuals.first(30)
-              %td.all
-                != to_html actuals
-
-
-        %table
-          %tr
-            %th.estimate_group
-              Estimate Size
-            %th.newest_10
-              Range, Last 10
-            %th.newest_30{:colspan => 2}
-              Range, Last 30
-            %th.all
-              Range, All
-          - @aggregate_groups.groups.each do |group|
-            %tr{:class => cycle('odd', 'even')}
-              %td.estimate_group
-                = group.title
-              %td.newest_10
-                != to_html group.data_series.first(10)
-              %td.newest_30
-                != discrete_sparkline group
-              %td.newest_30
-                != to_html group.data_series.first(30)
-              %td.all
-                != to_html group.data_series
-
+            = render :partial => "actual_row", :locals => { :title => bucket_size, :actuals => actuals}
+          = render :partial => "actual_row", :locals => { :title => "All - Story", :actuals => @all_actuals}
+          = render :partial => "actual_row", :locals => { :title => "All - Point", :actuals => @all_actuals_normalized}
 
       #burn_rate
         %h2 Burn Rate Per Story
