@@ -22,7 +22,7 @@ class Story < ActiveRecord::Base
 
   def variance_vs_mean actuals
     difference = hours_worked - actuals.mean
-    difference.abs < actuals.standard_deviation ? nil : difference.round
+    difference.abs > actuals.standard_deviation ? difference.round : nil
   end
 
 end
