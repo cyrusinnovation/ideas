@@ -1,9 +1,6 @@
 module TrendsHelper
-  def discrete_sparkline group
-    discrete_data_series_sparkline(group.data_series)
-  end
 
-  def discrete_data_series_sparkline data_series
+  def discrete_sparkline data_series
     content_tag 'span',
         "...",
         :sparkType => 'discrete',
@@ -46,33 +43,5 @@ module TrendsHelper
         :style => 'vertical-align: bottom'
   end
 
-  def normal_range data_series
-    "(normal range is between #{data_series.normal_range_min.round} and #{data_series.normal_range_max.round})"
-  end
-
-  def bucket_display bucket
-    return '&frac14;' if bucket == 0.25
-    return '&frac12;' if bucket == 0.5
-    bucket
-  end
-
-  def min_html bucket
-    hours = current_user.min(bucket)
-    time_text hours
-  end
-
-  def max_html bucket
-    hours = current_user.max(bucket)
-    time_text hours
-  end
-
-  def time_text hours
-    if hours > 16
-      days = hours / 8
-      "#{days.floor} days"
-    else
-      "#{hours.ceil} hours"
-    end
-  end
 
 end

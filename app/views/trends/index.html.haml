@@ -27,8 +27,10 @@
           %em
             != smoothed_data_series_sparkline @hours_per_point
             = @hours_per_point.last(10).mean.round.to_i
-          development hours per point
-          = normal_range @hours_per_point
+          development hours per point (normal range is between 
+          != @hours_per_point.normal_range_min.round
+          and 
+          != @hours_per_point.normal_range_max.round
 
       #average_burn_rate
         %h2 Actuals

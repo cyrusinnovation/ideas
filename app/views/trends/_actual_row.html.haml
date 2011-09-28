@@ -4,7 +4,7 @@
   %td.newest_10
     != to_html actuals.first(10)
   %td.newest_30
-    != discrete_data_series_sparkline actuals
+    != discrete_sparkline actuals
   %td.newest_30
     != to_html actuals.first(30)
   %td.all
