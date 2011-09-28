@@ -14,7 +14,7 @@ class EstimateGroupsTest < ActiveSupport::TestCase
 
   test "group stories by estimate" do
     group_titles = []
-    @groups.each {|g| group_titles << g.title }
+    @groups.groups.each {|g| group_titles << g.title }
     assert_equal ['0.5', '1.0', '2.0', '5.0', 'All - Story', 'All - Point'], group_titles
   end
 
