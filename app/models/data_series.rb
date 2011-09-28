@@ -1,9 +1,4 @@
 class DataSeries
-  def self.by_group values, options={}, &block
-    grouped_values = values.group_by {|v| v.send(options[:group]) }
-    Hash[grouped_values.map {|k, v| [k, DataSeries.new(v, &block)] }]
-  end
-
   attr_reader :values
 
   def initialize values, &block
