@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
   
   def all_actuals_by_estimate
-    finished = stories.where("hours_worked is not null").order("finished DESC").group_by {|s| s.estimate}
+    finished = stories.where("estimate is not null and hours_worked is not null").order("finished DESC").group_by {|s| s.estimate}
     result = {}
     finished.each do |estimate, stories|
       result[estimate] = DataSeries.new(stories.collect {|story| story.hours_worked} )

@@ -14,13 +14,9 @@ class Story < ActiveRecord::Base
     other.title <=> title
   end
 
-  def status actuals
-    difference = variance_vs_mean(actuals)
-    return nil if difference.nil?
-    difference < 0 ? :overestimated : :underestimated
-  end
 
   def variance_vs_mean actuals
+    return nil if hours_worked.nil? || actuals.nil?
     difference = hours_worked - actuals.mean
     difference.abs > actuals.standard_deviation ? difference.round : nil
   end

@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def format_estimate estimate
     return '' if estimate.nil?
-    estimate
+    "#{estimate}"
   end
 
   def format_date date
