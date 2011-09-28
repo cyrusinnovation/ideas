@@ -36,6 +36,11 @@ class User < ActiveRecord::Base
   def max bucket
     estimate_hours(bucket) * (1 + EXAMPLE_DELTA)
   end
+  
+  def actuals bucket
+    finished = stories.where("estimate = #{bucket} and hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked} )
+  end
 
   private
 

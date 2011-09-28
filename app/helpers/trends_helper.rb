@@ -1,12 +1,16 @@
 module TrendsHelper
   def discrete_sparkline group
+    discrete_data_series_sparkline(group.data_series)
+  end
+
+  def discrete_data_series_sparkline data_series
     content_tag 'span',
         "...",
         :sparkType => 'discrete',
         :sparkLineColor => '#666666',
-        :values => "#{group.data_series.first(30).values.reverse.join(',')}",
+        :values => "#{data_series.first(30).values.reverse.join(',')}",
         :class => 'sparkline'
-  end
+  end  
 
   def data_series_sparkline data_series
     sparkline data_series.normal_range_min, data_series.normal_range_max, data_series.values

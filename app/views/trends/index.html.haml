@@ -52,18 +52,18 @@
               Range, Last 30
             %th.all
               Range, All
-          - @bucket_groups.groups.each do |group|
+          - @actuals_by_bucket.each do |bucket_size, actuals|
             %tr{:class => cycle('odd', 'even')}
               %td.estimate_group
-                = group.title
+                = bucket_size
               %td.newest_10
-                != to_html group.data_series.first(10)
+                != to_html actuals.first(10)
               %td.newest_30
-                != discrete_sparkline group
+                != discrete_data_series_sparkline actuals
               %td.newest_30
-                != to_html group.data_series.first(30)
+                != to_html actuals.first(30)
               %td.all
-                != to_html group.data_series
+                != to_html actuals
 
 
         %table
