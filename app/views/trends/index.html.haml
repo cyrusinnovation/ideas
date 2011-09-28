@@ -52,7 +52,7 @@
               Range, Last 30
             %th.all
               Range, All
-          - @estimate_groups.groups.each do |group|
+          - @bucket_groups.groups.each do |group|
             %tr{:class => cycle('odd', 'even')}
               %td.estimate_group
                 = group.title
@@ -64,6 +64,31 @@
                 != to_html group.data_series.first(30)
               %td.all
                 != to_html group.data_series
+
+
+        %table
+          %tr
+            %th.estimate_group
+              Estimate Size
+            %th.newest_10
+              Range, Last 10
+            %th.newest_30{:colspan => 2}
+              Range, Last 30
+            %th.all
+              Range, All
+          - @aggregate_groups.groups.each do |group|
+            %tr{:class => cycle('odd', 'even')}
+              %td.estimate_group
+                = group.title
+              %td.newest_10
+                != to_html group.data_series.first(10)
+              %td.newest_30
+                != discrete_sparkline group
+              %td.newest_30
+                != to_html group.data_series.first(30)
+              %td.all
+                != to_html group.data_series
+
 
       #burn_rate
         %h2 Burn Rate Per Story
@@ -78,8 +103,8 @@
               %th.status Hours vs. Average
           %tbody
             - @stories.each do |story|
-              %tr{:class => "#{story.status(@estimate_groups)}",
-                  :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series(@estimate_groups)}"}
+              %tr{:class => "#{story.status(@burn_rate_average_groups)}",
+                  :title => "average for #{format_estimate(story.estimate)} point story is #{to_html_attribute story.data_series(@burn_rate_average_groups)}"}
                 %td.story
                   != format_title story.title
                 %td.finished
@@ -91,4 +116,4 @@
                 %td.burn_rate
                   = story.burn_rate.round.to_i
                 %td.status
-                  != format_variance story.variance_vs_mean(@estimate_groups)
+                  != format_variance story.variance_vs_mean(@burn_rate_average_groups)

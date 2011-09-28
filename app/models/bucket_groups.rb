@@ -1,9 +1,9 @@
-class EstimateGroups
+class BucketGroups
   attr_reader :all_data_in_single_group, :data_normalized_by_estimate, :groups
 
   def initialize stories
     @data_grouped_by_estimate = data_grouped_by_estimate stories
-    @all_data_in_single_group = EstimateGroup.new("All - Story", DataSeries.new(stories) { |s| s.hours_worked }, nil)
+    @groups = EstimateGroup.collect(@data_grouped_by_estimate)
   end
 
   def data_grouped_by_estimate stories
@@ -18,9 +18,4 @@ class EstimateGroups
     estimate_to_data_series
   end
 
-
-  def data_series estimate
-    return @all_data_in_single_group.data_series unless @data_grouped_by_estimate.has_key?(estimate)
-    @data_grouped_by_estimate[estimate]
-  end
 end
