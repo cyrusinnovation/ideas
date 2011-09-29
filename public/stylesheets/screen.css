@@ -89,3 +89,7 @@ body {
 #estimation_view form {
     line-height: 0px;
 }
+
+#estimation_view h2 {
+    font-size: 70px;
+}

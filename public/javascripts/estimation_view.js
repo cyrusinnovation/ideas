@@ -2,6 +2,8 @@ var current_bucket = 3;
 
 $(document).ready(function() {
     $('.estimation-bucket').hide();
+    $('.estimation-bucket.0\\.25 [value="Smaller"]').addClass('disabled');
+    $('.estimation-bucket.13 [value="Bigger"]').addClass('disabled');
     $('hr').hide();
     $('.estimation-bucket.3').show();
     $('.info').click(function() {
@@ -30,9 +32,11 @@ function up_bucket() {
 function down_bucket() {
     if (current_bucket == '3')
         current_bucket = '1'
-    else if (current_bucket == '1')
-        current_bucket = '0\\.25'
     else if (current_bucket == '8')
         current_bucket = '5'
+    else if (current_bucket == '1') {
+        current_bucket = '0\\.25'
+        
+    }
 
 }
