@@ -93,3 +93,25 @@ body {
 #estimation_view h2 {
     font-size: 75px;
 }
+
+#left-cover, #right-cover {
+    position: absolute;
+    width: 220px;
+    z-index: 4;
+    height: 300px;
+    background-color: white;
+}
+
+#left-cover {
+    left:0px;
+    top: 100px;
+}
+#right-cover {
+    left:1205px;
+    top: 100px;
+}
+
+#dummy-div {
+    width:960px;
+    height: 252px;
+}
