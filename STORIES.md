@@ -25,6 +25,26 @@ TODO
 ----
 * Migrate to Postgres and deploy on Heroku.
 
+INBOX
+-----
+* Add / edit form looks like shit
+* Allow remember checking through top bar login
+* The import stories page should have explanatory text
+* Add a help section
+* Restore color scheme from scss stuff
+* Edit / delete links on estimates page look shitty
+* Format numbers without the digits
+* Rename pointilist.heroku.com to orso.cyrusinnovatin.com
+* Use fancy printing for tool views
+* Links at bottom of sign in page are ugly
+* Allow users to delete their accounts
+* Better datepicker for edit / new story page
+* Show validation errors on new / edit screen
+* Make password change screen accessible -- can't figure out why I can't get to it.
+* Make devise errors display nicely for bootstrap
+* Add a credits page with the name of everyone who's worked on this app
+
+
 SOMEDAY/MAYBE
 -------------
 * Group stories into projects.
