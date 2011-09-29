@@ -1,40 +1,9 @@
-DONE
-----
-* Show points completed in the past three weeks.
-* Import from a CSV file.
-* Track hours billed per story.
-* Show hours/point statistics.
-* Show hours/estimate group statistics.
-* Import burn rate.
-* Show unscaled hours/story by estimate group, rather than always scaling per point.
-* "Outliers view" of stories with estimates very different from the norm for their group.
-* "Card view" of actual times for recently completed stories.
-* Show a + in Hours Vs. Average when story is over average.
-* Estimation view based on fixed time per point, rather than on past averages.
-* Prefer recent stories in the estimation view.
-* Show more than three stories in estimation view.
-* Drop tracking of teams.
-* Compact/printable estimation view.
-* Upgrade to Rails 3.
-
-WIP
----
-* Upgrade to Ruby 1.9
-
-TODO
-----
-* Migrate to Postgres and deploy on Heroku.
-
 INBOX
 -----
-* Add / edit form looks like shit
-* Allow remember checking through top bar login
-* The import stories page should have explanatory text
-* Add a help section
-* Restore color scheme from scss stuff
-* Edit / delete links on estimates page look shitty
-* Format numbers without the digits
-* Rename pointilist.heroku.com to orso.cyrusinnovatin.com
+* Import format is undocumented
+* Top-bar login could allow "remember me", but doesn't
+* Form to apply actual amount to estimated story is generic editing form
+* Restrict new estimates to have official bucket size
 * Use fancy printing for tool views
 * Links at bottom of sign in page are ugly
 * Allow users to delete their accounts
