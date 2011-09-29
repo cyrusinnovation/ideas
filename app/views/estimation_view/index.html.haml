@@ -3,6 +3,7 @@
     .time-range {
         font-size: 12px;
     }
+  != javascript_include_tag 'estimation_view.js'
 
 .page-header
   %h1
@@ -13,7 +14,7 @@
 
 #estimation_view
   - @groups.each do |bucket, examples|
-    .row.estimation-bucket
+    .row.estimation-bucket{:class => bucket}
       .span3
         %h2
           != "#{bucket_display bucket}"
@@ -25,7 +26,9 @@
             = form_for @story do |f|
               != f.hidden_field :title
               != f.hidden_field :estimate, :value => bucket
-              != f.submit "About this big", :class => 'btn primary'
+              != f.submit "Smaller", :class => 'btn info'
+              != f.submit "Just right", :class => 'btn success'
+              != f.submit "Bigger", :class => 'btn info'
         
       .span13
         %ul.group
