@@ -3,6 +3,7 @@
     .time-range {
         font-size: 12px;
     }
+  != javascript_include_tag "http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js"
   != javascript_include_tag 'estimation_view.js'
 
 .page-header
@@ -13,30 +14,28 @@
       Estimation Examples
 
 #estimation_view
-  #dummy-div
-  - @groups.each do |bucket, examples|
-    .row.estimation-bucket{:class => bucket}
-      .span3
-        %h2
-          != "#{bucket_display bucket}"
-          .time-range
-            = "About #{min_html bucket}"
-            &ndash;
-            = "#{max_html bucket}"
-          - if @story
-            = form_for @story do |f|
-              != f.hidden_field :title
-              != f.hidden_field :estimate, :value => bucket
-              != f.submit "Smaller", :class => 'btn info'
-              != f.submit "Just right", :class => 'btn success'
-              != f.submit "Bigger", :class => 'btn info'
+  .items
+    - @groups.each do |bucket, examples|
+      .row.estimation-bucket{:class => bucket}
+        .span3
+          %h2
+            != "#{bucket_display bucket}"
+            .time-range
+              = "About #{min_html bucket}"
+              &ndash;
+              = "#{max_html bucket}"
+            - if @story
+              = form_for @story do |f|
+                != f.hidden_field :title
+                != f.hidden_field :estimate, :value => bucket
+                != f.submit "Smaller", :class => 'btn info'
+                != f.submit "Just right", :class => 'btn success'
+                != f.submit "Bigger", :class => 'btn info'
         
-      .span13
-        %ul.group
-          - examples.each do |example|
-            %li.story
-              .title
-                = example.title
+        .span13
+          %ul.group
+            - examples.each do |example|
+              %li.story
+                .title
+                  = example.title
 
-#left-cover
-#right-cover

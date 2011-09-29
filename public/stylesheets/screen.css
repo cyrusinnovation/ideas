@@ -81,7 +81,6 @@ body {
     color: #505000;
 }
 
-
 #estimation_view ul {
     margin: 0px;
 }
@@ -94,24 +93,19 @@ body {
     font-size: 75px;
 }
 
-#left-cover, #right-cover {
-    position: absolute;
-    width: 220px;
-    z-index: 4;
-    height: 300px;
-    background-color: white;
+#estimation_view {
+    position:relative;
+    overflow:hidden;
+    width: 960px;
+    height:252px;
 }
 
-#left-cover {
-    left:0px;
-    top: 100px;
-}
-#right-cover {
-    left:1205px;
-    top: 100px;
+#estimation_view .items {
+    width:20000em;
+    position:absolute;
 }
 
-#dummy-div {
-    width:960px;
-    height: 252px;
+.items div {
+    float:left;
+    width: 1060px;
 }
