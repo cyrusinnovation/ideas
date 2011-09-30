@@ -15,23 +15,13 @@ ActiveRecord::Schema.define(:version => 20110926195628) do
 
   create_table "stories", :force => true do |t|
     t.string   "title"
-    t.decimal  "estimate"
+    t.decimal  "estimate",     :precision => 3, :scale => 1
     t.date     "finished"
     t.integer  "team_id"
     t.decimal  "hours_worked"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "stories_old", :id => false, :force => true do |t|
-    t.integer "id"
-    t.string  "title"
-    t.decimal "estimate"
-    t.date    "started"
-    t.date    "finished"
-    t.integer "team_id"
-    t.decimal "hours_worked"
   end
 
   create_table "users", :force => true do |t|

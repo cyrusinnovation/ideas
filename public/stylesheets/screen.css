@@ -81,11 +81,54 @@ body {
     color: #505000;
 }
 
-
 #estimation_view ul {
     margin: 0px;
 }
 
 #estimation_view form {
     line-height: 0px;
+}
+
+#estimation_view h2 {
+    font-size: 150px;
+}
+
+#estimation_view {
+    position:relative;
+    overflow:hidden;
+    width: 960px;
+    height:252px;
+}
+
+#estimation_view .items {
+    width:20000em;
+    position:absolute;
+}
+
+.items div {
+    float:left;
+    width: 1060px;
+}
+
+.items .stories {
+    width:660px;
+}
+.items .bucket {
+    float:left; 
+    width:270px;
+    padding-top: 40px;
+}
+
+.right-button {
+    position: relative;
+    left: -30px;
+}
+
+.bigger-button {
+    position: relative;
+    left: -60px;
+}
+
+.bucket-info {
+    padding-left: 40px;
 }
