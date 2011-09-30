@@ -20,6 +20,7 @@ $(document).ready(function() {
 });
 
 function disableEndPointButtons() {
-    $('.estimation-bucket.0\\.25 [value="Smaller"]').addClass('disabled');
-    $('.estimation-bucket.13 [value="Bigger"]').addClass('disabled');
+    
+    $('.items .estimation-bucket:first [value="Smaller"]').addClass('disabled');
+    $('.items .estimation-bucket:last [value="Bigger"]').addClass('disabled');
 }
