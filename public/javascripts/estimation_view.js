@@ -7,12 +7,12 @@ $(document).ready(function() {
 
     api.seekTo(2, 0);
 
-     $('.info[value="Bigger"]').click(function() {
+     $('button:contains("Bigger")').click(function() {
          api.next();
          return false;
      });
 
-     $('.info[value="Smaller"]').click(function() {
+     $('button:contains("Smaller")').click(function() {
          api.prev();
          return false;
      });

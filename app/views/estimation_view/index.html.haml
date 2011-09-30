@@ -18,20 +18,19 @@
     - @groups.each do |bucket, examples|
       .estimation-bucket
         .bucket
-          %h2
-            .bucket-info
-              != "#{bucket_display bucket}"
-              .time-range
-                = "About #{min_html bucket}"
-                &ndash;
-                = "#{max_html bucket}"
-            - if @story
-              = form_for @story do |f|
-                != f.hidden_field :title
-                != f.hidden_field :estimate, :value => bucket
-                != f.submit "Smaller", :class => 'btn info smaller-button'
-                != f.submit "Just right", :class => 'btn success right-button'
-                != f.submit "Bigger", :class => 'btn info bigger-button'
+          .bucket-info
+            != "#{bucket_display bucket}"
+          .time-range
+            = "About #{min_html bucket}"
+            &ndash;
+            = "#{max_html bucket}"
+          - if @story
+            = form_for @story do |f|
+              != f.hidden_field :title
+              != f.hidden_field :estimate, :value => bucket
+              %button.btn.info.smaller-button Smaller
+              != f.submit "Just right", :class => 'btn success right-button'
+              %button.btn.info.bigger-button Bigger
         
         .stories
           %ul.group
