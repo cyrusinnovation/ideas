@@ -5,6 +5,8 @@ $(document).ready(function() {
 
     var api = $("#estimation_view").data('scrollable');
 
+    api.seekTo(2, 0);
+
      $('.info[value="Bigger"]').click(function() {
          api.next();
          return false;
