@@ -1,7 +1,10 @@
 class Story < ActiveRecord::Base
   belongs_to :user
   validates :title, :presence => true
- 
+  validates_numericality_of :hours_worked, :greater_than => 0
+  validates_numericality_of :estimate, :greater_than => 0
+
+
   def burn_rate
     return nil if hours_worked.nil?
     return nil if estimate.nil?
