@@ -1,3 +1,13 @@
 %tr
   %td.title
     != link_to format_title(story_actual.title), edit_story_path(story_actual)
+    .form
+      =form_for story_actual, :html => {:class => 'form-stacked'} do |f|
+        %fieldset
+          .clearfix
+            != f.label :finished
+            != f.text_field :finished, :id => "story_finished_#{story_actual.id}", :class => 'date_picker'
+          .clearfix
+            != f.label :hours_worked
+            != f.number_field :hours_worked, :size => 4
+        != f.submit 'Save', :class => 'btn primary'

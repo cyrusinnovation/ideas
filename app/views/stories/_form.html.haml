@@ -8,7 +8,7 @@
       != f.text_field :estimate, :size => 4
     .clearfix
       != f.label :finished
-      != f.date_select :finished, :start_year => 2010, :order => [:day, :month, :year]
+      != f.text_field :finished
     .clearfix
       != f.label :hours_worked
       != f.number_field :hours_worked, :size => 4
@@ -16,4 +16,5 @@
     != f.submit 'Save', :class => 'btn primary'
     -if @story.persisted? 
       != link_to 'Delete', @story, :method => :delete, :confirm => 'Are you sure you want to delete this estimate?', :class => 'btn danger'
-    
+:javascript
+  $('#story_finished').datepicker({dateFormat: 'dd/mm/yy'});

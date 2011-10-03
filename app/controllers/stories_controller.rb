@@ -33,6 +33,10 @@ class StoriesController < SecureController
 
   def update
     current_user.stories.update params[:id], params[:story]
-    redirect_to :action => :index
+
+    respond_to do |format|
+      format.json { render :json => { :success => 1 }}
+      format.html { redirect_to :action => :index }
+    end
   end
 end
