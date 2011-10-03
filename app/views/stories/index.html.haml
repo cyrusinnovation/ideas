@@ -2,7 +2,7 @@
   :javascript
     $(document).ready(function() {
       $('.nav .estimates').addClass('active');
-      $('.form').hide();
+
       $('form#new_story').submit(function() {
           if ($('#story_title')[0].value == '') {
               $('.alert-message.error').show();
@@ -22,7 +22,6 @@
           });
           return false;  
       });
-
 
       $('input.date_picker').datepicker({dateFormat: 'dd/mm/yy'});
     });
