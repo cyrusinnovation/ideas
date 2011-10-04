@@ -1,8 +1,8 @@
 class Story < ActiveRecord::Base
   belongs_to :user
   validates :title, :presence => true
-  validates_numericality_of :hours_worked, :greater_than => 0
-  validates_numericality_of :estimate, :greater_than => 0
+  validates_numericality_of :hours_worked, :greater_than => 0, :allow_nil => true
+  validates_numericality_of :estimate, :greater_than => 0, :allow_nil => true
 
 
   def burn_rate
