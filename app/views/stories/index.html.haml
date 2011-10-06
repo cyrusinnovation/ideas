@@ -17,13 +17,24 @@
   
       $('table input#story_submit').click(function() {
           var form = $(this).parent();
+          swapMonthDay(form);
           $.post(form.prop('action'), form.serialize(), function() {
               form.parent().parent().remove();
           });
+          swapMonthDay(form);
           return false;  
       });
 
-      $('input.date_picker').datepicker({dateFormat: 'dd/mm/yy'});
+      function swapMonthDay(form) {
+          dateString = form.find('input.date_picker')[0].value;
+          var field1 = dateString.substr(0, 2);
+          var field2 = dateString.substr(3, 2);
+          var year = dateString.substr(6, 4);
+          form.find('input.date_picker')[0].value = field2 + '/' + field1 + '/' + year;;
+      }
+
+
+      $('input.date_picker').datepicker({dateFormat: 'mm/dd/yy'});
     });
 .page-header
   %h1
