@@ -9,4 +9,9 @@ class SettingsController < ApplicationController
     current_user.buckets << Bucket.create(:value => params[:new_bucket])
     redirect_to edit_settings_path
   end
+
+  def delete_bucket
+    current_user.buckets.find(params[:id]).delete
+    redirect_to edit_settings_path
+  end
 end

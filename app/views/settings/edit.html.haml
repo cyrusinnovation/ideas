@@ -17,7 +17,7 @@
     != f.submit 'Save', class: 'btn primary'
 
 -current_user.buckets.each do |bucket|
-  !=bucket.pretty_print_html
+  !=link_to bucket.pretty_print_html.to_s.html_safe, delete_bucket_path(:id=>bucket.id)
 
 =form_tag(new_bucket_path, :method => :post) do
   %fieldset
@@ -25,12 +25,3 @@
       != label :new_bucket, 'New Bucket'
       != number_field_tag :new_bucket
       != submit_tag 'Save'
-
-
-
-
-
-
-
-
-

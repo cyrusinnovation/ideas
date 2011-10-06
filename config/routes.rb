@@ -14,6 +14,7 @@ Pointilist::Application.routes.draw do
   match '/estimation_view' => 'estimation_view#index'
   match '/privacy' => 'front#privacy'
   post 'new_bucket' => 'settings#new_bucket', :as => :new_bucket
+  get 'delete_bucket' => 'settings#delete_bucket', :as => :delete_bucket
 
   devise_for :users do
     get "users/sign_out" => "devise/sessions#destroy"
