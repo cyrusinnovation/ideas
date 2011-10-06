@@ -15,3 +15,22 @@
       != f.number_field :target_point_size, :size => 6
   .actions
     != f.submit 'Save', class: 'btn primary'
+
+-current_user.buckets.each do |bucket|
+  !=bucket.pretty_print_html
+
+=form_tag(new_bucket_path, :method => :post) do
+  %fieldset
+    .clearfix
+      != label :new_bucket, 'New Bucket'
+      != number_field_tag :new_bucket
+      != submit_tag 'Save'
+
+
+
+
+
+
+
+
+
