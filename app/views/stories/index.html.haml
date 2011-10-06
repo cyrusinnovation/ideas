@@ -11,8 +11,7 @@
           return true;
       });
       $('.title').click(function() {
-          $(this).children('div').show();
-          $(this).children('div').slideDown('fast', function() {});
+          $(this).children('div').toggle('fast');
       });
   
       $('table input#story_submit').click(function() {
