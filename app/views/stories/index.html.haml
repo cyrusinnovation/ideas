@@ -10,8 +10,9 @@
           }
           return true;
       });
-      $('.title').click(function() {
-          $(this).children('div').toggle('fast');
+      $('.title a').click(function() {
+          $(this).parent().children('div').toggle('fast');
+          return false;
       });
   
       $('table input#story_submit').click(function() {

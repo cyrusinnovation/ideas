@@ -1,6 +1,6 @@
 %tr
   %td.title
-    != link_to format_title(story_actual.title), '#', :onclick => 'return false;'
+    != link_to format_title(story_actual.title), '#'
     .form{:style => 'display:none;'}
       =form_for story_actual, :html => {:class => 'form-stacked'} do |f|
         %fieldset
