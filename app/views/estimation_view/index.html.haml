@@ -19,7 +19,7 @@
       .estimation-bucket
         .bucket
           .bucket-info
-            != "#{bucket_display bucket}"
+            != "#{bucket.pretty_print_html}"
           .time-range
             = "About #{min_html bucket}"
             &ndash;
@@ -27,7 +27,7 @@
           - if @story
             = form_for @story do |f|
               != f.hidden_field :title
-              != f.hidden_field :estimate, :value => bucket
+              != f.hidden_field :estimate, :value => bucket.value
               %button.btn.info.smaller-button Smaller
               != f.submit "Just right", :class => 'btn success right-button'
               %button.btn.info.bigger-button Bigger

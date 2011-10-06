@@ -45,7 +45,7 @@
               Range, Last 30
             %th.all
               Range, All
-          - @actuals_by_bucket.each do |bucket_size, actuals|
-            = render :partial => "actual_row", :locals => { :title => bucket_size, :actuals => actuals}
+          - @actuals_by_bucket.each do |bucket, actuals|
+            = render :partial => "actual_row", :locals => { :title => bucket.pretty_print_html, :actuals => actuals}
           = render :partial => "actual_row", :locals => { :title => "All - Story", :actuals => @all_actuals}
           = render :partial => "actual_row", :locals => { :title => "All - Point", :actuals => @all_actuals_normalized}
