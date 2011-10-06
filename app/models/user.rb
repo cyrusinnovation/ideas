@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :stories, :dependent => :destroy
+  has_many :buckets, :dependent => :destroy
+
+  def after_create
+    buckets << [0.25,0.5, 1, 2, 3, 5, 8, 13].map { |bucket| Bucket.create :value => bucket }
+  end
 
   def stories_for_estimation(bucket)
     examples(bucket)
@@ -21,12 +26,8 @@ class User < ActiveRecord::Base
     buckets.collect {|b| [b, stories_for_estimation(b)] }
   end
 
-  def estimate_hours(estimate)
-    target_point_size * estimate
-  end
-
-  def buckets
-    [0.25,0.5, 1, 2, 3, 5, 8, 13]
+  def estimate_hours(bucket)
+    target_point_size * bucket.value
   end
 
   def min bucket
@@ -38,7 +39,7 @@ class User < ActiveRecord::Base
   end
   
   def actuals bucket
-    finished = stories.where("estimate = #{bucket} and hours_worked is not null").order("finished DESC")
+    finished = stories.where("estimate = #{bucket.value} and hours_worked is not null").order("finished DESC")
     DataSeries.new(finished.collect {|story| story.hours_worked} )
   end
   

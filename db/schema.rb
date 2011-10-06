@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110926195628) do
+ActiveRecord::Schema.define(:version => 20111006144400) do
+
+  create_table "buckets", :force => true do |t|
+    t.float    "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "stories", :force => true do |t|
     t.string   "title"

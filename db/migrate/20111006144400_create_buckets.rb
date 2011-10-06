@@ -4,6 +4,7 @@ class CreateBuckets < ActiveRecord::Migration
       t.float :value
 
       t.timestamps
+      t.references :user
     end
   end
 
@@ -11,3 +12,6 @@ class CreateBuckets < ActiveRecord::Migration
     drop_table :buckets
   end
 end
+
+
+

@@ -1,8 +1,8 @@
 module EstimationViewHelper
   def bucket_display bucket
-    return '&frac14;' if bucket == 0.25
-    return '&frac12;' if bucket == 0.5
-    bucket
+    return '&frac14;' if bucket.value == 0.25
+    return '&frac12;' if bucket.value == 0.5
+    bucket.value.to_i
   end
 
   def min_html bucket
