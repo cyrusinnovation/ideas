@@ -4,7 +4,6 @@ class Story < ActiveRecord::Base
   validates_numericality_of :hours_worked, :greater_than => 0, :allow_nil => true
   validates_numericality_of :estimate, :greater_than => 0, :allow_nil => true
 
-
   def burn_rate
     return nil if hours_worked.nil?
     return nil if estimate.nil?
@@ -17,11 +16,13 @@ class Story < ActiveRecord::Base
     other.title <=> title
   end
 
-
   def variance_vs_mean actuals
     return nil if hours_worked.nil? || actuals.nil?
     difference = hours_worked - actuals.mean
     difference.abs > actuals.standard_deviation ? difference.round : nil
   end
 
+  def self.no_actuals?
+    return where( "hours_worked is not NULL" ).empty?
+  end
 end
