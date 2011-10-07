@@ -32,14 +32,13 @@
   %h2 All estimates
   
   .row
-    .span16
-      %table#stories.zebra-striped
-        %thead
-          %tr
-            %th.title Title
-            %th.estimate Estimate
-            %th.finished Finished
-            %th.hours_worked Hours Worked
-            %th.status Hours vs. Average
-        %tbody
-          != render :partial => 'story', :collection => @stories
+    %table#stories.zebra-striped
+      %thead
+        %tr
+          %th.title Title
+          %th.estimate Estimate
+          %th.finished Finished
+          %th.hours_worked Hours Worked
+          %th.status Hours vs. Average
+      %tbody
+        != render :partial => 'story', :collection => @stories

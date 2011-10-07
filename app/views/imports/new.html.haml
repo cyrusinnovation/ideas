@@ -3,10 +3,8 @@
     Import
 
 .row
-  .span14
-
-    %h2 Import Stories from CSV file
-    - form_tag import_path, :method => :post, :multipart => true do
-      %label(for='file') File to Upload:
-      != file_field_tag 'file'
-      != submit_tag 'Import'
+  %h2 Import Stories from CSV file
+  - form_tag import_path, :method => :post, :multipart => true do
+    %label(for='file') File to Upload:
+    != file_field_tag 'file'
+    != submit_tag 'Import'
