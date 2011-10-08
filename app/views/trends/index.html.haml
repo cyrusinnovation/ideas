@@ -19,8 +19,10 @@
         != link_to 'Add some', stories_path
         or 
         != link_to 'import them from a CSV file', new_import_path
+    - elsif current_user.stories.no_actuals?
+      %p
+        Sorry, but we can't give you feedback on your estimates until you tell us how long stuff actually took.
     - else
-
       #dashboard
         .section
           %h2 Hours Per Point
