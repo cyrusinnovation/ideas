@@ -6,5 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree ./bootstrap
+//= require twitter/bootstrap
 //= require jquery_ui/jquery-ui-1.8.16.custom.min.js
