@@ -41,6 +41,8 @@ GEM
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     erubis (2.7.0)
+    execjs (1.2.9)
+      multi_json (~> 1.0)
     gvis (2.0.3)
       json
     haml (3.1.2)
@@ -147,6 +149,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.30)
+    uglifier (1.0.3)
+      execjs (>= 0.3.0)
+      multi_json (>= 1.0.2)
     warden (1.0.5)
       rack (>= 1.0)
     webrat (0.7.3)
@@ -172,4 +177,5 @@ DEPENDENCIES
   ruby-debug19
   ruby_parser (= 2.3.1)
   taps (= 0.3.23)
+  uglifier (= 1.0.3)
   webrat (= 0.7.3)

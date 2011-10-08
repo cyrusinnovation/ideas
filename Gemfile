@@ -8,6 +8,7 @@ gem "jquery-rails", "1.0.13"
 gem 'gvis', '>= 2.0.0'
 gem 'devise', '>= 1.4.5'
 gem 'less-rails-bootstrap', '1.3.2'
+gem 'uglifier', '1.0.3'
 
 group :development do
   gem 'heroku', '>= 2.7.0'
