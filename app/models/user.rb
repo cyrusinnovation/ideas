@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :stories, :dependent => :destroy
   has_many :buckets, :dependent => :destroy, :order => 'value ASC'
 
+  validates_numericality_of :target_point_size, :greater_than => 0, :less_than => 100, :allow_nil => false
+
   def after_create
     buckets << [0.25,0.5, 1, 2, 3, 5, 8, 13].map { |bucket| Bucket.create :value => bucket }
   end
