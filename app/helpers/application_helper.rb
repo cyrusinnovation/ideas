@@ -1,8 +1,8 @@
 module ApplicationHelper
   include GoogleVisualization
 
-  def format_title title
-    content_tag 'span', truncate(title, :length => 60), :title => title
+  def format_title title, length=60
+    content_tag 'span', truncate(title, :length => length), :title => title
   end
 
   def format_date date
