@@ -6,7 +6,7 @@
         %fieldset
           .clearfix
             != f.label :finished
-            != f.text_field :finished, :id => "story_finished_#{story_actual.id}", :class => 'date_picker'
+            != f.text_field :finished, :id => "story_finished_#{story_actual.id}", :class => 'date_picker', :value => Date.today.strftime("%m/%d/%Y")
           .clearfix
             != f.label :hours_worked
             != f.number_field :hours_worked, :size => 4
