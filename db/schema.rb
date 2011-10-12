@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111006144400) do
+ActiveRecord::Schema.define(:version => 20111012201426) do
 
   create_table "buckets", :force => true do |t|
     t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "project_id"
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.integer "target_point_size", :default => 8
+    t.string  "name"
   end
 
   create_table "stories", :force => true do |t|
@@ -26,9 +36,9 @@ ActiveRecord::Schema.define(:version => 20111006144400) do
     t.date     "finished"
     t.integer  "team_id"
     t.decimal  "hours_worked"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
 
   create_table "stories_old", :id => false, :force => true do |t|
@@ -54,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20111006144400) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "target_point_size",                     :default => 8
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

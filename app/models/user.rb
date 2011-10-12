@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  has_many :stories, :dependent => :destroy
-  has_many :buckets, :dependent => :destroy, :order => 'value ASC'
+  has_many :memberships
+  has_many :projects, :through => :memberships
 
   validates_numericality_of :target_point_size, :greater_than => 0, :less_than => 100, :allow_nil => false
 
