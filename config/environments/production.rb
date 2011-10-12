@@ -20,7 +20,7 @@ Pointilist::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.assets.precompile += ['estimation_view.js', 'jquery.sparkline.min']
+  config.assets.precompile += ['estimation_view.js']
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
