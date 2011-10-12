@@ -12,3 +12,7 @@
             != f.number_field :hours_worked, :size => 4
         != f.submit 'Save', :class => 'btn primary'
         != link_to 'Delete', story_actual, :method => :delete, :confirm => 'Are you sure you want to delete this estimate?', :class => 'btn danger'
+  %td
+    != format_date story_actual.created_at
+  %td
+    != story_actual.estimate

@@ -35,6 +35,9 @@
 
 
       $('input.date_picker').datepicker({dateFormat: 'mm/dd/yy'});
+
+      $('#stories').tablesorter({ sortList: [[1,1]] });
+
     });
 .page-header
   %h1
@@ -76,6 +79,12 @@
       %em
         Nothing open
   - else
-    %table
-      != render :partial => 'story_actual', :collection => @stories_no_actual
+    %table#stories
+      %thead
+        %tr
+          %th Title
+          %th Created
+          %th Estimate
+        %tbody
+          != render :partial => 'story_actual', :collection => @stories_no_actual
 
