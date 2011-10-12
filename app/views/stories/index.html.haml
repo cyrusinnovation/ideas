@@ -16,10 +16,10 @@
       });
   
       $('table input.ajaxd').click(function() {
-          var form = $(this).parent();
+          var form = $(this).parents("form");
           swapMonthDay(form);
           $.post(form.prop('action'), form.serialize(), function() {
-              form.parent().parent().remove();
+              form.parents("tr").remove();
           });
           swapMonthDay(form);
           return false;  
