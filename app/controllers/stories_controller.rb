@@ -36,7 +36,7 @@ class StoriesController < SecureController
 
     respond_to do |format|
       format.json { render :json => { :success => 1 }}
-      format.html { redirect_to :action => :index }
+      format.html { redirect_to :controller => :history, :action => :index }
     end
   end
 end

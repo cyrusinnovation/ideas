@@ -15,7 +15,7 @@
           return false;
       });
   
-      $('table input#story_submit').click(function() {
+      $('table input.ajaxd').click(function() {
           var form = $(this).parent();
           swapMonthDay(form);
           $.post(form.prop('action'), form.serialize(), function() {
