@@ -8,20 +8,13 @@
   %h1
     Application Settings
     
-=form_for current_user, :url => settings_path, :html => {:class => 'form-stacked'} do |f|
+=form_tag(update_settings_path, :method => :post, :class => 'form-stacked') do
   %fieldset
     .clearfix
-      != f.label :target_point_size, 'Target point size (hours)'
-      != f.number_field :target_point_size, :size => 6
+      != label :buckets, 'Buckets'
+      != text_field_tag :buckets, @buckets_csv
+    .clearfix
+      != label :target_point_size, 'Target point size (hours)'
+      != number_field_tag :target_point_size, current_user.target_point_size
   .actions
-    != f.submit 'Save', class: 'btn primary'
-
--current_user.buckets.each do |bucket|
-  !=link_to bucket.pretty_print_html.to_s.html_safe, delete_bucket_path(:id=>bucket.id)
-
-=form_tag(new_bucket_path, :method => :post) do
-  %fieldset
-    .clearfix
-      != label :new_bucket, 'New Bucket'
-      != number_field_tag :new_bucket
-      != submit_tag 'Save'
+    != submit_tag 'Save', class: 'btn primary'

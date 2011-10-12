@@ -1,5 +1,4 @@
 Pointilist::Application.routes.draw do
-  resource :settings, :only => [:edit, :update]
   resources :stories do
     post 'new_interactive', :on => :collection
     get 'edit_interactive', :on => :member
@@ -13,8 +12,9 @@ Pointilist::Application.routes.draw do
   match '/history' => 'history#index'
   match '/estimation_view' => 'estimation_view#index'
   match '/privacy' => 'front#privacy'
-  post 'new_bucket' => 'settings#new_bucket', :as => :new_bucket
-  get 'delete_bucket' => 'settings#delete_bucket', :as => :delete_bucket
+  get '/settings' => 'settings#edit', :as => :edit_settings
+  post '/settings' => 'settings#update', :as => :update_settings
+
 
   devise_for :users do
     get "users/sign_out" => "devise/sessions#destroy"

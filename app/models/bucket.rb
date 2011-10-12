@@ -8,4 +8,10 @@ class Bucket < ActiveRecord::Base
     return '&frac12;' if value == 0.5
     value.to_i
   end
+
+  def pretty_print
+    return value if value == 0.25 || value == 0.5
+    value.to_i
+  end
+
 end
