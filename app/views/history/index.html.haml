@@ -22,9 +22,9 @@
 - if current_project.stories.empty?
   %p
     You haven't entered any estimates. 
-    != link_to 'Add some', stories_path
+    != link_to 'Add some', project_stories_path
     or 
-    != link_to 'import them from a CSV file', new_import_path
+    != link_to 'import them from a CSV file', new_project_import_path
 - else
 
   %h2 All estimates
