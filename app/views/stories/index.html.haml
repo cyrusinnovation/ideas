@@ -52,14 +52,14 @@
   You need to add a story title.
 
 
-- if current_user.stories.empty?
+- if current_project.stories.empty?
   %p
     You haven't entered any estimates. Add one below, or 
-    != link_to 'import them from a CSV file', new_import_path
+    != link_to 'import them from a CSV file', new_project_import_path
 
 %h2 Start a new estimate
 
-=form_for current_user.stories.build, :url => new_interactive_stories_path, :html => {:class => 'form-stacked'} do |f|
+=form_for current_project.stories.build, :url => new_interactive_project_stories_path, :html => {:class => 'form-stacked'} do |f|
   %fieldset
     .clearfix
       != f.label :title
