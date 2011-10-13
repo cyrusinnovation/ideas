@@ -31,7 +31,7 @@
       .fill
         .container
           != link_to 'orso', root_path, :class => 'brand'
-          -if user_has_projects?
+          -if in_project?
             %ul.nav
               %li.estimates
                 != link_to 'Estimates', project_stories_path(current_project)

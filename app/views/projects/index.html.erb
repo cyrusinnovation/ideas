@@ -1,4 +1,4 @@
-<% if user_has_projects? %>
+<% if @projects.size %>
   <ul>
     <% @projects.each do |project| %>
       <li><%= link_to project.name, project_stories_path(project) %></li>
