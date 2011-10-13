@@ -27,11 +27,8 @@
     .topbar
       .fill
         .container
-          -if user_signed_in?
-            != link_to 'orso', project_stories_path(current_project), :class => 'brand'
-          -else
-            != link_to 'orso', '#', :class => 'brand'
-          -if user_signed_in?
+          != link_to 'orso', root_path, :class => 'brand'
+          -if user_has_projects?
             %ul.nav
               %li.estimates
                 != link_to 'Estimates', project_stories_path(current_project)
@@ -66,7 +63,7 @@
           != link_to "Cyrus Innovation", "http://www.cyrusinnovation.com"
           product 
           |
-          -if user_signed_in?
+          -if user_has_projects?
             != link_to "privacy policy", privacy_path(:project_id => current_project.id)
           -else
             != link_to "privacy policy", privacy_path()

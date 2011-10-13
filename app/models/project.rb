@@ -12,8 +12,10 @@ class Project < ActiveRecord::Base
 
   validates_numericality_of :target_point_size, :greater_than => 0, :less_than => 100, :allow_nil => false
 
-  def after_create
-    buckets << [0.25,0.5, 1, 2, 3, 5, 8, 13].map { |bucket| Bucket.create :value => bucket }
+  after_create :create_default_buckets
+
+  def create_default_buckets
+    buckets << [1, 2, 3, 5, 8, 13].map { |bucket| Bucket.create :value => bucket }
   end
 
   def stories_for_estimation(bucket)
