@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   EXAMPLE_DELTA = 0.2
   EXAMPLE_RECENCY_CUTOFF = 60
 
+  validates :name, :presence => true, :length => { :maximum => 255 }
   has_many :stories, :dependent => :destroy
   has_many :buckets, :dependent => :destroy, :order => 'value ASC'
 

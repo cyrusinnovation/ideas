@@ -1,6 +1,6 @@
 Pointilist::Application.routes.draw do
-  resources :projects do
-    resources :stories do
+  resources :projects, :except => :show do
+    resources :stories, :except => :show do
       post 'new_interactive', :on => :collection
       get 'edit_interactive', :on => :member
     end

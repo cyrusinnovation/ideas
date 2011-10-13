@@ -14,7 +14,7 @@ class CreateProjects < ActiveRecord::Migration
     add_column :stories, :project_id, :integer
 
     User.all.each do |user|
-      project = Project.create :target_point_size => user.target_point_size
+      project = Project.create :name => "#{user.email.sub /@.*/, ''}'s project", :target_point_size => user.target_point_size
       user.projects << project
       user.save
       
