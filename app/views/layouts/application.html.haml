@@ -35,27 +35,15 @@
           != link_to 'orso', root_path, :class => 'brand'
           -if user_signed_in?
             %ul.nav
-              -if in_project?
-                %li.dropdown{"data-dropdown" => "dropdown"}
-                  != link_to current_project.name, '#', :class => 'dropdown-toggle'
-                  %ul.dropdown-menu
-                    - (current_user.projects - [current_project]).each do |project|
-                      %li
-                        != link_to project.name, project_stories_path(project)
-                      %li.divider
-                      %li
-                        != link_to 'New Project', new_project_path
-              -else
-                %li.dropdown{"data-dropdown" => "dropdown"}
-                  != link_to 'Projects', '#', :class => 'dropdown-toggle'
-                  %ul.dropdown-menu
-                    - current_user.projects.each do |project|
-                      %li
-                        != link_to project.name, project_stories_path(project)
-                    %li.divider
+              %li.dropdown{"data-dropdown" => "dropdown"}
+                != link_to project_dropdown_title, '#', :class => 'dropdown-toggle'
+                %ul.dropdown-menu
+                  - project_dropdown_projects.each do |project|
                     %li
-                      != link_to 'New Project', new_project_path
-                  
+                      != link_to project.name, project_stories_path(project)
+                  %li.divider
+                  %li
+                    != link_to 'New Project', new_project_path
               %li
                 != link_to 'Account', edit_user_registration_path, :target => '_blank'
             %p.pull-right

@@ -28,4 +28,13 @@ module ApplicationHelper
   def page_header page_title
     return "<div class='page-header'><h1>#{page_title}</h1></div>"    
   end
+  
+  def project_dropdown_title
+    return in_project? ? current_project.name : 'Projects'
+  end
+  
+  def project_dropdown_projects
+    return in_project? ? (current_user.projects - [current_project]) : current_user.projects
+  end
+  
 end
