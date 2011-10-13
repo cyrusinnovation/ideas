@@ -12,7 +12,7 @@
   %fieldset
     .clearfix
       != label :name, 'Project Name'
-      != number_field_tag :name, current_project.name
+      != text_field_tag :name, current_project.name
     .clearfix
       != label :buckets, 'Buckets'
       != text_field_tag :buckets, @buckets_csv
