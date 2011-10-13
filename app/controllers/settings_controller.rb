@@ -4,15 +4,16 @@ class SettingsController < SecureController
   end
 
   def update
-    update_target_point_size
+    update_project
     change_buckets
     redirect_to project_edit_settings_path
   end
 
   private
 
-  def update_target_point_size
+  def update_project
     project = current_project
+    project.name = params[:name]
     project.target_point_size = params[:target_point_size]
     project.save
   end
