@@ -27,22 +27,25 @@
     .topbar
       .fill
         .container
-          != link_to 'orso', root_path, :class => 'brand'
+          -if user_signed_in?
+            != link_to 'orso', project_stories_path(current_project), :class => 'brand'
+          -else
+            != link_to 'orso', '#', :class => 'brand'
           -if user_signed_in?
             %ul.nav
               %li.estimates
-                != link_to 'Estimates', stories_path
+                != link_to 'Estimates', project_stories_path(current_project)
               %li.reports
-                != link_to 'Trends', trends_path            
+                != link_to 'Trends', project_trends_path(current_project)
               %li.history
-                != link_to 'History', history_path            
+                != link_to 'History', project_history_path(current_project)
               %li.dropdown{"data-dropdown" => "dropdown"}
                 != link_to 'Settings', '#', :class => 'dropdown-toggle'
                 %ul.dropdown-menu
                   %li
-                    != link_to 'Application', edit_settings_path
+                    != link_to 'Application', project_edit_settings_path(current_project)
                   %li
-                    != link_to 'Account', edit_user_registration_path
+                    != link_to 'Account', edit_user_registration_path(:project_id => current_project.id)
           -if user_signed_in?
             %p.pull-right
               #{current_user.email}
@@ -63,4 +66,7 @@
           != link_to "Cyrus Innovation", "http://www.cyrusinnovation.com"
           product 
           |
-          != link_to "privacy policy", privacy_path
+          -if user_signed_in?
+            != link_to "privacy policy", privacy_path(:project_id => current_project.id)
+          -else
+            != link_to "privacy policy", privacy_path()

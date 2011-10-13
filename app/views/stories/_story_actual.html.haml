@@ -2,7 +2,7 @@
   %td.title
     != link_to format_title(story_actual.title, 160), '#', :class=>'expand'
     .form{:style => 'display:none;'}
-      =form_for story_actual, :html => {:class => 'form-stacked'} do |f|
+      =form_for [current_project, story_actual], :html => {:class => 'form-stacked'} do |f|
         %fieldset
           .clearfix
             != f.label :finished
@@ -11,7 +11,7 @@
             != f.label :hours_worked
             != f.number_field :hours_worked, :size => 4
         != f.submit 'Save', :class => 'btn primary ajaxd'
-        != link_to 'Delete', story_actual, :method => :delete, :confirm => 'Are you sure you want to delete this estimate?', :class => 'btn danger'
+        != link_to 'Delete', [current_project, story_actual], :method => :delete, :confirm => 'Are you sure you want to delete this estimate?', :class => 'btn danger'
   %td
     != format_date story_actual.created_at
   %td

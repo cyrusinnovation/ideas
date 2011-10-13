@@ -8,13 +8,13 @@
   %h1
     Application Settings
     
-=form_tag(update_settings_path, :method => :post, :class => 'form-stacked') do
+=form_tag(project_update_settings_path, :method => :post, :class => 'form-stacked') do
   %fieldset
     .clearfix
       != label :buckets, 'Buckets'
       != text_field_tag :buckets, @buckets_csv
     .clearfix
       != label :target_point_size, 'Target point size (hours)'
-      != number_field_tag :target_point_size, current_user.target_point_size
+      != number_field_tag :target_point_size, current_project.target_point_size
   .actions
     != submit_tag 'Save', class: 'btn primary'

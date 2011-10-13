@@ -19,7 +19,7 @@
           .time-range
             != range_html(bucket)
           - if @story
-            = form_for @story do |f|
+            = form_for [current_project, @story] do |f|
               != f.hidden_field :title
               != f.hidden_field :estimate, :value => bucket.value
               %button.btn.info.smaller-button Smaller

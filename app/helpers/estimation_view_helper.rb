@@ -10,12 +10,12 @@ module EstimationViewHelper
 
 
   def min_html bucket
-    hours = current_user.min(bucket)
+    hours = current_project.min(bucket)
     time_text hours
   end
 
   def max_html bucket
-    hours = current_user.max(bucket)
+    hours = current_project.max(bucket)
     time_text hours
   end
 

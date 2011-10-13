@@ -1,6 +1,6 @@
 class Bucket < ActiveRecord::Base
   belongs_to :project
-  validates_uniqueness_of :value, :scope => :user_id
+  validates_uniqueness_of :value, :scope => :project_id
   validates_numericality_of :value, :greater_than => 0, :less_than => 1000, :allow_nil => false
 
   def pretty_print_html
