@@ -1,4 +1,4 @@
-= form_for(@project) do |f|
+= form_for @project, :html => {:class => 'form-stacked'} do |f|
   - if @project.errors.any?
     #error_explanation
       %h2
@@ -9,9 +9,8 @@
           %li
             = msg
 
-  .field
+  %fieldset
     = f.label :name
-    %br
     = f.text_field :name
   .actions
-    = f.submit
+    = f.submit 'Create Project', :class => 'btn primary'
