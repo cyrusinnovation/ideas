@@ -39,9 +39,6 @@
       $('#stories').tablesorter({ sortList: [[1,1]] });
 
     });
-.page-header
-  %h1
-    Estimates
 
 - if flash.key? :success
   .alert-message.success.fade.in{"data-alert" => "alert"}
@@ -60,31 +57,29 @@
     You haven't entered any estimates. Add one below, or 
     != link_to 'import them from a CSV file', new_project_import_path
 
-.row
-  %h2 Start a new estimate
+%h2 Start a new estimate
 
-  =form_for current_project.stories.build, :url => new_interactive_project_stories_path, :html => {:class => 'form-stacked'} do |f|
-    %fieldset
-      .clearfix
-        != f.label :title
-        != f.text_field :title, :class => 'span13'
-        != f.submit "Estimate", :class => 'btn primary span2'
+=form_for current_project.stories.build, :url => new_interactive_project_stories_path, :html => {:class => 'form-stacked'} do |f|
+  %fieldset
+    .clearfix
+      != f.label :title
+      != f.text_field :title, :class => 'span14'
+      != f.submit "Estimate", :class => 'btn primary span2'
 
 %hr
 
-.row
-  %h2 Record actual effort
-  - if @stories_no_actual.empty?
-    %p
-      %em
-        Nothing open
-  - else
-    %table#stories
-      %thead
-        %tr
-          %th Title
-          %th Created
-          %th Estimate
-        %tbody
-          != render :partial => 'story_actual', :collection => @stories_no_actual
+%h2 Record actual effort
+- if @stories_no_actual.empty?
+  %p
+    %em
+      Nothing open
+- else
+  %table#stories
+    %thead
+      %tr
+        %th Title
+        %th Created
+        %th Estimate
+      %tbody
+        != render :partial => 'story_actual', :collection => @stories_no_actual
 
