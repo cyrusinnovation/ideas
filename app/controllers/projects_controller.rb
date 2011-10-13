@@ -4,7 +4,7 @@ class ProjectsController < SecureController
   end
 
   def new
-    @project = current_user.projects.build
+    @project = Project.new
   end
 
   def edit
