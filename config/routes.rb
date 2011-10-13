@@ -20,5 +20,6 @@ Pointilist::Application.routes.draw do
     get "users/sign_out" => "devise/sessions#destroy"
   end
 
+  root :to => 'projects#index', :constraints => lambda {|r| r.env["warden"].authenticate? }
   root :to => 'front#index'
 end
