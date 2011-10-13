@@ -6,10 +6,13 @@
 
 .page-header
   %h1
-    Application Settings
+    Project Settings
     
 =form_tag(project_update_settings_path, :method => :post, :class => 'form-stacked') do
   %fieldset
+    .clearfix
+      != label :name, 'Project Name'
+      != number_field_tag :name, current_project.name
     .clearfix
       != label :buckets, 'Buckets'
       != text_field_tag :buckets, @buckets_csv
@@ -18,3 +21,7 @@
       != number_field_tag :target_point_size, current_project.target_point_size
   .actions
     != submit_tag 'Save', class: 'btn primary'
+
+%h3 Other actions
+%p
+  #{link_to "Delete this project", current_project, :confirm => "Are you sure?", :method => :delete, :class => 'btn danger'}
