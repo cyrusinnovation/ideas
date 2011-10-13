@@ -42,7 +42,7 @@
                   %li
                     != link_to 'Project', project_edit_settings_path(current_project)
                   %li
-                    != link_to 'Account', edit_user_registration_path(:project_id => current_project.id)
+                    != link_to 'Account', edit_user_registration_path, :target => '_blank'
           -if user_signed_in?
             %p.pull-right
               #{current_user.email}
@@ -63,7 +63,5 @@
           != link_to "Cyrus Innovation", "http://www.cyrusinnovation.com"
           product 
           |
-          -if user_has_projects?
-            != link_to "privacy policy", privacy_path(:project_id => current_project.id)
-          -else
-            != link_to "privacy policy", privacy_path()
+          != link_to "privacy policy", privacy_path, :target => '_blank'
+
