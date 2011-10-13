@@ -1,9 +1,0 @@
-<% if @projects.size %>
-  <ul>
-    <% @projects.each do |project| %>
-      <li><%= link_to project.name, project_stories_path(project) %></li>
-    <% end %>
-  </ul>
-<% end %>
-<br />
-<%= link_to 'New Project', new_project_path %>

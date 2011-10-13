@@ -1,0 +1,7 @@
+- if !@projects.empty?
+  %ul
+    - @projects.each do |project|
+      %li
+        = link_to project.name, project_stories_path(project)
+%br
+= link_to 'New Project', new_project_path
