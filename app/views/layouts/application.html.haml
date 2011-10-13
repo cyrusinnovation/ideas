@@ -39,6 +39,10 @@
                   - current_user.projects.each do |project|
                     %li
                       != link_to project.name, project_stories_path(project)
+                  %li.divider
+                  %li
+                    != link_to 'New Project', new_project_path
+                  
               %li
                 != link_to 'Account', edit_user_registration_path, :target => '_blank'
             %p.pull-right
