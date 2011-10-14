@@ -12,6 +12,9 @@ Pointilist::Application.routes.draw do
     match '/estimation_view' => 'estimation_view#index'
     get '/settings' => 'settings#edit', :as => :edit_settings
     post '/settings' => 'settings#update', :as => :update_settings
+
+    resources :memberships, :except => [:show, :edit, :update]
+
   end
 
   match '/privacy' => 'front#privacy'

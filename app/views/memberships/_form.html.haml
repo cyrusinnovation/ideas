@@ -1,0 +1,16 @@
+= form_for [current_project, @membership], :html => {:class => 'form-stacked'} do |f|
+  - if @membership.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@membership.errors.count, "error") 
+        prohibited this project from being saved:
+      %ul
+        - @membership.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  %fieldset
+    = f.label :user, 'Email'
+    = f.text_field :user, :value => (f.object.user.blank? ? '' : f.object.user.email)
+  .actions
+    = f.submit 'Add Collaborator', :class => 'btn primary'

@@ -64,8 +64,10 @@
             != link_to 'Trends', project_trends_path(current_project)
           %li.history
             != link_to 'History', project_history_path(current_project)
-          %li.settings.pull-right
+          %li.settings
             != link_to 'Settings', project_edit_settings_path(current_project)
+          %li.collaborate
+            != link_to 'Collaborators', project_memberships_path(current_project)
         
       .content
         != yield
