@@ -5,6 +5,5 @@
     %tr
       %td= membership.user.email
       %td= link_to 'Remove', [current_project, membership], confirm: 'Are you sure?', method: :delete
-%br
 
-= link_to 'Add Collaborator', new_project_membership_path(current_project)
+= render :partial => 'form'

@@ -10,7 +10,7 @@
             = msg
 
   %fieldset
-    = f.label :user, 'Email'
+    = f.label :user, "Enter collaborator's email:"
     = f.text_field :user, :value => (f.object.user.blank? ? '' : f.object.user.email)
   .actions
     = f.submit 'Add Collaborator', :class => 'btn primary'
