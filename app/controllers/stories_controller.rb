@@ -44,7 +44,7 @@ class StoriesController < SecureController
 
   def fix_date
     finished = params[:story][:finished]
-    if !finished.empty?
+    if finished && !finished.empty?
       day = finished.slice(0, 2)
       month = finished.slice(3, 2)
       year = finished.slice(6, 4)
