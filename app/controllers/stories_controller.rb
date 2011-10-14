@@ -15,6 +15,7 @@ class StoriesController < SecureController
   end
 
   def create
+    fix_date
     @story = current_project.stories.create(params[:story])
     if @story.persisted?
       flash[:success] = 'Estimate added!'
@@ -32,11 +33,22 @@ class StoriesController < SecureController
   end
 
   def update
+    fix_date
     current_project.stories.update params[:id], params[:story]
 
     respond_to do |format|
       format.json { render :json => { :success => 1 }}
       format.html { redirect_to :controller => :history, :action => :index }
+    end
+  end
+
+  def fix_date
+    finished = params[:story][:finished]
+    if !finished.empty?
+      day = finished.slice(0, 2)
+      month = finished.slice(3, 2)
+      year = finished.slice(6, 4)
+      params[:story][:finished] = "#{month}/#{day}/#{year}"
     end
   end
 end

@@ -17,22 +17,11 @@
   
       $('table input.ajaxd').click(function() {
           var form = $(this).parents("form");
-          swapMonthDay(form);
           $.post(form.prop('action'), form.serialize(), function() {
               form.parents("tr").remove();
           });
-          swapMonthDay(form);
           return false;  
       });
-
-      function swapMonthDay(form) {
-          dateString = form.find('input.date_picker')[0].value;
-          var field1 = dateString.substr(0, 2);
-          var field2 = dateString.substr(3, 2);
-          var year = dateString.substr(6, 4);
-          form.find('input.date_picker')[0].value = field2 + '/' + field1 + '/' + year;;
-      }
-
 
       $('input.date_picker').datepicker({dateFormat: 'mm/dd/yy'});
 
