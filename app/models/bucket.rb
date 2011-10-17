@@ -20,11 +20,31 @@ class Bucket < ActiveRecord::Base
     project.target_point_size * value
   end
 
+  def no_min?
+    my_index == 0
+  end
+
+  def no_max?
+    my_index == project.buckets.size - 1
+  end
+
   def min
-    estimate_hours * (1 - EXAMPLE_DELTA)
+    (value + previous_value) / 2 unless no_min?
   end
 
   def max
-    estimate_hours * (1 + EXAMPLE_DELTA)
+    (value + next_value) / 2 unless no_max?
+  end
+  
+  def previous_value
+    project.buckets[my_index - 1].value
+  end
+
+  def next_value
+    project.buckets[my_index + 1].value
+  end
+
+  def my_index
+    project.buckets.find_index self
   end
 end

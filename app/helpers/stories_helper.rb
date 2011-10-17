@@ -1,7 +1,10 @@
 module StoriesHelper
   def range_html bucket
-    min = time_text bucket.min
-    max = time_text bucket.max
+    return "Up to #{time_text(bucket.max)}" if(bucket.no_min?)
+    return "#{time_text(bucket.min)} and up" if(bucket.no_max?)
+
+    min = time_text(bucket.min)
+    max = time_text(bucket.max)
     
     html = "About #{min}"
     html += " &ndash; #{max}" if min != max
