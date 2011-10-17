@@ -49,4 +49,23 @@ class Story < ActiveRecord::Base
     finished = where("estimate is not null and hours_worked is not null").order("finished DESC")
     DataSeries.new(finished.collect {|story| story.hours_worked / story.estimate} )
   end
+
+
+  EXAMPLES_PER_BUCKET = 9
+  EXAMPLE_RECENCY_CUTOFF = 60
+
+  def self.for_estimation(bucket)
+    examples(bucket)
+  end
+
+  private
+
+  def self.examples(bucket)
+    count = EXAMPLES_PER_BUCKET
+    examples = select("*, abs(hours_worked - #{bucket.estimate_hours}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
+    examples = examples.where(["hours_worked >= ?", bucket.min])
+    examples = examples.where(["hours_worked <= ?", bucket.max])
+    examples = examples.order('recent desc, quality asc').limit(count)
+    examples
+  end
 end
