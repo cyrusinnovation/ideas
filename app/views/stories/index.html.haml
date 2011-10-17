@@ -10,15 +10,12 @@
           }
           return true;
       });
-      $('.title a.expand').click(function() {
-          $(this).parent().children('div').toggle('fast');
-          return false;
-      });
   
-      $('table input.ajaxd').click(function() {
+      $('input.ajaxd').click(function() {
           var form = $(this).parents("form");
-          $.post(form.prop('action'), form.serialize(), function() {
-              form.parents("tr").remove();
+          $.post(form.prop('action'), form.serialize(), function(data) {
+            $("#row_" + data.id).remove();
+            form.parent().modal('hide');
           });
           return false;  
       });
@@ -70,5 +67,6 @@
         %th Created
         %th Estimate
       %tbody
-        != render :partial => 'story_actual', :collection => @stories_no_actual
+        != render :partial => 'story', :collection => @stories_no_actual
+  != render :partial => 'record_actual_form', :collection => @stories_no_actual, :as => :story
 

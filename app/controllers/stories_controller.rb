@@ -37,7 +37,7 @@ class StoriesController < SecureController
     current_project.stories.update params[:id], params[:story]
 
     respond_to do |format|
-      format.json { render :json => { :success => 1 }}
+      format.json { render :json => { :success => 1, :id => params[:id] }}
       format.html { redirect_to :controller => :history, :action => :index }
     end
   end
