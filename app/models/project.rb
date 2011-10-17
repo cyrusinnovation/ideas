@@ -38,11 +38,6 @@ class Project < ActiveRecord::Base
     estimate_hours(bucket) * (1 + EXAMPLE_DELTA)
   end
   
-  def actuals bucket
-    finished = stories.where("estimate = #{bucket.value} and hours_worked is not null").order("finished DESC")
-    DataSeries.new(finished.collect {|story| story.hours_worked} )
-  end
-  
   def all_actuals
     finished = stories.where("hours_worked is not null").order("finished DESC")
     DataSeries.new(finished.collect {|story| story.hours_worked} )

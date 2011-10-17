@@ -25,4 +25,9 @@ class Story < ActiveRecord::Base
   def self.no_actuals?
     return where( "hours_worked is not NULL" ).empty?
   end
+
+  def self.actuals bucket
+    finished = where("estimate = #{bucket.value} and hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked} )
+  end
 end
