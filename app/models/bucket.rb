@@ -29,11 +29,13 @@ class Bucket < ActiveRecord::Base
   end
 
   def min
-    (value + previous_value) / 2 unless no_min?
+    return 0 if no_min?
+    (value + previous_value) / 2
   end
 
   def max
-    (value + next_value) / 2 unless no_max?
+    return 2 * value - min if no_max?
+    (value + next_value) / 2
   end
   
   def previous_value
