@@ -11,7 +11,7 @@ class StoriesController < SecureController
   def new_interactive
     @story = current_project.stories.build(params[:story])
     @groups = current_project.buckets_with_examples
-    render "estimation_view/index"
+    render "stories/estimation_view"
   end
 
   def create

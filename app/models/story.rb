@@ -25,4 +25,47 @@ class Story < ActiveRecord::Base
   def self.no_actuals?
     return where( "hours_worked is not NULL" ).empty?
   end
+
+  def self.actuals bucket
+    finished = where("estimate = #{bucket.value} and hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked} )
+  end
+  
+  def self.all_actuals
+    finished = where("hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked} )
+  end
+  
+  def self.all_actuals_by_estimate
+    finished = where("estimate is not null and hours_worked is not null").order("finished DESC").group_by {|s| s.estimate}
+    result = {}
+    finished.each do |estimate, stories|
+      result[estimate] = DataSeries.new(stories.collect {|story| story.hours_worked} )
+    end
+    result
+  end
+
+  def self.all_actuals_normalized
+    finished = where("estimate is not null and hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked / story.estimate} )
+  end
+
+
+  EXAMPLES_PER_BUCKET = 9
+  EXAMPLE_RECENCY_CUTOFF = 60
+
+  def self.for_estimation(bucket)
+    examples(bucket)
+  end
+
+  private
+
+  def self.examples(bucket)
+    count = EXAMPLES_PER_BUCKET
+    examples = select("*, abs(hours_worked - #{bucket.estimate_hours}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
+    examples = examples.where(["hours_worked >= ?", bucket.min])
+    examples = examples.where(["hours_worked <= ?", bucket.max])
+    examples = examples.order('recent desc, quality asc').limit(count)
+    examples
+  end
 end

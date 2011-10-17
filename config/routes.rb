@@ -9,7 +9,6 @@ Pointilist::Application.routes.draw do
 
     match '/trends' => 'trends#index'
     match '/history' => 'history#index'
-    match '/estimation_view' => 'estimation_view#index'
     get '/settings' => 'settings#edit', :as => :edit_settings
     post '/settings' => 'settings#update', :as => :update_settings
   end
