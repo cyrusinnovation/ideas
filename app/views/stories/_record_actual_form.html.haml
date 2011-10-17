@@ -1,0 +1,18 @@
+.form.modal{:style => 'display:none;', :id => "modal_div_#{story.id}"}
+  .modal-header
+    %a.close{:href => '#'}x
+    %h3 
+      = story.title
+  .modal-body
+    =form_for [current_project, story], :html => {:class => 'form-stacked'} do |f|
+      %fieldset
+        .clearfix
+          != f.label :finished
+          != f.text_field :finished, :class => 'date_picker', :value => Date.today.strftime("%m/%d/%Y")
+        .clearfix
+          != f.label :hours_worked
+          != f.text_field :hours_worked, :size => 4
+          %span.help-inline
+  .modal-footer
+    != link_to 'Delete', [current_project, story], :method => :delete, :confirm => 'Are you sure you want to delete this estimate?', :class => 'btn danger'
+    %button.btn.primary.ajaxd Save

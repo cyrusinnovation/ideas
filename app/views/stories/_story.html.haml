@@ -1,0 +1,8 @@
+%tr{:id => "row_#{story.id}"}
+  %td.title
+    != link_to format_title(story.title, 160), '#', :class=>'expand', 'data-controls-modal' => "modal_div_#{story.id}", "data-backdrop" => true
+  %td
+    != format_date story.created_at
+  %td
+    != story.estimate
+    
