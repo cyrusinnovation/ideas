@@ -1,6 +1,5 @@
 class Project < ActiveRecord::Base
   EXAMPLES_PER_BUCKET = 9
-  EXAMPLE_DELTA = 0.2
   EXAMPLE_RECENCY_CUTOFF = 60
 
   validates :name, :presence => true, :length => { :maximum => 255 }
@@ -26,18 +25,6 @@ class Project < ActiveRecord::Base
     buckets.collect {|b| [b, stories_for_estimation(b)] }
   end
 
-  def estimate_hours(bucket)
-    target_point_size * bucket.value
-  end
-
-  def min bucket
-    estimate_hours(bucket) * (1 - EXAMPLE_DELTA)
-  end
-
-  def max bucket
-    estimate_hours(bucket) * (1 + EXAMPLE_DELTA)
-  end
-  
   def actuals bucket
     finished = stories.where("estimate = #{bucket.value} and hours_worked is not null").order("finished DESC")
     DataSeries.new(finished.collect {|story| story.hours_worked} )
@@ -67,9 +54,9 @@ class Project < ActiveRecord::Base
 
   def examples(bucket)
     count = EXAMPLES_PER_BUCKET
-    examples = stories.select("*, abs(hours_worked - #{estimate_hours(bucket)}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
-    examples = examples.where(["hours_worked >= ?", min(bucket)])
-    examples = examples.where(["hours_worked <= ?", max(bucket)])
+    examples = stories.select("*, abs(hours_worked - #{bucket.estimate_hours}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
+    examples = examples.where(["hours_worked >= ?", bucket.min])
+    examples = examples.where(["hours_worked <= ?", bucket.max])
     examples = examples.order('recent desc, quality asc').limit(count)
     examples
   end

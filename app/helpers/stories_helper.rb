@@ -1,21 +1,11 @@
 module StoriesHelper
   def range_html bucket
-    min = min_html bucket
-    max = max_html bucket
+    min = time_text bucket.min
+    max = time_text bucket.max
     
     html = "About #{min}"
     html += " &ndash; #{max}" if min != max
     html
-  end
-
-  def min_html bucket
-    hours = current_project.min(bucket)
-    time_text hours
-  end
-
-  def max_html bucket
-    hours = current_project.max(bucket)
-    time_text hours
   end
 
   def time_text hours
