@@ -62,7 +62,7 @@ class Story < ActiveRecord::Base
 
   def self.examples(bucket)
     count = EXAMPLES_PER_BUCKET
-    examples = select("*, abs(hours_worked - #{bucket.estimate_hours}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
+    examples = select("*, abs(hours_worked - #{bucket.hours}) as quality, sign(#{EXAMPLE_RECENCY_CUTOFF} - (current_date - finished)) as recent")
     examples = examples.where(["hours_worked >= ?", bucket.min])
     examples = examples.where(["hours_worked <= ?", bucket.max])
     examples = examples.order('recent desc, quality asc').limit(count)

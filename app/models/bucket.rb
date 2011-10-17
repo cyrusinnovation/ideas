@@ -16,7 +16,7 @@ class Bucket < ActiveRecord::Base
     value.to_i
   end
 
-  def estimate_hours
+  def hours
     project.target_point_size * value
   end
 
@@ -30,20 +30,20 @@ class Bucket < ActiveRecord::Base
 
   def min
     return 0 if no_min?
-    (value + previous_value) / 2
+    (hours + previous_bucket.hours) / 2
   end
 
   def max
-    return 2 * value - min if no_max?
-    (value + next_value) / 2
+    return 2 * hours - min if no_max?
+    (hours + next_bucket.hours) / 2
   end
   
-  def previous_value
-    project.buckets[my_index - 1].value
+  def previous_bucket
+    project.buckets[my_index - 1]
   end
 
-  def next_value
-    project.buckets[my_index + 1].value
+  def next_bucket
+    project.buckets[my_index + 1]
   end
 
   def my_index
