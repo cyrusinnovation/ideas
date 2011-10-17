@@ -8,11 +8,11 @@ class MembershipsController < SecureController
     email = params[:membership][:user]
     user = User.find_by_email email
     @membership = Membership.new(user: user, project: current_project)
-
-    if @membership.persisted?
+    
+    if @membership.save
       redirect_to project_memberships_path(current_project), notice: 'Membership was successfully created.'
     else
-      redirect_to project_memberships_path(current_project), error: "Sorry, couldn't find a user with #{email} as their email address"
+      redirect_to project_memberships_path(current_project), alert: "Sorry, couldn't find a user with #{email} as their email address"
     end
   end
   

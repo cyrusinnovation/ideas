@@ -86,6 +86,12 @@
             != link_to 'Collaborators', project_memberships_path(current_project)
         
       .content
+        - if flash.key? :alert
+          .alerts
+            .alert-message.error.fade.in{"data-alert" => "alert"}
+              %a.close{:href=>"#"}
+                x
+              = flash[:alert]
         != yield
 
       %footer
