@@ -1,5 +1,33 @@
 - content_for :head do
   :javascript
+
+    function saveButtonClicked() {
+        var outer_div = $(this).closest(".form");
+        var form = outer_div.find("form").first();
+        $.ajax({
+          type: 'POST',
+          url: form.prop('action'),
+          data: form.serialize(), 
+          dataType: 'json',
+          success: function(data) {
+            $("#row_" + data.id).hide('slow', 'swing', function() {
+              $(this).remove();
+            });
+            outer_div.modal('hide');
+          },
+          error: function(jq, textStatus, errorThrown) {
+              var response = $.parseJSON(jq.responseText);
+              var errors = response.errors;
+              if ('hours_worked' in errors) {
+                var input_div = form.find("[name='story[hours_worked]']").parent();
+                input_div.addClass("error");
+                input_div.find(".help-inline").html(errors.hours_worked.join(","));
+              }
+          }
+        });
+        return false;  
+    }
+    
     $(document).ready(function() {
       $('.subnav .estimates').addClass('active');
 
@@ -11,14 +39,15 @@
           return true;
       });
   
-      $('input.ajaxd').click(function() {
-          var form = $(this).parents("form");
-          $.post(form.prop('action'), form.serialize(), function(data) {
-            $("#row_" + data.id).remove();
-            form.parent().modal('hide');
-          });
-          return false;  
+      $('button.ajaxd').click(saveButtonClicked);
+
+      $('.modal').bind('hidden', function () {
+          $(this).find('input.date_picker').datepicker('setDate', new Date());
+          $(this).find('.clearfix.error').find('input').val('');
+          $(this).find('.clearfix.error').find('.help-inline').html('');
+          $(this).find('.clearfix.error').removeClass('error');
       });
+
 
       $('input.date_picker').datepicker({dateFormat: 'mm/dd/yy'});
 
@@ -70,3 +99,4 @@
         != render :partial => 'story', :collection => @stories_no_actual
   != render :partial => 'record_actual_form', :collection => @stories_no_actual, :as => :story
 
+!= form_tag "fake/url", :method => :put

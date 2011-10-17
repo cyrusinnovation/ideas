@@ -34,12 +34,20 @@ class StoriesController < SecureController
 
   def update
     fix_date
-    current_project.stories.update params[:id], params[:story]
+    story = current_project.stories.update params[:id], params[:story]
 
-    respond_to do |format|
-      format.json { render :json => { :success => 1, :id => params[:id] }}
-      format.html { redirect_to :controller => :history, :action => :index }
+    if story.invalid?
+      respond_to do |format|
+        format.json { render :status => 400, :json => {:id => params[:id], :errors => story.errors.messages } }
+        # format.html { redirect_to :controller => :history, :action => :index }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => {:id => params[:id]} }
+        format.html { redirect_to :controller => :history, :action => :index }
+      end
     end
+
   end
 
   def fix_date
