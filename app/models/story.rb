@@ -30,4 +30,23 @@ class Story < ActiveRecord::Base
     finished = where("estimate = #{bucket.value} and hours_worked is not null").order("finished DESC")
     DataSeries.new(finished.collect {|story| story.hours_worked} )
   end
+  
+  def self.all_actuals
+    finished = where("hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked} )
+  end
+  
+  def self.all_actuals_by_estimate
+    finished = where("estimate is not null and hours_worked is not null").order("finished DESC").group_by {|s| s.estimate}
+    result = {}
+    finished.each do |estimate, stories|
+      result[estimate] = DataSeries.new(stories.collect {|story| story.hours_worked} )
+    end
+    result
+  end
+
+  def self.all_actuals_normalized
+    finished = where("estimate is not null and hours_worked is not null").order("finished DESC")
+    DataSeries.new(finished.collect {|story| story.hours_worked / story.estimate} )
+  end
 end
