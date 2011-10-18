@@ -1,5 +1,5 @@
 - content_for :head do
-  != javascript_include_tag "http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js"
+  != javascript_include_tag "jquery.tools.js"
   != javascript_include_tag 'estimation_view.js'
 
 .page-header
@@ -34,7 +34,7 @@
                 .title
                   = example.title
 .row
-  #recent_stories.navi.span6
+  #recent_stories.navi.span6{'data-content' => 'poop', :rel=> 'popover', 'data-original-title' => 'mama'}
     %h2 recently estimated...
     %ul.unstyled
       - @recent_stories.each do |story|
