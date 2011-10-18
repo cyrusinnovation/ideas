@@ -6,10 +6,10 @@
   .modal-body
     =form_for [current_project, story], :html => {:class => 'form-stacked'} do |f|
       %fieldset
-        .clearfix
+        .clearfix.finished
           != f.label :finished
           != f.text_field :finished, :class => 'date_picker', :value => Date.today.strftime("%m/%d/%Y")
-        .clearfix
+        .clearfix.hours_worked
           != f.label :hours_worked
           != f.text_field :hours_worked, :size => 4
           %span.help-inline

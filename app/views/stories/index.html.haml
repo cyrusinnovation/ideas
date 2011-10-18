@@ -18,10 +18,10 @@
           error: function(jq, textStatus, errorThrown) {
               var response = $.parseJSON(jq.responseText);
               var errors = response.errors;
-              if ('hours_worked' in errors) {
-                var input_div = form.find("[name='story[hours_worked]']").parent();
+              for (field in errors) {
+                var input_div = form.find("." + field);
                 input_div.addClass("error");
-                input_div.find(".help-inline").html(errors.hours_worked.join(","));
+                input_div.find(".help-inline").html(errors[field].join(","));
               }
           }
         });
