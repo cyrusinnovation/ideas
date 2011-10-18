@@ -98,5 +98,3 @@
       %tbody
         != render :partial => 'story', :collection => @stories_no_actual
   != render :partial => 'record_actual_form', :collection => @stories_no_actual, :as => :story
-
-!= form_tag "fake/url", :method => :put
