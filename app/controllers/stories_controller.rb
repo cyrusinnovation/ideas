@@ -7,6 +7,13 @@ class StoriesController < SecureController
   def new
     @story = current_project.stories.build
   end
+  
+  def show
+    @story = current_project.stories.find(params[:id])
+    respond_to do |format|
+      format.json { render :json => {:story => @story} }
+    end
+  end
 
   def new_interactive
     @story = current_project.stories.build(params[:story])
@@ -18,14 +25,14 @@ class StoriesController < SecureController
     fix_date
     @story = current_project.stories.create(params[:story])
     if @story.persisted?
-      flash[:success] = 'Estimate added!'
+      flash[:notice] = 'Estimate added!'
     end
     redirect_to :action => :index
   end
 
   def destroy
     current_project.stories.find(params[:id]).delete
-    redirect_to :action => :index
+    redirect_to request.referrer, :notice => 'Estimate deleted.'
   end
 
   def edit
@@ -39,7 +46,6 @@ class StoriesController < SecureController
     if story.invalid?
       respond_to do |format|
         format.json { render :status => 400, :json => {:id => params[:id], :errors => story.errors.messages } }
-        # format.html { redirect_to :controller => :history, :action => :index }
       end
     else
       respond_to do |format|

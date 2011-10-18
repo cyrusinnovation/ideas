@@ -1,8 +1,16 @@
 - content_for :head do
+  != javascript_include_tag 'story_popup.js'
+
   :javascript
     $(document).ready(function() {
       $('.subnav .history').addClass('active');
       $('#stories').tablesorter({ sortList: [[1,0]] });
+      
+      // What to do when the editing popup returns successfully
+      $('body').bind('story_saved', function(e, story_data) {
+        location.reload();
+      });
+
     });
     
   :css
@@ -15,6 +23,12 @@
     }
 
 
+
+- if flash.key? :notice
+  .alert-message.success.fade.in{"data-alert" => "alert"}
+    %a.close{:href=>"#"}
+      x
+    = flash[:notice]
 
 
 - if current_project.stories.empty?
@@ -37,3 +51,4 @@
         %th.status Hours vs. Average
     %tbody
       != render :partial => 'story', :collection => @stories
+  != render :partial => 'stories/form', :locals => {:all_fields => true}
