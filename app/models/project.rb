@@ -18,5 +18,4 @@ class Project < ActiveRecord::Base
   def buckets_with_examples
     buckets.collect {|b| [b, stories.for_estimation(b)] }
   end
-
 end

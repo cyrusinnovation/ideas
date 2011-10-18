@@ -9,6 +9,7 @@
     - else
       Estimation Examples
 
+
 #estimation_view
   .items
     - @groups.each do |bucket, examples|
@@ -27,9 +28,18 @@
               %button.btn.info.bigger-button Bigger
         
         .stories
-          %ul.group
+          %ul.unstyled
             - examples.each do |example|
               %li.story
                 .title
                   = example.title
-
+.row
+  #recent_stories.navi.span6
+    %h2 recently estimated...
+    %ul.unstyled
+      - @recent_stories.each do |story|
+        - bucket = story.bucket
+        %li.story
+          .title
+            %a{:href=>'#', :class=>'scrollto', :estimate_index=> story.bucket.my_index } 
+              != "#{story.title} estimated at #{story.bucket.pretty_print_html}"
