@@ -10,15 +10,22 @@
     
 =form_tag(project_update_settings_path, :method => :post, :class => 'form-stacked') do
   %fieldset
-    .clearfix
+    %div{:class => div_class(@project, :name)}
+      .clearfix    
       != label :name, 'Project Name'
-      != text_field_tag :name, current_project.name
-    .clearfix
+      != text_field_tag :name, @project.name
+      %span.help-inline
+        = inline_help @project, :name
+    %div{:class => div_class(@project, :buckets)}
       != label :buckets, 'Buckets'
-      != text_field_tag :buckets, @buckets_csv
-    .clearfix
+      != text_field_tag :buckets, buckets_csv(@project)
+      %span.help-inline
+        = inline_help @project, :buckets
+    %div{:class => div_class(@project, :target_point_size)}
       != label :target_point_size, 'Target point size (hours)'
-      != number_field_tag :target_point_size, current_project.target_point_size
+      != number_field_tag :target_point_size, @project.target_point_size
+      %span.help-inline
+        = inline_help @project, :target_point_size
   .actions
     != submit_tag 'Save', class: 'btn primary'
 
