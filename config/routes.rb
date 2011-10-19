@@ -6,9 +6,9 @@ Pointilist::Application.routes.draw do
     end
     resource :import, :only => [:new, :create]
     resources :memberships, :only => [:index, :destroy, :create]
-
-    match '/trends' => 'trends#index'
-    match '/history' => 'history#index'
+    get '/actuals' => 'actuals#index'
+    get '/trends' => 'trends#index'
+    get '/history' => 'history#index'
     get '/settings' => 'settings#edit', :as => :edit_settings
     post '/settings' => 'settings#update', :as => :update_settings
   end

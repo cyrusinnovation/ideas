@@ -1,18 +1,8 @@
 - content_for :head do
-  != javascript_include_tag 'story_popup.js'
   :javascript
 
     $(document).ready(function() {
       $('.subnav .estimates').addClass('active');
-      $('#stories').tablesorter({ sortList: [[1,1]] });
-      
-      // What to do when the editing popup returns successfully
-      $('body').bind('story_saved', function(e, story_data) {
-        $("#row_" + story_data.id).hide('slow', 'swing', function() {
-          $(this).remove();
-        });
-      });
-      
       $('form#new_story').submit(function() {
           if ($('#new_story_title')[0].value == '') {
               $('.alert-message.error').show();
@@ -20,7 +10,6 @@
           }
           return true;
       });
-      
     });
 
 - if flash.key? :notice
@@ -35,11 +24,6 @@
   You need to add a story title.
 
 
-- if current_project.stories.empty?
-  %p
-    You haven't entered any estimates. Add one below, or 
-    != link_to 'import them from a CSV file', new_project_import_path
-
 %h2 Start a new estimate
 
 =form_for current_project.stories.build, :url => new_interactive_project_stories_path, :html => {:class => 'form-stacked'} do |f|
@@ -49,20 +33,3 @@
       != f.text_field :title, :class => 'span14', :id => 'new_story_title'
       != f.submit "Estimate", :class => 'btn primary span2'
 
-%hr
-
-%h2 Record actual effort
-- if @stories_no_actual.empty?
-  %p
-    %em
-      Nothing open
-- else
-  %table#stories
-    %thead
-      %tr
-        %th Title
-        %th Created
-        %th Estimate
-      %tbody
-        != render :partial => 'story', :collection => @stories_no_actual
-  != render :partial => 'form', :locals => {:all_fields => false}
