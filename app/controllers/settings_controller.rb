@@ -1,12 +1,17 @@
 class SettingsController < SecureController
   def edit
-    @buckets_csv = current_project.buckets.collect { |bucket| bucket.pretty_print }.join ", "
+    @project = current_project
   end
 
   def update
-    update_project
     change_buckets
-    redirect_to project_edit_settings_path
+    @project = update_project
+
+    if @project.invalid?
+      render :action => :edit
+    else 
+      redirect_to project_edit_settings_path
+    end
   end
 
   private
@@ -16,6 +21,7 @@ class SettingsController < SecureController
     project.name = params[:name]
     project.target_point_size = params[:target_point_size]
     project.save
+    project
   end
 
   def change_buckets

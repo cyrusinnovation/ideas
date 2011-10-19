@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   has_many :users, :through => :memberships
 
   validates_numericality_of :target_point_size, :greater_than => 0, :less_than => 100, :allow_nil => false
+  validates :buckets, :presence => true 
 
   after_create :create_default_buckets
 
@@ -17,5 +18,4 @@ class Project < ActiveRecord::Base
   def buckets_with_examples
     buckets.collect {|b| [b, stories.for_estimation(b)] }
   end
-
 end

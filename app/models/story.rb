@@ -16,6 +16,10 @@ class Story < ActiveRecord::Base
     other.title <=> title
   end
 
+  def bucket
+    project.buckets.find_by_value(estimate)
+  end
+
   def variance_vs_mean actuals
     return nil if hours_worked.nil? || actuals.nil?
     difference = hours_worked - actuals.mean

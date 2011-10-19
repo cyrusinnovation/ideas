@@ -11,6 +11,7 @@ class StoriesController < SecureController
   def new_interactive
     @story = current_project.stories.build(params[:story])
     @groups = current_project.buckets_with_examples
+    @recent_stories = current_project.stories.order('updated_at DESC').limit(10)
     render "stories/estimation_view"
   end
 

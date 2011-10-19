@@ -16,6 +16,9 @@ $(document).ready(function() {
          api.prev();
          return false;
      });
+    $('a.scrollto').click(function() {
+        api.seekTo( $(this).attr('estimate_index'), 1000);
+    });
     disableEndPointButtons();
 });
 
