@@ -21,6 +21,29 @@ $(document).ready(function() {
     });
     disableEndPointButtons();
     $(".help_text").popover();
+    
+    
+    $('.right-button').click(function() {
+      $('#story_estimate').val($(this).data('bucket'));
+      $('#new_story').submit();
+    })
+    
+    $('#new_story').submit(function() {
+      if ($('#story_title').val() == '') {
+        $('#title_div').addClass('error');
+        $('#title_div span').html('required');
+        return false;
+      }
+      
+      var selected_bucket = $('#estimation_view .items .estimation-bucket:nth-child(' + (api.getIndex() + 1) + ')').data('bucket');
+      $('#story_estimate').val(selected_bucket);
+      return true;
+    });      
+    
+    
+    
+    
+    
 });
 
 function disableEndPointButtons() {

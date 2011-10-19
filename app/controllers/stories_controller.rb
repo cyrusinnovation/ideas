@@ -1,11 +1,8 @@
 class StoriesController < SecureController
   def index
-    @stories = current_project.stories.order("title ASC")
-    @stories_no_actual = current_project.stories.where('finished IS NULL AND hours_worked IS NULL').order("title ASC")
-  end
-  
-  def new
-    @story = current_project.stories.build
+    @story = current_project.stories.build()
+    @groups = current_project.buckets_with_examples
+    @recent_stories = current_project.stories.order('updated_at DESC').limit(10)
   end
   
   def show
@@ -13,13 +10,6 @@ class StoriesController < SecureController
     respond_to do |format|
       format.json { render :json => {:story => @story} }
     end
-  end
-
-  def new_interactive
-    @story = current_project.stories.build(params[:story])
-    @groups = current_project.buckets_with_examples
-    @recent_stories = current_project.stories.order('updated_at DESC').limit(10)
-    render "stories/estimation_view"
   end
 
   def create

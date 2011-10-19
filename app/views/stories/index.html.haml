@@ -1,16 +1,14 @@
 - content_for :head do
+  != javascript_include_tag "jquery.tools.js"
+  != javascript_include_tag 'estimation_view.js'
   :javascript
 
     $(document).ready(function() {
       $('.subnav .estimates').addClass('active');
-      $('form#new_story').submit(function() {
-          if ($('#new_story_title')[0].value == '') {
-              $('.alert-message.error').show();
-              return false;
-          }
-          return true;
-      });
+      
     });
+    
+    
 
 - if flash.key? :notice
   .alert-message.success.fade.in{"data-alert" => "alert"}
@@ -18,18 +16,56 @@
       x
     = flash[:notice]
 
-.alert-message.error.fade.in{"data-alert" => "alert", :style => "display:none;"}
-  %a.close{:href=>"#"}
-    x
-  You need to add a story title.
-
-
 %h2 Start a new estimate
 
-=form_for current_project.stories.build, :url => new_interactive_project_stories_path, :html => {:class => 'form-stacked'} do |f|
+= form_for [current_project, @story], :html => {:class => 'form-stacked'} do |f|
   %fieldset
-    .clearfix
+    != f.hidden_field :estimate
+    #title_div.clearfix
       != f.label :title
-      != f.text_field :title, :class => 'span14', :id => 'new_story_title'
-      != f.submit "Estimate", :class => 'btn primary span2'
+      != f.text_field :title, :class => 'span12'
+      %span.inline-help 
 
+#estimation_view
+  .items
+    - @groups.each do |bucket, examples|
+      .estimation-bucket{'data-bucket' => bucket.value}
+        .bucket
+          .bucket-info
+            != "#{bucket.pretty_print_html}"
+          .time-range
+            != range_html(bucket)
+            .buttons
+              %button.btn.info.smaller-button Smaller
+              %button.btn.success.right-button Just right
+              %button.btn.info.bigger-button Bigger
+
+        .stories
+          %ul.unstyled
+            - examples.each do |example|
+              %li.story
+                .title
+                  = example.title
+.row
+  #recent_stories.navi.well.span7
+    %a.help_text.pull-right{'data-content'=> "We've kept track of your most recent estimates for your convenience; you can click on any story below to navigate among the estimates.", 'data-original-title' => "Similar to something you just estimated?", :rel=>:popover }
+      what's this?
+    %h2 
+      recently estimated...
+    %ul.unstyled
+      - @recent_stories.each do |story|
+        - bucket = story.bucket
+        %li.story
+          .title
+            %a{:href=>'#', :class=>'scrollto', :estimate_index=> story.bucket.my_index } 
+              != "#{story.title} @#{story.bucket.pretty_print_html}"
+  #all_buckets.navi.well.span7
+    %h2 all buckets
+    %ul.unstyled
+      - @groups.each do |bucket, examples|
+        %li.story
+          .title
+            %a{:href=>'#', :class=>'scrollto', :estimate_index=> bucket.my_index } 
+              != bucket.pretty_print_html
+              %em
+                != range_html(bucket)
