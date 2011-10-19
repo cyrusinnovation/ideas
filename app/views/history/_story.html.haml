@@ -1,6 +1,6 @@
 %tr{:class => "#{story_row_class(story)}"}
   %td.title
-    != link_to format_title(story.title), edit_project_story_path(current_project, story)
+    != link_to_function format_title(story.title), "openStory('#{project_story_path(story.project, story)}')"
   %td.estimate
     != story.estimate
   %td.finished

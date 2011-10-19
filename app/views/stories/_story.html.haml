@@ -1,6 +1,6 @@
 %tr{:id => "row_#{story.id}"}
   %td.title
-    != link_to format_title(story.title, 160), '#', :class=>'expand', 'data-controls-modal' => "modal_div_#{story.id}", "data-backdrop" => true
+    != link_to_function format_title(story.title, 160), "openStory('#{project_story_path(story.project, story)}')"
   %td
     != format_date story.created_at
   %td
