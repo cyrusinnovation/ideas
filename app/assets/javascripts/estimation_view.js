@@ -20,6 +20,7 @@ $(document).ready(function() {
         api.seekTo( $(this).attr('estimate_index'), 1000);
     });
     disableEndPointButtons();
+    $(".help_text").popover();
 });
 
 function disableEndPointButtons() {
