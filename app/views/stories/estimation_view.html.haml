@@ -34,7 +34,7 @@
                 .title
                   = example.title
 .row
-  #recent_stories.navi.span6
+  #recent_stories.navi.well.span7
     %h2 recently estimated...
     %ul.unstyled
       - @recent_stories.each do |story|
@@ -42,4 +42,15 @@
         %li.story
           .title
             %a{:href=>'#', :class=>'scrollto', :estimate_index=> story.bucket.my_index } 
-              != "#{story.title} estimated at #{story.bucket.pretty_print_html}"
+              != "#{story.title} @#{story.bucket.pretty_print_html}"
+  #all_buckets.navi.well.span7
+    %h2 all buckets
+    %ul.unstyled
+      - @groups.each do |bucket, examples|
+        %li.story
+          .title
+            %a{:href=>'#', :class=>'scrollto', :estimate_index=> bucket.my_index } 
+              != bucket.pretty_print_html
+              %em
+                != range_html(bucket)
+
