@@ -15,7 +15,7 @@ class ProjectsController < SecureController
     @project = current_user.projects.create(params[:project])
 
     if @project.persisted?
-      flash[:success] = 'Project #{@project.name} added!'
+      flash[:notice] = 'Project #{@project.name} added!'
     end
     redirect_to :action => :index
   end
@@ -24,7 +24,7 @@ class ProjectsController < SecureController
     @project = current_user.projects.find(params[:id])
 
     if @project.update_attributes(params[:project])
-      flash[:success] = 'Project #{@project.name} updated!'
+      flash[:notice] = 'Project #{@project.name} updated!'
     end
     redirect_to :action => :index
   end
