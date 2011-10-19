@@ -2,11 +2,6 @@
   %h1
     Sign in
 
-
-- if flash[:alert]
-  .alert-message.error
-    = flash[:alert]
-
 != form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-stacked'}) do |f|
   %fieldset
     .clearfix
