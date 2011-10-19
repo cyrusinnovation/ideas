@@ -1,5 +1,5 @@
 - content_for :head do
-  != javascript_include_tag "jquery.tools.js"
+  != javascript_include_tag 'jquery.tools.js'
   != javascript_include_tag 'estimation_view.js'
   :javascript
 
@@ -7,8 +7,6 @@
       $('.subnav .estimates').addClass('active');
       
     });
-    
-    
 
 - if flash.key? :notice
   .alert-message.success.fade.in{"data-alert" => "alert"}
@@ -30,6 +28,12 @@
   .items
     - @groups.each do |bucket, examples|
       .estimation-bucket{'data-bucket' => bucket.value}
+        - if examples.empty?
+          %a.help_text_pop_left.pull-right{'data-content'=> "orso selects example stories based on how long they actually took. If no stories fit within this bucket's time range, orso won't show any.", 'data-original-title' => "Why don't I see any example stories?", :rel=>:popover }
+            why don't I see any example stories?
+        - else
+          %a.help_text_pop_left.pull-right{'data-content'=> "orso selects example stories based on how long they actually took. orso finds a balance between keeping the example stories recent and fresh and selecting stories that are representative of the bucket's time range.", 'data-original-title' => "How does orso select example stories?", :rel=>:popover }
+            how are these examples selected?
         .bucket
           .bucket-info
             != "#{bucket.pretty_print_html}"
@@ -48,7 +52,7 @@
                   = example.title
 .row
   #recent_stories.navi.well.span7
-    %a.help_text.pull-right{'data-content'=> "We've kept track of your most recent estimates for your convenience; you can click on any story below to navigate among the estimates.", 'data-original-title' => "Similar to something you just estimated?", :rel=>:popover }
+    %a.help_text_pop_right.pull-right{'data-content'=> "orso has kept track of your most recent estimates for your convenience; click on any story below to navigate among the estimates.", 'data-original-title' => "Similar to something you just estimated?", :rel=>:popover }
       what's this?
     %h2 
       recently estimated...
@@ -60,6 +64,8 @@
             %a{:href=>'#', :class=>'scrollto', :estimate_index=> story.bucket.my_index } 
               != "#{story.title} @#{story.bucket.pretty_print_html}"
   #all_buckets.navi.well.span7
+    %a.help_text_pop_top.pull-right{'data-content'=> "A bucket represents an estimate range (e.g. 3-6 hours). Rather than worry about an exact estimate, orso just asks you to choose which bucket your story falls into.", 'data-original-title' => "Buckets", :rel=>:popover }
+      what's a bucket?
     %h2 all buckets
     %ul.unstyled
       - @groups.each do |bucket, examples|

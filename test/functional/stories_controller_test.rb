@@ -14,13 +14,4 @@ class StoriesControllerTest < ActionController::TestCase
     assert_not_nil project.stories.find_by_title("147 - Improve flying UI")
     assert_redirected_to :action => "index"
   end
-
-  test "delete a story" do
-    project = Project.first
-    id = stories(:fly).id
-
-    delete :destroy, :id => id, :project_id => project.id
-    assert !project.stories.exists?(id), "should have been deleted"
-    assert_redirected_to :action => "index"
-  end
 end
