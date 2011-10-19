@@ -60,13 +60,6 @@ function saveButtonClicked() {
 }
 
 $(document).ready(function() {
-  $('form#new_story').submit(function() {
-      if ($('#story_title')[0].value == '') {
-          $('.alert-message.error').show();
-          return false;
-      }
-      return true;
-  });
 
   $('button.ajaxd').click(saveButtonClicked);
 

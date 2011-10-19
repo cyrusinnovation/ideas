@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(:version => 20111012201426) do
     t.integer  "project_id"
   end
 
-  create_table "holidays", :force => true do |t|
-    t.date     "date"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "memberships", :force => true do |t|
     t.integer "user_id"
     t.integer "project_id"
@@ -58,13 +51,9 @@ ActiveRecord::Schema.define(:version => 20111012201426) do
     t.decimal "hours_worked"
   end
 
-  create_table "teams", :force => true do |t|
-    t.string "name"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => ""
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

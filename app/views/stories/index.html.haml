@@ -12,6 +12,15 @@
           $(this).remove();
         });
       });
+      
+      $('form#new_story').submit(function() {
+          if ($('#new_story_title')[0].value == '') {
+              $('.alert-message.error').show();
+              return false;
+          }
+          return true;
+      });
+      
     });
 
 - if flash.key? :notice
