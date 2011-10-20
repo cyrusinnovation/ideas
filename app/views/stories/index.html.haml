@@ -59,8 +59,11 @@
         - bucket = story.bucket
         %li.story
           .title
-            %a{:href=>'#', :class=>'scrollto', :estimate_index=> story.bucket.my_index } 
-              != "#{story.title} @#{story.bucket.pretty_print_html}"
+            != story.title
+            - if story.bucket
+              @
+              %a{:href => '#', 'data-bucket_link' => "#{bucket_value(story.bucket)}"}<>
+                != pretty_print_bucket(story.bucket)
   #all_buckets.navi.well.span7
     %a.help_text_pop_top.pull-right{'data-content'=> "A bucket represents an estimate range (e.g. 3-6 hours). Rather than worry about an exact estimate, orso just asks you to choose which bucket your story falls into.", 'data-original-title' => "Buckets", :rel=>:popover }
       what's a bucket?
@@ -69,7 +72,5 @@
       - @groups.each do |bucket, examples|
         %li.story
           .title
-            %a{:href=>'#', :class=>'scrollto', :estimate_index=> bucket.my_index } 
-              != bucket.pretty_print_html
-              %em
-                != range_html(bucket)
+            %a{:href => '#', 'data-bucket_link' => "#{bucket_value(bucket)}"} 
+              != "#{pretty_print_bucket(bucket)} #{range_html(bucket)}"
