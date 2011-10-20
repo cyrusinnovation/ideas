@@ -20,8 +20,6 @@ $(document).ready(function() {
         api.seekTo( $(this).attr('estimate_index'), 1000);
     });
     disableEndPointButtons();
-    $(".help_text").popover();
-    
     
     $('.right-button').click(function() {
       $('#story_estimate').val($(this).data('bucket'));
@@ -39,11 +37,10 @@ $(document).ready(function() {
       $('#story_estimate').val(selected_bucket);
       return true;
     });      
-    
-    
-    
-    
-    
+
+    $(".help_text_pop_right").popover({offset:5});
+    $(".help_text_pop_left").popover({placement:'left', offset:5});
+    $(".help_text_pop_top").popover({placement:'above'});
 });
 
 function disableEndPointButtons() {
