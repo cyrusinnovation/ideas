@@ -20,10 +20,11 @@
       x
     = flash[:notice]
 
-
 - if current_project.stories.empty?
   %p
-    You haven't entered any estimates. Add one below, or 
+    You haven't entered any estimates. 
+    != link_to 'Add some', project_stories_path
+    or 
     != link_to 'import them from a CSV file', new_project_import_path
 
 %h2 Record actual effort
