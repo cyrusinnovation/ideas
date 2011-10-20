@@ -1,11 +1,9 @@
 - content_for :head do
-  != javascript_include_tag "jquery.tools.js"
+  != javascript_include_tag 'jquery_tools/jquery.tools.min.js'
   != javascript_include_tag 'estimation_view.js'
   :javascript
-
     $(document).ready(function() {
       $('.subnav .estimates').addClass('active');
-      
     });
     
     
