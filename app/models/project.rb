@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   validates_numericality_of :target_point_size, :greater_than => 0, :less_than => 100, :allow_nil => false
   validates :buckets, :presence => true 
 
-  after_create :create_default_buckets
+  before_validation :create_default_buckets, :on => :create
 
   def create_default_buckets
     buckets << [1, 2, 3, 5, 8, 13].map { |bucket| Bucket.create :value => bucket }

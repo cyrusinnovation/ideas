@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012201426) do
+ActiveRecord::Schema.define(:version => 20111020200930) do
 
   create_table "buckets", :force => true do |t|
     t.float    "value"
@@ -34,26 +34,19 @@ ActiveRecord::Schema.define(:version => 20111012201426) do
     t.string   "title"
     t.decimal  "estimate"
     t.date     "finished"
-    t.integer  "team_id"
     t.decimal  "hours_worked"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
   end
 
-  create_table "stories_old", :id => false, :force => true do |t|
-    t.integer "id"
-    t.string  "title"
-    t.decimal "estimate"
-    t.date    "started"
-    t.date    "finished"
-    t.integer "team_id"
-    t.decimal "hours_worked"
+  create_table "teams", :force => true do |t|
+    t.string "name"
   end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

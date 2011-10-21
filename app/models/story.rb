@@ -4,18 +4,6 @@ class Story < ActiveRecord::Base
   validates_numericality_of :hours_worked, :greater_than_or_equal_to => 0, :less_than => 99999, :allow_nil => true
   validates_numericality_of :estimate, :greater_than_or_equal_to => 0, :less_than => 99999, :allow_nil => true
 
-  def burn_rate
-    return nil if hours_worked.nil?
-    return nil if estimate.nil?
-    hours_worked / estimate
-  end
-
-  def <=> other
-    return -1 if title.nil?
-    return 1 if other.title.nil?
-    other.title <=> title
-  end
-
   def bucket
     project.buckets.find_by_value(estimate)
   end
@@ -24,10 +12,6 @@ class Story < ActiveRecord::Base
     return nil if hours_worked.nil? || actuals.nil?
     difference = hours_worked - actuals.mean
     difference.abs > actuals.standard_deviation ? difference.round : nil
-  end
-
-  def self.no_actuals?
-    return where( "hours_worked is not NULL" ).empty?
   end
 
   def self.actuals bucket
@@ -48,12 +32,6 @@ class Story < ActiveRecord::Base
     end
     result
   end
-
-  def self.all_actuals_normalized
-    finished = where("estimate is not null and hours_worked is not null").order("finished DESC")
-    DataSeries.new(finished.collect {|story| story.hours_worked / story.estimate} )
-  end
-
 
   EXAMPLES_PER_BUCKET = 9
   EXAMPLE_RECENCY_CUTOFF = 60
