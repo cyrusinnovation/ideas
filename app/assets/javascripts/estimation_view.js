@@ -41,6 +41,15 @@ $(document).ready(function() {
     $(".help_text_pop_right").popover({offset:5});
     $(".help_text_pop_left").popover({placement:'left', offset:5});
     $(".help_text_pop_top").popover({placement:'above'});
+    
+    $('a[data-bucket_link]').click(function() {
+      var bucket = $(this).attr('data-bucket_link');
+      var position = $(".estimation-bucket[data-bucket = '" + bucket + "']").index();
+      api.seekTo(position, 1000);
+      return false;
+    });
+    
+    
 });
 
 function disableEndPointButtons() {
