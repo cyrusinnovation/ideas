@@ -1,6 +1,4 @@
 class Bucket < ActiveRecord::Base
-  EXAMPLE_DELTA = 0.2
-
   belongs_to :project
   validates_uniqueness_of :value, :scope => :project_id
   validates_numericality_of :value, :greater_than => 0, :less_than => 1000, :allow_nil => false
@@ -24,10 +22,6 @@ class Bucket < ActiveRecord::Base
     my_index == 0
   end
 
-  def no_max?
-    my_index == project.buckets.size - 1
-  end
-
   def min
     return 0 if no_min?
     (hours + previous_bucket.hours) / 2
@@ -44,6 +38,11 @@ class Bucket < ActiveRecord::Base
 
   def next_bucket
     project.buckets[my_index + 1]
+  end
+
+  private
+  def no_max?
+    my_index == project.buckets.size - 1
   end
 
   def my_index
