@@ -2,11 +2,11 @@ source :rubygems
 
 gem "rails", "3.1.1"
 gem "pg", "0.11.0"
-gem "haml", "3.1.2"
-gem "jquery-rails", "1.0.13"
-gem 'devise', '1.4.5'
-gem 'less-rails-bootstrap', '1.3.2'
-gem 'uglifier', '1.0.3'
+gem "haml", "3.1.3"
+gem "jquery-rails", "1.0.17"
+gem 'devise', '1.4.5' #'1.5.0'
+gem 'less-rails-bootstrap', '1.3.2' #'1.4'
+gem 'uglifier', '1.0.4'
 
 group :development do
   gem 'heroku', '>= 2.7.0'
