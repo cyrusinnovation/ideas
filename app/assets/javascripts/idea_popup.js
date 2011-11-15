@@ -13,6 +13,7 @@ function openIdea(url) {
       $('#idea_form .delete_button').attr('href', url);
 
       $('#idea_title').val(data.idea.title);
+      $('#idea_description').val(data.idea.description);
 
       $('#idea_form .clearfix.error input').find('input').val('');
       $('#idea_form .clearfix.error .help-inline').html('');
