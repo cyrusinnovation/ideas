@@ -1,4 +1,4 @@
-These are notes for getting set up with psql for pointilist on
+These are notes for getting set up with psql for ideas on
 Lion. YMMV on other OSes.
 
 Run the following port installs and do all of the things the installer
@@ -12,9 +12,9 @@ your path properly, to make it add them:
 
 $ sudo port select postgresql postgresql90
 
-Then you'll need to create the pointilist role with the password '123':
+Then you'll need to create the ideas role with the password '123':
 
-$ createuser pointilist -U postgres -P
+$ createuser ideas -U postgres -P
 
 Then you should be able to create the db
 

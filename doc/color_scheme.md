@@ -1,4 +1,4 @@
-Throughout Pointilist, I've tried to coordinate the use of colors, so that the same colors present the same meanings. I've tried to keep things relatively intuitive, but it seemed worth documenting what everything means, so we can keep those meanings consistent across different screens as the application develops.
+Throughout Ideas, I've tried to coordinate the use of colors, so that the same colors present the same meanings. I've tried to keep things relatively intuitive, but it seemed worth documenting what everything means, so we can keep those meanings consistent across different screens as the application develops.
 
 * Pale blue (typically #f0f8ff)
   **Neutral page elements.** This is used sparingly when color is needed to help unify part of the page -- for example, in the navigation tabs, or to highlight the table row under the mouse cursor. It should only be used when you *don't* wish to imply anything about the data it highlights.

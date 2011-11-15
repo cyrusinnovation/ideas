@@ -1,4 +1,4 @@
-Pointilist::Application.routes.draw do
+Ideas::Application.routes.draw do
   resources :projects, :except => :show do
     resources :stories do
       post 'new_interactive', :on => :collection
