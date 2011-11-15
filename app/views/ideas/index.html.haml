@@ -27,4 +27,8 @@
       != f.label :title
       != f.text_field :title, :class => 'span12'
       %span.help-inline 
+    #description_div.clearfix
+      != f.label :description
+      != f.text_area :description, :class => 'span12'
+      %span.help-inline 
     != f.submit 'Create', :class => 'btn primary'
