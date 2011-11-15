@@ -20,7 +20,7 @@ Ideas::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.assets.precompile += ['estimation_view.js', 'jquery.tools.js', 'story_popup.js']
+  config.assets.precompile += ['story_popup.js']
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH

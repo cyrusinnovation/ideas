@@ -4,6 +4,6 @@
   - @memberships.each do |membership|
     %tr
       %td= membership.user.email
-      %td= link_to 'Remove', [current_project, membership], confirm: 'Are you sure?', method: :delete
+      %td= link_to 'Remove', [current_project, membership], confirm: 'Are you sure?', :method => :delete
 
 = render :partial => 'form'

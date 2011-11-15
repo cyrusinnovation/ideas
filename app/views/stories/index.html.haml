@@ -1,8 +1,16 @@
 - content_for :head do
-  != javascript_include_tag 'estimation_view.js'
   :javascript
     $(document).ready(function() {
       $('.subnav .estimates').addClass('active');
+
+      $('#new_story').submit(function() {
+        if ($('#story_title').val() == '') {
+          $('#title_div').addClass('error');
+          $('#title_div span').html('required');
+          return false;
+        }
+        return true;
+      });      
     });
 
 - if flash.key? :notice

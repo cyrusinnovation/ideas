@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111115202953) do
+ActiveRecord::Schema.define(:version => 20111115205030) do
 
   create_table "memberships", :force => true do |t|
     t.integer "user_id"
@@ -19,8 +19,7 @@ ActiveRecord::Schema.define(:version => 20111115202953) do
   end
 
   create_table "projects", :force => true do |t|
-    t.integer "target_point_size", :default => 8
-    t.string  "name"
+    t.string "name"
   end
 
   create_table "stories", :force => true do |t|

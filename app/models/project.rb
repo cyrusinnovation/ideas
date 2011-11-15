@@ -4,7 +4,4 @@ class Project < ActiveRecord::Base
 
   has_many :memberships, :dependent => :destroy
   has_many :users, :through => :memberships
-
-  validates_numericality_of :target_point_size, :greater_than => 0, :less_than => 100, :allow_nil => false
-
 end
