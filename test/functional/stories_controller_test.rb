@@ -3,10 +3,7 @@ require 'test_helper'
 class StoriesControllerTest < ActionController::TestCase
   test "add a story" do
     post :create, :story => {
-        :title => "147 - Improve flying UI",
-        :estimate => 5,
-        :finished => "2011-2-21",
-        :hours_worked => 102.25
+        :title => "147 - Improve flying UI"
     }, :project_id => Project.first
 
     project = Project.first
