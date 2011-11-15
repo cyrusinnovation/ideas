@@ -3,8 +3,8 @@
     $(document).ready(function() {
       $('.subnav .estimates').addClass('active');
 
-      $('#new_story').submit(function() {
-        if ($('#story_title').val() == '') {
+      $('#new_idea').submit(function() {
+        if ($('#idea_title').val() == '') {
           $('#title_div').addClass('error');
           $('#title_div span').html('required');
           return false;
@@ -21,7 +21,7 @@
 
 %h2 Start a new estimate
 
-= form_for [current_project, @story], :html => {:class => 'form-stacked'} do |f|
+= form_for [current_project, @idea], :html => {:class => 'form-stacked'} do |f|
   %fieldset
     #title_div.clearfix
       != f.label :title

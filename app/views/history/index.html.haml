@@ -1,13 +1,13 @@
 - content_for :head do
-  != javascript_include_tag 'story_popup.js'
+  != javascript_include_tag 'idea_popup.js'
 
   :javascript
     $(document).ready(function() {
       $('.subnav .history').addClass('active');
-      $('#stories').tablesorter({ sortList: [[0,0]] });
+      $('#ideas').tablesorter({ sortList: [[0,0]] });
       
       // What to do when the editing popup returns successfully
-      $('body').bind('story_saved', function(e, story_data) {
+      $('body').bind('idea_saved', function(e, idea_data) {
         location.reload();
       });
 
@@ -22,10 +22,10 @@
 
 %h2 All estimates
 
-%table#stories.zebra-striped
+%table#ideas.zebra-striped
   %thead
     %tr
       %th.title Title
   %tbody
-    != render :partial => 'story', :collection => @stories
+    != render :partial => 'idea', :collection => @ideas
 != render :partial => 'form', :locals => {:all_fields => true}

@@ -1,5 +1,5 @@
 class HistoryController < SecureController
   def index
-    @stories = current_project.stories.order("title ASC")
+    @ideas = current_project.ideas.order("title ASC")
   end  
 end

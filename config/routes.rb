@@ -1,6 +1,6 @@
 Ideas::Application.routes.draw do
   resources :projects, :except => :show do
-    resources :stories do
+    resources :ideas do
       post 'new_interactive', :on => :collection
       get 'edit_interactive', :on => :member
     end

@@ -1,9 +1,9 @@
-#story_form.modal{:style => 'display:none'}
+#idea_form.modal{:style => 'display:none'}
   .modal-header
     %a.close{:href => '#'}x
     %h3.title
   .modal-body
-    =form_for :story, :method => :put, :html => {:class => 'form-stacked'} do |f|
+    =form_for :idea, :method => :put, :html => {:class => 'form-stacked'} do |f|
       %fieldset
         .clearfix.title
           != f.label :title

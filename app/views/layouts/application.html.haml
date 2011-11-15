@@ -31,7 +31,7 @@
                 %ul.dropdown-menu
                   - project_dropdown_projects.each do |project|
                     %li
-                      != link_to project.name, project_stories_path(project)
+                      != link_to project.name, project_ideas_path(project)
                   %li.divider
                   %li
                     != link_to 'New Project', new_project_path
@@ -55,7 +55,7 @@
       -if in_project?
         %ul.tabs.subnav
           %li.estimates
-            != link_to 'Estimates', project_stories_path(current_project)
+            != link_to 'Estimates', project_ideas_path(current_project)
           %li.history
             != link_to 'History', project_history_path(current_project)
           %li.settings
