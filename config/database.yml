@@ -11,9 +11,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: pointilist_development
+  database: ideas_development
   pool: 5
-  username: pointilist
+  username: ideas
   password: 123
   min_messages: WARNING
   
@@ -38,16 +38,16 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: pointilist_test
+  database: ideas_test
   pool: 5
-  username: pointilist
+  username: ideas
   password: 123
   min_messages: WARNING
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: pointilist_production
+  database: ideas_production
   pool: 5
-  username: pointilist
+  username: ideas
   password: 123
