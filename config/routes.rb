@@ -4,7 +4,7 @@ Ideas::Application.routes.draw do
       post 'new_interactive', :on => :collection
       get 'edit_interactive', :on => :member
     end
-    resource :import, :only => [:new, :create]
+
     resources :memberships, :only => [:index, :destroy, :create]
     get '/actuals' => 'actuals#index'
     get '/history' => 'history#index'

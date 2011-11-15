@@ -31,24 +31,12 @@
     = flash[:notice]
 
 
-- if current_project.stories.empty?
-  %p
-    You haven't entered any estimates. 
-    != link_to 'Add some', project_stories_path
-    or 
-    != link_to 'import them from a CSV file', new_project_import_path
-- else
+%h2 All estimates
 
-  %h2 All estimates
-  
-  %table#stories.zebra-striped
-    %thead
-      %tr
-        %th.title Title
-        %th.estimate Estimate
-        %th.finished Finished
-        %th.hours_worked Hours Worked
-        %th.status Hours vs. Average
-    %tbody
-      != render :partial => 'story', :collection => @stories
-  != render :partial => 'form', :locals => {:all_fields => true}
+%table#stories.zebra-striped
+  %thead
+    %tr
+      %th.title Title
+  %tbody
+    != render :partial => 'story', :collection => @stories
+!= render :partial => 'form', :locals => {:all_fields => true}

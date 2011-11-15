@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'import'
 
 class StoriesControllerTest < ActionController::TestCase
   test "add a story" do

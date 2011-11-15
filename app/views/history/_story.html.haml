@@ -1,11 +1,3 @@
-%tr{:class => "#{story_row_class(story)}"}
+%tr
   %td.title
     != link_to_function format_title(story.title), "openStory('#{project_story_path(story.project, story)}')"
-  %td.estimate
-    != story.estimate
-  %td.finished
-    = format_date story.finished
-  %td.hours_worked
-    = story.hours_worked
-  %td.hours_vs_average
-    != format_variance story.variance_vs_mean(@all_actuals_by_estimate[story.estimate])
