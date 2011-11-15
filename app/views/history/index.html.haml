@@ -4,7 +4,7 @@
   :javascript
     $(document).ready(function() {
       $('.subnav .history').addClass('active');
-      $('#stories').tablesorter({ sortList: [[1,0]] });
+      $('#stories').tablesorter({ sortList: [[0,0]] });
       
       // What to do when the editing popup returns successfully
       $('body').bind('story_saved', function(e, story_data) {

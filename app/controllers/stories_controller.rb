@@ -13,7 +13,6 @@ class StoriesController < SecureController
   end
 
   def create
-    fix_date
     @story = current_project.stories.create(params[:story])
     if @story.persisted?
       flash[:notice] = 'Estimate added!'
@@ -31,7 +30,6 @@ class StoriesController < SecureController
   end
 
   def update
-    fix_date
     story = current_project.stories.update params[:id], params[:story]
 
     if story.invalid?
@@ -45,15 +43,5 @@ class StoriesController < SecureController
       end
     end
 
-  end
-
-  def fix_date
-    finished = params[:story][:finished]
-    if finished && !finished.empty?
-      day = finished.slice(0, 2)
-      month = finished.slice(3, 2)
-      year = finished.slice(6, 4)
-      params[:story][:finished] = "#{month}/#{day}/#{year}"
-    end
   end
 end

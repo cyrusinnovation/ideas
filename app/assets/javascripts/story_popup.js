@@ -12,14 +12,7 @@ function openStory(url) {
       $('#story_form form').attr('action', url);
       $('#story_form .delete_button').attr('href', url);
 
-      if (data.story.finished == null) {
-        $('#story_finished').datepicker('setDate', new Date());
-      } else {
-        $('#story_finished').datepicker('setDate', new Date(data.story.finished));
-      }
-      $('#story_hours_worked').val(data.story.hours_worked);
       $('#story_title').val(data.story.title);
-      $('#story_estimate').val(data.story.estimate);
 
       $('#story_form .clearfix.error input').find('input').val('');
       $('#story_form .clearfix.error .help-inline').html('');
@@ -60,9 +53,6 @@ function saveButtonClicked() {
 }
 
 $(document).ready(function() {
-
   $('button.ajaxd').click(saveButtonClicked);
-
-  $('#story_finished').datepicker({dateFormat: 'mm/dd/yy'});
 });
 
