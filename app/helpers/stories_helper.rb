@@ -19,11 +19,4 @@ module StoriesHelper
     end
   end
   
-  def bucket_value bucket
-    bucket.nil? ? '' : bucket.value
-  end
-  
-  def pretty_print_bucket bucket
-    bucket.nil? ? '' : bucket.pretty_print_html
-  end
 end

@@ -48,29 +48,3 @@
               %li.story
                 .title
                   = example.title
-.row
-  #recent_stories.navi.well.span7
-    %a.help_text_pop_right.pull-right{'data-content'=> "orso has kept track of your most recent estimates for your convenience; click on any story below to navigate among the estimates.", 'data-original-title' => "Similar to something you just estimated?", :rel=>:popover }
-      what's this?
-    %h2 
-      recently estimated...
-    %ul.unstyled
-      - @recent_stories.each do |story|
-        - bucket = story.bucket
-        %li.story
-          .title
-            != story.title
-            - if story.bucket
-              @
-              %a{:href => '#', 'data-bucket_link' => "#{bucket_value(story.bucket)}"}<>
-                != pretty_print_bucket(story.bucket)
-  #all_buckets.navi.well.span7
-    %a.help_text_pop_top.pull-right{'data-content'=> "A bucket represents an estimate range (e.g. 3-6 hours). Rather than worry about an exact estimate, orso just asks you to choose which bucket your story falls into.", 'data-original-title' => "Buckets", :rel=>:popover }
-      what's a bucket?
-    %h2 all buckets
-    %ul.unstyled
-      - @groups.each do |bucket, examples|
-        %li.story
-          .title
-            %a{:href => '#', 'data-bucket_link' => "#{bucket_value(bucket)}"} 
-              != "#{pretty_print_bucket(bucket)} #{range_html(bucket)}"

@@ -2,7 +2,6 @@ class StoriesController < SecureController
   def index
     @story = current_project.stories.build()
     @groups = current_project.buckets_with_examples
-    @recent_stories = current_project.stories.order('updated_at DESC').limit(10)
   end
   
   def show
