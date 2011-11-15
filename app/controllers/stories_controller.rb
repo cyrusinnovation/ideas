@@ -1,7 +1,6 @@
 class StoriesController < SecureController
   def index
     @story = current_project.stories.build()
-    @groups = current_project.buckets_with_examples
   end
   
   def show

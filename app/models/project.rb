@@ -15,7 +15,4 @@ class Project < ActiveRecord::Base
     buckets << [1, 2, 3, 5, 8, 13].map { |bucket| Bucket.create :value => bucket }
   end
 
-  def buckets_with_examples
-    buckets.collect {|b| [b, stories.for_estimation(b)] }
-  end
 end

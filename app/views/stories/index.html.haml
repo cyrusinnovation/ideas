@@ -1,5 +1,4 @@
 - content_for :head do
-  != javascript_include_tag 'jquery_tools/jquery.tools.min.js'
   != javascript_include_tag 'estimation_view.js'
   :javascript
     $(document).ready(function() {
@@ -16,35 +15,8 @@
 
 = form_for [current_project, @story], :html => {:class => 'form-stacked'} do |f|
   %fieldset
-    != f.hidden_field :estimate
     #title_div.clearfix
       != f.label :title
       != f.text_field :title, :class => 'span12'
       %span.help-inline 
-
-#estimation_view
-  .items
-    - @groups.each do |bucket, examples|
-      .estimation-bucket{'data-bucket' => bucket.value}
-        - if examples.empty?
-          %a.help_text_pop_left.pull-right{'data-content'=> "orso selects example stories based on how long they actually took. If no stories fit within this bucket's time range, orso won't show any.", 'data-original-title' => "Why don't I see any example stories?", :rel=>:popover }
-            why don't I see any example stories?
-        - else
-          %a.help_text_pop_left.pull-right{'data-content'=> "orso selects example stories based on how long they actually took. orso finds a balance between keeping the example stories recent and fresh and selecting stories that are representative of the bucket's time range.", 'data-original-title' => "How does orso select example stories?", :rel=>:popover }
-            how are these examples selected?
-        .bucket
-          .bucket-info
-            != "#{bucket.pretty_print_html}"
-          .time-range
-            != range_html(bucket)
-            .buttons
-              %button.btn.info.smaller-button Smaller
-              %button.btn.success.right-button Just right
-              %button.btn.info.bigger-button Bigger
-
-        .stories
-          %ul.unstyled
-            - examples.each do |example|
-              %li.story
-                .title
-                  = example.title
+    != f.submit 'Create', :class => 'btn primary'

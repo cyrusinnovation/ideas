@@ -7,6 +7,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery_ui/jquery-ui-1.8.16.custom.min.js
 //= require jquery_tablesorter/jquery.tablesorter.min.js
 
