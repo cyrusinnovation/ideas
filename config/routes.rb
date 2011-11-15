@@ -12,8 +12,6 @@ Pointilist::Application.routes.draw do
     post '/settings' => 'settings#update', :as => :update_settings
   end
 
-  match '/privacy' => 'front#privacy'
-
   devise_for :users do
     get "users/sign_out" => "devise/sessions#destroy"
   end

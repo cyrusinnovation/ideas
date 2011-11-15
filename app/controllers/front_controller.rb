@@ -6,8 +6,4 @@ class FrontController < ApplicationController
       redirect_to new_project_path
     end
   end
-
-  def privacy
-  end
-
 end
