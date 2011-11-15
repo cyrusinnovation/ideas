@@ -5,15 +5,14 @@
   .modal-body
     =form_for :story, :method => :put, :html => {:class => 'form-stacked'} do |f|
       %fieldset
-        - if all_fields
-          .clearfix.title
-            != f.label :title
-            != f.text_field :title, :size => 60
-            %span.help-inline
-          .clearfix.estimate
-            != f.label :estimate
-            != f.text_field :estimate, :size => 4
-            %span.help-inline
+        .clearfix.title
+          != f.label :title
+          != f.text_field :title, :size => 60
+          %span.help-inline
+        .clearfix.estimate
+          != f.label :estimate
+          != f.text_field :estimate, :size => 4
+          %span.help-inline
         .clearfix.finished
           != f.label :finished
           != f.text_field :finished

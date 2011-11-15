@@ -6,7 +6,6 @@ Ideas::Application.routes.draw do
     end
 
     resources :memberships, :only => [:index, :destroy, :create]
-    get '/actuals' => 'actuals#index'
     get '/history' => 'history#index'
     get '/settings' => 'settings#edit', :as => :edit_settings
     post '/settings' => 'settings#update', :as => :update_settings

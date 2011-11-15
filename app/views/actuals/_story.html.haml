@@ -1,8 +1,0 @@
-%tr{:id => "row_#{story.id}"}
-  %td.title
-    != link_to_function format_title(story.title, 160), "openStory('#{project_story_path(story.project, story)}')"
-  %td
-    != format_date story.created_at
-  %td
-    != story.estimate
-    
