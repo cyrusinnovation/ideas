@@ -8,7 +8,7 @@ Ideas::Application.routes.draw do
     post '/settings' => 'settings#update', :as => :update_settings
   end
 
-  devise_for :users do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     get "users/sign_out" => "devise/sessions#destroy"
   end
 
