@@ -5,7 +5,7 @@ gem "pg", "0.11.0"
 gem "haml", "3.1.3"
 gem "jquery-rails", "1.0.17"
 gem 'devise', '1.5.0'
-gem 'less-rails-bootstrap', '1.4.0'
+gem 'less-rails-bootstrap', '1.3.2'
 gem 'uglifier', '1.0.4'
 
 group :development do
