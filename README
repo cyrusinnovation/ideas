@@ -6,22 +6,13 @@ Start Postgres with command (for homebrew) /usr/local/Cellar/postgresql/9.0.4/bi
 
 To create postgres user and database:
 
-$ psql template1
-psql (9.0.4)
-Type "help" for help.
+psql template1
 
-template1=# CREATE USER ideas WITH PASSWORD '123';
-CREATE ROLE
-template1=# CREATE DATABASE ideas_test;
-CREATE DATABASE
-template1=# GRANT ALL PRIVILEGES ON DATABASE ideas_test to ideas;
-GRANT
-template1=# CREATE DATABASE ideas_development;
-CREATE DATABASE
-template1=# GRANT ALL PRIVILEGES ON DATABASE ideas_development to ideas;
-GRANT
-template1=# \q
-
+CREATE USER ideas WITH PASSWORD '123';
+CREATE DATABASE ideas_test;
+GRANT ALL PRIVILEGES ON DATABASE ideas_test to ideas;
+CREATE DATABASE ideas_development;
+GRANT ALL PRIVILEGES ON DATABASE ideas_development to ideas;
 
 --------------
 
