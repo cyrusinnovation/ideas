@@ -60,5 +60,5 @@ Ideas::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'orso.cyrusinnovation.com' }
+  config.action_mailer.default_url_options = { :host => 'ideas.cyrusinnovation.com' }
 end

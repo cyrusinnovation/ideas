@@ -23,7 +23,7 @@
     .topbar
       .fill
         .container
-          != link_to 'orso', root_path, :class => 'brand'
+          != link_to 'ideas', root_path, :class => 'brand'
           -if user_signed_in?
             %ul.nav
               %li.dropdown{"data-dropdown" => "dropdown"}
@@ -54,10 +54,10 @@
     .container.main-container
       -if in_project?
         %ul.tabs.subnav
-          %li.estimates
-            != link_to 'Estimates', project_ideas_path(current_project)
+          %li.new_idea
+            != link_to 'New Ideas', project_ideas_path(current_project)
           %li.history
-            != link_to 'History', project_history_path(current_project)
+            != link_to 'Ideas', project_history_path(current_project)
           %li.settings
             != link_to 'Settings', project_edit_settings_path(current_project)
           %li.collaborate
@@ -74,6 +74,6 @@
 
       %footer
         %p 
-          orso is a 
+          Idea Tracker is a 
           != link_to "Cyrus Innovation", "http://www.cyrusinnovation.com"
           product 

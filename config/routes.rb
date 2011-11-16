@@ -1,9 +1,6 @@
 Ideas::Application.routes.draw do
   resources :projects, :except => :show do
-    resources :ideas do
-      post 'new_interactive', :on => :collection
-      get 'edit_interactive', :on => :member
-    end
+    resources :ideas, :except => :new
 
     resources :memberships, :only => [:index, :destroy, :create]
     get '/history' => 'history#index'
