@@ -13,14 +13,14 @@ class IdeasController < SecureController
   def create
     @idea = current_project.ideas.create(params[:idea])
     if @idea.persisted?
-      flash[:notice] = 'Estimate added!'
+      flash[:notice] = 'Idea added!'
     end
     redirect_to :action => :index
   end
 
   def destroy
     current_project.ideas.find(params[:id]).delete
-    redirect_to request.referrer, :notice => 'Estimate deleted.'
+    redirect_to request.referrer, :notice => 'Idea deleted.'
   end
 
   def edit
