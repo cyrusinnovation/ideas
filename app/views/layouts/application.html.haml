@@ -41,16 +41,7 @@
                   != link_to current_user.email, '#', :class => 'dropdown-toggle'
                   %ul.dropdown-menu
                     %li
-                      != link_to 'Account', edit_user_registration_path, :target => '_blank'
-                    %li.divider
-                    %li
                       != link_to "Sign out", destroy_user_session_path, :method => :delete
-          -else
-            = form_for(:user, :as => 'user', :url => session_path(:user), :html => {:class => 'pull-right'}) do |f|
-              = f.email_field :email, :class => 'input-small'
-              = f.password_field :password, :class => 'input-small'
-              / = f.check_box :remember_me
-              %button.btn{:type => "submit"} Sign in
     .container.main-container
       -if in_project?
         %ul.tabs.subnav
