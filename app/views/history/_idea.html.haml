@@ -1,4 +1,7 @@
 %tr
+  %td.rating
+    - idea.get_user_rating(current_user).times do
+      != image_tag "rating-star.png"
   %td.title
     != link_to_function format_title(idea.title), "openIdea('#{project_idea_path(idea.project, idea)}')"
   %td.description
