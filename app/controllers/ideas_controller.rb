@@ -29,6 +29,7 @@ class IdeasController < SecureController
   end
 
   def update
+    params[:idea][:category] = Category.find params[:idea][:category]
     idea = current_project.ideas.update params[:id], params[:idea]
 
     if idea.invalid?
