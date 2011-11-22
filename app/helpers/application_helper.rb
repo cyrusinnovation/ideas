@@ -4,9 +4,9 @@ module ApplicationHelper
     content_tag 'span', truncate(title, :length => length), :title => title
   end
 
-  def format_date date
-    return "" if date.nil?
-    "#{date.month}/#{date.day}/#{date.year}"
+  def format_date time
+    return "" if time.nil?
+    time.strftime("%m/%d/%Y %I:%M:%S %p")
   end
   
   def project_dropdown_title
