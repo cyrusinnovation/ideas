@@ -9,7 +9,7 @@ class IncomingMailController < ApplicationController
 
     if user
       user.projects.each do |project|
-        project.ideas << Idea.create(:title => message.subject, :description => message.body.decoded)
+        project.ideas << Idea.create(:title => message.subject, :description => message.plain)
       end
     
       render :text => 'success', :status => 200
