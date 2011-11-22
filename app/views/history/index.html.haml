@@ -46,6 +46,7 @@
       %th.description Description
       %th.created_at Created At
       %th.created_by Created By
+      %th.category Category
   %tbody
     != render :partial => 'idea', :collection => @ideas
 != render :partial => 'form', :locals => {:all_fields => true}

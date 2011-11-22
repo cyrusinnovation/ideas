@@ -11,6 +11,7 @@ class IdeasController < SecureController
   end
 
   def create
+    params[:idea][:category] = Category.find params[:idea][:category]
     @idea = current_project.ideas.create(params[:idea])
     if @idea.persisted?
       flash[:notice] = 'Idea added!'
