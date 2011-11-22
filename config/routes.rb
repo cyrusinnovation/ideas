@@ -12,5 +12,7 @@ Ideas::Application.routes.draw do
     get "users/sign_out" => "devise/sessions#destroy"
   end
 
+  match '/incoming_mail' => 'incoming_mail#create'
+  
   root :to => 'front#index'
 end
