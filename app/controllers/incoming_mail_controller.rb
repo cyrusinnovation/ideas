@@ -8,7 +8,7 @@ class IncomingMailController < ApplicationController
 
     if user and params.key? :plain
       user.projects.each do |project|
-        project.ideas << Idea.create(:title => message.subject, :description => params[:plain])
+        project.ideas << Idea.create(:title => message.subject, :description => params[:plain], :created_by => user.email)
       end
     
       render :text => 'success', :status => 200

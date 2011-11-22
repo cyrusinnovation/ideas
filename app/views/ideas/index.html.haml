@@ -23,6 +23,10 @@
 
 = form_for [current_project, @idea], :html => {:class => 'form-stacked'} do |f|
   %fieldset
+    #created_by_div.clearfix
+      != f.label :created_by
+      != f.text_field :created_by, :class => 'span12', :value => current_user.email
+      %span.help-inline 
     #title_div.clearfix
       != f.label :title
       != f.text_field :title, :class => 'span12'

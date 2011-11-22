@@ -28,6 +28,7 @@
       %th.title Title
       %th.description Description
       %th.created_at Created At
+      %th.created_by Created By
   %tbody
     != render :partial => 'idea', :collection => @ideas
 != render :partial => 'form', :locals => {:all_fields => true}
