@@ -14,5 +14,7 @@
 //= require bootstrap/bootstrap-popover.js
 //= require bootstrap/bootstrap-scrollspy.js
 //= require bootstrap/bootstrap-tabs.js
+//= require jquery_quicksearch/jquery.quicksearch.js
 //= require jquery_tablesorter/jquery.tablesorter.min.js
+
 
