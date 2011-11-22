@@ -13,6 +13,7 @@ Ideas::Application.routes.draw do
   end
 
   match '/incoming_mail' => 'incoming_mail#create'
-  
+  match '/new_favorite' => 'favorite_ideas#create', :as => 'new_favorite'
+  match '/delete_favorite' => 'favorite_ideas#delete', :as => 'delete_favorite'
   root :to => 'front#index'
 end

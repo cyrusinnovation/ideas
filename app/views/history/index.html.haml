@@ -11,6 +11,17 @@
         location.reload();
       });
 
+      $('.favorite img').on('click', function() {
+        if (this.src.indexOf('unchecked') > -1) {
+          $.post('#{new_favorite_path}', {idea: this.getAttribute('data-idea-id') } );
+          this.src = '/assets/star-checked.png';
+        }
+        else {
+          $.post('#{delete_favorite_path}', {idea: this.getAttribute('data-idea-id') } );
+          this.src = '/assets/star-unchecked.png';
+        }
+      });
+
     });
 
 - if flash.key? :notice
@@ -25,6 +36,7 @@
 %table#ideas.zebra-striped
   %thead
     %tr
+      %th.favorite Favorite
       %th.title Title
       %th.description Description
       %th.created_at Created At
