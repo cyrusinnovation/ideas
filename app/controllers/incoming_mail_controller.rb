@@ -6,7 +6,7 @@ class IncomingMailController < ApplicationController
     message = Mail.new(params[:message])
     user = User.find_by_email(message.from)
 
-    if user
+    if user and params.key? :plain
       user.projects.each do |project|
         project.ideas << Idea.create(:title => message.subject, :description => params[:plain])
       end
