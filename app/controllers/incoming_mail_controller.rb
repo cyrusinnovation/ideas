@@ -3,25 +3,26 @@ class IncomingMailController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
-    message = Mail.new(params[:message])
+    render :text => 'failure', :status => 404
+    # message = Mail.new(params[:message])
 
-    user = User.find_by_email(message.from)
+    # user = User.find_by_email(message.from)
 
-    if user
-      if mail.multipart?
-        text = plain_text_body(mail)
-      else
-        text = message.body.decoded
-      end
+    # if user
+    #   if mail.multipart?
+    #     text = plain_text_body(mail)
+    #   else
+    #     text = message.body.decoded
+    #   end
       
-      user.projects.each do |project|
-        project.ideas << Idea.create(:title => message.subject, :description => text)
-      end
+    #   user.projects.each do |project|
+    #     project.ideas << Idea.create(:title => message.subject, :description => text)
+    #   end
     
-      render :text => 'success', :status => 200
-    else
-      render :text => 'failure', :status => 404
-    end
+    #   render :text => 'success', :status => 200
+    # else
+    #   render :text => 'failure', :status => 404
+    # end
   end
 
   private
