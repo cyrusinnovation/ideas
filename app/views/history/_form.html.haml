@@ -5,6 +5,10 @@
   .modal-body
     =form_for :idea, :method => :put, :html => {:class => 'form-stacked'} do |f|
       %fieldset
+        .clearfix.created_by
+          != f.label :created_by
+          != f.text_field :created_by, :class => 'span8'
+          %span.help-inline
         .clearfix.title
           != f.label :title
           != f.text_field :title, :class => 'span8'
