@@ -25,4 +25,8 @@ module HistoryHelper
     time.strftime("%m/%d/%y %I:%M %p")
   end
 
+  def format_title title, length=50
+    content_tag 'span', truncate(title, :length => length), :title => title
+  end
+
 end
