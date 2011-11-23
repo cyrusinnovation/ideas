@@ -6,4 +6,8 @@ module HistoryHelper
       image_tag "star-unchecked.png", :alt => 'not favorite', "data-idea-id" => idea.id
     end
   end
+
+  def get_num_stars idea
+    idea.get_rating_for_user(current_user).times
+  end
 end

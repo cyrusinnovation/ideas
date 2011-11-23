@@ -13,4 +13,6 @@
     != format_title(idea.created_by)
   %td.category
     != idea.category.name unless idea.category.nil?
-
+  %td.rating
+    - idea.get_rating_for_user(current_user).times do
+      = image_tag "star-rating-filled.png", :alt => idea.get_rating_for_user(current_user)

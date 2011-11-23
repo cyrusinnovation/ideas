@@ -12,7 +12,10 @@ class User < ActiveRecord::Base
 
   has_many :favorite_ideas, :dependent => :destroy
   has_many :favorites, :through => :favorite_ideas, :source => :idea
-  
+
+  has_many :ratings, :dependent => :destroy
+  has_many :rated_ideas, :through => :raitings, :source => :idea
+
 
   def self.find_for_google_oauth(access_token, signed_in_resource=nil)
     data = access_token['info']
