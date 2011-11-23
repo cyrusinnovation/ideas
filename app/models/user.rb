@@ -21,9 +21,14 @@ class User < ActiveRecord::Base
     data = access_token['info']
     if user = User.find_by_email(data['email'])
       user
-    else #create a user with stub pwd
-      User.create!(:email => data['email'], :password => Devise.friendly_token[0,20])
+    else
+      user = User.create!(:email => data['email'], :password => Devise.friendly_token[0,20])
+      if data['email'].end_with? "cyrusinnovation.com"
+        project = Project.find_by_name "Team Skunk"
+        Membership.create :user => user, :project => project
+      end
     end
+    user
   end
 
   def self.new_with_session(params, session)
@@ -33,7 +38,6 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 
   def favorite_idea? idea
     favorites.select {|i| i.id == idea.id}.size > 0
