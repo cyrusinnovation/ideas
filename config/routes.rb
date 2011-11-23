@@ -17,5 +17,6 @@ Ideas::Application.routes.draw do
   match '/incoming_mail' => 'incoming_mail#create'
   match '/new_favorite' => 'favorite_ideas#create', :as => 'new_favorite'
   match '/delete_favorite' => 'favorite_ideas#delete', :as => 'delete_favorite'
+  match '/rating' => 'ratings#rate', :as => 'rate_idea'
   root :to => 'front#index'
 end

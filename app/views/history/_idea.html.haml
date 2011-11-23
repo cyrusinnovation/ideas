@@ -14,5 +14,7 @@
   %td.category
     != idea.category.name unless idea.category.nil?
   %td.rating
-    - idea.get_rating_for_user(current_user).times do
-      = image_tag "star-rating-filled.png", :alt => idea.get_rating_for_user(current_user)
+    - idea.get_rating_for_user(current_user).times do |star_num|
+      = image_tag "star-rating-filled.png", :alt => idea.get_rating_for_user(current_user), "data-star-num" => star_num + 1, "data-idea-id" => idea.id
+    - get_unfilled_stars(idea).times do |star_num|
+      = image_tag "star-rating-unfilled.png", "data-star-num" => star_num + 1 + idea.get_rating_for_user(current_user), "data-idea-id" => idea.id

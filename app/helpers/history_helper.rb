@@ -7,7 +7,7 @@ module HistoryHelper
     end
   end
 
-  def get_num_stars idea
-    idea.get_rating_for_user(current_user).times
+  def get_unfilled_stars idea
+    Rating.max_rating - idea.get_rating_for_user(current_user)
   end
 end
