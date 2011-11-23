@@ -22,6 +22,7 @@ module HistoryHelper
 
   def format_date time
     return "" if time.nil?
-    time.strftime("%m/%d/%y %I:%M%p")
+    time.strftime("%m/%d/%y %I:%M %p")
   end
+
 end
