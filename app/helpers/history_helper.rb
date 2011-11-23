@@ -10,4 +10,9 @@ module HistoryHelper
   def get_unfilled_stars idea
     Rating.max_rating - idea.get_rating_for_user(current_user)
   end
+
+  def get_average_unfilled_stars idea
+    Rating.max_rating - idea.average_rating
+  end
+
 end

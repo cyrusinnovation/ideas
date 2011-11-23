@@ -11,4 +11,11 @@ class Idea < ActiveRecord::Base
     return user_ratings[0].rating unless user_ratings[0].nil?
     0
   end
+
+  def average_rating
+    return 0 if ratings.size == 0
+    sum = 0
+    ratings.each {|r| sum += r.rating}
+    (sum.to_f / ratings.size).round
+  end
 end
