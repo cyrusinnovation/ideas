@@ -3,14 +3,14 @@
     = favorite_img idea
   %td.title
     != link_to_function format_title(idea.title), "openIdea('#{project_idea_path(idea.project, idea)}')"
-  %td.description
+  %td.description{:style => 'display:none;'}
     != format_title(idea.description)
     %span{:style => "display: none"}
       != idea.description
   %td.created_at
     != format_date(idea.created_at)
   %td.created_by
-    != format_title(idea.created_by)
+    != format_created_by(idea.created_by)
   %td.category
     != idea.category.name unless idea.category.nil?
   %td.rating

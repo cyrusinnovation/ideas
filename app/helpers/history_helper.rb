@@ -15,4 +15,13 @@ module HistoryHelper
     Rating.max_rating - idea.average_rating
   end
 
+  def format_created_by created_by
+    return '' if created_by.nil?
+    created_by.sub /@.*/, ''
+  end
+
+  def format_date time
+    return "" if time.nil?
+    time.strftime("%m/%d/%y %I:%M%p")
+  end
 end
