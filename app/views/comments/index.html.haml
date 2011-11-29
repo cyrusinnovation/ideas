@@ -1,14 +1,18 @@
-%h1 Listing comments
+- content_for :head do
+  :css
+    .comment {}
 
-%table
-  %tr
-    %th Text
-    %th User
+%h1 Comments for "#{@idea.title}"
 
-  - @comments.each do |comment|
-    %tr
-      %td= comment.text
-      %td= comment.user.email
+#comments
+  - @comments.each do |comment|  
+    %blockquote.comment
+      .text
+        = comment.text
+      %small.email
+        #{comment.user.email},
+        = distance_of_time_in_words(Time.now, comment.created_at)
+        ago
 
 %br
 

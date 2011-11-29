@@ -10,19 +10,21 @@ describe "comments/index.html.haml" do
       stub_model(Comment,
         :text => "MyText",
         :user => @user,
-        :idea => @idea
+        :idea => @idea,
+        :created_at => Time.now - 1.hour
       ),
       stub_model(Comment,
         :text => "MyText",
         :user => @user,
-        :idea => @idea
+        :idea => @idea,
+        :created_at => Time.now - 1.hour
       )
     ])
   end
 
   it "renders a list of comments" do
     render
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => @user.email, :count => 2
+    assert_select "blockquote .text", :text => "MyText".to_s, :count => 2
+    assert_select "blockquote>small", :text => /#{@user.email}/, :count => 2
   end
 end
