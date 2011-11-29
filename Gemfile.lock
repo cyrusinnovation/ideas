@@ -167,7 +167,7 @@ DEPENDENCIES
   haml-rails (= 0.3.4)
   heroku (>= 2.7.0)
   jquery-rails (= 1.0.17)
-  omniauth-openid
+  omniauth-openid (= 1.0.1)
   pg (= 0.11.0)
   rails (= 3.1.1)
   rspec-rails (= 2.7.0)
