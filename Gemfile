@@ -10,7 +10,7 @@ gem 'haml-rails', '0.3.4'
 
 gem 'thin'
 
-gem 'omniauth-openid'
+gem 'omniauth-openid', '1.0.1'
 
 group :development do
   gem 'heroku', '>= 2.7.0'
