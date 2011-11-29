@@ -1,0 +1,15 @@
+%h1 Listing comments
+
+%table
+  %tr
+    %th Text
+    %th User
+
+  - @comments.each do |comment|
+    %tr
+      %td= comment.text
+      %td= comment.user.email
+
+%br
+
+= link_to 'New Comment', new_project_idea_comment_path(@project, @idea)

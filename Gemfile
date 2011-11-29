@@ -6,6 +6,8 @@ gem "haml", "3.1.3"
 gem "jquery-rails", "1.0.17"
 gem 'devise', '1.5.0'
 gem 'uglifier', '1.0.4'
+gem 'haml-rails', '0.3.4'
+
 gem 'thin'
 
 gem 'omniauth-openid'

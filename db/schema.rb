@@ -11,13 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122235526) do
+ActiveRecord::Schema.define(:version => 20111129204813) do
+
+  create_table "buckets", :force => true do |t|
+    t.float    "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", :force => true do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["idea_id"], :name => "index_comments_on_idea_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "favorite_ideas", :force => true do |t|
     t.integer  "user_id"
@@ -52,6 +70,16 @@ ActiveRecord::Schema.define(:version => 20111122235526) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.decimal  "estimate",     :precision => 3, :scale => 1
+    t.date     "finished"
+    t.decimal  "hours_worked"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
   end
 
   create_table "users", :force => true do |t|
