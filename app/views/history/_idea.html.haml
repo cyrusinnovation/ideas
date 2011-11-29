@@ -24,4 +24,4 @@
     - get_average_unfilled_stars(idea).times do |star_num|
       = image_tag "star-rating-unfilled.png"
   %td.comments
-    != link_to 'comments', project_idea_comments_path(idea.project, idea)
+    != link_to pluralize(idea.comments.size, "comment"), project_idea_comments_path(idea.project, idea)

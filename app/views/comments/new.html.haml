@@ -1,5 +1,16 @@
-%h1 New comment
+%h1 New comment for "#{@idea.title}"
 
-= render 'form'
+= form_for [@project, @idea, @comment], :html => {:class => 'form-stacked'} do |f|
+  -if @comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
 
-= link_to 'Back', project_idea_comments_path(@project, @idea)
+  %fieldset
+    .field.clearfix
+      = f.label :text
+      = f.text_area :text, :class => 'span12'
+    != f.submit 'Create', :class => 'btn primary'
+
