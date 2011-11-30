@@ -15,7 +15,7 @@ function openIdea(url) {
       $('#idea_title').val(data.idea.title);
       $('#idea_description').val(data.idea.description);
       $('#idea_created_by').val(data.idea.created_by);
-      $('#idea_category').val(data.idea.created_by);
+      $('#idea_category').val(data.idea.category_id);
 
       $('#idea_form .clearfix.error input').find('input').val('');
       $('#idea_form .clearfix.error .help-inline').html('');
