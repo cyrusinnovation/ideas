@@ -1,5 +1,11 @@
 %h1 New comment for "#{@idea.title}"
 
+%p
+  (you can use 
+  %a{:href => 'http://daringfireball.net/projects/markdown/basics'} 
+    Markdown
+  for formatting)
+
 = form_for [@project, @idea, @comment], :html => {:class => 'form-stacked'} do |f|
   -if @comment.errors.any?
     #error_explanation

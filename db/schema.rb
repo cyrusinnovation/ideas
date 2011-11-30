@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20111129204813) do
 
-  create_table "buckets", :force => true do |t|
-    t.float    "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "project_id"
-  end
-
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -70,16 +63,6 @@ ActiveRecord::Schema.define(:version => 20111129204813) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "stories", :force => true do |t|
-    t.string   "title"
-    t.decimal  "estimate",     :precision => 3, :scale => 1
-    t.date     "finished"
-    t.decimal  "hours_worked"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "project_id"
   end
 
   create_table "users", :force => true do |t|
