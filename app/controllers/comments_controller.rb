@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def index
     @project = current_project
     @idea = @project.ideas.find(params[:idea_id])
-    @comments = @idea.comments
+    @comments = @idea.comments.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
