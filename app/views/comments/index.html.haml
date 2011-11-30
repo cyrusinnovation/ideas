@@ -8,7 +8,8 @@
   - @comments.each do |comment|  
     %blockquote.comment
       .text
-        = comment.text
+        :markdown
+          #{comment.text}
       %small.email
         #{comment.user.email},
         = distance_of_time_in_words(Time.now, comment.created_at)

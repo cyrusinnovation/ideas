@@ -7,6 +7,7 @@ gem "jquery-rails", "1.0.17"
 gem 'devise', '1.5.0'
 gem 'uglifier', '1.0.4'
 gem 'haml-rails', '0.3.4'
+gem 'rdiscount', '1.6.8'
 
 gem 'thin'
 
