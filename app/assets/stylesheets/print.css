@@ -1,0 +1,11 @@
+.topbar, .subnav, footer, h2, form, thead {
+  display: none;
+}
+
+#ideas td {
+  display: none;
+}
+
+#ideas td.title, #ideas td.description {
+  display: block !important;
+}

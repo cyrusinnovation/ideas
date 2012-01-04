@@ -29,4 +29,8 @@ module HistoryHelper
     content_tag 'span', truncate(title, :length => length), :title => title
   end
 
+  def format_description description
+    content_tag 'span', description, :title => description
+  end
+
 end
