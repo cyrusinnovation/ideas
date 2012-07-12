@@ -1,6 +1,6 @@
 class ProjectsController < SecureController
   def index
-    @projects = current_user.projects
+    @projects = current_user.projects.order("name ASC")
   end
 
   def new
@@ -27,6 +27,13 @@ class ProjectsController < SecureController
       flash[:notice] = 'Project #{@project.name} updated!'
     end
     redirect_to :action => :index
+  end
+
+  def update_project_idea
+    @project = Project.find(params[:project][:id])
+    @idea = Idea.find(params[:project][:idea][:id])
+    @idea.update_attributes(:project => @project)
+    render :nothing => true
   end
 
   def destroy

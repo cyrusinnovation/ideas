@@ -20,7 +20,7 @@ Ideas::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.assets.precompile += ['idea_popup.js', 'print.css']
+  config.assets.precompile += ['idea_popup.js', 'print.css', 'application,js', 'application.css']
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH

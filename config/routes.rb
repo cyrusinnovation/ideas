@@ -12,6 +12,7 @@ Ideas::Application.routes.draw do
     get '/settings' => 'settings#edit', :as => :edit_settings
     post '/settings' => 'settings#update', :as => :update_settings
   end
+  post '/project/update/idea' => 'projects#update_project_idea'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     get "users/sign_out" => "devise/sessions#destroy"

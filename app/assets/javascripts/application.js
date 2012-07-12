@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap/bootstrap-alerts.js
 //= require bootstrap/bootstrap-buttons.js
 //= require bootstrap/bootstrap-dropdown.js
@@ -17,4 +18,57 @@
 //= require jquery_quicksearch/jquery.quicksearch.js
 //= require jquery_tablesorter/jquery.tablesorter.min.js
 
+
+$(document).ready(function() {
+
+    $( ".project-table tr.idea" ).draggable({
+        helper: "original",
+        stop: function(event, ui){
+            var project_id = ui.helper.parent().parent().data('pid');
+            var idea_id = $(ui.helper).data('iid');
+            $.ajax({
+                url: "/project/update/idea",
+                type: "POST",
+                data: {
+                    project: {
+                        id: project_id,
+                        idea: { id: idea_id}
+                    }
+                }
+            })
+
+        }
+    });
+
+    $(".project-table").droppable({
+        accept: 'tr',
+        drop: function(event, ui) {
+            $(this).append(ui.draggable);
+        }
+    });
+//
+//    $(".project-table").sortable({
+//        connectWith: ".project-table",
+//        items: 'tr.idea',
+//        update: function(event, ui){
+//            alert("ui");
+//        }
+//    })
+
+    $(".click-to-edit").dblclick(function () {
+        var proj_name_obj = $(this);
+        var text = $(proj_name_obj).text();
+        $(proj_name_obj).text('');
+        $('form').addClass('show');
+        $('form').removeClass('hidden');
+        $('form').submit(function(){
+                    var newText = $(this).find('input#project_name').val();
+                    proj_name_obj.text(newText);
+                    $('form').addClass('hidden');
+                    $('form').removeClass('show');
+                });
+    });
+
+
+});
 

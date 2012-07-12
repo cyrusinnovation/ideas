@@ -1,3 +1,11 @@
 /*
  *= require bootstrap.min.css
 */
+
+
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+}

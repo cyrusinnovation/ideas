@@ -1,7 +1,27 @@
 - if !@projects.empty?
   %ul
     - @projects.each do |project|
-      %li
-        = link_to project.name, project_ideas_path(project)
+
+      %h2.click-to-edit
+        = project.name
+      =form_for project, :remote => true, :html => {:class => "hidden"} do |f|
+        =f.text_field :name
+        =f.submit
+
+      %table.project-table{:data => { :pid => "#{project.id}"}}
+        %thead
+          %th.favorite
+          %th.title Title
+          %th.description{:style => 'display:none;'} Description
+          %th.created_at Created At
+          %th.created_by Created By
+          %th.category Category
+          %th.comments
+        %tbody
+          != render :partial => 'idea', :collection => project.ideas.order("title ASC")
+  != render :partial => 'idea_form', :locals => {:all_fields => true}
+
 %br
 = link_to 'New Project', new_project_path
+
+

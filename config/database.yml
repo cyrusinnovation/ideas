@@ -13,8 +13,8 @@ development:
   encoding: unicode
   database: ideas_development
   pool: 5
-  username: ideas
-  password: 123
+  username: cyrus
+  password: burntt0ast
   min_messages: WARNING
   
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -40,8 +40,8 @@ test:
   encoding: unicode
   database: ideas_test
   pool: 5
-  username: ideas
-  password: 123
+  username: cyrus
+  password: burntt0ast
   min_messages: WARNING
 
 production:

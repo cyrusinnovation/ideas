@@ -5,9 +5,12 @@
       %title Idea Tracker
       / Le HTML5 shim, for IE6-8 support of HTML elements
       /[if lt IE 9]
-        != javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+      != javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
       != stylesheet_link_tag "application"
       != javascript_include_tag "application"
+      != javascript_include_tag 'idea_popup.js'
+      != javascript_include_tag 'idea_controls.js'
+      != stylesheet_link_tag 'print', :media => 'print'
       :css
         .main-container {
             margin-top: 50px;
@@ -32,6 +35,8 @@
                   - project_dropdown_projects.each do |project|
                     %li
                       != link_to project.name, project_ideas_path(project)
+                  %li
+                    != link_to 'Full View', projects_path
                   %li.divider
                   %li
                     != link_to 'New Project', new_project_path
