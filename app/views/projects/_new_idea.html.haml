@@ -4,21 +4,21 @@
       x
     %h3= "Submit a new idea"
 
-  =form_for Idea.new, :url => project_ideas_path(project.id), :method => 'post' do |f|
+  =form_for Idea.new, :url => project_ideas_path(project.id), :method => 'post', :html => {:data =>{:proj_id => project.id.to_s}} do |f|
     .modal-body
       %fieldset
         .title
           != f.label :title
-          != f.text_field :title, :class => 'span8'
+          != f.text_field :title, :class => 'span6'
           %span.help-inline
-        ..description
+        .description
           != f.label :description
-          != f.text_area :description, :class => 'span8'
+          != f.text_area :description, :size =>'50x10', :class => 'span6'
           %span.help-inline
         .category
           != f.label :category
-          != f.select :category, (Category.all.collect {|c| [c.name, c.id]}), :class => 'span8'
+          != f.select :category, (Category.all.collect {|c| [c.name, c.id]}), {:class => 'span6'}, {:style =>"width:460px;"}
           %span.help-inline
     .modal-footer
       != link_to 'Cancel', '#', :class => "btn submit-button-secondary submit-button-delete", :data=> {:dismiss=>"modal"}
-      != f.submit 'Save', :class => 'btn primary newajax'
+      != f.submit 'Create', :class => 'btn primary create_idea_button'

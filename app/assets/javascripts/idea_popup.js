@@ -18,9 +18,6 @@ function openIdea(url) {
       form.find('#idea_created_by').val(data.idea.created_by);
       form.find('#idea_category').val(data.idea.category_id);
 
-    form.find('.clearfix.error input').find('input').val('');
-    form.find('.clearfix.error .help-inline').html('');
-    form.find('.clearfix.error').removeClass('error');
     form.modal({
         backdrop: true,
         show: true
@@ -41,7 +38,7 @@ function saveButtonClicked() {
       dataType: 'json',
       success: function(data) {
         $('body').trigger('idea_saved', data);
-        $("#idea_form").modal('hide');
+        form.parent().modal('hide');
       },
       error: function(jq, textStatus, errorThrown) {
           var response = $.parseJSON(jq.responseText);
@@ -62,10 +59,10 @@ function newButtonClicked() {
     $.ajax({
         type: 'POST',
         url: '/projects/'+form.data('proj-id')+'/ideas',
-        //data: form.serialize(),
-        //dataType: 'json',
+        data: form.serialize(),
         success: function(data) {
-            $("#ideaModal").modal('hide');
+            $('body').trigger('idea_saved', data);
+            form.parent().modal('hide');
         },
         error: function(jq, textStatus, errorThrown) {
 
@@ -75,12 +72,15 @@ function newButtonClicked() {
 }
 
 $(document).ready(function() {
-  $('button.ajaxd').click(saveButtonClicked);
-  $('button.newajax').click(newButtonClicked);
-    $('.new-idea-button').click(function(){
-        $(this).parent().find('.modal').modal('show')
-                .find('form').data('proj-id', $(this).data('proj-id'));
+    // Edit an idea
+    $('button.ajaxd').click(saveButtonClicked);
+    $('#idea_form .modal-header .close').click(function(){
+        $(this).parent().parent().modal('hide');
     });
+
+    // Create an idea
+    $('.create_idea_button').click(newButtonClicked);
+
 });
 
 

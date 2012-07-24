@@ -16,7 +16,7 @@
         Settings
 
       .new_idea_div
-        = link_to "New Idea", "#ideaModal"+project.id.to_s, :class =>"btn new-idea-button",
+        = link_to "New Idea", "#ideaModal"+project.id.to_s, :class =>"btn new-idea-modal",
             :data => {:toggle=>"modal", :proj_id => project.id}, :style => "float:right"
         = render :partial => 'new_idea', :locals => {:project => project}
 
