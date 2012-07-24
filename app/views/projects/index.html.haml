@@ -8,7 +8,7 @@
         =f.text_field :name
         =f.submit
 
-      %table.project-table{:data => { :pid => "#{project.id}"}}
+      %table.project-table.table.table-striped.table-condensed{:data => { :pid => "#{project.id}"}}
         %thead
           %th.favorite
           %th.title Title

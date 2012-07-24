@@ -8,6 +8,8 @@ gem 'devise', '1.5.0'
 gem 'uglifier', '1.0.4'
 gem 'haml-rails', '0.3.4'
 gem 'rdiscount', '1.6.8'
+gem 'sass-rails', '~> 3.1'
+gem 'bootstrap-sass', '2.0.4.0'
 
 gem 'thin'
 

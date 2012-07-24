@@ -1,4 +1,4 @@
-.topbar, .subnav, footer, h2, form, thead {
+.navbar, .subnav, footer, h2, form, thead {
   display: none;
 }
 
