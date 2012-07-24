@@ -1,4 +1,6 @@
 class IdeasController < SecureController
+  respond_to :html
+
   def index
     @idea = current_project.ideas.build()
   end
@@ -10,13 +12,21 @@ class IdeasController < SecureController
     end
   end
 
+  def new
+    @idea = current_project.ideas.new()
+    respond_with @idea
+  end
+
   def create
     params[:idea][:category] = Category.find params[:idea][:category]
+    unless params[:idea][:created_by].present?
+      params[:idea][:created_by] = current_user.email
+    end
     @idea = current_project.ideas.create(params[:idea])
     if @idea.persisted?
       flash[:notice] = 'Idea added!'
     end
-    redirect_to :action => :index
+    redirect_to :controller => :projects, :action => :index
   end
 
   def destroy

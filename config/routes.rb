@@ -3,7 +3,7 @@ Ideas::Application.routes.draw do
   resources :categories, :except => :show
 
   resources :projects, :except => :show do
-    resources :ideas, :except => :new do
+    resources :ideas do
       resources :comments, :only => [:index, :create, :new]
     end
 

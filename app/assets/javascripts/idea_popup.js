@@ -8,19 +8,20 @@ function openIdea(url) {
     url: url,
     dataType: 'json',
     success: function(data) {
-      $('#idea_form h3.title').text(data.idea.title);
-      $('#idea_form form').attr('action', url);
-      $('#idea_form .delete_button').attr('href', url);
+      form = $('#idea_form');
+      form.find('h3.title').text(data.idea.title);
+      form.find('form').attr('action', url);
+      form.find('.delete_button').attr('href', url);
 
-      $('#idea_title').val(data.idea.title);
-      $('#idea_description').val(data.idea.description);
-      $('#idea_created_by').val(data.idea.created_by);
-      $('#idea_category').val(data.idea.category_id);
+      form.find('#idea_title').val(data.idea.title);
+      form.find('#idea_description').val(data.idea.description);
+      form.find('#idea_created_by').val(data.idea.created_by);
+      form.find('#idea_category').val(data.idea.category_id);
 
-      $('#idea_form .clearfix.error input').find('input').val('');
-      $('#idea_form .clearfix.error .help-inline').html('');
-      $('#idea_form .clearfix.error').removeClass('error');
-      $('#idea_form').modal({
+    form.find('.clearfix.error input').find('input').val('');
+    form.find('.clearfix.error .help-inline').html('');
+    form.find('.clearfix.error').removeClass('error');
+    form.modal({
         backdrop: true,
         show: true
       });
@@ -55,7 +56,34 @@ function saveButtonClicked() {
     return false;  
 }
 
+
+function newButtonClicked() {
+    var form = $(this).parent().parent();
+    $.ajax({
+        type: 'POST',
+        url: '/projects/'+form.data('proj-id')+'/ideas',
+        //data: form.serialize(),
+        //dataType: 'json',
+        success: function(data) {
+            $("#ideaModal").modal('hide');
+        },
+        error: function(jq, textStatus, errorThrown) {
+
+        }
+    });
+    return false;
+}
+
 $(document).ready(function() {
   $('button.ajaxd').click(saveButtonClicked);
+  $('button.newajax').click(newButtonClicked);
+    $('.new-idea-button').click(function(){
+        $(this).parent().find('.modal').modal('show')
+                .find('form').data('proj-id', $(this).data('proj-id'));
+    });
 });
+
+
+
+
 

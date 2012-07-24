@@ -4,4 +4,8 @@ class Project < ActiveRecord::Base
 
   has_many :memberships, :dependent => :destroy
   has_many :users, :through => :memberships
+
+  def add_all_users
+    self.users = User.all
+  end
 end

@@ -16,8 +16,7 @@
       != text_field_tag :name, @project.name
       %span.help-inline
         = inline_help @project, :name
-  .actions
-    != submit_tag 'Save', class: 'btn primary'
+  != submit_tag 'Save', :class => 'btn primary'
 
 %h3 Other actions
 %p

@@ -12,10 +12,16 @@ class ProjectsController < SecureController
   end
 
   def create
+    membership = params[:project].delete(:memberships)
+
     @project = current_user.projects.create(params[:project])
 
     if @project.persisted?
       flash[:notice] = 'Project #{@project.name} added!'
+    end
+
+    if membership == "2"
+      @project.add_all_users
     end
     redirect_to :action => :index
   end

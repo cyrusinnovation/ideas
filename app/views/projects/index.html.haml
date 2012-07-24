@@ -1,27 +1,40 @@
 - if !@projects.empty?
   %ul
     - @projects.each do |project|
+      .project_name_div{:style => "width:50%; float:left"}
+        %h2.click-to-edit
+          = project.name
+        = form_for project, :remote => true, :html => {:class => "hidden project-form"} do |f|
+          = f.text_field :name, :class => "h2"
+          = f.submit 'Update', :class => "btn hidden"
 
-      %h2.click-to-edit
-        = project.name
-      =form_for project, :remote => true, :html => {:class => "hidden"} do |f|
-        =f.text_field :name
-        =f.submit
+      .btn.hide-button{:data => {:proj_id => project.id}, :style => "float:right"}
+        ="-"
+      %a{:href => "#settingsModal"+project.id.to_s, :class =>"btn settings-button",
+                   :data => {:toggle=>"modal", :proj_id => project.id}, :style => "float:right"}
+        -#%i.icon-cog
+        Settings
+
+      .new_idea_div
+        = link_to "New Idea", "#ideaModal"+project.id.to_s, :class =>"btn new-idea-button",
+            :data => {:toggle=>"modal", :proj_id => project.id}, :style => "float:right"
+        = render :partial => 'new_idea', :locals => {:project => project}
+
 
       %table.project-table.table.table-striped.table-condensed{:data => { :pid => "#{project.id}"}}
         %thead
-          %th.favorite
-          %th.title Title
-          %th.description{:style => 'display:none;'} Description
-          %th.created_at Created At
-          %th.created_by Created By
-          %th.category Category
-          %th.comments
+          %th.favorite{:style => 'width:25px'}
+          %th.title{:style => 'width:150px'} Title
+          %th.created_at{:style => 'width:130px'} Created At
+          %th.created_by{:style => 'width:100px'} Created By
+          %th.category{:style => 'width:100px'} Category
+          %th.comments{:style => 'width:80px'}
+          %th
         %tbody
-          != render :partial => 'idea', :collection => project.ideas.order("title ASC")
-  != render :partial => 'idea_form', :locals => {:all_fields => true}
+          = render :partial => 'idea', :collection => project.ideas.order("title ASC")
 
-%br
-= link_to 'New Project', new_project_path
+
+  = render :partial => 'idea_form', :locals => {:all_fields => true}
+
 
 

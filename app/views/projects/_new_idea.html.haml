@@ -1,0 +1,24 @@
+.modal.hide{:id => 'ideaModal'+project.id.to_s}
+  .modal-header
+    %button.close{:data=> {:dismiss=>"modal"}}
+      x
+    %h3= "Submit a new idea"
+
+  =form_for Idea.new, :url => project_ideas_path(project.id), :method => 'post' do |f|
+    .modal-body
+      %fieldset
+        .title
+          != f.label :title
+          != f.text_field :title, :class => 'span8'
+          %span.help-inline
+        ..description
+          != f.label :description
+          != f.text_area :description, :class => 'span8'
+          %span.help-inline
+        .category
+          != f.label :category
+          != f.select :category, (Category.all.collect {|c| [c.name, c.id]}), :class => 'span8'
+          %span.help-inline
+    .modal-footer
+      != link_to 'Cancel', '#', :class => "btn submit-button-secondary submit-button-delete", :data=> {:dismiss=>"modal"}
+      != f.submit 'Save', :class => 'btn primary newajax'
