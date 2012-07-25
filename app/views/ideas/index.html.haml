@@ -39,4 +39,4 @@
       != f.label :category
       != f.select :category, (Category.all.collect {|c| [c.name, c.id]})
       %span.help-inline 
-    != f.submit 'Create', :class => 'btn primary'
+    != f.submit 'Create', :class => 'btn btn-primary'

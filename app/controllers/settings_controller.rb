@@ -6,11 +6,11 @@ class SettingsController < SecureController
   def update
     @project = update_project
 
-    if @project.invalid?
-      render :action => :edit
-    else 
-      redirect_to project_edit_settings_path
-    end
+    #unless @project.invalid?
+    #  render :action => :edit
+    #else
+      redirect_to projects_path
+    #end
   end
 
   private

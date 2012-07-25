@@ -1,4 +1,4 @@
-#idea_form.modal{:style => 'display:none; top:300px;'}
+#idea_form.modal.hide{:style => 'top:300px;'}
   .modal-header
     %a.close{:href => '#'}x
     %h3.title
@@ -22,5 +22,5 @@
           != f.select :category, (Category.all.collect {|c| [c.name, c.id]}), {:class => 'span6'}, {:style =>"width:460px;"}
           %span.help-inline
   .modal-footer
-    != link_to 'Delete', '#', :method => :delete, :confirm => 'Are you sure you want to delete this idea?', :class => 'btn danger delete_button'
-    %button.btn.primary.ajaxd Save
+    != link_to 'Delete', '#', :method => :delete, :confirm => 'Are you sure you want to delete this idea?', :class => 'btn btn-danger delete_button'
+    %button.btn.btn-primary.ajaxd Save

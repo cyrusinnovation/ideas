@@ -11,7 +11,7 @@
 =form_tag(project_update_settings_path, :method => :post, :class => 'form-stacked') do
   %fieldset
     %div{:class => div_class(@project, :name)}
-      .clearfix    
+      .clearfix
       != label :name, 'Project Name'
       != text_field_tag :name, @project.name
       %span.help-inline
