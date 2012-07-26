@@ -1,7 +1,7 @@
 
 @import "bootstrap";
 
-/* fixing bootstrap after upgrade to 2.0.4*/
+/* fixing bootstrap after upgrade to 2.0.4 */
 .container {
   width: 940px !important;
 }
@@ -20,6 +20,14 @@
 
 
 
+/* Main site-wide styling */
+.content {
+  clear:both;
+}
+footer p {
+  text-align: center;
+}
+
 .hidden {
   display: none;
 }
@@ -27,6 +35,7 @@
   display: block;
 }
 
+/* Full view styling */
 .project-form{
   margin-bottom: 0px;
 }

@@ -9,6 +9,5 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap
-//= require bootstrap-modal
 //= require jquery_quicksearch/jquery.quicksearch.js
 //= require jquery_tablesorter/jquery.tablesorter.min.js
