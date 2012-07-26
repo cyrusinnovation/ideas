@@ -73,5 +73,24 @@ $(document).ready(function() {
         }
     });
 
+
+    // Hide project details when collapse the project
+    $('.hide-button').click(function(){
+        var project_id = $(this).data('proj_id');
+        var table = $('#project-div-'+project_id).find('table');
+        var icon = $(this).find('b');
+        if (table.hasClass('hidden-table')){
+            table.parent().slideDown('slow');
+            table.removeClass('hidden-table');
+            icon.removeClass('icon-chevron-down');
+            icon.addClass('icon-chevron-up');
+        }else{
+            table.parent().slideUp('slow');
+            table.addClass('hidden-table');
+            icon.addClass('icon-chevron-down');
+            icon.removeClass('icon-chevron-up');
+        }
+
+    });
 });
 

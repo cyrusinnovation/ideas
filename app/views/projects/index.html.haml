@@ -1,41 +1,42 @@
 - if !@projects.empty?
   %ul
     - @projects.each do |project|
-      .project_name_div{:style => "width:50%; float:left"}
-        %h2.click-to-edit
-          = project.name
-        = form_for project, :remote => true, :html => {:class => "hidden project-form"} do |f|
-          = f.text_field :name, :class => "h2"
-          = f.submit 'Update', :class => "btn hidden"
+      %div{:id =>"project-div-"+project.id.to_s}
+        .project_name_div{:style => "float:left; width:460px;"}
+          %h2.click-to-edit
+            = project.name
+          = form_for project, :remote => true, :html => {:class => "hidden project-form"} do |f|
+            = f.text_field :name, :class => "h2", :style => "width:420px;"
+            = f.submit 'Update', :class => "btn hidden"
 
-      -# button group of actions on project
-      .btn-group{:style => "float:right"}
-        %a{:href => "#settingsModal"+project.id.to_s, :class =>"btn settings-button",
-                     :data => {:toggle=>"modal", :proj_id => project.id}}
-          -#%i.icon-cog
-          Settings
+        -# button group of actions on project
+        .btn-group{:style => "float:right; width:106px;"}
+          %a{:href => "#settingsModal"+project.id.to_s, :class =>"btn settings-button",
+                       :data => {:toggle=>"modal", :proj_id => project.id}}
+            %b.icon-cog
 
-        -#.new_idea_div
-        = link_to "New Idea", "#ideaModal"+project.id.to_s, :class =>"btn new-idea-modal",
-            :data => {:toggle=>"modal", :proj_id => project.id}
+          %a{:href => "#ideaModal"+project.id.to_s, :class =>"btn new-idea-modal",
+                        :data => {:toggle=>"modal", :proj_id => project.id}}
+            %b.icon-plus
 
-        .btn.hide-button{:data => {:proj_id => project.id}}
-          ="-"
+          .btn.hide-button{:data => {:proj_id => project.id}}
+            %b.icon-chevron-up
 
-      = render :partial => 'new_idea', :locals => {:project => project}
-      = render :partial => 'settings_form', :locals => {:project => project}
-
-      %table.project-table.table.table-striped.table-condensed{:data => { :pid => "#{project.id}"}}
-        %thead
-          %th.favorite{:style => 'width:25px'}
-          %th.title{:style => 'width:150px'} Title
-          %th.created_at{:style => 'width:130px'} Created At
-          %th.created_by{:style => 'width:100px'} Created By
-          %th.category{:style => 'width:100px'} Category
-          %th.comments{:style => 'width:80px'}
-          %th
-        %tbody
-          = render :partial => 'idea', :collection => project.ideas.order("title ASC")
+        = render :partial => 'new_idea', :locals => {:project => project}
+        = render :partial => 'settings_form', :locals => {:project => project}
+        .table-div{:style => 'width:100%;'}
+          %table.project-table.table.table-striped.table-condensed{:data => { :pid => "#{project.id}"}}
+            %thead
+              %th.favorite{:style => 'width:25px'}
+              %th.title{:style => 'width:150px'} Title
+              %th.created_at{:style => 'width:130px'} Created At
+              %th.created_by{:style => 'width:100px'} Created By
+              %th.category{:style => 'width:100px'} Category
+              %th.rating Rating
+              %th.avg_rating Avg. Rating
+              %th.comments{:style => 'width:80px'}
+            %tbody
+              = render :partial => 'idea', :collection => project.ideas.order("title ASC")
 
 
   = render :partial => 'idea_form', :locals => {:all_fields => true}
