@@ -7,7 +7,7 @@ class MembershipsController < SecureController
   def create
     email = params[:membership][:user]
     user = User.find_by_email email
-    @membership = Membership.new(user=> user, project=> current_project)
+    @membership = Membership.new(:user=> user, :project=> current_project)
     
     if @membership.save
       redirect_to project_memberships_path(current_project), notice=> 'Membership was successfully created.'
