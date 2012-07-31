@@ -2,20 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5af6049-1c84-49cc-8aaf-4352f439a47a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/integration/add_new_idea_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/integration/update_project_settings_spec.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/sort.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/ideas/_form.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/ideas/_idea.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/ideas/view_all.html.haml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/history/_form.html.haml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/history/_idea.html.haml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/history/index.html.haml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/ideas/edit.html.haml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/ideas/index.html.haml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/project_interaction.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/project_interaction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/front_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/front_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/memberships_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/memberships_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/projects_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/projects_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ideas_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ideas_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/idea.rb" afterPath="$PROJECT_DIR$/app/models/idea.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comments/index.html.haml" afterPath="$PROJECT_DIR$/app/views/comments/index.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_navbar.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/_navbar.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/_settings_form.html.haml" afterPath="$PROJECT_DIR$/app/views/projects/_settings_form.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/projects/_form.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/index.html.haml" afterPath="$PROJECT_DIR$/app/views/projects/index.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/idea_spec.rb" afterPath="$PROJECT_DIR$/spec/models/idea_spec.rb" />
     </list>
     <ignored path="ideas.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,64 +47,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add_new_idea_spec.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/integration/add_new_idea_spec.rb">
+      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="0" selection-end="562" vertical-scroll-proportion="0.0">
+            <state line="3" column="3" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update_project_settings_spec.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/integration/update_project_settings_spec.rb">
+      <file leaf-file-name="_navbar.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_navbar.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="14" selection-start="1383" selection-end="1383" vertical-scroll-proportion="1.5240642">
+            <state line="10" column="49" selection-start="352" selection-end="352" vertical-scroll-proportion="0.3392857">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="memberships_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/memberships_controller.rb">
+      <file leaf-file-name="view_all.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/ideas/view_all.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="101" selection-start="477" selection-end="542" vertical-scroll-proportion="0.0">
+            <state line="3" column="3" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spec_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+      <file leaf-file-name="sort.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/sort.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="46" selection-start="1482" selection-end="1495" vertical-scroll-proportion="0.0">
+            <state line="8" column="0" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category_spec.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/models/category_spec.rb">
+      <file leaf-file-name="sort-style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/sort-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="25" column="44" selection-start="668" selection-end="668" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <file leaf-file-name="application.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="1" column="20" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="idea_spec.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/models/idea_spec.rb">
+      <file leaf-file-name="application.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
+            <state line="9" column="40" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,30 +123,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/spec/integration/add_new_idea.rb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/project_interaction.js" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/memberships_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_navbar.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/comments/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/projects/_settings_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/projects_controller.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/front_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/projects/_form.html.haml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/spec/request_helpers.rb" />
-        <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
-        <option value="$PROJECT_DIR$/spec/integration/add_new_idea_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/integration/update_project_settings_spec.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+        <option value="$PROJECT_DIR$/spec/models/idea_spec.rb" />
+        <option value="$PROJECT_DIR$/app/models/idea.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/ideas_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/ideas/_idea.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/ideas/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/comments/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/sort-style.css" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/sort.js" />
+        <option value="$PROJECT_DIR$/app/views/ideas/view_all.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/projects/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_navbar.html.haml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="71" />
-    <option name="y" value="70" />
+    <option name="x" value="43" />
+    <option name="y" value="78" />
     <option name="width" value="1583" />
-    <option name="height" value="937" />
+    <option name="height" value="936" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -216,7 +222,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -230,29 +240,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="functional" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fixtures" />
+              <option name="myItemId" value="jquery_tablesorter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -266,7 +266,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jquery_quicksearch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -280,133 +292,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
+              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="requests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
+              <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -425,54 +323,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="settings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="memberships" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -511,14 +361,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -534,79 +376,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="history" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ideas" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="stylesheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -627,6 +401,32 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ideas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ideas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -640,6 +440,14 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
+      <recent name="$PROJECT_DIR$/app/assets/images" />
+      <recent name="$PROJECT_DIR$/vendor/assets/javascripts/jquery_tablesorter" />
+      <recent name="$PROJECT_DIR$/app/assets/javascripts" />
+    </key>
   </component>
   <component name="RunManager" selected="Rake.spec">
     <configuration default="false" name="Default" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console" temporary="true">
@@ -950,19 +758,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="71" y="70" width="1583" height="937" extended-state="0" />
-    <editor active="false" />
+    <frame x="43" y="78" width="1583" height="936" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26786909" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17339668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1980456" sideWeight="0.6983373" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1980456" sideWeight="0.6979786" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3016627" sideWeight="0.9988399" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3020214" sideWeight="0.9988399" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1025,114 +833,118 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/projects/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/ideas/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
+        <state line="17" column="52" selection-start="618" selection-end="619" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/fixtures/users.yml">
+    <entry file="file://$PROJECT_DIR$/app/views/comments/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="18" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ideas/_idea.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/views/projects/_idea_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="53" selection-start="568" selection-end="584" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/idea_controls.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/rating_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/idea_popup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/project_interaction.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/front_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="31" selection-start="145" selection-end="145" vertical-scroll-proportion="0.101604275">
+        <state line="8" column="22" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="20" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="53" selection-start="664" selection-end="664" vertical-scroll-proportion="0.57575756">
+        <state line="9" column="40" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/idea_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/sort-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
+        <state line="25" column="44" selection-start="668" selection-end="668" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/sort.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="8" column="0" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/requests/categories_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/ideas/view_all.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="3" column="3" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/routing/categories_routing_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="3" column="3" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/category_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_navbar.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/integration/add_new_idea_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="0" selection-end="562" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="46" selection-start="1482" selection-end="1495" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/memberships_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="101" selection-start="477" selection-end="542" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/integration/update_project_settings_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="14" selection-start="1383" selection-end="1383" vertical-scroll-proportion="1.5240642">
+        <state line="10" column="49" selection-start="352" selection-end="352" vertical-scroll-proportion="0.3392857">
           <folding />
         </state>
       </provider>

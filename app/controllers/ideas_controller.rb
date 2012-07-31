@@ -1,6 +1,10 @@
 class IdeasController < SecureController
   respond_to :html
 
+  def view_all
+    @ideas = Idea.get_all_ideas_for_user(current_user)
+  end
+
   def index
     @idea = current_project.ideas.build()
   end

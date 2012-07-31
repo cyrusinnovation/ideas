@@ -7,19 +7,19 @@
       %fieldset
         .clearfix.created_by
           != f.label :created_by
-          != f.text_field :created_by, :class => 'span8'
+          != f.text_field :created_by, :class => 'span6'
           %span.help-inline
         .clearfix.title
           != f.label :title
-          != f.text_field :title, :class => 'span8'
+          != f.text_field :title, :class => 'span6'
           %span.help-inline
         .clearfix.description
           != f.label :description
-          != f.text_area :description, :class => 'span8'
+          != f.text_area :description, :size =>'50x8', :class => 'span6'
           %span.help-inline
         .clearfix.category
           != f.label :category
-          != f.select :category, (Category.all.collect {|c| [c.name, c.id]}), :class => 'span8'
+          != f.select :category, (Category.all.collect {|c| [c.name, c.id]}), :class => 'span6'
           %span.help-inline
   .modal-footer
     != link_to 'Delete', '#', :method => :delete, :confirm => 'Are you sure you want to delete this idea?', :class => 'btn btn-danger delete_button'

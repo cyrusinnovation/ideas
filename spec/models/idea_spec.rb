@@ -60,4 +60,13 @@ describe Idea do
     idea.average_rating.should == 1
   end
 
+  it "should return all the ideas associated to projects the user is a member of" do
+    @project.users << @user
+    idea = Idea.create(:title => 'word', :created_by => 'whocares@email.com')
+    @project.ideas << idea
+
+    Idea.get_all_ideas_for_user(@user).should include(idea)
+
+  end
+
 end

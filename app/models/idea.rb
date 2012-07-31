@@ -19,4 +19,8 @@ class Idea < ActiveRecord::Base
     ratings.each {|r| sum += r.rating}
     (sum.to_f / ratings.size).round
   end
+
+  def self.get_all_ideas_for_user(user)
+    Idea.joins(:project => :users).where('users.id' => user.id)
+  end
 end

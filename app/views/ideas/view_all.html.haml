@@ -1,0 +1,25 @@
+- content_for :head do
+  != stylesheet_link_tag 'print', :media => 'print'
+
+%h2
+  All Ideas
+
+%form
+  Search:
+  %input{:type => "text", :id => "search"}
+
+.table-div
+  %table.table.table-striped.table-condensed.tablesorter#ideas_table
+    %thead
+      %th.favorite{:style => 'width:25px'}
+      %th.title{:style => 'width:150px'} Title
+      %th.created_at{:style => 'width:130px'} Created At
+      %th.created_by{:style => 'width:100px'} Created By
+      %th.category{:style => 'width:100px'} Category
+      %th.rating Rating
+      %th.avg_rating Avg. Rating
+      %th.comments{:style => 'width:80px'}
+    %tbody
+      = render :partial => 'idea', :collection => @ideas
+
+= render :partial => 'form', :locals => {:all_fields => true}

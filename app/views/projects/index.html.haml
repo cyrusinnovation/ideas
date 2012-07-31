@@ -1,3 +1,12 @@
+- content_for :head do
+  != stylesheet_link_tag 'print', :media => 'print'
+
+%h2
+  Ideas by Project
+%form
+  Search:
+  %input{:type => "text", :id => "search"}
+
 - if !@projects.empty?
   %ul
     - @projects.each do |project|
