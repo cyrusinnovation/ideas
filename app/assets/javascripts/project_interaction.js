@@ -35,14 +35,6 @@ $(document).ready(function() {
             $(this).append(ui.draggable);
         }
     });
-//
-//    $(".project-table").sortable({
-//        connectWith: ".project-table",
-//        items: 'tr.idea',
-//        update: function(event, ui){
-//            alert("ui");
-//        }
-//    })
 
     // Double click headers to edit them
     $(".click-to-edit").dblclick(function () {

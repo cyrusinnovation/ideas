@@ -3,6 +3,9 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rspec'
+require 'capybara/rails'
+include Warden::Test::Helpers
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -33,4 +36,11 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
+end
+
+
+def sign_in_user(user=nil)
+  user = User.create({:email => 'mama@dada.com', :password => 'password'}) if user.nil?
+  login_as user, :scope => :user
+  user
 end

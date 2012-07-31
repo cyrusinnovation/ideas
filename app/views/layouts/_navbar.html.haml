@@ -5,13 +5,10 @@
       -if user_signed_in?
         %ul.nav
           %li.dropdown
-            != link_to project_dropdown_title, '#', :class => 'dropdown-toggle', data: {toggle: 'dropdown'}
+            != link_to 'Projects', '#', :class => 'dropdown-toggle', data: {toggle: 'dropdown'}
             %ul.dropdown-menu
-              - project_dropdown_projects.each do |project|
-                %li
-                  != link_to project.name, project_ideas_path(project)
               %li
-                != link_to 'Full View', projects_path
+                != link_to 'View all Projects', projects_path
               %li.divider
               %li
                 != link_to 'New Project', new_project_path

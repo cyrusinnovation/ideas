@@ -23,3 +23,7 @@ group :development, :test do
   gem 'ruby-debug19'
   gem "rspec-rails", "2.7.0"
 end
+
+group :test do
+  gem 'capybara'
+end

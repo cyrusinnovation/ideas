@@ -17,24 +17,20 @@
     =render 'layouts/navbar'
 
     .container
-      -if in_project?
-        %ul.nav.nav-tabs
-          %li.new_idea
-            != link_to 'New Ideas', project_ideas_path(current_project)
-          %li.history
-            != link_to 'Ideas', project_history_path(current_project)
-          %li.settings
-            != link_to 'Settings', project_edit_settings_path(current_project)
-          %li.collaborate
-            != link_to 'Collaborators', project_memberships_path(current_project)
         
       .content
         - if flash.key? :alert
           .alerts
-            .alert-message.error.fade.in{"data-alert" => "alert"}
-              %a.close{:href=>"#"}
+            .alert.alert-error.fade.in{"data-alert" => "alert"}
+              %button.close{:data => {:dismiss =>'alert'}}
                 x
               = flash[:alert]
+        - if flash.key? :notice
+          .alerts
+            .alert.alert-info.fade.in{"data-alert" => "alert"}
+              %button.close{:data => {:dismiss =>'alert'}}
+                x
+              = flash[:notice]
         != yield
 
       %footer.span12

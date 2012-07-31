@@ -27,5 +27,5 @@
         = f.submit 'Add Collaborator', :class => 'btn btn-primary'
 
   .modal-footer
-    = link_to "Delete this project", current_project, :confirm => "Are you sure?", :method => :delete, :class => 'btn btn-danger'
+    = link_to "Delete this project", project_path(project), :confirm => "Are you sure?", :method => :delete, :class => 'btn btn-danger'
     = link_to 'Cancel', '#', :class => "btn submit-button-secondary submit-button-delete", :data=> {:dismiss=>"modal"}

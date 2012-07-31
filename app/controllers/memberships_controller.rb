@@ -10,9 +10,9 @@ class MembershipsController < SecureController
     @membership = Membership.new(:user=> user, :project=> current_project)
     
     if @membership.save
-      redirect_to project_memberships_path(current_project), notice=> 'Membership was successfully created.'
+      redirect_to :back, :notice => 'Membership was successfully created.'
     else
-      redirect_to project_memberships_path(current_project), alert=> "Sorry, couldn't find a user with #{email} as their email address"
+      redirect_to :back, :alert => "Sorry, couldn't find a user with #{email} as their email address"
     end
   end
   
@@ -21,7 +21,7 @@ class MembershipsController < SecureController
     if current_user == membership.user
       redirect_to projects_path
     else
-      redirect_to project_memberships_path(current_project)
+      redirect_to :back, :notice => "User with #{membership.user.email} successfully removed"
     end
 
     membership.destroy
