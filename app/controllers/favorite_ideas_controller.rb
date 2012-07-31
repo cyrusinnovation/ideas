@@ -3,7 +3,7 @@ class FavoriteIdeasController < SecureController
     FavoriteIdea.create :user => current_user, :idea => Idea.find(params[:idea])
     respond_to do |format|
       format.json { render :json => {} }
-      format.html { redirect_to :controller => :history, :action => :index }
+      format.html { redirect_to :controller => :projects, :action => :index }
     end
   end
   
@@ -11,7 +11,7 @@ class FavoriteIdeasController < SecureController
     FavoriteIdea.find_by_idea_id(params[:idea]).delete
     respond_to do |format|
       format.json { render :json => {} }
-      format.html { redirect_to :controller => :history, :action => :index }
+      format.html { redirect_to :controller => :projects, :action => :index }
     end
  end
 end

@@ -1,4 +1,4 @@
-module HistoryHelper
+module IdeasHelper
   def favorite_img idea
     if current_user.favorite_idea? idea
       image_tag "star-checked.png", :alt => 'favorite', "data-idea-id" => idea.id

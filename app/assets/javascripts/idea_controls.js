@@ -9,18 +9,18 @@ $(document).ready(function() {
     // Favoriting ideas
     $('.favorite img').on('click', function() {
         if (this.src.indexOf('unchecked') > -1) {
-            $.post('#{new_favorite_path}', {idea: this.getAttribute('data-idea-id') } );
+            $.post('/new_favorite', {idea: this.getAttribute('data-idea-id')});
             this.src = '/assets/star-checked.png';
         }
         else {
-            $.post('#{delete_favorite_path}', {idea: this.getAttribute('data-idea-id') } );
+            $.post('/delete_favorite', {idea: this.getAttribute('data-idea-id') } );
             this.src = '/assets/star-unchecked.png';
         }
     });
 
     // Star ratings
     $('.rating img').on('click', function() {
-        $.post('#{rate_idea_path}', {rating: this.getAttribute('data-star-num'), idea: this.getAttribute('data-idea-id') } );
+        $.post('/rating', {rating: this.getAttribute('data-star-num'), idea: this.getAttribute('data-idea-id') } );
 
         $(this).parent().find('[data-star-num]:lt(' + this.getAttribute('data-star-num') + ')').attr('src', '/assets/star-rating-filled.png');
         $(this).parent().find('[data-star-num]:gt(' + (this.getAttribute('data-star-num') - 1) + ')').attr('src', '/assets/star-rating-unfilled.png');
