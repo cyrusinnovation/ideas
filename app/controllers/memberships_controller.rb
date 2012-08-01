@@ -25,5 +25,16 @@ class MembershipsController < SecureController
     end
 
     membership.destroy
- end
+  end
+
+  def update
+    membership = Membership.where(:project_id => params[:project_id], :user_id => current_user).first
+    puts membership
+    membership.collapsed = params[:collapsed]
+    membership.save
+    respond_to do |format|
+      format.json { render :json => {} }
+      format.html { redirect_to :controller => :projects, :action => :index }
+    end
+  end
 end

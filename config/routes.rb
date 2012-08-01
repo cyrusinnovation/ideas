@@ -12,6 +12,7 @@ Ideas::Application.routes.draw do
     get '/settings' => 'settings#edit', :as => :edit_settings
     post '/settings' => 'settings#update', :as => :update_settings
   end
+  post '/membership/update' => 'memberships#update'
   post '/project/update/idea' => 'projects#update_project_idea'
   get '/ideas' => 'ideas#view_all'
 

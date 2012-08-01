@@ -75,11 +75,13 @@ $(document).ready(function() {
             table.data('hidden', false);
             icon.removeClass('icon-chevron-down');
             icon.addClass('icon-chevron-up');
+            $.post('/membership/update', {project_id: project_id, collapsed: false } );
         }else{
             table.parent().slideUp('slow');
             table.data('hidden', true);
             icon.addClass('icon-chevron-down');
             icon.removeClass('icon-chevron-up');
+            $.post('/membership/update', {project_id: project_id, collapsed: true } );
         }
     });
 });
