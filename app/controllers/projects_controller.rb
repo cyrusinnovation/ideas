@@ -1,6 +1,7 @@
 class ProjectsController < SecureController
   def index
     @projects = current_user.projects.order("name ASC")
+    @memberships = current_user.memberships
   end
 
   def new

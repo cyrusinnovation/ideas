@@ -65,24 +65,22 @@ $(document).ready(function() {
         }
     });
 
-
-    // Hide project details when collapse the project
+    // Hide project details when click to collapse or click to open
     $('.hide-button').click(function(){
         var project_id = $(this).data('proj_id');
-        var table = $('#project-div-'+project_id).find('table');
+        var table = $($('#project-div-'+project_id).find('.project-table')[0]);
         var icon = $(this).find('b');
-        if (table.hasClass('hidden-table')){
+        if (table.data('hidden')){
             table.parent().slideDown('slow');
-            table.removeClass('hidden-table');
+            table.data('hidden', false);
             icon.removeClass('icon-chevron-down');
             icon.addClass('icon-chevron-up');
         }else{
             table.parent().slideUp('slow');
-            table.addClass('hidden-table');
+            table.data('hidden', true);
             icon.addClass('icon-chevron-down');
             icon.removeClass('icon-chevron-up');
         }
-
     });
 });
 
