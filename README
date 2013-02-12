@@ -9,11 +9,9 @@ To create postgres user and database:
 psql template1
 
 CREATE USER ideas WITH PASSWORD '123';
-CREATE DATABASE ideas_test;
-GRANT ALL PRIVILEGES ON DATABASE ideas_test to ideas;
-CREATE DATABASE ideas_development;
-GRANT ALL PRIVILEGES ON DATABASE ideas_development to ideas;
+ALTER ROLE ideas WITH CREATEDB;
 
+$ rake db:setup
 --------------
 
 Alternately
